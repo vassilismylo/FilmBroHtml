@@ -7,8 +7,8 @@
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
         /* Global Styles */
@@ -20,7 +20,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #2C1E1A; /* Dark brown background */
+            background-color: #2C1E1A;
             color: #d8bca9;
             line-height: 1.6;
             scroll-behavior: smooth;
@@ -28,11 +28,11 @@
 
         /* Color Palette */
         :root {
-            --primary-bg: #334e41; /* Dark brown */
-            --accent-color: #FFB74D; /* Warm orange */
-            --secondary-bg: #5b8a73; /* Soft brown */
-            --light-bg: #e4cec0; /* Light beige */
-            --hover-bg: #416556; /* Hover brown */
+            --primary-bg: #334e41;
+            --accent-color: #FFB74D;
+            --secondary-bg: #5b8a73;
+            --light-bg: #e4cec0;
+            --hover-bg: #416556;
             --primary-font: 'Playfair Display', serif;
             --secondary-font: 'Poppins', sans-serif;
         }
@@ -46,26 +46,29 @@
             padding: 20px 0;
             z-index: 100;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         header .logo {
             font-family: var(--primary-font);
-            font-size: 3.5em;
+            font-size: 2.5em;
             letter-spacing: 2px;
-            text-align: center;
             color: var(--accent-color);
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+            margin-left: 20px;
         }
 
         nav {
             text-align: center;
-            margin-top: 10px;
+            margin-right: 20px;
         }
 
         nav a {
             text-decoration: none;
             color: var(--accent-color);
-            margin: 0 20px;
+            margin: 0 15px;
             font-size: 1.2em;
             font-family: var(--secondary-font);
             transition: color 0.3s ease;
@@ -75,9 +78,36 @@
             color: var(--light-bg);
         }
 
+        /* Icon Styles */
+        .icon {
+            color: var(--accent-color);
+            font-size: 1.5em;
+            margin-left: 15px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .icon:hover {
+            color: var(--light-bg);
+        }
+
+        /* Profile Image */
+        .profile-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-color);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-icon:hover {
+            transform: scale(1.1);
+        }
+
         /* Hero Section */
         .hero {
-            background-image: url('dylan-freedom-hYkWbfpxYs8-unsplash.jpg'); /* Background for hero */
+            background-image: url('dylan-freedom-hYkWbfpxYs8-unsplash.jpg');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -94,23 +124,22 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.6); /* Overlay */
+            background-color: rgba(0, 0, 0, 0.6);
         }
 
         .hero h2 {
-    font-family: 'Dancing Script', cursive; /* New cursive font */
-    font-size: 3.5em;
-    color: #FFF8E1;
-    z-index: 1;
-    text-align: center;
-    text-transform: lowercase;
-    letter-spacing: 5px;
-    background-color: rgba(62, 39, 35, 0.75);
-    padding: 20px 60px;
-    border-radius: 10px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-}
-
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5em;
+            color: #FFF8E1;
+            z-index: 1;
+            text-align: center;
+            text-transform: lowercase;
+            letter-spacing: 5px;
+            background-color: rgba(62, 39, 35, 0.75);
+            padding: 20px 60px;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        }
 
         /* Movie Section */
         .movie-section {
@@ -202,9 +231,9 @@
         <div class="logo">FilmBro</div>
         <nav>
             <a href="#">Home</a>
-            <a href="#">Search</a>
             <a href="#">Top Rated</a>
-            <a href="#">My Profile</a>
+            <a href="#"><i class="fas fa-search icon"></i></a>
+            <a href="#"><img src="https://source.unsplash.com/40x40/?profile" alt="Profile" class="profile-icon"></a>
         </nav>
     </header>
 
