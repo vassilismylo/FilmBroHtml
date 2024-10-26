@@ -202,6 +202,94 @@
             color: var(--accent-color);
         }
 
+        /* Friend Reviews */
+        .reviews-section {
+            padding: 60px 5%;
+            background-color: var(--primary-bg);
+        }
+
+        .review-item {
+            display: flex;
+            background-color: var(--secondary-bg);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            align-items: center;
+            transition: box-shadow 0.4s ease;
+        }
+
+        .review-item:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .review-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-color);
+            margin-right: 20px;
+            object-fit: cover;
+        }
+
+        .review-content {
+            flex-grow: 1;
+        }
+
+        .review-name {
+            font-family: var(--primary-font);
+            font-size: 1.6em;
+            color: var(--light-bg);
+            margin-bottom: 10px;
+        }
+
+        .review-text {
+            font-size: 1.2em;
+            color: var(--accent-color);
+            font-family: var(--secondary-font);
+        }
+
+        /* User Activity Section */
+        .activity-section {
+            padding: 60px 5%;
+            background-color: var(--primary-bg);
+        }
+
+        .activity-item {
+            display: flex;
+            background-color: var(--secondary-bg);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            align-items: center;
+            transition: box-shadow 0.4s ease;
+        }
+
+        .activity-item:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .activity-icon {
+            font-size: 2em;
+            color: var(--accent-color);
+            margin-right: 20px;
+        }
+
+        .activity-content {
+            flex-grow: 1;
+        }
+
+        .activity-title {
+            font-family: var(--primary-font);
+            font-size: 1.5em;
+            color: var(--light-bg);
+            margin-bottom: 5px;
+        }
+
+        .activity-description {
+            font-size: 1.2em;
+            color: var(--accent-color);
+        }
+
         /* Footer */
         footer {
             background-color: var(--primary-bg);
@@ -230,11 +318,10 @@
     <header>
         <div class="logo">FilmBro</div>
         <nav>
-            <a href="#">Home</a>
             <a href="#">Trending Movies</a>
             <a href="#">Friend Reviews</a>
             <a href="#">Your Activity</a>
-            <a href="testsearch.html"><i class="fas fa-search icon"></i></a>
+            <a href="#"><i class="fas fa-search icon"></i></a>
             <a href="#"><img src="https://source.unsplash.com/40x40/?profile" alt="Profile" class="profile-icon"></a>
         </nav>
     </header>
@@ -244,39 +331,64 @@
         <h2>Unleash Your Inner Cinephile</h2>
     </section>
 
-    <!-- Trending Movies Section -->
-    <section class="movie-section">
-        <h2 class="section-title">Trending Movies</h2>
-        <div class="movie-grid">
-            <div class="movie-item">
-                <img src="https://source.unsplash.com/250x360/?cinema,movie1" alt="Movie 1">
-                <div class="movie-info"> </a>
-                    <h3 class="movie-title">Movie Title 1</h3>
-                    <p class="movie-rating">⭐ 8.5/10</p>
-                </div>
-            </div>
-            <div class="movie-item">
-                <img src="https://source.unsplash.com/250x360/?film,movie2" alt="Movie 2">
-                <div class="movie-info">
-                    <h3 class="movie-title">Movie Title 2</h3>
-                    <p class="movie-rating">⭐ 7.8/10</p>
-                </div>
-            </div>
-            <div class="movie-item">
-                <img src="https://source.unsplash.com/250x360/?entertainment,movie3" alt="Movie 3">
-                <div class="movie-info">
-                    <h3 class="movie-title">Movie Title 3</h3>
-                    <p class="movie-rating">⭐ 9.0/10</p>
-                </div>
-            </div>
-            <div class="movie-item">
-                <img src="https://source.unsplash.com/250x360/?action,movie4" alt="Movie 4">
-                <div class="movie-info">
-                    <h3 class="movie-title">Movie Title 4</h3>
-                    <p class="movie-rating">⭐ 8.0/10</p>
-                </div>
+ <!-- Trending Movies Section -->
+ <section class="movie-section">
+    <h2 class="section-title">Trending Movies</h2>
+    <div class="movie-grid">
+        <div class="movie-item">
+            <img src="https://source.unsplash.com/250x360/?cinema,movie1" alt="Movie 1">
+            <div class="movie-info">
+                <h3 class="movie-title">Movie Title 1</h3>
+                <p class="movie-rating">⭐ 8.5/10</p>
             </div>
         </div>
+        <div class="movie-item">
+            <img src="https://source.unsplash.com/250x360/?film,movie2" alt="Movie 2">
+            <div class="movie-info">
+                <h3 class="movie-title">Movie Title 2</h3>
+                <p class="movie-rating">⭐ 7.8/10</p>
+            </div>
+        </div>
+        <div class="movie-item">
+            <img src="https://source.unsplash.com/250x360/?entertainment,movie3" alt="Movie 3">
+            <div class="movie-info">
+                <h3 class="movie-title">Movie Title 3</h3>
+                <p class="movie-rating">⭐ 9.0/10</p>
+            </div>
+        </div>
+        <div class="movie-item">
+            <img src="https://source.unsplash.com/250x360/?action,movie4" alt="Movie 4">
+            <div class="movie-info">
+                <h3 class="movie-title">Movie Title 4</h3>
+                <p class="movie-rating">⭐ 8.0/10</p>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Friend Reviews Section -->
+    <section class="reviews-section">
+        <h2 class="section-title">Friend Reviews</h2>
+        <div class="review-item">
+            <img src="https://source.unsplash.com/60x60/?person1" alt="Friend 1" class="review-avatar">
+            <div class="review-content">
+                <h3 class="review-name">Alex Smith</h3>
+                <p class="review-text">"Absolutely loved the cinematography in this one. A true masterpiece!" ⭐9/10</p>
+            </div>
+        </div>
+        <!-- Additional review items -->
+    </section>
+
+    <!-- Your Activity Section -->
+    <section class="activity-section">
+        <h2 class="section-title">Your Activity</h2>
+        <div class="activity-item">
+            <i class="fas fa-film activity-icon"></i>
+            <div class="activity-content">
+                <h3 class="activity-title">Watched "Inception"</h3>
+                <p class="activity-description">"Mind-blowing experience, the plot twists kept me on the edge!"</p>
+            </div>
+        </div>
+        <!-- Additional activity items -->
     </section>
 
     <!-- Footer -->
