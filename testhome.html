@@ -414,49 +414,57 @@
                 
                 <!-- Search Icon -->
                 <a href="#" onclick="toggleSearch()"><i class="fas fa-search icon"></i></a>
-                <a href="myprofile.html"><img src="https://source.unsplash.com/40x40/?profile" alt="Profile" class="profile-icon"></a>
+                <a href="#"><img src="https://source.unsplash.com/40x40/?profile" alt="Profile" class="profile-icon"></a>
             </nav>
         </header>
     
         <!-- Search Bar -->
-        <div class="search-container" id="searchContainer" style="display: none;">
-            <select id="searchType">
-                <option value="movies">Movies</option>
-                <option value="directors">Directors</option>
-                <option value="actors">Actors</option>
-                <option value="friends">Friends</option>
-            </select>
-            <input type="text" id="searchQuery" placeholder="Search...">
-            <button onclick="performSearch()">Search</button>
-            <button onclick="toggleAdvancedFilters()">Advanced Search</button>
-        </div>
-    
-        <!-- Advanced Filters Modal -->
-        <div class="advanced-filters" id="advancedFilters">
-            <button class="close-button" onclick="toggleAdvancedFilters()">×</button>
-            <h3>Advanced Search Filters</h3>
-            <div class="filter-group">
-                <label for="genre">Genre</label>
-                <select id="genre">
-                    <option value="">Any</option>
-                    <option value="action">Action</option>
-                    <option value="comedy">Comedy</option>
-                    <option value="drama">Drama</option>
-                    <option value="horror">Horror</option>
-                </select>
-            </div>
-            <div class="filter-group">
-                <label for="year">Year</label>
-                <input type="number" id="year" placeholder="e.g., 2020">
-            </div>
-            <div class="filter-group">
-                <label for="rating">Minimum Rating</label>
-                <input type="number" id="rating" step="0.1" min="0" max="10" placeholder="e.g., 8.5">
-            </div>
-            <div class="filter-group">
-                <button onclick="applyAdvancedFilters()">Apply Filters</button>
-            </div>
-        </div>
+     
+<div class="search-container" id="searchContainer" style="display: none;">
+    <select id="searchType" onchange="toggleAdvancedButton()">
+        <option value="friends">Friends</option>
+        <option value="movies">Movies</option>
+        <option value="directors">Movie Contributors</option>
+        
+    </select>
+    <input type="text" id="searchQuery" placeholder="Search...">
+    <button onclick="performSearch()">Search</button>
+    <button id="advancedSearchBtn" onclick="toggleAdvancedFilters()" style="display: none;">Advanced Search</button>
+</div>
+
+<script>
+    function toggleSearch() {
+        const searchContainer = document.getElementById("searchContainer");
+        searchContainer.style.display = searchContainer.style.display === "none" ? "flex" : "none";
+    }
+
+    function toggleAdvancedButton() {
+        const searchType = document.getElementById("searchType").value;
+        const advancedSearchBtn = document.getElementById("advancedSearchBtn");
+        advancedSearchBtn.style.display = searchType === "movies" ? "inline-block" : "none";
+    }
+
+    function performSearch() {
+        const searchType = document.getElementById("searchType").value;
+        const searchQuery = document.getElementById("searchQuery").value;
+        // Redirect to search results page with query and type
+        window.location.href = `search_results.html?type=${searchType}&query=${searchQuery}`;
+    }
+
+    function toggleAdvancedFilters() {
+        const advancedFilters = document.getElementById("advancedFilters");
+        advancedFilters.style.display = advancedFilters.style.display === "none" ? "block" : "none";
+    }
+
+    function applyAdvancedFilters() {
+        const genre = document.getElementById("genre").value;
+        const year = document.getElementById("year").value;
+        const rating = document.getElementById("rating").value;
+        // Redirect with advanced filters
+        window.location.href = `search_results.html?type=movies&query=&genre=${genre}&year=${year}&rating=${rating}`;
+    }
+</script>
+
     
         <!-- Hero Section -->
         <section class="hero">
