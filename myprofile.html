@@ -17,7 +17,7 @@
     body {
         font-family: Dancing Script;
         background-color: #2C1E1A;
-        color: #d8bca9; /*#FFB74D*/
+        color: #FFB74D;
         line-height: 1.6;
         scroll-behavior: smooth;
         padding: 0 5%;
@@ -40,11 +40,34 @@
         font-size: 1.8em;
     }
 
+    /*body, html {
+        height: 100%;
+        margin: 0;
+    }*/
+
+    /* Background Image */
+    .background {
+        background-image: url('dylan-freedom-hYkWbfpxYs8-unsplash.jpg'); /* Replace with your image path */
+        background-size: cover; /* Cover the entire area */
+        background-position: center; /* Center the image */
+        padding: 20px;
+        border-radius: 10px;
+        /*top: 0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        z-index: -1; /* Place it behind the the content */
+        /*color: white; /* Text color */
+        /*text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow for better readability */
+    }
+
+
     /* Form Section */
     form#profile {
         max-width: 500px;
         margin: 0 auto;
-        background-color: var(--secondary-bg);
+        background-color: rgba(62, 39, 35, 0.75);
+        color: #FFB74D;
         padding: 30px;
         border-radius: 10px;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
@@ -125,6 +148,7 @@
     /* Header */
     header {
         background-color: Dancing Script;
+        /*color: #416556;*/
         top: 0;
         width: 100%;
         padding: 20px 0;
@@ -179,40 +203,42 @@
     <br>
     <!-- Button to return to the home page-->
     <!-- <a class="home-button" href="testhome.html"><button>Home</button></a>-->
-    
-    <h1>My profile</h1>
-    <h2>Settings</h2>
+    <div class="background">
+        <h1>My profile</h1>
+        <h2>Settings</h2>
 
-    <form id="profile" action="submit.php" method="post" enctype="multipart/form-data">
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" minlength="2" placeholder="name" required>
-        </div>
-        
-        <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" minlength="10" maxlength="40" placeholder="xxxx@yyyy.zzzz" required pattern="^(?!.*[^a-zA-Z0-9@.])[a-zA-Z0-9]*[0-9][a-zA-Z0-9]*@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$" 
-            title="Email must contain at least one number and can only include letters, numbers, '@', and '.'">
-        </div>
-        
-        <div>
-            <label for="photo">Profile photo:</label>
-            <input type="file" id="photo" name="photo" accept="image/*">
-            <small style="display: block; margin-top: 0.5em; color: #555;">Please upload a clear image. Accepted formats: JPG, PNG.</small>
-        </div>
-        <br>
-        <div>
-            <label for="Information">Information about me</label>
-            <textarea id="Information" name="Information" rows="4" cols="25" placeholder="Write something about yourself..."></textarea>
-        </div>
-        <br>
-        <div>
-            <button type="save">Save</button>
-            <button type="cancel">Cancel</button>
-            <!-- <button type="button" onclick="window.location.href='your_cancel_url_here';">Cancel</button>  -->
-            <!-- explanetion: You need to replace 'your_cancel_url_here' with the actual URL you want to redirect users to when they click the "Cancel" button. This could be a home page, profile page, or any other page.-->
-        </div>
-    </form>
+        <!-- Profile Form-->
+        <form id="profile" action="submit.php" method="post" enctype="multipart/form-data">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" minlength="2" placeholder="name" required>
+            </div>
+            
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" minlength="10" maxlength="40" placeholder="xxxx@yyyy.zzzz" required pattern="^(?!.*[^a-zA-Z0-9@.])[a-zA-Z0-9]*[0-9][a-zA-Z0-9]*@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$" 
+                title="Email must contain at least one number and can only include letters, numbers, '@', and '.'">
+            </div>
+            
+            <div>
+                <label for="photo">Profile photo:</label>
+                <input type="file" id="photo" name="photo" accept="image/*">
+                <small style="display: block; margin-top: 0.5em; color: #555;">Please upload a clear image. Accepted formats: JPG, PNG.</small>
+            </div>
+            <br>
+            <div>
+                <label for="Information">Information about me</label>
+                <textarea id="Information" name="Information" rows="4" cols="25" placeholder="Write something about yourself..."></textarea>
+            </div>
+            <br>
+            <div>
+                <button type="save">Save</button>
+                <button type="cancel">Cancel</button>
+                <!-- <button type="button" onclick="window.location.href='your_cancel_url_here';">Cancel</button>  -->
+                <!-- explanetion: You need to replace 'your_cancel_url_here' with the actual URL you want to redirect users to when they click the "Cancel" button. This could be a home page, profile page, or any other page.-->
+            </div>
+        </form>
+    </div>
 
      <!-- Footer -->
      <footer>
