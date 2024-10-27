@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmBro | Write a Review</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #2C1E1A;
+            color: #d8bca9;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Color Palette */
+        :root {
+            --primary-bg: #334e41;
+            --accent-color: #FFB74D;
+            --secondary-bg: #5b8a73;
+            --light-bg: #e4cec0;
+            --hover-bg: #416556;
+            --primary-font: 'Playfair Display', serif;
+            --secondary-font: 'Poppins', sans-serif;
+        }
+
+        header {
+            background-color: var(--primary-bg);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        header .logo {
+            font-family: var(--primary-font);
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+            margin-left: 20px;
+        }
+        nav {
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--accent-color);
+            margin: 0 15px;
+            font-size: 1.2em;
+            font-family: var(--secondary-font);
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--light-bg);
+        }
+
+        /* Icon Styles */
+        .icon {
+            color: var(--accent-color);
+            font-size: 1.5em;
+            margin-left: 15px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .icon:hover {
+            color: var(--light-bg);
+        }
+
+        /* Profile Image */
+        .profile-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-color);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-icon:hover {
+            transform: scale(1.1);
+        }
+        /* Form Styles */
+        .review-container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #334e41;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .review-container h2 {
+            font-family: 'Playfair Display', serif;
+            color: #FFB74D;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .review-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .review-form label {
+            font-size: 1.2em;
+            color: #e0d7d1;
+            margin-bottom: 5px;
+        }
+
+        .review-form input[type="number"],
+        .review-form textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #e0d7d1;
+            color: #5b8a73;
+            font-size: 1em;
+        }
+
+        .review-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .review-form .rating input {
+            max-width: 100px;
+        }
+
+        .spoiler-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1em;
+            color: #FFB74D;
+        }
+
+        .review-form button {
+            padding: 10px 30px;
+            border: none;
+            border-radius: 5px;
+            background-color: #FFB74D;
+            color: #2C1E1A;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .review-form button:hover {
+            background-color: #416556;
+        }
+    </style>
+</head>
+<body>
+     <!-- Header -->
+     <header>
+        <div class="logo">FilmBro</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Trending Movies</a>
+            <a href="#">Friend Reviews</a>
+            <a href="#">Your Activity</a>
+            <a href="testsearch.html"><i class="fas fa-search icon"></i></a>
+            <a href="#"><img src="https://source.unsplash.com/40x40/?profile" alt="Profile" class="profile-icon"></a>
+        </nav>
+    </header>
+
+    <div class="review-container">
+        <h2>Write a Review</h2>
+        <form class="review-form" action="#" method="POST">
+            <!-- Rating Input -->
+            <div class="rating">
+                <label for="rating">Your Rating (1-10):</label>
+                <input type="number" id="rating" name="rating" min="1" max="10" required>
+            </div>
+
+            <!-- Review Text Area -->
+            <div class="review-text">
+                <label for="review">Your Review:</label>
+                <textarea id="review" name="review" placeholder="Write your thoughts about the movie..." required></textarea>
+            </div>
+
+            <!-- Spoiler Checkbox -->
+            <div class="spoiler-checkbox">
+                <input type="checkbox" id="spoiler" name="spoiler">
+                <label for="spoiler">Contains Spoilers</label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit Review</button>
+        </form>
+    </div>
+
+</body>
+</html>
