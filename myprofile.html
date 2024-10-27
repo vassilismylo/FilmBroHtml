@@ -30,10 +30,12 @@
         margin-bottom: 20px;
     }
 
+    /*My profile*/
     h1 {
         font-size: 2.5em;
     }
 
+    /*Settings*/
     h2 {
         font-size: 1.8em;
     }
@@ -129,13 +131,12 @@
         z-index: 100;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         display: flex;
-        justify-content: center;
         align-items: center;
     }
 
     header .logo {
         font-family: Dancing Script;
-        font-size: 3em;
+        font-size: 2.5em;
         letter-spacing: 2px;
         color: var(--accent-color);
         text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
@@ -187,13 +188,13 @@
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" minlength="2" placeholder="name" required>
         </div>
-        <br>
+        
         <div>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" minlength="10" maxlength="40" placeholder="xxxx@yyyy.zzzz" required pattern="^(?!.*[^a-zA-Z0-9@.])[a-zA-Z0-9]*[0-9][a-zA-Z0-9]*@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$" 
             title="Email must contain at least one number and can only include letters, numbers, '@', and '.'">
         </div>
-        <br>
+        
         <div>
             <label for="photo">Profile photo:</label>
             <input type="file" id="photo" name="photo" accept="image/*">
