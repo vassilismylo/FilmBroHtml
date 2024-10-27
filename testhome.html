@@ -310,27 +310,190 @@
         footer a:hover {
             text-decoration: underline;
         }
+     /* Search Bar */
+     .search-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 101;
+            padding: 10px;
+            background-color: var(--primary-bg);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+
+        .search-container input, .search-container select {
+            font-family: var(--secondary-font);
+            font-size: 1em;
+            padding: 8px 10px;
+            border: 2px solid var(--accent-color);
+            border-radius: 5px;
+            margin-right: 10px;
+            background-color: #453531;
+            color: #FFF;
+        }
+
+        .search-container button {
+            padding: 8px 12px;
+            font-size: 1em;
+            background-color: var(--accent-color);
+            color: #48332d;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-container button:hover {
+            background-color: var(--hover-bg);
+            color: #FFF;
+        }
+
+        .advanced-filters {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: var(--primary-bg);
+            color: #FFF;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 102;
+        }
+
+        .advanced-filters h3 {
+            font-family: var(--primary-font);
+            font-size: 1.5em;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .filter-group {
+            margin-bottom: 15px;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--light-bg);
+            font-size: 1em;
+        }
+
+        .filter-group input, .filter-group select {
+            width: 100%;
+            padding: 8px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 2px solid var(--accent-color);
+            background-color: #412d27;
+            color: #FFF;
+        }
+
+        /* Modal close button */
+        .close-button {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: var(--accent-color);
+            cursor: pointer;
+            float: right;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="logo">FilmBro</div>
-        <nav>
-            <a href="#">Trending Movies</a>
-            <a href="#">Friend Reviews</a>
-            <a href="#">Your Activity</a>
-            <a href="#"><i class="fas fa-search icon"></i></a>
-            <a href="#"><img src="https://source.unsplash.com/40x40/?profile" alt="Profile" class="profile-icon"></a>
-        </nav>
-    </header>
+        <!-- Header -->
+        <header>
+            <div class="logo">FilmBro</div>
+            <nav>
+                
+                <!-- Search Icon -->
+                <a href="#" onclick="toggleSearch()"><i class="fas fa-search icon"></i></a>
+                <a href="#"><img src="https://source.unsplash.com/40x40/?profile" alt="Profile" class="profile-icon"></a>
+            </nav>
+        </header>
+    
+        <!-- Search Bar -->
+        <div class="search-container" id="searchContainer" style="display: none;">
+            <select id="searchType">
+                <option value="movies">Movies</option>
+                <option value="directors">Directors</option>
+                <option value="actors">Actors</option>
+                <option value="friends">Friends</option>
+            </select>
+            <input type="text" id="searchQuery" placeholder="Search...">
+            <button onclick="performSearch()">Search</button>
+            <button onclick="toggleAdvancedFilters()">Advanced Search</button>
+        </div>
+    
+        <!-- Advanced Filters Modal -->
+        <div class="advanced-filters" id="advancedFilters">
+            <button class="close-button" onclick="toggleAdvancedFilters()">×</button>
+            <h3>Advanced Search Filters</h3>
+            <div class="filter-group">
+                <label for="genre">Genre</label>
+                <select id="genre">
+                    <option value="">Any</option>
+                    <option value="action">Action</option>
+                    <option value="comedy">Comedy</option>
+                    <option value="drama">Drama</option>
+                    <option value="horror">Horror</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="year">Year</label>
+                <input type="number" id="year" placeholder="e.g., 2020">
+            </div>
+            <div class="filter-group">
+                <label for="rating">Minimum Rating</label>
+                <input type="number" id="rating" step="0.1" min="0" max="10" placeholder="e.g., 8.5">
+            </div>
+            <div class="filter-group">
+                <button onclick="applyAdvancedFilters()">Apply Filters</button>
+            </div>
+        </div>
+    
+        <!-- Hero Section -->
+        <section class="hero">
+            <h2>Unleash Your Inner Cinephile</h2>
+        </section>
+    
+        <!-- Main Sections and Footer (Your original sections remain here...) -->
+    
+        <script>
+            function toggleSearch() {
+                const searchContainer = document.getElementById("searchContainer");
+                searchContainer.style.display = searchContainer.style.display === "none" ? "flex" : "none";
+            }
+    
+            function performSearch() {
+                const searchType = document.getElementById("searchType").value;
+                const searchQuery = document.getElementById("searchQuery").value;
+                alert(`Searching for ${searchType}: ${searchQuery}`);
+                // Implement search logic here
+            }
+    
+            function toggleAdvancedFilters() {
+                const advancedFilters = document.getElementById("advancedFilters");
+                advancedFilters.style.display = advancedFilters.style.display === "none" ? "block" : "none";
+            }
+    
+            function applyAdvancedFilters() {
+                const genre = document.getElementById("genre").value;
+                const year = document.getElementById("year").value;
+                const rating = document.getElementById("rating").value;
+                alert(`Applying filters:\nGenre: ${genre}\nYear: ${year}\nRating: ${rating}`);
+                // Implement filter logic here
+                toggleAdvancedFilters(); // Close modal
+            }
+        </script>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h2>Unleash Your Inner Cinephile</h2>
-    </section>
-
+ 
  <!-- Trending Movies Section -->
  <section class="movie-section">
     <h2 class="section-title">Trending Movies</h2>
