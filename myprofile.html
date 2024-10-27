@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+
+    <style>
+
+        /* Reset and Global Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #2C1E1A;
+        color: #d8bca9;
+        line-height: 1.6;
+        scroll-behavior: smooth;
+        padding: 0 5%;
+    }
+
+    h1, h2 {
+        font-family: var(--primary-font);
+        color: var(--accent-color);
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    /* Form Section */
+    form#profile {
+        max-width: 500px;
+        margin: 0 auto;
+        background-color: var(--secondary-bg);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    form div {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        font-size: 1.1em;
+        color: var(--light-bg);
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="file"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        font-family: var(--secondary-font);
+        border: 2px solid var(--accent-color);
+        border-radius: 5px;
+        background-color: #453531;
+        color: #FFF;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    /* Buttons */
+    button[type="save"],
+    button[type="cancel"] {
+        font-family: var(--secondary-font);
+        font-size: 1em;
+        padding: 10px 20px;
+        margin-right: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    button[type="save"] {
+        background-color: var(--accent-color);
+        color: #48332d;
+    }
+
+    button[type="save"]:hover {
+        background-color: var(--hover-bg);
+        color: #FFF;
+        transform: scale(1.05);
+    }
+
+    button[type="cancel"] {
+        background-color: #6e4741;
+        color: #FFF;
+    }
+
+    button[type="cancel"]:hover {
+        background-color: #4d3330;
+        transform: scale(1.05);
+    }
+
+    /* Header */
+    header {
+        background-color: var(--primary-bg);
+        position: sticky;
+        top: 0;
+        width: 100%;
+        padding: 20px 0;
+        z-index: 100;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    header .logo {
+        font-family: var(--primary-font);
+        font-size: 3em;
+        letter-spacing: 2px;
+        color: var(--accent-color);
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+        text-align: center;
+    }
+
+    /* Footer */
+    footer {
+        background-color: var(--primary-bg);
+        padding: 20px;
+        text-align: center;
+        color: var(--light-bg);
+        font-size: 1.2em;
+        border-top: 3px solid var(--accent-color);
+        margin-top: 40px;
+    }
+
+    footer a {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+
+</style>
+
+</head>
+
+<body>
+
+     <!-- Header -->
+     <header>
+        <a href="testhome.html" class="logo">FilmBro</a>
+    </header>
+
+    <br>
+    <!-- Button to return to the home page-->
+    <!-- <a class="home-button" href="testhome.html"><button>Home</button></a>-->
+    
+    <h1>My profile</h1>
+    <h2>Settings</h2>
+
+    <form id="profile" action="submit.php" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" minlength="2" placeholder="name" required>
+        </div>
+        <br>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" minlength="10" maxlength="40" placeholder="xxxx@yyyy.zzzz" required pattern="^(?!.*[^a-zA-Z0-9@.])[a-zA-Z0-9]*[0-9][a-zA-Z0-9]*@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$" 
+            title="Email must contain at least one number and can only include letters, numbers, '@', and '.'">
+        </div>
+        <br>
+        <div>
+            <label for="photo">Profile photo:</label>
+            <input type="file" id="photo" name="photo" accept="image/*">
+        </div>
+        <br>
+        <div>
+            <label for="Information">Information about me</label>
+            <textarea id="Information" name="Information" rows="4" cols="25" placeholder="Write something about yourself..."></textarea>
+        </div>
+        <br>
+        <div>
+            <button type="save">Save</button>
+            <button type="cancel">Cancel</button>
+            <!-- <button type="button" onclick="window.location.href='your_cancel_url_here';">Cancel</button>  -->
+            <!-- explanetion: You need to replace 'your_cancel_url_here' with the actual URL you want to redirect users to when they click the "Cancel" button. This could be a home page, profile page, or any other page.-->
+        </div>
+    </form>
+
+     <!-- Footer -->
+     <footer>
+        <p>Powered by <a href="#">FilmBro</a> | © 2024 All Rights Reserved</p>
+     </footer>
+
+</body>
+</html>
+
+
+
