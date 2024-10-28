@@ -35,16 +35,6 @@
         font-size: 2.5em;
     }
 
-    /*Settings*/
-    h2 {
-        font-size: 1.8em;
-    }
-
-    /*body, html {
-        height: 100%;
-        margin: 0;
-    }*/
-
     /* Background Image */
     .background {
         background-image: url('dylan-freedom-hYkWbfpxYs8-unsplash.jpg'); /* Replace with your image path */
@@ -52,13 +42,6 @@
         background-position: center; /* Center the image */
         padding: 20px;
         border-radius: 10px;
-        /*top: 0;
-        left:0;
-        width: 100%;
-        height: 100%;
-        z-index: -1; /* Place it behind the the content */
-        /*color: white; /* Text color */
-        /*text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow for better readability */
     }
 
 
@@ -102,6 +85,23 @@
         resize: none;
     }
 
+    .custom-file-upload {
+        display: inline-block;
+        padding: 0.5em 1em;
+        color: white;
+        background-color: #416556;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        text-align: center;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .custom-file-upload:hover {
+        background-color: #5b8a73; /* Hover effect color */
+        transform: scale(1.05); /* Effect */
+    }
+
     /* Buttons */
     button[type="save"],
     button[type="cancel"] {
@@ -116,33 +116,23 @@
     }
 
     button[type="save"] {
-        /*background-color: var(--accent-color);
-        color: #48332d;*/
         background-color: #6e4741;
         color: #FFB74D;
     }
     
     button[type="save"]:hover {
-        /*background-color: var(--hover-bg);
-        color: #FFF;
-        transform: scale(1.05);*/
         background-color: #4d3330;
         transform: scale(1.05);
     }
 
     button[type="cancel"] {
-        /*background-color: #6e4741;
-        color: #FFF;*/
         background-color: #6e4741;
         color: #FFB74D;
     }
     
 
     button[type="cancel"]:hover {
-        /*background-color: #4d3330;
-        transform: scale(1.05);*/
-        background-color: var(--hover-bg);
-        color: #FFF;
+        background-color: #4d3330;
         transform: scale(1.05);
     }
 
@@ -206,7 +196,6 @@
     <!-- <a class="home-button" href="testhome.html"><button>Home</button></a>-->
     <div class="background">
         <h1>My profile</h1>
-        <h2>Settings</h2>
 
         <!-- Profile Form-->
         <form id="profile" action="submit.php" method="post" enctype="multipart/form-data">
@@ -223,8 +212,15 @@
             
             <div>
                 <label for="photo">Profile photo:</label>
-                <input type="file" id="photo" name="photo" accept="image/*">
-                <small style="display: block; margin-top: 0.5em; color: #d8bca9;">Please upload a clear image. Accepted formats: JPG, PNG.</small>
+                
+                <!-- Hidden File Input -->
+                <input type="file" id="photo" name="photo" accept="image/*" style="opacity: 0; position: absolute; z-index: -1;">
+                
+                <!-- Custom Button -->
+                <label for="photo" class="custom-file-upload">Choose File</label>
+
+                <!-- Message -->
+                <small style="display: block; margin-top: 0.5em; color: white;">Please upload a clear image. Accepted formats: JPG, PNG.</small> <!-- other option for color d8bca9 -->
             </div>
             
             <div>
@@ -236,8 +232,6 @@
             <div>
                 <button type="save">Save</button>
                 <button type="cancel">Cancel</button>
-                <!-- <button type="button" onclick="window.location.href='your_cancel_url_here';">Cancel</button>  -->
-                <!-- explanetion: You need to replace 'your_cancel_url_here' with the actual URL you want to redirect users to when they click the "Cancel" button. This could be a home page, profile page, or any other page.-->
             </div>
         </form>
     </div>
