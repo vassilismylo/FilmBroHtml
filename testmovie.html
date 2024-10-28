@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmBro | Interstellar</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #2C1E1A;
+            color: #d8bca9;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Color Palette */
+        :root {
+            --primary-bg: #334e41;
+            --accent-color: #FFB74D; /* Yellow */
+            --secondary-bg: #5b8a73; /* Green */
+            --light-bg: #e4cec0;
+            --hover-bg: #416556;
+            --active-bg: #FFB74D; /* Active button color */
+            --primary-font: 'Playfair Display', serif;
+            --secondary-font: 'Poppins', sans-serif;
+            --genre-color: #FFB74D; /* Yellow for genres */
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-bg);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-family: var(--primary-font);
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+            margin-left: 20px;
+        }
+
+        nav {
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--accent-color);
+            margin: 0 15px;
+            font-size: 1.2em;
+            font-family: var(--secondary-font);
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--light-bg);
+        }
+
+        /* Movie Details Section */
+        .movie-details {
+            display: flex;
+            padding: 60px 5%;
+            background-color: var(--primary-bg);
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+
+
+        .movie-poster {
+            max-width: 300px; /* Ensure the poster does not exceed this width */
+            margin: 0 auto; /* Center the poster horizontally */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: block; /* Make it a block element */
+        }
+
+        .movie-title {
+            font-family: var(--primary-font);
+            font-size: 2.5em;
+            margin-bottom: 5px; /* Adjusted margin for spacing */
+            color: var(--accent-color);
+            display: inline-block; /* Allow elements to be inline */
+        }
+
+        .director-name {
+            font-size: 0.9em; /* Smaller font size for director's name */
+            color: var(--light-bg);
+            margin-left: 10px; /* Space between title and director's name */
+            display: inline-block; /* Allow elements to be inline */
+        }
+
+
+        .movie-info {
+            font-family: var(--secondary-font);
+            font-size: 1.2em;
+            color: var(--light-bg);
+            margin-bottom: 10px;
+        }
+
+        .genres {
+            margin-bottom: 20px;
+            font-family: var(--secondary-font);
+            color: var(--light-bg);
+            display: flex; /* Use flexbox for alignment */
+            gap: 10px; /* Space between genre boxes */
+        }
+
+        .genre {
+            padding: 10px;
+            border: 2px solid var(--genre-color); /* Yellow border */
+            border-radius: 15px; /* Rounded borders */
+            color: var(--genre-color); /* Yellow text */
+        }
+
+        .movie-description {
+            max-width: 500px;
+            text-align: left;
+            font-size: 1.1em;
+            color: var(--light-bg);
+        }
+
+        /* Trailer Button */
+        .trailer-button {
+            margin: 10px 0; /* Space above and below */
+            padding: 10px 20px;
+            background-color: var(--secondary-bg);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Space between icon and text */
+        }
+
+        .trailer-button i {
+            font-size: 20px; /* Icon size */
+        }
+
+        /* Ratings Section */
+        .ratings {
+            display: flex;
+            justify-content: space-between; /* Space ratings equally */
+            width: 100%; /* Make the ratings container take full width */
+            margin-top: 30px; /* Space from movie details */
+            color: var(--light-bg);
+            gap: 20px; /* Add space between each rating */
+            border-top: 1px solid var(--genre-color); /* Add thin yellow line above */
+            padding-top: 10px; /* Space between line and ratings */
+            padding-left: 0; /* Remove left padding */
+            padding-right: 0; /* Remove right padding */
+        }
+
+        .rating {
+            flex-basis: auto; /* Allow it to auto-size based on content */
+            flex-shrink: 0; /* Prevent the rating block from shrinking */
+            text-align: center; /* Center the text */
+        }
+
+        .rating-title {
+            font-size: 1em;
+            margin-bottom: 5px; /* Space between title and score */
+            color: var(--genre-color); /* Yellow text for ratings */
+        }
+
+        .rating-score {
+            font-size: 1.2em;
+            font-weight: bold; /* Make the score bold */
+            color: var(--genre-color); /* Yellow text for ratings */
+        }
+
+        .rating-reviews {
+            font-size: 0.8em; /* Smaller font size for reviews count */
+            color: var(--light-bg); /* Keeping reviews count in light color */
+        }
+
+        /* Button Styles */
+        .button-container {
+            display: flex;
+            justify-content: center; /* Center buttons */
+            margin-top: 30px; /* Space from movie poster */
+            gap: 20px; /* Space between buttons */
+        }
+
+        .button {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--secondary-bg); /* Initial green color */
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+            transition: background-color 0.3s;
+        }
+
+        .button.active {
+            background-color: var(--accent-color); /* Change to yellow when active */
+        }
+
+        .button::after {
+            content: attr(data-hover);
+            position: absolute;
+            bottom: 70px; /* Adjust for position */
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-color);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            white-space: nowrap;
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.3s;
+            visibility: hidden; /* Hidden by default */
+        }
+
+        .button:hover::after {
+            opacity: 1; /* Show on hover */
+            visibility: visible; /* Show on hover */
+        }
+
+
+        .left-column {
+            width: 32%;
+        }
+
+        .middle-column {
+            width: 34%;
+        }
+
+        .right-column {
+            width: 32%;
+            padding-left: 60px;
+        }
+        
+
+/* Updated Watch Table Styling */
+.watch-table-container {
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow around the table */
+}
+
+/* Table Header Title Row */
+.table-title-row {
+    background-color: var(--accent-color); /* Yellow background for the title */
+    color: var(--hover-bg); /* Dark text for contrast */
+    text-align: center;
+    padding: 15px;
+    font-family: var(--primary-font);
+    font-size: 1.6em;
+}
+
+/* Watch Table Styling */
+.watch-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Fixed layout for equal column width */
+}
+
+/* Table Header */
+.watch-table thead {
+    background-color: var(--hover-bg); /* Use a light blue for the header */
+}
+
+.watch-table thead th {
+    font-family: var(--secondary-font);
+    font-size: 1.1em;
+    color: var(--accent-color); /* Yellow text for header */
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase; /* Capitalize header text */
+}
+
+/* Table Body */
+.watch-table tbody {
+    background-color: #2C1E1A; /* Change this to your desired background color */
+}
+
+/* Ensure columns are properly aligned */
+.watch-table tbody td {
+    vertical-align: top; /* Center items vertically in the cell */
+    text-align: center; /* Center items horizontally in the cell */
+    padding: 10px; /* Adds padding inside the cell for spacing */
+}
+
+/* Service Icon Styles */
+.service-icon {
+    max-width: 50px; /* Keep the icon size */
+    margin: 5px 0; /* Set vertical margin for spacing */
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Deep shadow on hover */
+}
+
+
+
+
+
+/* You Might Also Like Section */
+.recommendations {
+        padding: 40px 5%;
+        background-color: var(--primary-bg);
+        margin-top: 30px;
+        border-radius: 5px;
+    }
+
+    .recommendations-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .recommendations-title {
+        font-family: var(--primary-font);
+        font-size: 1.8em;
+        color: var(--accent-color);
+    }
+
+    .view-more {
+        text-decoration: none;
+        font-family: var(--secondary-font);
+        font-size: 1.1em;
+        color: var(--light-bg);
+        transition: color 0.3s ease;
+    }
+
+    .view-more:hover {
+        color: var(--accent-color);
+    }
+
+    .recommendations-list {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .movie-card {
+        width: 18%;
+        background-color: var(--secondary-bg);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    .movie-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .poster-wrapper {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 10px 10px 0 0; /* Rounded top corners, sharp bottom corners */
+        margin-bottom: 5px;
+    }
+
+    .recommendation-poster {
+        width: 100%;
+        display: block;
+    }
+
+    .recommendation-rating {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        margin-bottom: 5px;
+        color: var(--accent-color);
+    }
+
+    .recommendation-rating i {
+        color: var(--accent-color);
+    }
+
+    .rating-score {
+        font-size: 1.2em;
+        font-family: var(--secondary-font);
+    }
+
+    .recommendation-title {
+    font-size: 1.2em; /* Font size as needed */
+    text-align: center;
+    color: var(--light-bg);
+    margin-bottom: 3px;
+    height: 2.4em; /* Height for two lines of text */
+    line-height: 1.2em; /* Set the line height */
+    -webkit-box-orient: vertical; /* Vertical orientation for the box */
+}
+
+    .recommendation-movie-info {
+        font-size: 0.9em;
+        text-align: center;
+        color: var(--light-bg);
+    }
+
+
+        
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-bg);
+            padding: 30px;
+            text-align: center;
+            color: var(--light-bg);
+            margin-top: 60px;
+            font-size: 1.2em;
+            border-top: 3px solid var(--accent-color);
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+
+
+
+
+
+
+        
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">FilmBro</div>
+        <nav>
+            <a href="#" onclick="toggleSearch()"><i class="fas fa-search icon"></i></a>
+            <a href="#"><img src="https://source.unsplash.com/40x40/?profile" alt="Profile" class="profile-icon"></a>
+        </nav>
+    </header>
+
+    <!-- Movie Details Section -->
+    <section class="movie-details">
+        <div class="left-column">
+            <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" class="movie-poster">
+            
+            <!-- Buttons Below the Poster -->
+            <div class="button-container">
+                <div class="button" data-hover="Add to Seen" onclick="toggleButton(this, 'seen')">
+                    <i class="fas fa-eye" style="color: white; font-size: 24px;"></i>
+                </div>
+                <div class="button" data-hover="Add to Watch List" onclick="toggleButton(this, 'watch')">
+                    <i class="fas fa-clock" style="color: white; font-size: 24px;"></i>
+                </div>
+                <div class="button" data-hover="Add to List">
+                    <i class="fas fa-plus" style="color: white; font-size: 24px;"></i>
+                </div>
+            </div>
+        </div>
+        <div class="center-column">
+                <h1 class="movie-title">Interstellar</h1>
+                <span class="director-name">Christopher Nolan</span>
+                <div class="movie-info">
+                    <p>Release Year: 2014</p>
+                    <p>Duration: 169 minutes</p>
+                    <p>Language: English</p>
+                </div>
+                <div class="genres">
+                    <div class="genre">Adventure</div>
+                    <div class="genre">Drama</div>
+                    <div class="genre">Science Fiction</div>
+                </div>
+                <button class="trailer-button">
+                    <i class="fas fa-play"></i>
+                    Trailer
+                </button>
+                <p class="movie-description">The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.</p>
+                
+                <!-- Ratings Section -->
+                <div class="ratings">
+                    <div class="rating">
+                        <div class="rating-title">FilmBro</div>
+                        <div class="rating-score">9.2/10</div>
+                        <div class="rating-reviews">Ratings: 15</div>
+                    </div>
+                    <div class="rating">
+                        <div class="rating-title">Your Rating</div>
+                        <div class="rating-score">9/10</div>
+                    </div>
+                    <div class="rating">
+                        <div class="rating-title">IMDb</div>
+                        <div class="rating-score">8.6/10</div>
+                    </div>
+                    <div class="rating">
+                        <div class="rating-title">Letterboxd</div>
+                        <div class="rating-score">4.5/5</div>
+                    </div>
+                </div>
+        </div>
+        
+        <div class="right-column">
+            <div class="watch-table-container">
+                <div class="table-title-row">Where to Watch in: Greece</div>
+                <table class="watch-table">
+                    <thead>
+                        <tr>
+                            <th>Stream</th>
+                            <th>Rent</th>
+                            <th>Buy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="https://image.tmdb.org/t/p/w500/h5DcR0J2EESLitnhR8xLG1QymTE.jpg" class="service-icon">
+                                <img src="https://image.tmdb.org/t/p/w500/tJqmTmQ8jp9WfyaZfApHK8lSywA.jpg" class="service-icon">
+                                <img src="https://image.tmdb.org/t/p/w500/hExO4PtimLIYn3kBOrzsejNv7cT.jpg" class="service-icon">
+                                <img src="https://image.tmdb.org/t/p/w500/ywIoxSjoYJGUIbR6BfxUiCHdPi3.jpg" class="service-icon">
+                            </td>
+                            <td>
+                                <img src="https://image.tmdb.org/t/p/w500/9ghgSC0MA082EL6HLCW3GalykFD.jpg" class="service-icon">
+                                <img src="https://image.tmdb.org/t/p/w500/seGSXajazLMCKGB5hnRCidtjay1.jpg" class="service-icon">
+                                <img src="https://image.tmdb.org/t/p/w500/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg" class="service-icon">
+                                <img src="https://image.tmdb.org/t/p/w500/pTnn5JwWr4p3pG8H6VrpiQo7Vs0.jpg" class="service-icon">
+                            <td>
+                                <img src="https://image.tmdb.org/t/p/w500/9ghgSC0MA082EL6HLCW3GalykFD.jpg" class="service-icon">
+                                <img src="https://image.tmdb.org/t/p/w500/seGSXajazLMCKGB5hnRCidtjay1.jpg" class="service-icon">
+                                <img src="https://image.tmdb.org/t/p/w500/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg" class="service-icon">
+                                <img src="https://image.tmdb.org/t/p/w500/pTnn5JwWr4p3pG8H6VrpiQo7Vs0.jpg" class="service-icon">
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+          </div>
+        
+    </section>
+
+
+        <!-- You Might Also Like Section -->
+        <section class="recommendations">
+            <div class="recommendations-header">
+                <h2 class="recommendations-title">You Might Also Like</h2>
+                <a href="#" class="view-more">View More</a>
+            </div>
+            <div class="recommendations-list">
+                <div class="movie-card">
+                    <div class="poster-wrapper">
+                        <img src="https://image.tmdb.org/t/p/w500/ljsZTbVsrQSqZgWeep2B1QiDKuh.jpg" class="recommendation-poster">
+                    </div>
+                    <div class="recommendation-rating">
+                        <i class="fas fa-star"></i>
+                        <span class="rating-score">8.8</span>
+                    </div>
+                    <h3 class="recommendation-title">Inception</h3>
+                    <p class="recommendation-movie-info">2010 | 148 min</p>
+                </div>
+    
+                <div class="movie-card">
+                    <div class="poster-wrapper">
+                        <img src="https://image.tmdb.org/t/p/w500/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg" class="recommendation-poster">
+                    </div>
+                    <div class="recommendation-rating">
+                        <i class="fas fa-star"></i>
+                        <span class="rating-score">8.0</span>
+                    </div>
+                    <h3 class="recommendation-title">Guardians of the Galaxy</h3>
+                    <p class="recommendation-movie-info">2014 | 121 min</p>
+                </div>
+    
+                <div class="movie-card">
+                    <div class="poster-wrapper">
+                        <img src="https://image.tmdb.org/t/p/w500/5BHuvQ6p9kfc091Z8RiFNhCwL4b.jpg" class="recommendation-poster">
+                    </div>
+                    <div class="recommendation-rating">
+                        <i class="fas fa-star"></i>
+                        <span class="rating-score">8.0</span>
+                    </div>
+                    <h3 class="recommendation-title">The Martian</h3>
+                    <p class="recommendation-movie-info">2015 | 144 min</p>
+                </div>
+    
+                <div class="movie-card">
+                    <div class="poster-wrapper">
+                        <img src="https://image.tmdb.org/t/p/w500/qymaJhucquUwjpb8oiqynMeXnID.jpg" class="recommendation-poster">
+                    </div>
+                    <div class="recommendation-rating">
+                        <i class="fas fa-star"></i>
+                        <span class="rating-score">8.1</span>
+                    </div>
+                    <h3 class="recommendation-title">Gone Girl</h3>
+                    <p class="recommendation-movie-info">2014 | 149 min</p>
+                </div>
+    
+                <div class="movie-card">
+                    <div class="poster-wrapper">
+                        <img src="https://image.tmdb.org/t/p/w500/1hRoyzDtpgMU7Dz4JF22RANzQO7.jpg" class="recommendation-poster">
+                    </div>
+                    <div class="recommendation-rating">
+                        <i class="fas fa-star"></i>
+                        <span class="rating-score">9.0</span>
+                    </div>
+                    <h3 class="recommendation-title">The Dark Knight</h3>
+                    <p class="recommendation-movie-info">2008 | 152 min</p>
+                </div>
+            </div>
+        </section>
+    
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 FilmBro. All Rights Reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        function toggleButton(button, type) {
+            button.classList.toggle('active');
+            if (type === 'seen') {
+                alert('Added to Seen!');
+            } else if (type === 'watch') {
+                alert('Added to Watch List!');
+            }
+        }
+
+        function toggleSearch() {
+            alert('Search feature not implemented yet!');
+        }
+    </script>
+</body>
+</html>
