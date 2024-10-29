@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FilmBro | Aesthetic Movie App</title>
+    <title>FilmBro | Movie App</title>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
@@ -310,17 +310,18 @@
         footer a:hover {
             text-decoration: underline;
         }
-     /* Search Bar */
-     .search-container {
+        .search-container {
+            display: none;
+            position: absolute;
+            top: 20px;
+            right: 100px;
+            z-index: 101;
+            background-color: var(--primary-bg);
+            padding: 10px;
+            border-radius: 5px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            position: relative;
-            z-index: 101;
-            padding: 10px;
-            background-color: var(--primary-bg);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            border-radius: 5px;
         }
 
         .search-container input, .search-container select {
@@ -414,7 +415,7 @@
                 
                 <!-- Search Icon -->
                 <a href="#" onclick="toggleSearch()"><i class="fas fa-search icon"></i></a>
-                <a href="editmyprofile.html"><img src="https://source.unsplash.com/40x40/?profile" alt="Profile" class="profile-icon"></a>
+                <a href="#"><img src="https://source.unsplash.com/40x40/?profile" alt="Profile" class="profile-icon"></a>
             </nav>
         </header>
     
@@ -426,9 +427,9 @@
         <option value="movies">Movies</option>
         <option value="directors">Movie Contributors</option>
         
-    </select> 
+    </select>
     <input type="text" id="searchQuery" placeholder="Search...">
-    <a href = "testresults.html"><button onclick="performSearch()">Search</button></a>
+    <button onclick="performSearch()">Search</button>
     <button id="advancedSearchBtn" onclick="toggleAdvancedFilters()" style="display: none;">Advanced Search</button>
 </div>
 
@@ -480,54 +481,63 @@
     </div>
     <div class="filter-group">
         <label for="year">Year</label>
-        <input type="number" id="year" placeholder="e.g., 2020">
+        <select id="year">
+            <option value="">Any</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+        </select>
     </div>
     <div class="filter-group">
         <label for="rating">Minimum Rating</label>
-        <input type="number" id="rating" step="0.1" min="0" max="10" placeholder="e.g., 8.5">
+        <select id="rating">
+            <option value="">Any</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+        </select>
     </div>
     <div class="filter-group">
-        <button onclick="applyAdvancedFilters()">Apply Filters</button>
+        <label for="runtime">Runtime</label>
+        <select id="runtime">
+            <option value="">Any</option>
+            <option value="60">Up to 1 hour</option>
+            <option value="90">Up to 1.5 hours</option>
+            <option value="120">Up to 2 hours</option>
+            <option value="180">Up to 3 hours</option>
+        </select>
+    </div>
+    <div class="filter-group">
+        <label for="language">Language</label>
+        <select id="language">
+            <option value="">Any</option>
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+        </select>
     </div>
 </div>
 
-    
-        <!-- Hero Section -->
-        <section class="hero">
-            <h2>Unleash Your Inner Cinephile</h2>
-        </section>
-    
-        <!-- Main Sections and Footer (Your original sections remain here...) -->
-    
-        <script>
-            function toggleSearch() {
-                const searchContainer = document.getElementById("searchContainer");
-                searchContainer.style.display = searchContainer.style.display === "none" ? "flex" : "none";
-            }
-    
-            function performSearch() {
-                const searchType = document.getElementById("searchType").value;
-                const searchQuery = document.getElementById("searchQuery").value;
-                alert(`Searching for ${searchType}: ${searchQuery}`);
-                // Implement search logic here
-            }
-    
-            function toggleAdvancedFilters() {
-                const advancedFilters = document.getElementById("advancedFilters");
-                advancedFilters.style.display = advancedFilters.style.display === "none" ? "block" : "none";
-            }
-    
-            function applyAdvancedFilters() {
-                const genre = document.getElementById("genre").value;
-                const year = document.getElementById("year").value;
-                const rating = document.getElementById("rating").value;
-                alert(`Applying filters:\nGenre: ${genre}\nYear: ${year}\nRating: ${rating}`);
-                // Implement filter logic here
-                toggleAdvancedFilters(); // Close modal
-            }
-        </script>
+<script>
+    function toggleSearch() {
+        document.getElementById("searchContainer").style.display = 
+        document.getElementById("searchContainer").style.display === "flex" ? "none" : "flex";
+    }
 
- 
+    function toggleAdvancedFilters() {
+        const advancedFilters = document.getElementById("advancedFilters");
+        advancedFilters.style.display = advancedFilters.style.display === "block" ? "none" : "block";
+    }
+
+    function toggleAdvancedButton() {
+        const advancedSearchBtn = document.getElementById("advancedSearchBtn");
+        advancedSearchBtn.style.display = document.getElementById("searchType").value === "movies" ? "inline-block" : "none";
+    }
+</script>
+
+
  <!-- Trending Movies Section -->
  <section class="movie-section">
     <h2 class="section-title">Trending Movies</h2>
@@ -590,7 +600,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>Powered by <a href="testhome.html">FilmBro</a> | © 2024 All Rights Reserved</p>
+        <p>Powered by <a href="#">FilmBro</a> | © 2024 All Rights Reserved</p>
     </footer>
 
 </body>
