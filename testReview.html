@@ -199,42 +199,28 @@
     color: var(--light-bg);
     font-size: 1.2em;
 }
-/* Slider Styling */
-.rating input[type="range"] {
-    width: 100%;
-    height: 10px;
-    border-radius: 5px;
-    background: var(--accent-color);
-    outline: none;
-    opacity: 0.9;
-    transition: opacity 0.2s;
-    margin-top: 5px;
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.rating input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: var(--light-bg);
+.stars {
+    display: flex;
+}
+
+.stars span {
+    font-size: 2em;
+    color: #FFB74D;
     cursor: pointer;
+    transition: color 0.2s ease;
 }
 
-.rating input[type="range"]::-moz-range-thumb {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: var(--light-bg);
-    cursor: pointer;
+.stars span:hover,
+.stars span:hover ~ span {
+    color: #ccc;
 }
 
-/* Display selected rating value */
-#ratingOutput {
-    font-size: 1.2em;
-    color: var(--accent-color);
-    margin-left: 10px;
-}
     </style>
 </head>
 <body>
@@ -264,9 +250,23 @@
         <form class="review-form" action="#" method="POST">
             <!-- Rating Input -->
             <div class="rating">
-                <label for="rating">Your Rating (1-10):</label>
-                <input type="range" id="rating" name="rating" min="1" max="10" value="5" oninput="ratingOutput.value = rating.value">
-                <output id="ratingOutput" for="rating">5</output>
+                <div class="rating">
+                    <label>Your Rating:</label>
+                    <div class="stars" id="stars">
+                        <span data-value="1">&#9733;</span>
+                        <span data-value="2">&#9733;</span>
+                        <span data-value="3">&#9733;</span>
+                        <span data-value="4">&#9733;</span>
+                        <span data-value="5">&#9733;</span>
+                        <span data-value="6">&#9733;</span>
+                        <span data-value="7">&#9733;</span>
+                        <span data-value="8">&#9733;</span>
+                        <span data-value="9">&#9733;</span>
+                        <span data-value="10">&#9733;</span>
+                      
+                    </div>
+                    <input type="hidden" id="rating" name="rating" required>
+                </div>
             </div>
             
             <!-- Review Text Area -->
@@ -285,7 +285,37 @@
             <button type="submit">Submit Review</button>
         </form>
     </div>
-    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const stars = document.querySelectorAll('#stars span');
+            const ratingInput = document.getElementById('rating');
+
+            stars.forEach(star => {
+                star.addEventListener('click', () => {
+                    ratingInput.value = star.getAttribute('data-value');
+                    updateStars(star);
+                });
+
+                star.addEventListener('mouseover', () => {
+                    updateStars(star);
+                });
+
+                star.addEventListener('mouseout', () => {
+                    updateStars(ratingInput.value);
+                });
+            });
+
+            function updateStars(value) {
+                stars.forEach(star => {
+                    if (parseFloat(star.getAttribute('data-value')) <= value) {
+                        star.style.color = '#FFB74D'; // Filled star color
+                    } else {
+                        star.style.color = '#ccc'; // Empty star color
+                    }
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>
