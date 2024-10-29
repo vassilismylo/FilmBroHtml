@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FilmBro | Interstellar</title>
-    
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
@@ -20,7 +23,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #334e41;
+            background-color: #2C1E1A;
             color: #d8bca9;
             line-height: 1.6;
             scroll-behavior: smooth;
@@ -29,14 +32,18 @@
         /* Color Palette */
         :root {
             --primary-bg: #334e41;
-            --accent-color: #FFB74D; /* Yellow */
-            --secondary-bg: #5b8a73; /* Green */
+            --accent-color: #FFB74D;
+            /* Yellow */
+            --secondary-bg: #5b8a73;
+            /* Green */
             --light-bg: #e4cec0;
             --hover-bg: #416556;
-            --active-bg: #FFB74D; /* Active button color */
+            --active-bg: #FFB74D;
+            /* Active button color */
             --primary-font: 'Playfair Display', serif;
             --secondary-font: 'Poppins', sans-serif;
-            --genre-color: #FFB74D; /* Yellow for genres */
+            --genre-color: #FFB74D;
+            /* Yellow for genres */
         }
 
         /* Header */
@@ -93,26 +100,34 @@
 
 
         .movie-poster {
-            max-width: 300px; /* Ensure the poster does not exceed this width */
-            margin: 0 auto; /* Center the poster horizontally */
+            max-width: 300px;
+            /* Ensure the poster does not exceed this width */
+            margin: 0 auto;
+            /* Center the poster horizontally */
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            display: block; /* Make it a block element */
+            display: block;
+            /* Make it a block element */
         }
 
         .movie-title {
             font-family: var(--primary-font);
             font-size: 2.5em;
-            margin-bottom: 5px; /* Adjusted margin for spacing */
+            margin-bottom: 5px;
+            /* Adjusted margin for spacing */
             color: var(--accent-color);
-            display: inline-block; /* Allow elements to be inline */
+            display: inline-block;
+            /* Allow elements to be inline */
         }
 
         .director-name {
-            font-size: 0.9em; /* Smaller font size for director's name */
+            font-size: 0.9em;
+            /* Smaller font size for director's name */
             color: var(--light-bg);
-            margin-left: 10px; /* Space between title and director's name */
-            display: inline-block; /* Allow elements to be inline */
+            margin-left: 10px;
+            /* Space between title and director's name */
+            display: inline-block;
+            /* Allow elements to be inline */
         }
 
 
@@ -127,15 +142,18 @@
             margin-bottom: 20px;
             font-family: var(--secondary-font);
             color: var(--light-bg);
-            display: flex; /* Use flexbox for alignment */
-            gap: 10px; /* Space between genre boxes */
+            display: flex;
+            /* Use flexbox for alignment */
+            gap: 10px;
+            /* Space between genre boxes */
         }
 
         .genre {
             padding: 10px;
-            border: 2px solid var(--genre-color); /* Yellow border */
-            border-radius: 15px; /* Rounded borders */
-            color: var(--genre-color); /* Yellow text */
+            border: 2px solid var(--accent-color);
+            ;
+            border-radius: 15px;
+            color: var(--accent-color);
         }
 
         .movie-description {
@@ -147,7 +165,8 @@
 
         /* Trailer Button */
         .trailer-button {
-            margin: 10px 0; /* Space above and below */
+            margin: 10px 0;
+            /* Space above and below */
             padding: 10px 20px;
             background-color: var(--secondary-bg);
             color: white;
@@ -156,56 +175,78 @@
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 10px; /* Space between icon and text */
+            gap: 10px;
+            /* Space between icon and text */
         }
 
         .trailer-button i {
-            font-size: 20px; /* Icon size */
+            font-size: 20px;
+            /* Icon size */
         }
 
         /* Ratings Section */
         .ratings {
             display: flex;
-            justify-content: space-between; /* Space ratings equally */
-            width: 100%; /* Make the ratings container take full width */
-            margin-top: 30px; /* Space from movie details */
+            justify-content: space-between;
+            /* Space ratings equally */
+            width: 100%;
+            /* Make the ratings container take full width */
+            margin-top: 30px;
+            /* Space from movie details */
             color: var(--light-bg);
-            gap: 20px; /* Add space between each rating */
-            border-top: 1px solid var(--genre-color); /* Add thin yellow line above */
-            padding-top: 10px; /* Space between line and ratings */
-            padding-left: 0; /* Remove left padding */
-            padding-right: 0; /* Remove right padding */
+            gap: 20px;
+            /* Add space between each rating */
+            border-top: 1px solid var(--genre-color);
+            /* Add thin yellow line above */
+            padding-top: 10px;
+            /* Space between line and ratings */
+            padding-left: 0;
+            /* Remove left padding */
+            padding-right: 0;
+            /* Remove right padding */
         }
 
         .rating {
-            flex-basis: auto; /* Allow it to auto-size based on content */
-            flex-shrink: 0; /* Prevent the rating block from shrinking */
-            text-align: center; /* Center the text */
+            flex-basis: auto;
+            /* Allow it to auto-size based on content */
+            flex-shrink: 0;
+            /* Prevent the rating block from shrinking */
+            text-align: center;
+            /* Center the text */
         }
 
         .rating-title {
             font-size: 1em;
-            margin-bottom: 5px; /* Space between title and score */
-            color: var(--genre-color); /* Yellow text for ratings */
+            margin-bottom: 5px;
+            /* Space between title and score */
+            color: var(--genre-color);
+            /* Yellow text for ratings */
         }
 
         .rating-score {
             font-size: 1.2em;
-            font-weight: bold; /* Make the score bold */
-            color: var(--genre-color); /* Yellow text for ratings */
+            font-weight: bold;
+            /* Make the score bold */
+            color: var(--genre-color);
+            /* Yellow text for ratings */
         }
 
         .rating-reviews {
-            font-size: 0.8em; /* Smaller font size for reviews count */
-            color: var(--light-bg); /* Keeping reviews count in light color */
+            font-size: 0.8em;
+            /* Smaller font size for reviews count */
+            color: var(--light-bg);
+            /* Keeping reviews count in light color */
         }
 
         /* Button Styles */
         .button-container {
             display: flex;
-            justify-content: center; /* Center buttons */
-            margin-top: 30px; /* Space from movie poster */
-            gap: 20px; /* Space between buttons */
+            justify-content: center;
+            /* Center buttons */
+            margin-top: 30px;
+            /* Space from movie poster */
+            gap: 20px;
+            /* Space between buttons */
         }
 
         .button {
@@ -214,7 +255,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: var(--secondary-bg); /* Initial green color */
+            background-color: var(--secondary-bg);
+            /* Initial green color */
             border-radius: 50%;
             cursor: pointer;
             position: relative;
@@ -222,13 +264,15 @@
         }
 
         .button.active {
-            background-color: var(--accent-color); /* Change to yellow when active */
+            background-color: var(--accent-color);
+            /* Change to yellow when active */
         }
 
         .button::after {
             content: attr(data-hover);
             position: absolute;
-            bottom: 70px; /* Adjust for position */
+            bottom: 70px;
+            /* Adjust for position */
             left: 50%;
             transform: translateX(-50%);
             background: var(--accent-color);
@@ -236,14 +280,18 @@
             padding: 5px 10px;
             border-radius: 5px;
             white-space: nowrap;
-            opacity: 0; /* Hidden by default */
+            opacity: 0;
+            /* Hidden by default */
             transition: opacity 0.3s;
-            visibility: hidden; /* Hidden by default */
+            visibility: hidden;
+            /* Hidden by default */
         }
 
         .button:hover::after {
-            opacity: 1; /* Show on hover */
-            visibility: visible; /* Show on hover */
+            opacity: 1;
+            /* Show on hover */
+            visibility: visible;
+            /* Show on hover */
         }
 
 
@@ -259,177 +307,462 @@
             width: 32%;
             padding-left: 60px;
         }
-        
-
-/* Updated Watch Table Styling */
-.watch-table-container {
-    width: 100%;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow around the table */
-}
-
-/* Table Header Title Row */
-.table-title-row {
-    background-color: var(--accent-color); /* Yellow background for the title */
-    color: var(--hover-bg); /* Dark text for contrast */
-    text-align: center;
-    padding: 15px;
-    font-family: var(--primary-font);
-    font-size: 1.6em;
-}
-
-/* Watch Table Styling */
-.watch-table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed; /* Fixed layout for equal column width */
-}
-
-/* Table Header */
-.watch-table thead {
-    background-color: var(--hover-bg); /* Use a light blue for the header */
-}
-
-.watch-table thead th {
-    font-family: var(--secondary-font);
-    font-size: 1.1em;
-    color: var(--accent-color); /* Yellow text for header */
-    padding: 15px;
-    text-align: center;
-    text-transform: uppercase; /* Capitalize header text */
-}
-
-/* Table Body */
-.watch-table tbody {
-    background-color: #2C1E1A; /* Change this to your desired background color */
-}
-
-/* Ensure columns are properly aligned */
-.watch-table tbody td {
-    vertical-align: top; /* Center items vertically in the cell */
-    text-align: center; /* Center items horizontally in the cell */
-    padding: 10px; /* Adds padding inside the cell for spacing */
-}
-
-/* Service Icon Styles */
-.service-icon {
-    max-width: 50px; /* Keep the icon size */
-    margin: 5px 0; /* Set vertical margin for spacing */
-    border-radius: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-icon:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Deep shadow on hover */
-}
 
 
+        /* Updated Watch Table Styling */
+        .watch-table-container {
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            /* Subtle shadow around the table */
+        }
+
+        /* Table Header Title Row */
+        .table-title-row {
+            background-color: var(--accent-color);
+            /* Yellow background for the title */
+            color: var(--hover-bg);
+            /* Dark text for contrast */
+            text-align: center;
+            padding: 15px;
+            font-family: var(--primary-font);
+            font-size: 1.6em;
+        }
+
+        /* Watch Table Styling */
+        .watch-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            /* Fixed layout for equal column width */
+        }
+
+        /* Table Header */
+        .watch-table thead {
+            background-color: var(--hover-bg);
+            /* Use a light blue for the header */
+        }
+
+        .watch-table thead th {
+            font-family: var(--secondary-font);
+            font-size: 1.1em;
+            color: var(--accent-color);
+            /* Yellow text for header */
+            padding: 15px;
+            text-align: center;
+            text-transform: uppercase;
+            /* Capitalize header text */
+        }
+
+        /* Table Body */
+        .watch-table tbody {
+            background-color: #2C1E1A;
+            /* Change this to your desired background color */
+        }
+
+        /* Ensure columns are properly aligned */
+        .watch-table tbody td {
+            vertical-align: top;
+            /* Center items vertically in the cell */
+            text-align: center;
+            /* Center items horizontally in the cell */
+            padding: 10px;
+            /* Adds padding inside the cell for spacing */
+        }
+
+        /* Service Icon Styles */
+        .service-icon {
+            max-width: 50px;
+            /* Keep the icon size */
+            margin: 5px 0;
+            /* Set vertical margin for spacing */
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            /* Deep shadow on hover */
+        }
 
 
 
-/* You Might Also Like Section */
-.recommendations {
-        padding: 40px 5%;
-        background-color: var(--primary-bg);
-        margin-top: 30px;
-        border-radius: 5px;
-    }
-
-    .recommendations-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-    }
-
-    .recommendations-title {
-        font-family: var(--primary-font);
-        font-size: 1.8em;
-        color: var(--accent-color);
-    }
-
-    .view-more {
-        text-decoration: none;
-        font-family: var(--secondary-font);
-        font-size: 1.1em;
-        color: var(--light-bg);
-        transition: color 0.3s ease;
-    }
-
-    .view-more:hover {
-        color: var(--accent-color);
-    }
-
-    .recommendations-list {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .movie-card {
-        width: 18%;
-        background-color: var(--secondary-bg);
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        position: relative;
-        padding-bottom: 10px;
-    }
-
-    .movie-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    .poster-wrapper {
-        width: 100%;
-        overflow: hidden;
-        border-radius: 10px 10px 0 0; /* Rounded top corners, sharp bottom corners */
-        margin-bottom: 5px;
-    }
-
-    .recommendation-poster {
-        width: 100%;
-        display: block;
-    }
-
-    .recommendation-rating {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 5px;
-        margin-bottom: 5px;
-        color: var(--accent-color);
-    }
-
-    .recommendation-rating i {
-        color: var(--accent-color);
-    }
-
-    .rating-score {
-        font-size: 1.2em;
-        font-family: var(--secondary-font);
-    }
-
-    .recommendation-title {
-    font-size: 1.2em; /* Font size as needed */
-    text-align: center;
-    color: var(--light-bg);
-    margin-bottom: 3px;
-    height: 2.4em; /* Height for two lines of text */
-    line-height: 1.2em; /* Set the line height */
-    -webkit-box-orient: vertical; /* Vertical orientation for the box */
-}
-
-    .recommendation-movie-info {
-        font-size: 0.9em;
-        text-align: center;
-        color: var(--light-bg);
-    }
 
 
-        
+        /* You Might Also Like Section */
+        .cards-section {
+            padding: 40px 5%;
+            background-color: var(--primary-bg);
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+
+        .cards-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .cards-section-title {
+            font-family: var(--primary-font);
+            font-size: 1.8em;
+            color: var(--accent-color);
+        }
+
+        .view-more {
+            text-decoration: none;
+            font-family: var(--secondary-font);
+            font-size: 1.1em;
+            color: var(--light-bg);
+            transition: color 0.3s ease;
+        }
+
+        .view-more:hover {
+            color: var(--accent-color);
+        }
+
+        .cards-list {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card {
+            width: 18%;
+            background-color: var(--secondary-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            padding-bottom: 10px;
+            border: 1.5px solid var(--accent-color);
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-wrapper {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 10px 10px 0 0;
+            /* Rounded top corners, sharp bottom corners */
+            margin-bottom: 5px;
+        }
+
+        .card-picture {
+            width: 100%;
+            display: block;
+        }
+
+        .card-rating {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            margin-bottom: 5px;
+            color: var(--accent-color);
+        }
+
+        .card-rating i {
+            color: var(--accent-color);
+        }
+
+        .rating-score {
+            font-size: 1.2em;
+            font-family: var(--secondary-font);
+            color: var(--light-bg);
+        }
+
+        .card-title {
+            font-size: 1.3em;
+            /* Font size as needed */
+            text-align: center;
+            color: var(--accent-color);
+            margin-top: 15px;
+            margin-bottom: 3px;
+            height: 2.4em;
+            /* Height for two lines of text */
+            line-height: 1.2em;
+            /* Set the line height */
+            -webkit-box-orient: vertical;
+            /* Vertical orientation for the box */
+        }
+
+        .movie-card-info {
+            font-size: 1.1em;
+            text-align: center;
+            color: var(--light-bg);
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+
+        .person-card-info {
+            font-size: 1.1em;
+            text-align: center;
+            color: var(--light-bg);
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+
+
+        /* User Reviews Section */
+        .user-reviews-title {
+            font-family: var(--primary-font);
+            font-size: 1.8em;
+            color: var(--accent-color);
+        }
+
+        .user-reviews-options a {
+            text-decoration: none;
+            font-family: var(--secondary-font);
+            font-size: 1.1em;
+            color: var(--light-bg);
+            margin-left: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .user-reviews-options a:hover {
+            color: var(--accent-color);
+        }
+
+        .user-reviews-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .review-card {
+            width: calc(50% - 20px);
+            background-color: var(--secondary-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            /* Keep flex display */
+            align-items: flex-start;
+            /* Align items to the start vertically */
+            padding: 15px;
+            gap: 15px;
+            /* Gap between elements */
+            border: 1.5px solid var(--accent-color);
+            /* Add border around text */
+            border-radius: 15px;
+            /* Optional: rounded corners for the border */
+            padding: 20px;
+            /* Add some padding inside the border */
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .user-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .review-content {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .username {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .review-text {
+            font-size: 0.9em;
+            /* Text size */
+            color: var(--light-bg);
+            /* Text color */
+            line-height: 1.4;
+            /* Line height for spacing */
+            overflow: hidden;
+            /* Hide overflow */
+            text-overflow: ellipsis;
+            /* Show ellipsis when text overflows */
+            display: -webkit-box;
+            /* Use flexbox for the text */
+            -webkit-box-orient: vertical;
+            /* Define the box orientation */
+            -webkit-line-clamp: 3;
+            /* Limit to 3 lines */
+            cursor: pointer;
+        }
+
+        .user-rating {
+            display: inline-block;
+        }
+
+        .stars {
+            font-size: 1.5em;
+            /* Size of the stars */
+            color: var(--accent-color);
+            /* Color for filled stars */
+        }
+
+        /* Hide all stars initially */
+        .stars::before {
+            content: "☆☆☆☆☆☆☆☆☆☆";
+            /* Ten empty stars */
+            letter-spacing: 2px;
+            /* Space between stars */
+        }
+
+        /* Display the right amount of filled stars based on data-rating */
+        .stars[data-rating="1"]::before {
+            content: "★☆☆☆☆☆☆☆☆☆";
+        }
+
+        .stars[data-rating="2"]::before {
+            content: "★★☆☆☆☆☆☆☆☆";
+        }
+
+        .stars[data-rating="3"]::before {
+            content: "★★★☆☆☆☆☆☆☆";
+        }
+
+        .stars[data-rating="4"]::before {
+            content: "★★★★☆☆☆☆☆☆";
+        }
+
+        .stars[data-rating="5"]::before {
+            content: "★★★★★☆☆☆☆☆";
+        }
+
+        .stars[data-rating="6"]::before {
+            content: "★★★★★★☆☆☆☆";
+        }
+
+        .stars[data-rating="7"]::before {
+            content: "★★★★★★★☆☆☆";
+        }
+
+        .stars[data-rating="8"]::before {
+            content: "★★★★★★★★☆☆";
+        }
+
+        .stars[data-rating="9"]::before {
+            content: "★★★★★★★★★☆";
+        }
+
+        .stars[data-rating="10"]::before {
+            content: "★★★★★★★★★★";
+        }
+
+
+
+
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1000;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.8);
+            /* Black w/ opacity */
+        }
+
+        .modal-content {
+            background-color: var(--secondary-bg);
+            margin: 15% auto;
+            /* 15% from the top and centered */
+            padding: 20px;
+            border: 2px solid var(--accent-color);
+            border-radius: 15px;
+            width: 80%;
+            /* Could be more or less, depending on screen size */
+        }
+
+        .close {
+            color: var(--light-bg);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: var(--accent-color);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+
+
+
+        .like-section {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            /* Aligns items to the right */
+            margin-top: auto;
+            /* Pushes the like section to the bottom */
+        }
+
+        .like-button {
+            background-color: transparent;
+            /* No background color */
+            border: none;
+            /* Remove default button border */
+            color: var(--light-bg);
+            /* Initial heart color */
+            font-size: 1.5em;
+            /* Size of the heart */
+            cursor: pointer;
+            /* Change cursor to pointer */
+            transition: color 1s ease;
+            /* Smooth transition for color change */
+
+        }
+
+        .like-button.liked {
+            color: var(--accent-color);
+            /* Color when liked */
+        }
+
+        .like-count {
+            margin-left: 5px;
+            /* Space between button and count */
+            font-size: 1em;
+            /* Size of the like count */
+            color: var(--light-bg);
+            /* Color of the like count */
+        }
+
 
         /* Footer */
         footer {
@@ -453,6 +786,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- Header -->
@@ -468,7 +802,7 @@
     <section class="movie-details">
         <div class="left-column">
             <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" class="movie-poster">
-            
+
             <!-- Buttons Below the Poster -->
             <div class="button-container">
                 <div class="button" data-hover="Add to Seen" onclick="toggleButton(this, 'seen')">
@@ -480,52 +814,51 @@
                 <div class="button" data-hover="Add to List">
                     <i class="fas fa-plus" style="color: white; font-size: 24px;"></i>
                 </div>
-                <div class="button" data-hover="Write a review" > <a href="testReview.html">
-                    <i class="fa-solid fa-star-half-stroke" style="color: white; font-size: 24px;" ></i></a>
-                </div>
             </div>
         </div>
         <div class="center-column">
-                <h1 class="movie-title">Interstellar</h1>
-                <span class="director-name">Christopher Nolan</span>
-                <div class="movie-info">
-                    <p>Release Year: 2014</p>
-                    <p>Duration: 169 minutes</p>
-                    <p>Language: English</p>
+            <h1 class="movie-title">Interstellar</h1>
+            <span class="director-name">Christopher Nolan</span>
+            <div class="movie-info">
+                <p>Release Year: 2014</p>
+                <p>Duration: 169 minutes</p>
+                <p>Language: English</p>
+            </div>
+            <div class="genres">
+                <div class="genre">Adventure</div>
+                <div class="genre">Drama</div>
+                <div class="genre">Science Fiction</div>
+            </div>
+            <button class="trailer-button">
+                <i class="fas fa-play"></i>
+                Trailer
+            </button>
+            <p class="movie-description">The adventures of a group of explorers who make use of a newly discovered
+                wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an
+                interstellar voyage.</p>
+
+            <!-- Ratings Section -->
+            <div class="ratings">
+                <div class="rating">
+                    <div class="rating-title">FilmBro</div>
+                    <div class="rating-score">9.2/10</div>
+                    <div class="rating-reviews">Ratings: 15</div>
                 </div>
-                <div class="genres">
-                    <div class="genre">Adventure</div>
-                    <div class="genre">Drama</div>
-                    <div class="genre">Science Fiction</div>
+                <div class="rating">
+                    <div class="rating-title">Your Rating</div>
+                    <div class="rating-score">9/10</div>
                 </div>
-                <button class="trailer-button">
-                    <i class="fas fa-play"></i>
-                    Trailer
-                </button>
-                <p class="movie-description">The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.</p>
-                
-                <!-- Ratings Section -->
-                <div class="ratings">
-                    <div class="rating">
-                        <div class="rating-title">FilmBro</div>
-                        <div class="rating-score">9.2/10</div>
-                        <div class="rating-reviews">Ratings: 15</div>
-                    </div>
-                    <div class="rating">
-                        <div class="rating-title">Your Rating</div>
-                        <div class="rating-score">9/10</div>
-                    </div>
-                    <div class="rating">
-                        <div class="rating-title">IMDb</div>
-                        <div class="rating-score">8.6/10</div>
-                    </div>
-                    <div class="rating">
-                        <div class="rating-title">Letterboxd</div>
-                        <div class="rating-score">4.5/5</div>
-                    </div>
+                <div class="rating">
+                    <div class="rating-title">IMDb</div>
+                    <div class="rating-score">8.6/10</div>
                 </div>
+                <div class="rating">
+                    <div class="rating-title">Letterboxd</div>
+                    <div class="rating-score">4.5/5</div>
+                </div>
+            </div>
         </div>
-        
+
         <div class="right-column">
             <div class="watch-table-container">
                 <div class="table-title-row">Where to Watch in: Greece</div>
@@ -540,100 +873,300 @@
                     <tbody>
                         <tr>
                             <td>
-                                <img src="https://image.tmdb.org/t/p/w500/h5DcR0J2EESLitnhR8xLG1QymTE.jpg" class="service-icon">
-                                <img src="https://image.tmdb.org/t/p/w500/tJqmTmQ8jp9WfyaZfApHK8lSywA.jpg" class="service-icon">
-                                <img src="https://image.tmdb.org/t/p/w500/hExO4PtimLIYn3kBOrzsejNv7cT.jpg" class="service-icon">
-                                <img src="https://image.tmdb.org/t/p/w500/ywIoxSjoYJGUIbR6BfxUiCHdPi3.jpg" class="service-icon">
+                                <img src="https://image.tmdb.org/t/p/w500/h5DcR0J2EESLitnhR8xLG1QymTE.jpg"
+                                    class="service-icon">
+                                <img src="https://image.tmdb.org/t/p/w500/tJqmTmQ8jp9WfyaZfApHK8lSywA.jpg"
+                                    class="service-icon">
+                                <img src="https://image.tmdb.org/t/p/w500/hExO4PtimLIYn3kBOrzsejNv7cT.jpg"
+                                    class="service-icon">
+                                <img src="https://image.tmdb.org/t/p/w500/ywIoxSjoYJGUIbR6BfxUiCHdPi3.jpg"
+                                    class="service-icon">
                             </td>
                             <td>
-                                <img src="https://image.tmdb.org/t/p/w500/9ghgSC0MA082EL6HLCW3GalykFD.jpg" class="service-icon">
-                                <img src="https://image.tmdb.org/t/p/w500/seGSXajazLMCKGB5hnRCidtjay1.jpg" class="service-icon">
-                                <img src="https://image.tmdb.org/t/p/w500/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg" class="service-icon">
-                                <img src="https://image.tmdb.org/t/p/w500/pTnn5JwWr4p3pG8H6VrpiQo7Vs0.jpg" class="service-icon">
+                                <img src="https://image.tmdb.org/t/p/w500/9ghgSC0MA082EL6HLCW3GalykFD.jpg"
+                                    class="service-icon">
+                                <img src="https://image.tmdb.org/t/p/w500/seGSXajazLMCKGB5hnRCidtjay1.jpg"
+                                    class="service-icon">
+                                <img src="https://image.tmdb.org/t/p/w500/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+                                    class="service-icon">
+                                <img src="https://image.tmdb.org/t/p/w500/pTnn5JwWr4p3pG8H6VrpiQo7Vs0.jpg"
+                                    class="service-icon">
                             <td>
-                                <img src="https://image.tmdb.org/t/p/w500/9ghgSC0MA082EL6HLCW3GalykFD.jpg" class="service-icon">
-                                <img src="https://image.tmdb.org/t/p/w500/seGSXajazLMCKGB5hnRCidtjay1.jpg" class="service-icon">
-                                <img src="https://image.tmdb.org/t/p/w500/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg" class="service-icon">
-                                <img src="https://image.tmdb.org/t/p/w500/pTnn5JwWr4p3pG8H6VrpiQo7Vs0.jpg" class="service-icon">
+                                <img src="https://image.tmdb.org/t/p/w500/9ghgSC0MA082EL6HLCW3GalykFD.jpg"
+                                    class="service-icon">
+                                <img src="https://image.tmdb.org/t/p/w500/seGSXajazLMCKGB5hnRCidtjay1.jpg"
+                                    class="service-icon">
+                                <img src="https://image.tmdb.org/t/p/w500/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+                                    class="service-icon">
+                                <img src="https://image.tmdb.org/t/p/w500/pTnn5JwWr4p3pG8H6VrpiQo7Vs0.jpg"
+                                    class="service-icon">
                         </tr>
                     </tbody>
                 </table>
             </div>
-            
-          </div>
-        
-    </section>
-        
 
-        <!-- You Might Also Like Section -->
-        <section class="recommendations">
-            <div class="recommendations-header">
-                <h2 class="recommendations-title">You Might Also Like</h2>
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- Cast Section -->
+    <section class="cards-section">
+        <div class="cards-section-header">
+            <h2 class="cards-section-title">Cast</h2>
+            <a href="#" class="view-more">Full Cast and Crew</a>
+        </div>
+        <div class="cards-list">
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/rUxLWWCDUF8RnDaocSqrVDJ2MS1.jpg" class="card-picture">
+                </div>
+                <h3 class="card-title">Matthew McConaughey</h3>
+                <p class="person-card-info">Cooper</p>
+            </div>
+
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/kRYxBuUtN3vNz5pLfqCf32ZYlw2.jpg"" class=" card-picture">
+                </div>
+                <h3 class="card-title">Anne Hathaway</h3>
+                <p class="person-card-info">Brand</p>
+            </div>
+
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/bVZRMlpjTAO2pJK6v90buFgVbSW.jpg" class="card-picture">
+                </div>
+                <h3 class="card-title">Michael Caine</h3>
+                <p class="person-card-info">Professor Brand</p>
+            </div>
+
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/xRvRzxiiHhgUErl0yf9w8WariRE.jpg" class="card-picture">
+                </div>
+                <h3 class="card-title">Jessica Chastain</h3>
+                <p class="person-card-info">Murph</p>
+            </div>
+
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/vD5MtCjHPHpmU9XNn74EPGMHT7o.jpg" class="card-picture">
+                </div>
+                <h3 class="card-title">Casey Affleck</h3>
+                <p class="person-card-info">Tom</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- User Reviews Section -->
+    <section class="cards-section">
+        <div class="cards-section-header">
+            <h2 class="cards-section-title">User Reviews</h2>
+            <div class="user-reviews-options">
+                <a href="#" class="review-movie">Review Movie</a>
                 <a href="#" class="view-more">View More</a>
             </div>
-            <div class="recommendations-list">
-                <div class="movie-card">
-                    <div class="poster-wrapper">
-                        <img src="https://image.tmdb.org/t/p/w500/ljsZTbVsrQSqZgWeep2B1QiDKuh.jpg" class="recommendation-poster">
+        </div>
+        <div class="user-reviews-list">
+            <div class="review-card">
+                <img src="https://via.placeholder.com/60" class="user-photo" alt="User Photo">
+                <div class="review-content">
+                    <div class="review-header">
+                        <span class="username">John Doe</span>
+                        <span class="user-rating">
+                            <span class="stars" data-rating="8"></span>
+                        </span>
                     </div>
-                    <div class="recommendation-rating">
-                        <i class="fas fa-star"></i>
-                        <span class="rating-score">8.8</span>
+                    <p class="review-text" id="review1" onclick="openModal('review1')">
+                        Amazing movie! The storyline was captivating and the visuals were stunning. Would highly
+                        recommend it to any sci-fi fan. The characters were well-developed, each bringing a unique
+                        perspective to the narrative. The film cleverly intertwined themes of exploration and human
+                        resilience, making it not only entertaining but thought-provoking as well. The pacing kept me on
+                        the edge of my seat, and the sound design truly enhanced the overall experience. I found myself
+                        immersed in the world the filmmakers created, feeling every emotion alongside the characters.
+                        It's a must-watch for anyone who appreciates a good blend of action, drama, and philosophical
+                        questions about our place in the universe. I can't wait to watch it again and discuss it with
+                        friends!
+                    </p>
+                    <div class="like-section">
+                        <button class="like-button" onclick="toggleLike(this)">&#10084;</button>
+                        <span class="like-count">37</span> <!-- Random number of likes -->
                     </div>
-                    <h3 class="recommendation-title">Inception</h3>
-                    <p class="recommendation-movie-info">2010 | 148 min</p>
-                </div>
-    
-                <div class="movie-card">
-                    <div class="poster-wrapper">
-                        <img src="https://image.tmdb.org/t/p/w500/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg" class="recommendation-poster">
-                    </div>
-                    <div class="recommendation-rating">
-                        <i class="fas fa-star"></i>
-                        <span class="rating-score">8.0</span>
-                    </div>
-                    <h3 class="recommendation-title">Guardians of the Galaxy</h3>
-                    <p class="recommendation-movie-info">2014 | 121 min</p>
-                </div>
-    
-                <div class="movie-card">
-                    <div class="poster-wrapper">
-                        <img src="https://image.tmdb.org/t/p/w500/5BHuvQ6p9kfc091Z8RiFNhCwL4b.jpg" class="recommendation-poster">
-                    </div>
-                    <div class="recommendation-rating">
-                        <i class="fas fa-star"></i>
-                        <span class="rating-score">8.0</span>
-                    </div>
-                    <h3 class="recommendation-title">The Martian</h3>
-                    <p class="recommendation-movie-info">2015 | 144 min</p>
-                </div>
-    
-                <div class="movie-card">
-                    <div class="poster-wrapper">
-                        <img src="https://image.tmdb.org/t/p/w500/qymaJhucquUwjpb8oiqynMeXnID.jpg" class="recommendation-poster">
-                    </div>
-                    <div class="recommendation-rating">
-                        <i class="fas fa-star"></i>
-                        <span class="rating-score">8.1</span>
-                    </div>
-                    <h3 class="recommendation-title">Gone Girl</h3>
-                    <p class="recommendation-movie-info">2014 | 149 min</p>
-                </div>
-    
-                <div class="movie-card">
-                    <div class="poster-wrapper">
-                        <img src="https://image.tmdb.org/t/p/w500/1hRoyzDtpgMU7Dz4JF22RANzQO7.jpg" class="recommendation-poster">
-                    </div>
-                    <div class="recommendation-rating">
-                        <i class="fas fa-star"></i>
-                        <span class="rating-score">9.0</span>
-                    </div>
-                    <h3 class="recommendation-title">The Dark Knight</h3>
-                    <p class="recommendation-movie-info">2008 | 152 min</p>
                 </div>
             </div>
-        </section>
-    
+            <div class="review-card">
+                <img src="https://via.placeholder.com/60" class="user-photo" alt="User Photo">
+                <div class="review-content">
+                    <div class="review-header">
+                        <span class="username">Jane Smith</span>
+                        <span class="user-rating">
+                            <span class="stars" data-rating="9"></span>
+                        </span>
+                    </div>
+                    <p class="review-text" id="review2" onclick="openModal('review2')">
+                        Absolutely loved it! The movie explores deep themes of human nature and survival while taking us
+                        on a visual journey through space. The way it delves into the complexities of relationships
+                        during times of crisis really resonated with me. Each character faced their own struggles, and
+                        the film did an excellent job of portraying their emotional arcs against the backdrop of
+                        breathtaking visuals. The cinematography was simply stunning, with each scene meticulously
+                        crafted to draw the audience into this otherworldly experience. The score complemented the
+                        visuals beautifully, enhancing the emotional impact of key moments. I left the theater feeling a
+                        mix of awe and contemplation, pondering the moral dilemmas presented throughout the story. It's
+                        a film that not only entertains but also invites reflection on what it means to be human. This
+                        is definitely one of those films that stays with you long after the credits roll.
+                    </p>
+                    <div class="like-section">
+                        <button class="like-button"
+                            onclick="toggleLike(this); event.stopPropagation();">&#10084;</button>
+                        <span class="like-count">42</span> <!-- Random number of likes -->
+                    </div>
+                </div>
+            </div>
+            <div class="review-card" onclick="openModal('review3')">
+                <img src="https://via.placeholder.com/60" class="user-photo" alt="User Photo">
+                <div class="review-content">
+                    <div class="review-header">
+                        <span class="username">Alex Brown</span>
+                        <span class="user-rating">
+                            <span class="stars" data-rating="7"></span>
+                        </span>
+                    </div>
+                    <p class="review-text" id="review3" onclick="openModal('review3')">
+                        Good movie, but some parts felt too slow. The visuals were great, showcasing stunning landscapes
+                        and intricate details that brought the sci-fi setting to life. However, I found that certain
+                        scenes lingered a bit too long, which made the pacing uneven. While the character development
+                        was commendable, I think the plot could have been a bit tighter to maintain the audience's
+                        engagement. There were moments that could have benefited from a more dynamic approach,
+                        potentially heightening the tension and excitement. The film had an interesting premise, and I
+                        believe that with a bit more editing, it could have transformed from good to great. Despite its
+                        flaws, I still appreciated the creativity and ambition behind the project. Overall, it's worth
+                        watching for the visuals and thought-provoking themes, but be prepared for some slower moments
+                        along the way.
+                    </p>
+                    <div class="like-section">
+                        <button class="like-button"
+                            onclick="toggleLike(this); event.stopPropagation();">&#10084;</button>
+                        <span class="like-count">67</span> <!-- Random number of likes -->
+                    </div>
+                </div>
+            </div>
+            <div class="review-card" onclick="openModal('review4')">
+                <img src="https://via.placeholder.com/60" class="user-photo" alt="User Photo">
+                <div class="review-content">
+                    <div class="review-header">
+                        <span class="username">Sam Green</span>
+                        <span class="user-rating">
+                            <span class="stars" data-rating="8"></span>
+                        </span>
+                    </div>
+                    <p class="review-text" id="review4" onclick="openModal('review4')">
+                        A thrilling experience! The science behind the movie is intriguing and makes you think about the
+                        possibilities of space exploration. The filmmakers did an impressive job of incorporating real
+                        scientific theories and concepts, which added depth to the narrative. It’s not just a visual
+                        spectacle; it genuinely prompts viewers to ponder the future of humanity and our place in the
+                        cosmos. The blend of thrilling action sequences with thoughtful discussions about technology and
+                        ethics creates a balanced viewing experience. There were moments that sparked lively debates
+                        among friends after the screening, as we explored the ethical implications of advanced space
+                        travel and what it means for our future. The cinematography beautifully captured the vastness of
+                        space, making it feel both exhilarating and terrifying. Overall, this film isn’t just
+                        entertainment; it’s a thought-provoking journey that leaves you contemplating the wonders and
+                        dangers of the universe long after the credits roll.
+                    </p>
+                    <div class="like-section">
+                        <button class="like-button"
+                            onclick="toggleLike(this); event.stopPropagation();">&#10084;</button>
+                        <span class="like-count">94</span> <!-- Random number of likes -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popup Modal -->
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalUsername"></h2>
+            <p id="modalReviewText"></p>
+        </div>
+    </div>
+
+
+    <!-- You Might Also Like Section -->
+    <section class="cards-section">
+        <div class="cards-section-header">
+            <h2 class="cards-section-title">You Might Also Like</h2>
+            <a href="#" class="view-more">View More</a>
+        </div>
+        <div class="cards-list">
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/ljsZTbVsrQSqZgWeep2B1QiDKuh.jpg" class="card-picture">
+                </div>
+                <div class="card-rating">
+                    <i class="fas fa-star"></i>
+                    <span class="rating-score">8.8</span>
+                </div>
+                <h3 class="card-title">Inception</h3>
+                <p class="movie-card-info">2010 | 148 min</p>
+            </div>
+
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg" class="card-picture">
+                </div>
+                <div class="card-rating">
+                    <i class="fas fa-star"></i>
+                    <span class="rating-score">8.0</span>
+                </div>
+                <h3 class="card-title">Guardians of the Galaxy</h3>
+                <p class="movie-card-info">2014 | 121 min</p>
+            </div>
+
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/5BHuvQ6p9kfc091Z8RiFNhCwL4b.jpg" class="card-picture">
+                </div>
+                <div class="card-rating">
+                    <i class="fas fa-star"></i>
+                    <span class="rating-score">8.0</span>
+                </div>
+                <h3 class="card-title">The Martian</h3>
+                <p class="movie-card-info">2015 | 144 min</p>
+            </div>
+
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/qymaJhucquUwjpb8oiqynMeXnID.jpg" class="card-picture">
+                </div>
+                <div class="card-rating">
+                    <i class="fas fa-star"></i>
+                    <span class="rating-score">8.1</span>
+                </div>
+                <h3 class="card-title">Gone Girl</h3>
+                <p class="movie-card-info">2014 | 149 min</p>
+            </div>
+
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/1hRoyzDtpgMU7Dz4JF22RANzQO7.jpg" class="card-picture">
+                </div>
+                <div class="card-rating">
+                    <i class="fas fa-star"></i>
+                    <span class="rating-score">9.0</span>
+                </div>
+                <h3 class="card-title">The Dark Knight</h3>
+                <p class="movie-card-info">2008 | 152 min</p>
+            </div>
+        </div>
+    </section>
+
 
 
     <!-- Footer -->
@@ -656,5 +1189,42 @@
             alert('Search feature not implemented yet!');
         }
     </script>
+
+    <script>
+        function toggleLike(button) {
+            button.classList.toggle('liked'); // Toggle the 'liked' class on click
+        }
+    </script>
+
+
+    <script>
+        function openModal(reviewId) {
+            const modal = document.getElementById("reviewModal");
+            const modalUsername = document.getElementById("modalUsername");
+            const modalReviewText = document.getElementById("modalReviewText");
+
+            // Get the review text and username based on the review clicked
+            const reviewText = document.getElementById(reviewId).innerText;
+            modalReviewText.innerText = reviewText; // Full review text
+
+            modalUsername.innerText = document.querySelector(`#${reviewId}`).previousElementSibling.children[0].innerText; // Username from review card
+            modal.style.display = "block"; // Show the modal
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("reviewModal");
+            modal.style.display = "none"; // Hide the modal
+        }
+
+        // Close the modal when the user clicks outside of the modal content
+        window.onclick = function (event) {
+            const modal = document.getElementById("reviewModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
 </body>
+
 </html>
