@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie App Profile</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+
+    /* Global Styles */
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    } 
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #2C1E1A;
+      color: #d8bca9;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* Color Palette */
+    :root {
+      --primary-bg: #334e41;
+      --accent-color: #FFB74D;
+      --secondary-bg: #5b8a73;
+      --light-bg: #e4cec0;
+      --hover-bg: #416556;
+      --primary-font: 'Playfair Display', serif;
+      --secondary-font: 'Poppins', sans-serif;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--primary-bg);
+      position: sticky;
+      top: 0;
+      width: 100%;
+      padding: 20px 0;
+      z-index: 100;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0; /* Prevents header from shrinking */
+    }
+
+    header .logo {
+      font-family: var(--primary-font);
+      font-size: 2.5em;
+      letter-spacing: 2px;
+      color: var(--accent-color);
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+      margin-left: 20px;
+    }
+
+    nav {
+      text-align: center;
+      margin-right: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--accent-color);
+      margin: 0 15px;
+      font-size: 1.2em;
+      font-family: var(--secondary-font);
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--light-bg);
+    }
+
+    .header-spacing {
+      height: 20px; /* Adjust the height as needed */
+    }
+
+    
+    /* Profile Header */
+    .profile-header {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        color: var(--accent-color);
+        font-family: var(--primary-font);
+        margin-bottom: 0; /* Reduces space below the profile header */
+    }
+
+    .profile-photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #ddd;
+      display: inline-block;
+      cursor: pointer;
+      margin-right: 20px;
+      font-size: 14px;
+      color: #888;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .profile-info {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
+
+    .profile-header-content {
+      display: flex;
+      align-items: center; 
+      gap: 10px;
+    }
+
+    .profile-info h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .edit-button {
+      background-color: var(--secondary-bg);
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 12px;
+      cursor: pointer; /* not sure if its necessary */
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    
+    .edit-button:hover{
+      background-color: #416556; /* testing color*/
+      transform: scale(1.05);
+    }
+
+    .country-dropdown {
+      display: inline-block;
+      position: relative;
+      font-size: 14px;
+      color: var(--accent-color);
+    }
+
+    .country-dropdown select {
+      border: none;
+      background-color: var(--secondary-bg);
+      padding: 8px;
+      border-radius: 5px;
+      cursor: pointer;
+      appearance: none;
+      font-size: 14px;
+      color: white;
+      width: 100px;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: flex-start;
+      gap: 15px;
+      margin: 5px 0;
+    }
+
+    .button-group button {
+      background-color: var(--secondary-bg);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 12px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .button-group button:hover{
+      background-color: #416556; /* testing color*/
+     transform: scale(1.05);
+    }
+
+    /* Favourites Section */
+    .favourites {
+      width: 100%;
+      padding: 20px;
+      background-color: var(--primary-bg);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      margin-top: 20px;
+      border-radius: 8px;
+      margin-top: 0; /* Reduces space above the favourites section */
+    }
+
+    .favourites-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      font-family: var(--primary-font);
+    }
+
+    .favourites-title {
+      font-size: 24px;
+      margin: 0;
+      color: var(--accent-color);
+    }
+
+    .view-more {
+      color: var(--light-bg);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .view-more:hover {
+      color: var(--accent-color);
+    }
+
+    .favourites-list {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .movie-card {
+      width: 18%;
+      background-color: var(--secondary-bg);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      padding-bottom: 10px;
+      border: 1.5px solid var(--accent-color);
+      cursor: pointer;
+    }
+
+    .movie-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .poster-wrapper {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 10px 10px 0 0;
+      /* Rounded top corners, sharp bottom corners */
+      margin-bottom: 5px;
+    }
+
+    .favourite-poster {
+      width: 100%;
+      display: block;
+    }
+
+    .favourite-rating {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      margin-bottom: 5px;
+      color: var(--accent-color);
+    }
+
+    .favourite-rating i {
+      color: var(--accent-color);
+    }
+
+    .rating-score {
+      /* addition to be the same*/
+      font-weight: bold;
+      font-size: 1.2em;
+      font-family: var(--secondary-font);
+      color: var(--light-bg);
+    }
+
+    .favourite-title {
+      font-size: 1.3em;
+      /* Font size as needed */
+      text-align: center;
+      color: var(--accent-color);
+      margin-top: 15px;
+      margin-bottom: 3px;
+      height: 2.4em;
+      /* Height for two lines of text */
+      line-height: 1.2em;
+      /* Set the line height */
+      -webkit-box-orient: vertical;
+      /* Vertical orientation for the box */
+    }
+
+    .favourite-movie-info {
+      font-size: 1.1em;
+      text-align: center;
+      color: var(--light-bg);
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+    /* Menu Table */
+    .menu-table {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 5px;
+      padding: 20px;
+      background-color: #2C1E1A;
+      width: 100%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+
+    .menu-table button {
+      background-color: var(--primary-bg);
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1em;
+      padding: 10px 20px;
+      margin-right: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .menu-table button:hover {
+      background-color: var(--secondary-bg);
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--primary-bg);
+      padding: 30px; /* Adjust padding as needed */
+      text-align: center;
+      color: var(--light-bg);
+      margin: 0; /* Remove margin to ensure it stretches full width */
+      width: 100%; /* Ensure full width */
+      font-size: 1.2em;
+      border-top: 3px solid var(--accent-color);
+    }
+
+    footer a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    footer a:hover {
+      text-decoration: underline;
+    }
+  
+  </style>
+
+
+  <script>
+    function toggleCountryList() {
+      const list = document.getElementById("country-list");
+      list.style.display = list.style.display === "block" ? "none" : "block";
+    }
+
+    function selectCountry(country) {
+      document.getElementById("selected-country").innerText = country;
+      document.getElementById("country-list").style.display = "none";
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">FilmBro</div>
+  </header>
+
+  <!-- Space Between Header and Profile Header -->
+  <div class="header-spacing"></div>
+
+  <!-- Profile Header with Photo, Name, and Edit Button -->
+  <div class="profile-header">
+
+    <div class="profile-photo" onclick="alert('Change profile photo')">
+        + Photo
+    </div>
+    <div class="profile-info">
+
+      <div class="profile-header-content">
+        <h2>Name</h2>
+        <button class="edit-button" onclick="window.location.href='editmyprofile.html'">Edit</button>
+      </div>
+
+       <!-- Country Dropdown -->
+      <div class="country-dropdown">
+        <label for="country" style="font-weight:bold;">Country</label>
+        <select id="country" name="country"></select>
+      </div>
+
+      <div class="button-group">
+          <button>Followers</button>
+          <button>Following</button>
+        </div>
+
+    </div>
+
+  </div>
+
+  <!-- Favourite Movies Section -->
+  <section class="favourites">
+
+    <div class="favourites-header">
+      <h2 class="favourites-title">Favourite Movies</h2>
+      <a href="#" class="view-more">View More</a>
+    </div>
+
+    <div class="favourites-list">
+      <div class="movie-card">
+        <div class="poster-wrapper">
+          <img src="https://image.tmdb.org/t/p/w500/ljsZTbVsrQSqZgWeep2B1QiDKuh.jpg" class="favourite-poster" alt="Inception Poster">
+        </div>
+
+        <div class="favourite-rating">
+          <i class="fas fa-star"></i>
+          <span class="rating-score">8.8</span>
+        </div>
+
+        <h3 class="favourite-title">Inception</h3>
+        <p class="favourite-movie-info">2010 | 148 min</p>
+      </div>
+
+      <div class="movie-card">
+        <div class="poster-wrapper">
+          <img src="https://image.tmdb.org/t/p/w500/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg" class="favourite-poster" alt="Guardians of the Galaxy Poster">
+        </div>
+        
+        <div class="favourite-rating">
+          <i class="fas fa-star"></i>
+          <span class="rating-score">8.0</span>
+        </div>
+
+        <h3 class="favourite-title">Guardians of the Galaxy</h3>
+        <p class="favourite-movie-info">2014 | 121 min</p>
+      </div>
+
+      <div class="movie-card">
+        <div class="poster-wrapper">
+          <img src="https://image.tmdb.org/t/p/w500/5BHuvQ6p9kfc091Z8RiFNhCwL4b.jpg" class="favourite-poster" alt="The Martian Poster">
+        </div>
+
+        <div class="favourite-rating">
+          <i class="fas fa-star"></i>
+          <span class="rating-score">8.0</span>
+        </div>
+        
+        <h3 class="favourite-title">The Martian</h3>
+        <p class="favourite-movie-info">2015 | 144 min</p>
+      </div>
+
+      <div class="movie-card">
+
+        <div class="poster-wrapper">
+          <img src="https://image.tmdb.org/t/p/w500/1hRoyzDtpgMU7Dz4JF22RANzQO7.jpg" class="favourite-poster" alt="The Dark Knight Poster">
+        </div>
+
+        <div class="favourite-rating">
+          <i class="fas fa-star"></i>
+          <span class="rating-score">9.0</span>
+        </div>
+
+        <h3 class="favourite-title">The Dark Knight</h3>
+        <p class="favourite-movie-info">2008 | 152 min</p>
+      </div>
+
+    </div>
+    
+  </section>
+
+  <!-- Additional Content (Menu or Other Sections) -->
+  <div class="menu-table">
+    <button>Reviews</button>
+    <button>Lists</button>
+    <button>Watchlist</button>
+    <button>Seen</button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Powered by <a href="testhome.html">FilmBro</a> | © 2024 All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // List of countries
+    const countries = [
+      "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", 
+      "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", 
+      "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", 
+      "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", 
+      "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", 
+      "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", 
+      "Colombia", "Comoros", "Congo, Democratic Republic of the", 
+      "Congo, Republic of the", "Costa Rica", "Croatia", "Cuba", "Cyprus", 
+      "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", 
+      "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", 
+      "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland", "France", "Gabon", 
+      "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", 
+      "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", 
+      "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", 
+      "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", 
+      "Korea, North", "Korea, South", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", 
+      "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", 
+      "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", 
+      "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", 
+      "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", 
+      "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", 
+      "Nicaragua", "Niger", "Nigeria", "North Macedonia", "Norway", "Oman", 
+      "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", 
+      "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", 
+      "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", 
+      "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", 
+      "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", 
+      "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Sudan", 
+      "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", 
+      "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", 
+      "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", 
+      "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", 
+      "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", 
+      "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
+    ];
+
+    // Populate the dropdown
+    const dropdown = document.getElementById("country");
+    countries.forEach(country => {
+      const option = document.createElement("option");
+      option.value = country;
+      option.textContent = country;
+      dropdown.appendChild(option);
+    });
+  </script>
+</body>
+</html>
