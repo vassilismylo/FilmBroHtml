@@ -76,10 +76,37 @@
         padding: 30px;
         border-radius: 10px;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        position: relative;
+        padding-bottom: 50px;
     }
 
     form div {
         margin-bottom: 20px;
+    }
+
+    .back-button {
+        font-family: var(--primary-font);
+        display: inline-block;
+        padding: 0px;
+        width: 20%;
+        background-color: #6e4741; /* Button color */
+        color: var(--light-bg); /* Text color */
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px; /* Rounded corners */
+        font-size: 1em; /* Font size */
+        position: absolute;
+        right: 0; /* Aligns the button to the right edge of the form */
+        bottom: 0; /* Aligns the button to the bottom of the form */
+        left: 280px;
+        margin: 10px; /* Adds space around the button */
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .back-button:hover {
+        background-color: #4d3330;
+        transform: scale(1.05);
     }
 
     label {
@@ -102,6 +129,14 @@
         color: white;
     }
 
+    /* Change border color when the inputs or textare is focused */
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+        border-color: var(--light-bg);
+        outline: none; /* Remove default outline */
+    }
+
     textarea {
         resize: none;
     }
@@ -110,6 +145,7 @@
         display: flex; /* Use flexbox to align items */
         align-items: center; /* Center items vertically */
         margin-bottom: 20px; /* Add margin to separate from other elements */
+        transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     .country-dropdown label {
@@ -131,6 +167,11 @@
         font-family: var(--primary-font);
         text-align: center;
     }
+
+    /*.country-dropdown select:focus {
+        border-color: var(--primary-bg);
+        outline: none; /* Remove default outline */
+    /*}*/
 
     .custom-file-upload {
         display: inline-block;
@@ -314,6 +355,8 @@
                 <button type="save">Save</button>
                 <button type="cancel">Cancel</button>
             </div>
+
+            <a href="myprofile.html" class="back-button">Back</a>
         </form>
     </div>
 

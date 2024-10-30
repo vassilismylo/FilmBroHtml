@@ -81,7 +81,9 @@
     }
 
     .header-spacing {
-      height: 20px; /* Adjust the height as needed */
+      /*height: 20px; /* Adjust the height as needed */
+      height: 0;
+      margin: 0;
     }
 
     
@@ -168,6 +170,13 @@
       transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
+    button .count {
+      display: block; /* Makes it appear on a new line */
+      font-size: 11px;
+      color: white;
+      margin-top: 4px; /* Adds a bit of spacing between the text and the number */
+    }
+
     .button-group button:hover{
       background-color: #416556; /* testing color*/
      transform: scale(1.05);
@@ -177,16 +186,16 @@
     .cards-section {
             padding: 40px 5%;
             background-color: var(--primary-bg);
-            margin-top: 30px;
+            margin-top: 0px;
             border-radius: 5px;
-        }
+    }
 
-        .cards-section-header {
+    .cards-section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
-        }
+    }
 
         .cards-section-title {
             font-family: var(--primary-font);
@@ -313,6 +322,7 @@
       padding: 10px 20px;
       margin-right: 10px;
       border: none;
+      align-items: center;
       transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
@@ -368,7 +378,7 @@
   </header>
 
   <!-- Space Between Header and Profile Header -->
-  <div class="header-spacing"></div>
+  <!--<div class="header-spacing"></div>-->
 
   <!-- Profile Header with Photo, Name, and Edit Button -->
   <div class="profile-header">
@@ -384,9 +394,15 @@
       </div>
 
       <div class="button-group">
-          <button>Followers</button>
-          <button>Following</button>
-        </div>
+          <button>
+            Followers
+            <span class="count">526</span>
+          </button>
+          <button>
+            Following
+            <span class="count">500</span>
+          </button>
+      </div>
 
     </div>
 
