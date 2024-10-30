@@ -192,121 +192,124 @@
      transform: scale(1.05);
     }
 
-    /* Favourites Section */
-    .favourites {
-      width: 100%;
-      padding: 20px;
-      background-color: var(--primary-bg);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-      margin-top: 20px;
-      border-radius: 8px;
-      margin-top: 0; /* Reduces space above the favourites section */
-    }
+    /* You Might Also Like Section */
+    .cards-section {
+            padding: 40px 5%;
+            background-color: var(--primary-bg);
+            margin-top: 30px;
+            border-radius: 5px;
+        }
 
-    .favourites-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
-      font-family: var(--primary-font);
-    }
+        .cards-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
 
-    .favourites-title {
-      font-size: 24px;
-      margin: 0;
-      color: var(--accent-color);
-    }
+        .cards-section-title {
+            font-family: var(--primary-font);
+            font-size: 1.8em;
+            color: var(--accent-color);
+        }
 
-    .view-more {
-      color: var(--light-bg);
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
+        .view-more {
+            text-decoration: none;
+            font-family: var(--secondary-font);
+            font-size: 1.1em;
+            color: var(--light-bg);
+            transition: color 0.3s ease;
+        }
 
-    .view-more:hover {
-      color: var(--accent-color);
-    }
+        .view-more:hover {
+            color: var(--accent-color);
+        }
 
-    .favourites-list {
-      display: flex;
-      justify-content: space-between;
-    }
+        .cards-list {
+            display: flex;
+            justify-content: space-between;
+        }
 
-    .movie-card {
-      width: 18%;
-      background-color: var(--secondary-bg);
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      padding-bottom: 10px;
-      border: 1.5px solid var(--accent-color);
-      cursor: pointer;
-    }
+        .card {
+            width: 18%;
+            background-color: var(--secondary-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            padding-bottom: 10px;
+            border: 1.5px solid var(--accent-color);
+            cursor: pointer;
+        }
 
-    .movie-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
 
-    .poster-wrapper {
-      width: 100%;
-      overflow: hidden;
-      border-radius: 10px 10px 0 0;
-      /* Rounded top corners, sharp bottom corners */
-      margin-bottom: 5px;
-    }
+        .card-wrapper {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 10px 10px 0 0;
+            /* Rounded top corners, sharp bottom corners */
+            margin-bottom: 5px;
+        }
 
-    .favourite-poster {
-      width: 100%;
-      display: block;
-    }
+        .card-picture {
+            width: 100%;
+            display: block;
+        }
 
-    .favourite-rating {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      margin-bottom: 5px;
-      color: var(--accent-color);
-    }
+        .card-rating {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            margin-bottom: 5px;
+            color: var(--accent-color);
+        }
 
-    .favourite-rating i {
-      color: var(--accent-color);
-    }
+        .card-rating i {
+            color: var(--accent-color);
+        }
 
-    .rating-score {
-      /* addition to be the same*/
-      font-weight: bold;
-      font-size: 1.2em;
-      font-family: var(--secondary-font);
-      color: var(--light-bg);
-    }
+        .rating-score {
+            font-size: 1.2em;
+            font-family: var(--secondary-font);
+            color: var(--light-bg);
+        }
 
-    .favourite-title {
-      font-size: 1.3em;
-      /* Font size as needed */
-      text-align: center;
-      color: var(--accent-color);
-      margin-top: 15px;
-      margin-bottom: 3px;
-      height: 2.4em;
-      /* Height for two lines of text */
-      line-height: 1.2em;
-      /* Set the line height */
-      -webkit-box-orient: vertical;
-      /* Vertical orientation for the box */
-    }
+        .card-title {
+            font-size: 1.3em;
+            /* Font size as needed */
+            text-align: center;
+            color: var(--accent-color);
+            margin-top: 15px;
+            margin-bottom: 10px;
+            height: 2.4em;
+            /* Height for two lines of text */
+            line-height: 1.0em;
+            /* Set the line height */
+            -webkit-box-orient: vertical;
+            /* Vertical orientation for the box */
+        }
 
-    .favourite-movie-info {
-      font-size: 1.1em;
-      text-align: center;
-      color: var(--light-bg);
-      margin-top: 15px;
-      margin-bottom: 5px;
-    }
+        .movie-card-info {
+            font-size: 1.1em;
+            text-align: center;
+            color: var(--light-bg);
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
 
+
+        .person-card-info {
+            font-size: 1.1em;
+            text-align: center;
+            color: var(--light-bg);
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
     /* Menu Table */
     .menu-table {
       display: grid;
@@ -397,7 +400,7 @@
 
       <div class="profile-header-content">
         <h2>Name</h2>
-        <button class="edit-button" onclick="window.location.href='editmyprofile.html'">Edit</button>
+        <button class="edit-button" onclick="window.location.href='editmyprofile.html'">Edit ✎</button>
       </div>
 
        <!-- Country Dropdown -->
@@ -416,74 +419,73 @@
   </div>
 
   <!-- Favourite Movies Section -->
-  <section class="favourites">
-
-    <div class="favourites-header">
-      <h2 class="favourites-title">Favourite Movies</h2>
-      <a href="#" class="view-more">View More</a>
+  <section class="cards-section">
+    <div class="cards-section-header">
+        <h2 class="cards-section-title">Favourites</h2>
+        <a href="#" class="view-more">Edit ✎</a>
     </div>
-
-    <div class="favourites-list">
-      <div class="movie-card">
-        <div class="poster-wrapper">
-          <img src="https://image.tmdb.org/t/p/w500/ljsZTbVsrQSqZgWeep2B1QiDKuh.jpg" class="favourite-poster" alt="Inception Poster">
+    <div class="cards-list">
+        <div class="card">
+            <div class="card-wrapper">
+                <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" class="card-picture">
+            </div>
+            <div class="card-rating">
+                <i class="fas fa-star"></i>
+                <span class="rating-score">8.7</span>
+            </div>
+            <h3 class="card-title">Interstellar</h3>
+            <p class="movie-card-info">2014 | 169 min</p>
         </div>
 
-        <div class="favourite-rating">
-          <i class="fas fa-star"></i>
-          <span class="rating-score">8.8</span>
+        <div class="card">
+            <div class="card-wrapper">
+                <img src="https://image.tmdb.org/t/p/w500/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg" class="card-picture">
+            </div>
+            <div class="card-rating">
+                <i class="fas fa-star"></i>
+                <span class="rating-score">9.0</span>
+            </div>
+            <h3 class="card-title">The Lord of the Rings: The Return of the King</h3>
+            <p class="movie-card-info">2003 | 201 min</p>
         </div>
 
-        <h3 class="favourite-title">Inception</h3>
-        <p class="favourite-movie-info">2010 | 148 min</p>
-      </div>
-
-      <div class="movie-card">
-        <div class="poster-wrapper">
-          <img src="https://image.tmdb.org/t/p/w500/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg" class="favourite-poster" alt="Guardians of the Galaxy Poster">
-        </div>
-        
-        <div class="favourite-rating">
-          <i class="fas fa-star"></i>
-          <span class="rating-score">8.0</span>
+        <div class="card">
+            <div class="card-wrapper">
+                <img src="https://image.tmdb.org/t/p/w500/or1gBugydmjToAEq7OZY0owwFk.jpg" class="card-picture">
+            </div>
+            <div class="card-rating">
+                <i class="fas fa-star"></i>
+                <span class="rating-score">8.3</span>
+            </div>
+            <h3 class="card-title">Braveheart</h3>
+            <p class="movie-card-info">1995 | 178 min</p>
         </div>
 
-        <h3 class="favourite-title">Guardians of the Galaxy</h3>
-        <p class="favourite-movie-info">2014 | 121 min</p>
-      </div>
-
-      <div class="movie-card">
-        <div class="poster-wrapper">
-          <img src="https://image.tmdb.org/t/p/w500/5BHuvQ6p9kfc091Z8RiFNhCwL4b.jpg" class="favourite-poster" alt="The Martian Poster">
+        <div class="card">
+            <div class="card-wrapper">
+                <img src="https://image.tmdb.org/t/p/w500/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg" class="card-picture">
+            </div>
+            <div class="card-rating">
+                <i class="fas fa-star"></i>
+                <span class="rating-score">8.8</span>
+            </div>
+            <h3 class="card-title">Fight Club</h3>
+            <p class="movie-card-info">1999 | 199 min</p>
         </div>
 
-        <div class="favourite-rating">
-          <i class="fas fa-star"></i>
-          <span class="rating-score">8.0</span>
+        <div class="card">
+            <div class="card-wrapper">
+                <img src="https://image.tmdb.org/t/p/w500/1hRoyzDtpgMU7Dz4JF22RANzQO7.jpg" class="card-picture">
+            </div>
+            <div class="card-rating">
+                <i class="fas fa-star"></i>
+                <span class="rating-score">9.0</span>
+            </div>
+            <h3 class="card-title">The Dark Knight</h3>
+            <p class="movie-card-info">2008 | 152 min</p>
         </div>
-        
-        <h3 class="favourite-title">The Martian</h3>
-        <p class="favourite-movie-info">2015 | 144 min</p>
-      </div>
-
-      <div class="movie-card">
-
-        <div class="poster-wrapper">
-          <img src="https://image.tmdb.org/t/p/w500/1hRoyzDtpgMU7Dz4JF22RANzQO7.jpg" class="favourite-poster" alt="The Dark Knight Poster">
-        </div>
-
-        <div class="favourite-rating">
-          <i class="fas fa-star"></i>
-          <span class="rating-score">9.0</span>
-        </div>
-
-        <h3 class="favourite-title">The Dark Knight</h3>
-        <p class="favourite-movie-info">2008 | 152 min</p>
-      </div>
-
     </div>
-    
-  </section>
+</section>
 
   <!-- Additional Content (Menu or Other Sections) -->
   <div class="menu-table">
