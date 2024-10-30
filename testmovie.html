@@ -40,6 +40,7 @@
             --secondary-bg: #5b8a73;
             /* Green */
             --light-bg: #e4cec0;
+            --hover-light-bg: #d3b9a8;
             --hover-bg: #416556;
             --active-bg: #FFB74D;
             /* Active button color */
@@ -105,7 +106,7 @@
         .movie-poster {
             max-width: 300px;
             /* Ensure the poster does not exceed this width */
-            margin: 0 auto;
+            margin: 20px;
             /* Center the poster horizontally */
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -615,6 +616,10 @@
             cursor: pointer;
         }
 
+        .review-text:hover {
+            color: var(--hover-light-bg);
+        }
+
         .user-rating {
             display: inline-block;
         }
@@ -1032,7 +1037,7 @@
                     </div>
                 </div>
             </div>
-            <div class="review-card" onclick="openModal('review3')">
+            <div class="review-card">
                 <img src="https://via.placeholder.com/60" class="user-photo" alt="User Photo">
                 <div class="review-content">
                     <div class="review-header">
@@ -1060,7 +1065,7 @@
                     </div>
                 </div>
             </div>
-            <div class="review-card" onclick="openModal('review4')">
+            <div class="review-card">
                 <img src="https://via.placeholder.com/60" class="user-photo" alt="User Photo">
                 <div class="review-content">
                     <div class="review-header">

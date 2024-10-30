@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmBro | Interstellar</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Global Styles */
+        a {
+            text-decoration: none;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #2C1E1A;
+            color: #d8bca9;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Color Palette */
+        :root {
+            --primary-bg: #334e41;
+            --accent-color: #FFB74D;
+            /* Yellow */
+            --secondary-bg: #5b8a73;
+            /* Green */
+            --light-bg: #e4cec0;
+            --hover-light-bg: #d3b9a8;
+            --hover-bg: #416556;
+            --active-bg: #FFB74D;
+            /* Active button color */
+            --primary-font: 'Playfair Display', serif;
+            --secondary-font: 'Poppins', sans-serif;
+            --genre-color: #FFB74D;
+            /* Yellow for genres */
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-bg);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-family: var(--primary-font);
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+            margin-left: 20px;
+        }
+
+        nav {
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--accent-color);
+            margin: 0 15px;
+            font-size: 1.2em;
+            font-family: var(--secondary-font);
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--light-bg);
+        }
+
+        
+
+
+
+        /* Info Section Styling */
+        .info-section {
+            display: flex;
+            padding: 60px 5%;
+            background-color: var(--primary-bg);
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+
+
+        .info-section-picture {
+            max-width: 300px;
+            /* Ensure the poster does not exceed this width */
+            margin: 20px;
+            /* Center the poster horizontally */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: block;
+            /* Make it a block element */
+        }
+
+        .info-section-title {
+            font-family: var(--primary-font);
+            font-size: 2.5em;
+            margin-bottom: 5px;
+            /* Adjusted margin for spacing */
+            color: var(--accent-color);
+            display: inline-block;
+            /* Allow elements to be inline */
+        }
+
+        .info-section-subtitle {
+            font-size: 0.9em;
+            /* Smaller font size for director's name */
+            color: var(--light-bg);
+            margin-left: 10px;
+            /* Space between title and director's name */
+            display: inline-block;
+            /* Allow elements to be inline */
+        }
+
+
+        .info-section-informarion {
+            font-family: var(--secondary-font);
+            font-size: 1.2em;
+            color: var(--light-bg);
+            margin-bottom: 10px;
+            /* New styles for line clamping */
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            -webkit-line-clamp: 13;
+            cursor: pointer; /* Show pointer cursor for clickable text */
+            transition: all 0.3s ease; /* Smooth transition */
+        }
+
+        .info-section-informarion.expanded {
+            -webkit-line-clamp: unset; /* Remove line limit */
+            overflow: visible; /* Allow full visibility */
+        }
+
+
+
+        /* Movies section */
+        .cards-section {
+    padding: 40px 5%;
+    background-color: var(--primary-bg);
+    margin-top: 30px;
+    border-radius: 5px;
+}
+
+.cards-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.cards-section-title {
+    font-family: var(--primary-font);
+    font-size: 1.8em;
+    color: var(--accent-color);
+}
+
+.view-more {
+    text-decoration: none;
+    font-family: var(--secondary-font);
+    font-size: 1.1em;
+    color: var(--light-bg);
+    transition: color 0.3s ease;
+}
+
+.view-more:hover {
+    color: var(--accent-color);
+}
+
+.cards-list {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping of cards */
+    justify-content: flex-start;
+}
+
+.card {
+    width: calc(20% - 10px); /* Calculate width to fit 5 cards per row with space */
+    margin-bottom: 20px; /* Space between rows */
+    background-color: var(--secondary-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    border: 1.5px solid var(--accent-color);
+    cursor: pointer;
+}
+
+.card:nth-child(5n+1) { /* Every 5th card starts a new row */
+    margin-left: 0; /* Remove margin from the first card in a new row */
+}
+
+.card:not(:nth-child(5n+1)) {
+    margin-left: 10px; /* Set space between cards except the first in a row */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.card-wrapper {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0; /* Rounded top corners */
+    margin-bottom: 5px;
+}
+
+.card-picture {
+    width: 100%;
+    display: block;
+}
+
+.card-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 5px;
+    color: var(--accent-color);
+}
+
+.card-rating i {
+    color: var(--accent-color);
+}
+
+.rating-score {
+    font-size: 1.2em;
+    font-family: var(--secondary-font);
+    color: var(--light-bg);
+}
+
+.card-title {
+    font-size: 1.3em;
+    text-align: center;
+    color: var(--accent-color);
+    margin-top: 15px;
+    margin-bottom: 3px;
+    height: 2.4em; /* Height for two lines of text */
+    line-height: 1.1em;
+}
+
+.movie-card-info {
+    font-size: 1.1em;
+    text-align: center;
+    color: var(--light-bg);
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+
+
+
+.sort-container {
+    position: relative; /* Necessary for positioning the dropdown */
+}
+
+.view-more {
+    text-decoration: none;
+    font-family: var(--secondary-font);
+    font-size: 1.1em;
+    color: var(--light-bg);
+    transition: color 0.3s ease;
+    background: none; /* No background */
+    border: none; /* No border */
+    cursor: pointer; /* Cursor pointer */
+    padding: 0; /* No padding */
+}
+
+.view-more:hover {
+    color: var(--accent-color);
+}
+
+.sort-options {
+    position: absolute; /* Dropdown position */
+    top: 100%; /* Position below the button */
+    left: 42%; /* Align to center */
+    transform: translateX(-50%); /* Center the dropdown */
+    background-color: var(--secondary-bg); /* Background color of dropdown */
+    border: 1px solid var(--accent-color); /* Border for dropdown */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Adjusted padding inside dropdown */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    z-index: 1000; /* Ensure dropdown is above other elements */
+    min-width: 195px; /* Set minimum width for the dropdown */
+    max-width: 250px; /* Set maximum width for the dropdown */
+}
+
+
+
+.sort-options li {
+    padding: 8px 10px; /* Padding for options */
+    cursor: pointer; /* Cursor pointer for options */
+}
+
+.sort-options li.selected {
+    border: 2px solid var(--accent-color); /* Yellow border for selected option */
+    border-radius: 5px; /* Keep the corners rounded */
+}
+
+
+.sort-options li:hover {
+    background-color: var(--accent-color); /* Background color on hover for options */
+    color: var(--primary-bg); /* Text color on hover for options */
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none; /* Hide the dropdown initially */
+}
+
+
+
+.arrow-container {
+    display: flex; /* Align arrows horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.arrow {
+    cursor: pointer; /* Make arrows clickable */
+    margin-left: 8px; /* Spacing between arrows */
+    font-size: 1.2em; /* Adjust arrow size */
+    color: var(--light-bg); /* Default arrow color */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.arrow.active {
+    color: var(--active-bg); /* Color when active */
+}
+
+.sort-options li {
+    display: flex; /* Align items horizontally */
+    align-items: center; /* Center vertically */
+    justify-content: space-between; /* Space between text and arrows */
+    padding: 8px 10px; /* Padding for options */
+    cursor: pointer; /* Cursor pointer for options */
+}
+
+.sort-options li:hover .arrow {
+    color: var(--hover-bg); /* Change arrow color to green on hover */
+}
+
+
+
+        
+
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-bg);
+            padding: 30px;
+            text-align: center;
+            color: var(--light-bg);
+            margin-top: 60px;
+            font-size: 1.2em;
+            border-top: 3px solid var(--accent-color);
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href = "testhome.html"><div class="logo">FilmBro</div></a>
+        <nav>
+            <a href="#" onclick="toggleSearch()"><i class="fas fa-search icon"></i></a>
+            <a href="#"><img src="https://source.unsplash.com/40x40/?profile" alt="Profile" class="profile-icon"></a>
+        </nav>
+    </header>
+
+    
+
+    <!-- Profile Section -->
+    <section class="info-section">
+        <div>
+            <h1 class="info-section-title">Brad Pitt</h1>
+            <span class="info-section-subtitle">Known For: Acting</span>
+            <p class="info-section-informarion" onclick="toggleText(this)">William Bradley Pitt (born December 18, 1963) is an American actor and film producer. He is the recipient of
+                various accolades, including an Academy Award, a British Academy Film Award, and two Golden Globe Awards
+                for his acting, in addition to a second Academy Award, a second British Academy Film Award, a third Golden
+                Globe Award, and a Primetime Emmy Award as a producer under his production company, Plan B Entertainment.
+                <br><br>
+                Pitt first gained recognition as a cowboy hitchhiker in the road film Thelma & Louise (1991). His first leading roles in big-budget productions came with the drama films A River Runs Through It (1992) and Legends of the Fall (1994), and the horror film Interview with the Vampire (1994). He gave critically acclaimed performances in the crime thriller Seven (1995) and the science fiction film 12 Monkeys (1995), the latter earning him a Golden Globe Award for Best Supporting Actor and an Academy Award nomination.
+                <br><br>
+                Pitt starred in Fight Club (1999) and the heist film Ocean's Eleven (2001), as well as its sequels, Ocean's Twelve (2004) and Ocean's Thirteen (2007). His greatest commercial successes have been Ocean's Eleven (2001), Troy (2004), Mr. & Mrs. Smith (2005), World War Z (2013), and Once Upon a Time in Hollywood (2019), for which he won a second Golden Globe Award and the Academy Award for Best Supporting Actor. Pitt's other Academy Award nominated performances were in The Curious Case of Benjamin Button (2008) and Moneyball (2011). He produced The Departed (2006) and 12 Years a Slave (2013), both of which won the Academy Award for Best Picture, and also The Tree of Life (2011), Moneyball (2011) and The Big Short (2015), all of which were nominated for Best Picture. Pitt is the second actor to have won Academy Awards for both Best Supporting Actor and Best Picture.
+            </p>
+        </div>
+        <img src="https://image.tmdb.org/t/p/w500/9OfnD7lxgIj3BNQpJFnwxnwl6w5.jpg" class="info-section-picture">
+    </section>
+
+
+
+    <section class="cards-section">
+        <div class="cards-section-header">
+            <h2 class="cards-section-title">Movies</h2>
+            <div class="sort-container">
+                <button class="view-more" onclick="toggleDropdown()">Sort by</button>
+                <ul class="sort-options hidden" id="sortOptions">
+                    <li class="selected" data-sort="popularity">
+                        Popularity
+                        <div class="arrow-container">
+                            <span class="arrow active" onclick="changeSortDirection(event, 'descending')">&#8595;</span> <!-- Down arrow -->
+                            <span class="arrow" onclick="changeSortDirection(event, 'ascending')">&#8593;</span> <!-- Up arrow -->
+                        </div>
+                    </li>
+                    <li data-sort="alphabetical">
+                        Alphabetical
+                        <div class="arrow-container">
+                            <span class="arrow" onclick="changeSortDirection(event, 'descending')">&#8595;</span> <!-- Down arrow -->
+                            <span class="arrow" onclick="changeSortDirection(event, 'ascending')">&#8593;</span> <!-- Up arrow -->
+                        </div>
+                    </li>
+                    <li data-sort="film_bro_rating">
+                        FilmBro Rating
+                        <div class="arrow-container">
+                            <span class="arrow" onclick="changeSortDirection(event, 'descending')">&#8595;</span> <!-- Down arrow -->
+                            <span class="arrow" onclick="changeSortDirection(event, 'ascending')">&#8593;</span> <!-- Up arrow -->
+                        </div>
+                    </li>
+                    <li data-sort="imdb_rating">
+                        IMDb Rating
+                        <div class="arrow-container">
+                            <span class="arrow" onclick="changeSortDirection(event, 'descending')">&#8595;</span> <!-- Down arrow -->
+                            <span class="arrow" onclick="changeSortDirection(event, 'ascending')">&#8593;</span> <!-- Up arrow -->
+                        </div>
+                    </li>
+                    <li data-sort="runtime">
+                        Runtime
+                        <div class="arrow-container">
+                            <span class="arrow" onclick="changeSortDirection(event, 'descending')">&#8595;</span> <!-- Down arrow -->
+                            <span class="arrow" onclick="changeSortDirection(event, 'ascending')">&#8593;</span> <!-- Up arrow -->
+                        </div>
+                    </li>
+                    <li data-sort="year">
+                        Year
+                        <div class="arrow-container">
+                            <span class="arrow" onclick="changeSortDirection(event, 'descending')">&#8595;</span> <!-- Down arrow -->
+                            <span class="arrow" onclick="changeSortDirection(event, 'ascending')">&#8593;</span> <!-- Up arrow -->
+                        </div>
+                    </li>
+                    <li data-sort="your_rating">
+                        Your Rating
+                        <div class="arrow-container">
+                            <span class="arrow" onclick="changeSortDirection(event, 'descending')">&#8595;</span> <!-- Down arrow -->
+                            <span class="arrow" onclick="changeSortDirection(event, 'ascending')">&#8593;</span> <!-- Up arrow -->
+                        </div>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+        
+        
+        <div class="cards-list">
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/gt3iyguaCIw8DpQZI1LIN5TohM2.jpg" class="card-picture">
+                </div>
+                <div class="card-rating">
+                    <i class="fas fa-star"></i>
+                    <span class="rating-score">8.0</span>
+                </div>
+                <h3 class="card-title">Twelve Monkeys</h3>
+                <p class="movie-card-info">1995 | 189 min</p>
+            </div>
+    
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/hQQCdZrsHtZyR6NbKH2YyCqd2fR.jpg" class="card-picture">
+                </div>
+                <div class="card-rating">
+                    <i class="fas fa-star"></i>
+                    <span class="rating-score">7.7</span>
+                </div>
+                <h3 class="card-title">Ocean's Eleven</h3>
+                <p class="movie-card-info">2001 | 176 min</p>
+            </div>
+    
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/8KSDI7ijEv7QVZdIyrLw5Gnhhr8.jpg" class="card-picture">
+                </div>
+                <div class="card-rating">
+                    <i class="fas fa-star"></i>
+                    <span class="rating-score">8.2</span>
+                </div>
+                <h3 class="card-title">Snatch</h3>
+                <p class="movie-card-info">2000 | 102 min</p>
+            </div>
+    
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg" class="card-picture">
+                </div>
+                <div class="card-rating">
+                    <i class="fas fa-star"></i>
+                    <span class="rating-score">8.8</span>
+                </div>
+                <h3 class="card-title">Fight Club</h3>
+                <p class="movie-card-info">1999 | 199 min</p>
+            </div>
+    
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/191nKfP0ehp3uIvWqgPbFmI4lv9.jpg" class="card-picture">
+                </div>
+                <div class="card-rating">
+                    <i class="fas fa-star"></i>
+                    <span class="rating-score">8.6</span>
+                </div>
+                <h3 class="card-title">Se7en</h3>
+                <p class="movie-card-info">1995 | 187 min</p>
+            </div>
+    
+            <!-- Duplicate the first 4 cards to make 9 in total -->
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/26wEWZYt6yJkwRVkjcbwJEFh9IS.jpg" class="card-picture">
+                </div>
+                <div class="card-rating">
+                    <i class="fas fa-star"></i>
+                    <span class="rating-score">7.8</span>
+                </div>
+                <h3 class="card-title">The Curious Case of Benjamin Button</h3>
+                <p class="movie-card-info">2008 | 236 min</p>
+            </div>
+    
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/to0spRl1CMDvyUbOnbb4fTk3VAd.jpg" class="card-picture">
+                </div>
+                <div class="card-rating">
+                    <i class="fas fa-star"></i>
+                    <span class="rating-score">7.6</span>
+                </div>
+                <h3 class="card-title">Deadpool 2</h3>
+                <p class="movie-card-info">2017 | 179 min</p>
+            </div>
+    
+        </div>
+    </section>
+    
+
+        
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 FilmBro. All Rights Reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    
+
+</body>
+
+
+
+<script>
+    function toggleText(element) {
+        element.classList.toggle('expanded');
+    }
+</script>
+
+
+
+
+<script>
+    function toggleDropdown() {
+        const sortOptions = document.getElementById('sortOptions');
+        sortOptions.classList.toggle('hidden'); // Toggle visibility
+    }
+
+    // Close dropdown if clicked outside
+    window.addEventListener('click', (event) => {
+        const sortOptions = document.getElementById('sortOptions');
+        const sortButton = document.querySelector('.view-more');
+
+        if (!sortButton.contains(event.target) && !sortOptions.contains(event.target)) {
+            sortOptions.classList.add('hidden'); // Hide if clicked outside
+        }
+    });
+
+    // Add event listeners for sorting options
+    document.querySelectorAll('.sort-options li').forEach(option => {
+        option.addEventListener('click', (e) => {
+            // Prevent arrow clicks from triggering this event
+            if (e.target.classList.contains('arrow')) return;
+
+            // Remove 'selected' class from all options
+            document.querySelectorAll('.sort-options li').forEach(opt => {
+                opt.classList.remove('selected'); // Remove selected class
+            });
+            // Add 'selected' class to the clicked option
+            option.classList.add('selected'); // Add selected class
+            console.log(`Selected sort option: ${option.dataset.sort}`);
+
+            // Reset arrows on all options
+            document.querySelectorAll('.arrow').forEach(arrow => {
+                arrow.classList.remove('active'); // Remove active class from all arrows
+            });
+
+            // Activate the down arrow for the clicked option (default)
+            const downArrow = option.querySelector('.arrow:first-child');
+            downArrow.classList.add('active'); // Add active class to the down arrow
+
+            // Close the dropdown after selection
+            document.getElementById('sortOptions').classList.add('hidden');
+        });
+    });
+
+    // Change sort direction and toggle active arrow
+    function changeSortDirection(event, direction) {
+        event.stopPropagation(); // Prevent click event from bubbling up
+        const parentLi = event.target.closest('li'); // Get parent li element
+        const arrows = parentLi.querySelectorAll('.arrow');
+
+        // Check if the clicked arrow is in the selected option
+        if (!parentLi.classList.contains('selected')) {
+            return; // If not selected, do nothing
+        }
+
+        // Reset all arrows in this option
+        arrows.forEach(arrow => arrow.classList.remove('active')); // Remove active class from arrows
+
+        // Add active class to the clicked arrow
+        if (direction === 'ascending') {
+            arrows[1].classList.add('active'); // Activate the up arrow
+        } else {
+            arrows[0].classList.add('active'); // Activate the down arrow
+        }
+    }
+</script>
+
+
+
+
+
+
+
+</html>
