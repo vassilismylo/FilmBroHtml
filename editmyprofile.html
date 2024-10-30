@@ -25,9 +25,7 @@
         color: #FFB74D;
         line-height: 1.6;
         scroll-behavior: smooth;
-        padding: 0 5%;
     }
-
 
     /* Color Palette */
     :root {
@@ -71,7 +69,7 @@
 
     /* Form Section */
     form#profile {
-        max-width: 500;
+        max-width: 500px;
         margin: 0 auto;
         background-color: rgba(62, 39, 35, 1); /* Fully opaque */
         color: var(--accent-color);
@@ -86,7 +84,7 @@
 
     label {
         display: block;
-        font-size: 1.1em;
+        font-size: 1.2em;
         color: var(--light-bg);
         margin-bottom: 5px;
     }
@@ -106,6 +104,32 @@
 
     textarea {
         resize: none;
+    }
+
+    .country-dropdown {
+        display: flex; /* Use flexbox to align items */
+        align-items: center; /* Center items vertically */
+        margin-bottom: 20px; /* Add margin to separate from other elements */
+    }
+
+    .country-dropdown label {
+        margin-right: 10px; /* Space between label and dropdown */
+        font-size: 1.2em; /* Adjust font size if needed */
+        color: var(--light-bg); /* Ensure label color matches */
+    }
+
+    .country-dropdown select {
+        border: none;
+        background-color: var(--hover-bg);
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        appearance: none;
+        font-size: 16px;
+        color: white;
+        width: 150px; /* Adjust width to fit design */
+        font-family: var(--primary-font);
+        text-align: center;
     }
 
     .custom-file-upload {
@@ -183,13 +207,27 @@
         margin-left: 20px;
         text-decoration: none;
     }
-    
-    html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    flex-direction: column;
-    display: flex;
+
+    nav {
+      text-align: center;
+      margin-right: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--accent-color);
+      margin: 0 15px;
+      font-size: 1.2em;
+      font-family: var(--secondary-font);
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--light-bg);
+    }
+
+    .header-spacing {
+      height: 20px; /* Adjust the height as needed */
     }
 
     /* Footer */
@@ -236,8 +274,8 @@
         <!-- Profile Form-->
         <form id="profile" action="#" method="post" enctype="multipart/form-data">
             <div>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" minlength="2" placeholder="name" required>
+                <label for="name">Username:</label>
+                <input type="text" id="name" name="name" minlength="2" placeholder="my username" required>
             </div>
             
             <div>
@@ -245,7 +283,14 @@
                 <input type="email" id="email" name="email" minlength="10" maxlength="40" placeholder="xxxx@yyyy.zzzz" required pattern="^(?!.*[^a-zA-Z0-9@.])[a-zA-Z0-9]*[0-9][a-zA-Z0-9]*@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$" 
                 title="Email must contain at least one number and can only include letters, numbers, '@', and '.'">
             </div>
-            
+
+            <!-- Country Dropdown -->
+            <div class="country-dropdown">
+                <label for="country">Country:</label>
+                <select id="country" name="country"></select>
+            </div>
+  
+                    
             <div>
                 <label for="photo">Profile photo:</label>
                 
@@ -276,6 +321,56 @@
      <footer>
         <p>Powered by <a href="#">FilmBro</a> | © 2024 All Rights Reserved</p>
      </footer>
+
+     <script>
+        // List of countries
+        const countries = [
+            "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", 
+            "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", 
+            "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", 
+            "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", 
+            "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", 
+            "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", 
+            "Colombia", "Comoros", "Congo, Democratic Republic of the", 
+            "Congo, Republic of the", "Costa Rica", "Croatia", "Cuba", "Cyprus", 
+            "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", 
+            "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", 
+            "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland", "France", "Gabon", 
+            "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", 
+            "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", 
+            "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", 
+            "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", 
+            "Korea, North", "Korea, South", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", 
+            "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", 
+            "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", 
+            "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", 
+            "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", 
+            "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", 
+            "Nicaragua", "Niger", "Nigeria", "North Macedonia", "Norway", "Oman", 
+            "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", 
+            "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", 
+            "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", 
+            "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", 
+            "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", 
+            "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Sudan", 
+            "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", 
+            "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", 
+            "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", 
+            "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", 
+            "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", 
+            "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
+        ];
+
+        // Populate the dropdown
+        const dropdown = document.getElementById("country");
+        countries.forEach(country => {
+            const option = document.createElement("option");
+            option.value = country;
+            option.textContent = country;
+            dropdown.appendChild(option);
+        });
+
+      </script>
 
 </body>
 </html>
