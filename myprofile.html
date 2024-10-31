@@ -59,7 +59,9 @@
       letter-spacing: 2px;
       color: var(--accent-color);
       text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+      text-align: center;
       margin-left: 20px;
+      text-decoration: none;
     }
 
     nav {
@@ -86,18 +88,22 @@
       margin: 0;
     }
 
-    
     /* Profile Header */
     .profile-header {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        padding: 20px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        margin-bottom: 20px;
-        color: var(--accent-color);
-        font-family: var(--primary-font);
-        margin-bottom: 0; /* Reduces space below the profile header */
+      display: flex;
+      padding: 60px 5%;
+      background-color: var(--primary-bg);
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      border-radius: 5px;
+      /*width: 100%;*/  
+      /*box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      /* color: var(--accent-color);*/
+      font-family: var(--primary-font);
+      /*margin-bottom: 0; /* Reduces space below the profile header */
     }
 
     .profile-photo {
@@ -199,21 +205,37 @@
       margin-top: -110px; /* Adjust this value to move higher */
     }
 
-    .info-box {
+    /*.info-box {
        border: none; 
        border-radius: 5px;
        padding: 10px;
        background-color: var(--secondary-bg); /* Light background color */
-       width: 400px; /* Set a width for the text box */
-       height: auto;
+      /* width: 400px; /* Set a width for the text box */
+      /* height: auto;
        min-height: 100px;
        margin-top: 5px; /* Spacing between the label and the box */
-    }
+    /*}*/
 
     .info-box p {
        margin: 0; /* Remove default margins for the paragraph */
        color: white; /* Color for the text */
        font-size: 14px; /* Font size for the paragraph */
+
+       display: -webkit-box;
+       -webkit-box-orient: vertical;
+       overflow: hidden;
+       -webkit-line-clamp: 13;
+       cursor: pointer;
+       /* Show pointer cursor for clickable text */
+       transition: all 0.3s ease;
+       /* Smooth transition */
+    }
+
+    .info-box.expanded {
+      -webkit-line-clamp: unset;
+      /* Remove line limit */
+      overflow: visible;
+      /* Allow full visibility */
     }
     
 
@@ -442,9 +464,20 @@
       <!-- New Text Box Section -->
       <div class="parent-container">
         <div class="info-container">
-          <label>Info about me</label>
-          <div class="info-box">
-            <p>I like horror movies</p>
+          <!--<label>Info about me</label>-->
+          <div class="info-box" onclick="toggleText(this)">
+            <p>I have a deep appreciation for films that deliver powerful</p>
+            <p>narratives and emotional depth, such as Inception, The Shawshank Redemption, and Eternal Sunshine of the</p>
+            <p>Spotless Mind. Each of these movies showcases remarkable storytelling and exceptional p/erformances that</p>
+            <p>leave a lasting impression on me. Christopher Nolan and Charlie Kaufman are my favorite writers, as they<p>
+            <p>craft intricate plots and explore complex themes that challenge the viewer’s perception of reality and</p>
+            <p>relationships. I am particularly drawn to the versatility of actors like Leonardo DiCaprio, whose intense</p>
+            <p>portrayals in films like The Revenant and The Wolf of Wall Street are nothing short of mesmerizing.</p>
+            <p>Meryl Streep’s ability to embody diverse characters with grace and authenticity, as seen in The Devil Wears</p>
+            <p>Prada and Sophie's Choice, is truly inspiring. Kate Winslet’s powerful performances, especially in Titanic</p> 
+            <p>and Eternal Sunshine of the Spotless Mind, resonate deeply with me. Together, these films and talents not only</p>
+            <p>entertain but also provoke thought and evoke a wide range of emotions, making cinema an essential part of my</p>
+            <p>life and a source of inspiration.</p>
           </div>
         </div>
       </div>
