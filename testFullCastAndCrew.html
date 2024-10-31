@@ -93,79 +93,6 @@
         }
 
 
-
-
-
-        /* Info Section Styling */
-        .info-section {
-            display: flex;
-            padding: 60px 5%;
-            background-color: var(--primary-bg);
-            align-items: flex-start;
-            justify-content: space-between;
-            margin-top: 30px;
-            border-radius: 5px;
-        }
-
-
-        .info-section-picture {
-            max-width: 300px;
-            /* Ensure the poster does not exceed this width */
-            margin: 20px;
-            /* Center the poster horizontally */
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            display: block;
-            /* Make it a block element */
-        }
-
-        .info-section-title {
-            font-family: var(--primary-font);
-            font-size: 2.5em;
-            margin-bottom: 5px;
-            /* Adjusted margin for spacing */
-            color: var(--accent-color);
-            display: inline-block;
-            /* Allow elements to be inline */
-        }
-
-        .info-section-subtitle {
-            font-size: 0.9em;
-            /* Smaller font size for director's name */
-            color: var(--light-bg);
-            margin-left: 10px;
-            /* Space between title and director's name */
-            display: inline-block;
-            /* Allow elements to be inline */
-        }
-
-
-        .info-section-informarion {
-            font-family: var(--secondary-font);
-            font-size: 1.2em;
-            color: var(--light-bg);
-            margin-bottom: 10px;
-            /* New styles for line clamping */
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            -webkit-line-clamp: 13;
-            cursor: pointer;
-            /* Show pointer cursor for clickable text */
-            transition: all 0.3s ease;
-            /* Smooth transition */
-        }
-
-        .info-section-informarion.expanded {
-            -webkit-line-clamp: unset;
-            /* Remove line limit */
-            overflow: visible;
-            /* Allow full visibility */
-        }
-
-
-
-        /* Movies section */
         .cards-section {
             padding: 40px 5%;
             background-color: var(--primary-bg);
@@ -451,6 +378,24 @@
                 <h3 class="card-title">Casey Affleck</h3>
                 <p class="person-card-info">Tom</p>
             </div>
+
+
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/voD93lzFZrr9xfAggwFcPRBi84i.jpg" class="card-picture">
+                </div>
+                <h3 class="card-title">Wes Bentley</h3>
+                <p class="person-card-info">Doyle</p>
+            </div>
+
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/pXaSwE0StHM0lhJ06y45xYlEfhG.jpg" class="card-picture">
+                </div>
+                <h3 class="card-title">Topher Grace</h3>
+                <p class="person-card-info">Getty</p>
+            </div>
+
         </div>
     </section>
 
