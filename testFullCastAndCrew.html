@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmBro | Brad Pitt</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Global Styles */
+        a {
+            text-decoration: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #2C1E1A;
+            color: #d8bca9;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Color Palette */
+        :root {
+            --primary-bg: #334e41;
+            --accent-color: #FFB74D;
+            /* Yellow */
+            --secondary-bg: #5b8a73;
+            /* Green */
+            --light-bg: #e4cec0;
+            --hover-light-bg: #d3b9a8;
+            --hover-bg: #416556;
+            --active-bg: #FFB74D;
+            /* Active button color */
+            --primary-font: 'Playfair Display', serif;
+            --secondary-font: 'Poppins', sans-serif;
+            --genre-color: #FFB74D;
+            /* Yellow for genres */
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-bg);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-family: var(--primary-font);
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+            margin-left: 20px;
+        }
+
+        nav {
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--accent-color);
+            margin: 0 15px;
+            font-size: 1.2em;
+            font-family: var(--secondary-font);
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--light-bg);
+        }
+
+
+
+
+
+        /* Info Section Styling */
+        .info-section {
+            display: flex;
+            padding: 60px 5%;
+            background-color: var(--primary-bg);
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+
+
+        .info-section-picture {
+            max-width: 300px;
+            /* Ensure the poster does not exceed this width */
+            margin: 20px;
+            /* Center the poster horizontally */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: block;
+            /* Make it a block element */
+        }
+
+        .info-section-title {
+            font-family: var(--primary-font);
+            font-size: 2.5em;
+            margin-bottom: 5px;
+            /* Adjusted margin for spacing */
+            color: var(--accent-color);
+            display: inline-block;
+            /* Allow elements to be inline */
+        }
+
+        .info-section-subtitle {
+            font-size: 0.9em;
+            /* Smaller font size for director's name */
+            color: var(--light-bg);
+            margin-left: 10px;
+            /* Space between title and director's name */
+            display: inline-block;
+            /* Allow elements to be inline */
+        }
+
+
+        .info-section-informarion {
+            font-family: var(--secondary-font);
+            font-size: 1.2em;
+            color: var(--light-bg);
+            margin-bottom: 10px;
+            /* New styles for line clamping */
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            -webkit-line-clamp: 13;
+            cursor: pointer;
+            /* Show pointer cursor for clickable text */
+            transition: all 0.3s ease;
+            /* Smooth transition */
+        }
+
+        .info-section-informarion.expanded {
+            -webkit-line-clamp: unset;
+            /* Remove line limit */
+            overflow: visible;
+            /* Allow full visibility */
+        }
+
+
+
+        /* Movies section */
+        .cards-section {
+            padding: 40px 5%;
+            background-color: var(--primary-bg);
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+
+        .cards-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .cards-section-title {
+            font-family: var(--primary-font);
+            font-size: 1.8em;
+            color: var(--accent-color);
+        }
+
+
+        .cards-list {
+            display: flex;
+            flex-wrap: wrap;
+            /* Allow wrapping of cards */
+            justify-content: flex-start;
+        }
+
+        .card {
+            width: calc(20% - 10px);
+            /* Calculate width to fit 5 cards per row with space */
+            margin-bottom: 20px;
+            /* Space between rows */
+            background-color: var(--secondary-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            border: 1.5px solid var(--accent-color);
+            cursor: pointer;
+        }
+
+        .card:nth-child(5n+1) {
+            /* Every 5th card starts a new row */
+            margin-left: 0;
+            /* Remove margin from the first card in a new row */
+        }
+
+        .card:not(:nth-child(5n+1)) {
+            margin-left: 10px;
+            /* Set space between cards except the first in a row */
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-wrapper {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 10px 10px 0 0;
+            /* Rounded top corners */
+            margin-bottom: 5px;
+        }
+
+        .card-picture {
+            width: 100%;
+            display: block;
+        }
+
+
+        .card-title {
+            font-size: 1.3em;
+            text-align: center;
+            color: var(--accent-color);
+            margin-top: 15px;
+            margin-bottom: 3px;
+            height: 2.4em;
+            /* Height for two lines of text */
+            line-height: 1.1em;
+        }
+
+        .person-card-info {
+            font-size: 1.1em;
+            text-align: center;
+            color: var(--light-bg);
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+
+        .card-section-button-container {
+            position: relative;
+            /* Necessary for positioning the dropdown */
+        }
+
+        .card-button {
+            text-decoration: none;
+            font-family: var(--secondary-font);
+            font-size: 1.1em;
+            color: var(--light-bg);
+            transition: color 0.3s ease;
+            background: none;
+            /* No background */
+            border: none;
+            /* No border */
+            cursor: pointer;
+            /* Cursor pointer */
+            padding: 0;
+            /* No padding */
+            margin-left: 15px
+        }
+
+        .card-button:hover {
+            color: var(--accent-color);
+        }
+
+        .button-options {
+            position: absolute;
+            /* Dropdown position */
+            top: 100%;
+            /* Position below the button */
+            left: 50%;
+            /* Align to center */
+            transform: translateX(-50%);
+            /* Center the dropdown */
+            background-color: var(--secondary-bg);
+            /* Background color of dropdown */
+            border: 1.5px solid var(--accent-color);
+            /* Border for dropdown */
+            border-radius: 5px;
+            /* Rounded corners */
+            padding: 10px;
+            /* Adjusted padding inside dropdown */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            /* Shadow effect */
+            z-index: 1000;
+            /* Ensure dropdown is above other elements */
+            min-width: 195px;
+            /* Set minimum width for the dropdown */
+            max-width: 250px;
+            /* Set maximum width for the dropdown */
+        }
+
+
+        .button-options li {
+            display: flex;
+            /* Align items horizontally */
+            align-items: center;
+            /* Center vertically */
+            justify-content: space-between;
+            /* Space between text and arrows */
+            padding: 8px 10px;
+            /* Padding for options */
+            cursor: pointer;
+            /* Cursor pointer for options */
+        }
+
+        .button-options li.selected {
+            border: 1.5px solid var(--accent-color);
+            /* Yellow border for selected option */
+            border-radius: 5px;
+            /* Keep the corners rounded */
+        }
+
+
+        .button-options li:hover {
+            background-color: var(--accent-color);
+            /* Background color on hover for options */
+            color: var(--primary-bg);
+            /* Text color on hover for options */
+            border-radius: 5px;
+        }
+
+
+        .hidden {
+            display: none;
+            /* Hide the dropdown initially */
+        }
+
+
+
+
+
+
+
+
+
+
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-bg);
+            padding: 30px;
+            text-align: center;
+            color: var(--light-bg);
+            margin-top: 60px;
+            font-size: 1.2em;
+            border-top: 3px solid var(--accent-color);
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="testhome.html">
+            <div class="logo">FilmBro</div>
+        </a>
+        <nav>
+            <a href="#" onclick="toggleSearch()"><i class="fas fa-search icon"></i></a>
+            <a href="#"><img src="https://source.unsplash.com/40x40/?profile" alt="Profile" class="profile-icon"></a>
+        </nav>
+    </header>
+
+
+    <section class="cards-section">
+        <div class="cards-section-header">
+            <h2 class="cards-section-title">Full Cast & Crew</h2>
+            <div class="card-section-button-container">
+                <!-- Job Button with unique onclick and dropdown ID -->
+                <button class="card-button" onclick="toggleDropdownNew('jobOptionsNew')">Job ▼</button>
+    
+                <!-- Job Options Dropdown specific to the new section -->
+                <ul class="button-options hidden" id="jobOptionsNew">
+                    <li class="selected" data-sort="actor">Actor</li>
+                    <li data-sort="producer">Producer</li>
+                    <li data-sort="director">Director</li>
+                    <li data-sort="writer">Writer</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="cards-list">
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/rUxLWWCDUF8RnDaocSqrVDJ2MS1.jpg" class="card-picture">
+                </div>
+                <h3 class="card-title">Matthew McConaughey</h3>
+                <p class="person-card-info">Cooper</p>
+            </div>
+
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/kRYxBuUtN3vNz5pLfqCf32ZYlw2.jpg"" class=" card-picture">
+                </div>
+                <h3 class="card-title">Anne Hathaway</h3>
+                <p class="person-card-info">Brand</p>
+            </div>
+
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/bVZRMlpjTAO2pJK6v90buFgVbSW.jpg" class="card-picture">
+                </div>
+                <h3 class="card-title">Michael Caine</h3>
+                <p class="person-card-info">Professor Brand</p>
+            </div>
+
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/xRvRzxiiHhgUErl0yf9w8WariRE.jpg" class="card-picture">
+                </div>
+                <h3 class="card-title">Jessica Chastain</h3>
+                <p class="person-card-info">Murph</p>
+            </div>
+
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/vD5MtCjHPHpmU9XNn74EPGMHT7o.jpg" class="card-picture">
+                </div>
+                <h3 class="card-title">Casey Affleck</h3>
+                <p class="person-card-info">Tom</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 FilmBro. All Rights Reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+
+
+</body>
+
+
+
+<script>
+    // Toggle visibility for the new dropdown
+    function toggleDropdownNew(id) {
+        const dropdown = document.getElementById(id);
+        dropdown.classList.toggle('hidden'); // Toggle visibility
+    }
+
+    // Close the new dropdown if clicked outside
+    window.addEventListener('click', (event) => {
+        const jobOptionsNew = document.getElementById('jobOptionsNew');
+        const jobButtonNew = document.querySelector('.card-button[onclick*="jobOptionsNew"]');
+
+        // Hide the new job dropdown if clicked outside
+        if (jobOptionsNew && !jobButtonNew.contains(event.target) && !jobOptionsNew.contains(event.target)) {
+            jobOptionsNew.classList.add('hidden');
+        }
+    });
+
+    // Add event listeners for each option in the new job dropdown
+    document.querySelectorAll('#jobOptionsNew li').forEach(option => {
+        option.addEventListener('click', () => {
+            // Remove 'selected' class from all options in the new dropdown
+            document.querySelectorAll('#jobOptionsNew li').forEach(opt => opt.classList.remove('selected'));
+
+            // Add 'selected' class to clicked option
+            option.classList.add('selected');
+            console.log(`Selected new job option: ${option.dataset.sort}`);
+
+            // Close the dropdown
+            document.getElementById('jobOptionsNew').classList.add('hidden');
+        });
+    });
+
+    // Set default selected option for the new Job dropdown on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        const defaultJobOptionNew = document.querySelector('#jobOptionsNew li[data-sort="actor"]');
+        if (defaultJobOptionNew) defaultJobOptionNew.classList.add('selected');
+    });
+</script>
+
+
+
+
+
+
+</html>
