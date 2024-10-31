@@ -23,8 +23,11 @@
         font-family: 'Playfair Display', serif;
         background-color: #2C1E1A;
         color: #FFB74D;
-        line-height: 1.6;
         scroll-behavior: smooth;
+
+        /* addition thats may be are unnecessary */
+        height: 100%;
+        overflow: auto;
     }
 
     /* Color Palette */
@@ -84,30 +87,31 @@
         margin-bottom: 20px;
     }
 
+    /*
     .back-button {
         font-family: var(--primary-font);
         display: inline-block;
         padding: 0px;
         width: 20%;
         background-color: #6e4741; /* Button color */
-        color: var(--light-bg); /* Text color */
-        text-align: center;
+       /* color: var(--light-bg); /* Text color */
+        /*text-align: center;
         text-decoration: none;
         border: none;
         border-radius: 5px; /* Rounded corners */
-        font-size: 1em; /* Font size */
-        position: absolute;
+        /*font-size: 1em; /* Font size */
+       /* position: absolute;
         right: 0; /* Aligns the button to the right edge of the form */
-        bottom: 0; /* Aligns the button to the bottom of the form */
-        left: 280px;
+       /* bottom: 0; /* Aligns the button to the bottom of the form */
+       /* left: 280px;
         margin: 10px; /* Adds space around the button */
-        transition: background-color 0.3s ease, transform 0.3s ease;
+       /* transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     .back-button:hover {
         background-color: #4d3330;
         transform: scale(1.05);
-    }
+    }*/
 
     label {
         display: block;
@@ -191,8 +195,8 @@
     }
 
     /* Buttons */
-    button[type="save"],
-    button[type="cancel"] {
+    button.save-button,
+    button.cancel-button {
         font-family: var(--primary-font);
         font-size: 1em;
         padding: 10px 20px;
@@ -203,23 +207,22 @@
         transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
-    button[type="save"] {
+    button.save-button {
         background-color: #6e4741;
         color: var(--light-bg);
     }
     
-    button[type="save"]:hover {
+    button.save-button:hover {
         background-color: #4d3330;
         transform: scale(1.05);
     }
 
-    button[type="cancel"] {
+    button.cancel-button {
         background-color: #6e4741;
         color: var(--light-bg);
     }
     
-
-    button[type="cancel"]:hover {
+    button.cancel-button:hover {
         background-color: #4d3330;
         transform: scale(1.05);
     }
@@ -352,11 +355,11 @@
             <br>
 
             <div>
-                <button type="save">Save</button>
-                <button type="cancel">Cancel</button>
+                <button type="submit" class="save-button">Save</button>
+                <button type="button" class="cancel-button" onclick="window.location.href = 'myprofile.html';">Cancel</button> <!-- It sends me directly to myprofile -->
             </div>
 
-            <a href="myprofile.html" class="back-button">Back</a>
+           <!-- <a href="myprofile.html" class="back-button">Back</a> -->
         </form>
     </div>
 
@@ -364,6 +367,19 @@
      <footer>
         <p>Powered by <a href="#">FilmBro</a> | © 2024 All Rights Reserved</p>
      </footer>
+
+     <script>
+        document.getElementById("profile").onsubmit = function(event) {
+            event.preventDefault(); // Prevents the default form submission behavior
+    
+            // Perform any additional save operations here, if needed
+            // Example: Form validation, data processing, etc.
+    
+            // Redirect to 'myprofile.html' after successful submission
+            window.location.href = 'myprofile.html';
+        };
+    </script>
+    
 
      <script>
         // List of countries
