@@ -170,7 +170,7 @@
       transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
-    button .count {
+    .button-group .count {
       display: block; /* Makes it appear on a new line */
       font-size: 11px;
       color: white;
@@ -179,10 +179,45 @@
 
     .button-group button:hover{
       background-color: #416556; /* testing color*/
-     transform: scale(1.05);
+      transform: scale(1.05);
     }
 
-    /* You Might Also Like Section */ /* Favourites */
+    /* Parent Container Styles */
+    .parent-container {
+      display: flex; /* Make sure the parent is a flex container */
+      justify-content: flex-end; /* Align children to the right */
+      width: 100%; /* Ensure the parent takes full width */
+      font-size: 24px;
+    }
+
+    /* New Info Box Styles */
+    .info-container {
+      display: flex;
+      flex-direction: column; /* Stack the label and box */
+      align-items: flex-start; /* Align items to the left */
+      margin-right: 20px; /* Spacing between profile info and the info box */
+      margin-top: -110px; /* Adjust this value to move higher */
+    }
+
+    .info-box {
+       border: none; 
+       border-radius: 5px;
+       padding: 10px;
+       background-color: var(--secondary-bg); /* Light background color */
+       width: 400px; /* Set a width for the text box */
+       height: auto;
+       min-height: 100px;
+       margin-top: 5px; /* Spacing between the label and the box */
+    }
+
+    .info-box p {
+       margin: 0; /* Remove default margins for the paragraph */
+       color: white; /* Color for the text */
+       font-size: 14px; /* Font size for the paragraph */
+    }
+    
+
+/* You Might Also Like Section */ /* Favourites */
     .cards-section {
             padding: 40px 5%;
             background-color: var(--primary-bg);
@@ -402,6 +437,16 @@
             Following
             <span class="count">500</span>
           </button>
+      </div>
+
+      <!-- New Text Box Section -->
+      <div class="parent-container">
+        <div class="info-container">
+          <label>Info about me</label>
+          <div class="info-box">
+            <p>I like horror movies</p>
+          </div>
+        </div>
       </div>
 
     </div>
