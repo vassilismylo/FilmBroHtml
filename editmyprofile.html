@@ -158,7 +158,7 @@
         border-radius: 5px;
         background-color: #453531;
         color: white;
-        margin-bottom: 1px;
+        margin-bottom: 10px;
     }
 
     /* Change border color when the inputs or textare is focused */
@@ -171,6 +171,8 @@
 
     textarea {
         resize: none;
+        margin-top: -1px;
+        margin-bottom: -1px;
     }
 
     /* Crountry Dropdown */
@@ -272,6 +274,7 @@
         color: var(--light-bg);
         font-size: 14px;
         margin-bottom: 16px;
+        margin-top: -5px;
     }
 
     .custom-file-upload {
@@ -284,13 +287,91 @@
         font-size: 16px;
         text-align: center;
         transition: background-color 0.3s ease, transform 0.3s ease;
-        margin-top: 1px;
+        /*margin-top: 1px;*/
+        margin-bottom: -2px;
     }
 
     .custom-file-upload:hover {
         background-color: var(--secondary-bg); /* Hover effect color */
         transform: scale(1.05); /* Effect */
     }
+
+  /* Public or Private */
+  /* Basic styling for the options */
+  .option-container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-top: 20px;
+      color: var(--light-bg);
+      font-size: 14px;
+      /*margin-bottom: -5px;*/
+    }
+
+    /* Styling for each option */
+    .option {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .select-option label {
+      font-family: var(--primary-font);
+      color: var(--light-bg);
+      font-size: 1.2em;
+      margin-top: -20px;
+      margin-bottom: 25px;
+    }
+
+  /* Tooltip styling */
+  .tooltip {
+    visibility: hidden;
+    background-color: var(--accent-color); 
+    color: var(--primary-bg); /* color of the message box */
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+    position: absolute;
+    top: -35px;
+    left: 0;
+    width: 150px; /* Adjust width if necessary */
+    font-size: 9.5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+  }
+
+  /* Show tooltip on hover */
+  .option:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* Custom styling for square radio buttons */
+  .option input[type="radio"] {
+    display: none; /* Hide the default radio button */
+  }
+
+  .custom-radio {
+    width: 20px; /* Set the width of the square */
+    height: 20px; /* Set the height of the square */
+    border: 2px solid var(--accent-color); /* Border color */
+    border-radius: 4px; /* Slightly rounded corners */
+    display: inline-block;
+    position: relative;
+    margin-right: 8px;
+    cursor: pointer; /* Change cursor to pointer */
+  }
+
+  /* Check mark when selected */
+  .option input[type="radio"]:checked + .custom-radio {
+    background-color: var(--accent-color); /* Background color when checked */
+  }
+
+  /* Optional: Adjusting the hover state */
+  .custom-radio:hover {
+    border-color: none; /* Change border color on hover */
+  }
 
     /* Buttons */
     button.save-button,
@@ -299,7 +380,8 @@
         font-size: 1em;
         padding: 8px 16px;
         margin-right: 8px;
-        margin-top: -10px;
+        margin-top: -8px;
+        margin-bottom: -8px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
@@ -430,6 +512,27 @@
                 <textarea id="Information" name="Information" rows="4" cols="25" placeholder="Write something about yourself..."></textarea>
             </div>
             <br>
+
+            <div class="select-option"> 
+              <label>Select an option:</label>
+              <div class="option-container">
+                <!-- Private option -->
+                <label class="option">
+                  <input type="radio" name="option" value="private" required>
+                  <span class="custom-radio"></span>
+                  Private
+                  <span class="tooltip">Only your followers can see your lists, reviews and followers</span>
+                </label>
+
+                <!-- Public option -->
+                <label class="option">
+                  <input type="radio" name="option" value="public" required>
+                  <span class="custom-radio"></span>
+                  Public
+                  <span class="tooltip">ALL users can see your lists, reviews and followers</span> <!--Or visible to everyone-->
+                </label>
+              </div>
+            </div>
 
             <div>
                 <button type="submit" class="save-button">Save</button>
