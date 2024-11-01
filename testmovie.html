@@ -34,6 +34,7 @@
 
         /* Color Palette */
         :root {
+            --background-color:#2C1E1A;
             --primary-bg: #334e41;
             --accent-color: #FFB74D;
             /* Yellow */
@@ -104,7 +105,7 @@
 
 
         .movie-poster {
-            max-width: 300px;
+            width: 300px;
             /* Ensure the poster does not exceed this width */
             margin: 20px;
             /* Center the poster horizontally */
@@ -115,24 +116,21 @@
         }
 
         .movie-title {
-            font-family: var(--primary-font);
-            font-size: 2.5em;
-            margin-bottom: 5px;
-            /* Adjusted margin for spacing */
-            color: var(--accent-color);
-            display: inline-block;
-            /* Allow elements to be inline */
-        }
+    font-family: var(--primary-font);
+    font-size: 2.5em;
+    margin-bottom: 8px; /* Reduce space below the title */
+    color: var(--accent-color);
+    display: inline-block;
+    
+}
 
-        .director-name {
-            font-size: 0.9em;
-            /* Smaller font size for director's name */
-            color: var(--light-bg);
-            margin-left: 10px;
-            /* Space between title and director's name */
-            display: inline-block;
-            /* Allow elements to be inline */
-        }
+.director-name {
+    font-size: 1em;
+    color: var(--light-bg);
+    display: block;
+    margin-top: 0; /* Remove any additional space above */
+    margin-bottom: 15px; /* Space below the director name */
+}
 
 
         .movie-info {
@@ -143,29 +141,36 @@
         }
 
         .genres {
-            margin-bottom: 20px;
-            font-family: var(--secondary-font);
-            color: var(--light-bg);
-            display: flex;
-            /* Use flexbox for alignment */
-            gap: 10px;
-            /* Space between genre boxes */
-        }
+    display: flex;          /* Use flexbox for layout */
+    flex-wrap: wrap;       /* Allow genres to wrap onto multiple lines */
+    margin-bottom: 10px;   /* Space below the genres */
+}
 
-        .genre {
-            padding: 10px;
-            border: 2px solid var(--accent-color);
-            ;
-            border-radius: 15px;
-            color: var(--accent-color);
-        }
+.genre {
+    padding: 8px;                                /* Padding around genre boxes */
+    border: 2px solid var(--accent-color);       /* Border style */
+    border-radius: 15px;                          /* Rounded corners */
+    color: var(--accent-color);                   /* Text color */
+    margin-right: 10px;                           /* Space between genre boxes */
+    margin-bottom: 5px;                           /* Space below genre boxes */
+    flex: 1 0 30%;                                /* Flex item takes 30% of the row */
+    max-width: calc(33.33% - 10px);              /* Max width for three genres per line */
+    box-sizing: border-box;  
+    text-align: center;                     /* Include padding and border in the element's total width */
+}
+
 
         .movie-description {
-            max-width: 500px;
-            text-align: left;
-            font-size: 1.1em;
-            color: var(--light-bg);
-        }
+    max-width: 500px;
+    font-size: 1.1em;
+    color: var(--light-bg);
+    display: -webkit-box;
+    -webkit-line-clamp: 6; /* Limit to 6 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer; /* Indicates clickable for more */
+}
 
         /* Trailer Button */
         .trailer-button {
@@ -298,27 +303,17 @@
             /* Show on hover */
         }
 
-
-        .left-column {
-            width: 32%;
-        }
-
-        .middle-column {
-            width: 34%;
-        }
-
-        .right-column {
-            width: 32%;
-            padding-left: 60px;
-        }
+        
 
 
         /* Updated Watch Table Styling */
         .watch-table-container {
-            width: 100%;
+            margin: 30px;
+            width: 270px;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            
             /* Subtle shadow around the table */
         }
 
@@ -361,7 +356,7 @@
 
         /* Table Body */
         .watch-table tbody {
-            background-color: #2C1E1A;
+            background-color: var(--background-color);
             /* Change this to your desired background color */
         }
 
@@ -809,7 +804,7 @@
 
     <!-- Movie Details Section -->
     <section class="movie-details">
-        <div class="left-column">
+        <div>
             <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" class="movie-poster">
 
             <!-- Buttons Below the Poster -->
@@ -825,9 +820,9 @@
                 </div>
             </div>
         </div>
-        <div class="center-column">
+        <div>
             <h1 class="movie-title">Interstellar</h1>
-            <span class="director-name">Christopher Nolan</span>
+            <span class="director-name"> Directed By Christopher Nolan</span>
             <div class="movie-info">
                 <p>Release Year: 2014</p>
                 <p>Duration: 169 minutes</p>
@@ -842,9 +837,9 @@
                 <i class="fas fa-play"></i>
                 Trailer
             </button>
-            <p class="movie-description">The adventures of a group of explorers who make use of a newly discovered
+            <p class="movie-description" onclick="toggleDescription()" data-expanded="false">The adventures of a group of explorers who make use of a newly discovered
                 wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an
-                interstellar voyage.</p>
+                interstellar voyage. </p>
 
             <!-- Ratings Section -->
             <div class="ratings">
@@ -868,7 +863,7 @@
             </div>
         </div>
 
-        <div class="right-column">
+        <div>
             <div class="watch-table-container">
                 <div class="table-title-row">Where to Watch in: Greece</div>
                 <table class="watch-table">
@@ -1233,6 +1228,21 @@
             }
         }
     </script>
+
+<script>
+    function toggleDescription() {
+        const description = document.querySelector(".movie-description");
+        if (description.getAttribute("data-expanded") === "true") {
+            description.setAttribute("data-expanded", "false");
+            description.style.display = "-webkit-box";
+            description.style.webkitLineClamp = "6";
+        } else {
+            description.setAttribute("data-expanded", "true");
+            description.style.display = "block";
+            description.style.webkitLineClamp = "unset";
+        }
+    }
+</script>
 
 </body>
 
