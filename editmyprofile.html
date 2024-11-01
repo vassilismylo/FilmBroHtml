@@ -124,19 +124,19 @@
     /* Form Section */
     form#profile {
         max-width: 800px;
-        width: 43%;
+        width: 35%;
         margin: 0 auto;
         background-color: rgba(62, 39, 35, 1); /* Fully opaque */
         color: var(--accent-color);
-        padding: 30px;
+        padding: 15px;
         border-radius: 10px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for a lighter appearance */
         position: relative;
-        padding-bottom: 50px;
+        padding-bottom: 20px;
     }
 
     form div {
-        margin-bottom: 20px;
+        margin-bottom: 8px;
     }
 
 
@@ -144,7 +144,7 @@
         display: block;
         font-size: 1.2em;
         color: var(--light-bg);
-        margin-bottom: 5px;
+        margin-bottom: 4px;
     }
 
     input[type="text"],
@@ -152,12 +152,13 @@
     input[type="file"],
     textarea {
         width: 100%;
-        padding: 10px;
+        padding: 8px;
         font-family: 'Playfair Display', serif;
         border: 2px solid #453531;
         border-radius: 5px;
         background-color: #453531;
         color: white;
+        margin-bottom: 1px;
     }
 
     /* Change border color when the inputs or textare is focused */
@@ -176,13 +177,14 @@
     .country-dropdown {
         display: flex; /* Use flexbox to align items */
         align-items: center; /* Center items vertically */
-        margin-bottom: 20px; /* Add margin to separate from other elements */
+        margin-bottom: 1px; /* Add margin to separate from other elements */
+        margin-top: 14px;
         transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     .country-dropdown label {
         position: relative;
-        margin-right: 10px; /* Space between label and dropdown */
+        margin-right: 8px; /* Space between label and dropdown */
         font-size: 1.2em; /* Adjust font size if needed */
         color: var(--light-bg); /* Ensure label color matches */
     }
@@ -190,7 +192,7 @@
     .country-dropdown select {
         border: none;
         background-color: var(--hover-bg);
-        padding: 10px;
+        padding: 8px;
         border-radius: 5px;
         cursor: pointer;
         appearance: none;
@@ -205,13 +207,13 @@
     .streaming-dropdown {
         display: flex;
         align-items: center; /* Change to flex-start to allow label to adjust its position */
-        margin-bottom: 20px; /* Space below the dropdown */
+        margin-bottom: 1px; /* Space below the dropdown */
         transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     .streaming-dropdown label {
         position: relative;
-        margin-right: 10px; /* Space between label and dropdown */
+        margin-right: 8px; /* Space between label and dropdown */
         font-size: 1.2em; /* Adjust font size if needed */
         color: var(--light-bg); /* Ensure label color matches */
     }
@@ -226,7 +228,7 @@
     .dropdown-select {
         border: none;
         background-color: var(--hover-bg);
-        padding: 10px;
+        padding: 8px;
         border-radius: 5px;
         cursor: pointer;
         appearance: none;
@@ -235,7 +237,7 @@
         width: 250px; /* Adjust width to fit design */
         font-family: var(--primary-font);
         text-align: center;
-        margin-top: 40px; /* Moves the dropdown box lower */
+        margin-top: 20px; /* Moves the dropdown box lower */
     }
 
     .dropdown-content {
@@ -251,12 +253,13 @@
 
     .dropdown-content label {
         display: block;
-        padding: 10px;
+        padding: 8px;
         color: white;
+        font-size: 14px;
     }
 
     .dropdown-content input[type="checkbox"] {
-        margin-right: 10px;
+        margin-right: 8px;
     }
 
     .show {
@@ -264,14 +267,16 @@
     }
 
     #selected-services {
-        margin-top: 10px;
+        /*margin-top: 8px;*/
         /*font-weight: bold;*/
         color: var(--light-bg);
+        font-size: 14px;
+        margin-bottom: 16px;
     }
 
     .custom-file-upload {
         display: inline-block;
-        padding: 0.5em 1em;
+        padding: 0.5em 0.8em;
         color: white;
         background-color: var(--hover-bg);
         border-radius: 5px;
@@ -279,6 +284,7 @@
         font-size: 16px;
         text-align: center;
         transition: background-color 0.3s ease, transform 0.3s ease;
+        margin-top: 1px;
     }
 
     .custom-file-upload:hover {
@@ -291,8 +297,9 @@
     button.cancel-button {
         font-family: var(--primary-font);
         font-size: 1em;
-        padding: 10px 20px;
-        margin-right: 10px;
+        padding: 8px 16px;
+        margin-right: 8px;
+        margin-top: -10px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
@@ -415,7 +422,7 @@
                 <label for="photo" class="custom-file-upload">Choose File</label>
 
                 <!-- Message -->
-                <small style="display: block; margin-top: 0.5em; color: white;">Please upload a clear image. Accepted formats: JPG, PNG.</small> <!-- other option for color d8bca9 -->
+                <small style="display: block; margin-top: 0.6em; color: white;">Please upload a clear image. Accepted formats: JPG, PNG.</small> <!-- other option for color d8bca9 -->
             </div>
             
             <div>
@@ -514,6 +521,9 @@
                 .join(', ');
             const displayDiv = document.getElementById('selected-services');
             displayDiv.textContent = selectedOptions ? 'You selected: ' + selectedOptions : 'You selected: None';
+
+            // Keep the dropdown open after selection
+            toggleDropdown();
         }
 
         // Close the dropdown if the user clicks outside of it
