@@ -172,6 +172,7 @@
         resize: none;
     }
 
+    /* Crountry Dropdown */
     .country-dropdown {
         display: flex; /* Use flexbox to align items */
         align-items: center; /* Center items vertically */
@@ -180,6 +181,7 @@
     }
 
     .country-dropdown label {
+        position: relative;
         margin-right: 10px; /* Space between label and dropdown */
         font-size: 1.2em; /* Adjust font size if needed */
         color: var(--light-bg); /* Ensure label color matches */
@@ -197,6 +199,74 @@
         width: 150px; /* Adjust width to fit design */
         font-family: var(--primary-font);
         text-align: center;
+    }
+
+    /* Streaming Services Dropdown*/
+    .streaming-dropdown {
+        display: flex;
+        align-items: center; /* Change to flex-start to allow label to adjust its position */
+        margin-bottom: 20px; /* Space below the dropdown */
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .streaming-dropdown label {
+        position: relative;
+        margin-right: 10px; /* Space between label and dropdown */
+        font-size: 1.2em; /* Adjust font size if needed */
+        color: var(--light-bg); /* Ensure label color matches */
+    }
+    
+   /* .dropdown {
+            position: relative;
+            margin-left: 10px; /* Space between label and dropdown */
+          /*  font-size: 1.2em; /* Adjust font size if needed */
+          /*  color: var(--light-bg); /* Ensure label color matches */
+   /*}*/
+
+    .dropdown-select {
+        border: none;
+        background-color: var(--hover-bg);
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        appearance: none;
+        font-size: 16px;
+        color: white;
+        width: 250px; /* Adjust width to fit design */
+        font-family: var(--primary-font);
+        text-align: center;
+        margin-top: 40px; /* Moves the dropdown box lower */
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: var(--hover-bg);
+        min-width: 200px;
+        /*border: 1px solid #ccc;*/
+        z-index: 1;
+        border-radius: 5px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .dropdown-content label {
+        display: block;
+        padding: 10px;
+        color: white;
+    }
+
+    .dropdown-content input[type="checkbox"] {
+        margin-right: 10px;
+    }
+
+    .show {
+        display: block;
+    }
+
+    #selected-services {
+        margin-top: 10px;
+        /*font-weight: bold;*/
+        color: var(--light-bg);
     }
 
     .custom-file-upload {
@@ -308,7 +378,32 @@
                 <label for="country">Country:</label>
                 <select id="country" name="country"></select>
             </div>
-  
+
+            <!-- Streaming Services Dropdown-->
+             <div class="streaming-dropdown">
+                <label for="streaming">Streamnig Services:</label>
+                <div class="dropdown" id="streaming-dropdown">
+                    <div class="dropdown-select" onclick="toggleDropdown()">
+                        Streaming Services
+                    </div>
+                    <div class="dropdown-content" id="dropdown-content">
+                        <label>
+                            <input type="checkbox" value="Netflix" onchange="updateSelectedServices()"> Netflix
+                        </label>
+                        <label>
+                            <input type="checkbox" value="Disney Plus" onchange="updateSelectedServices()"> Disney Plus
+                        </label>
+                        <label>
+                            <input type="checkbox" value="Apple TV" onchange="updateSelectedServices()"> Apple TV
+                        </label>
+                        <label>
+                            <input type="checkbox" value="Prime Video" onchange="updateSelectedServices()"> Prime Video
+                        </label>
+                    </div>
+                </div>
+             </div>
+
+             <div id="selected-services">You selected: None</div>
                     
             <div>
                 <label for="photo">Profile photo:</label>
@@ -405,6 +500,32 @@
         });
 
       </script>
+
+    <script>
+        function toggleDropdown() {
+            document.getElementById("dropdown-content").classList.toggle("show");
+        }
+
+        function updateSelectedServices() {
+            const checkboxes = document.querySelectorAll('.dropdown-content input[type="checkbox"]');
+            const selectedOptions = Array.from(checkboxes)
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => checkbox.value)
+                .join(', ');
+            const displayDiv = document.getElementById('selected-services');
+            displayDiv.textContent = selectedOptions ? 'You selected: ' + selectedOptions : 'You selected: None';
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-select')) {
+                const dropdowns = document.getElementsByClassName("dropdown-content");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    dropdowns[i].classList.remove('show');
+                }
+            }
+        }
+        </script>
 
 </body>
 </html>
