@@ -88,156 +88,188 @@
       margin: 0;
     }
 
-    /* Profile Header */
-    .profile-header {
-      display: flex;
-      padding: 60px 5%;
-      background-color: var(--primary-bg);
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 30px;
-      margin-bottom: 30px;
-      border-radius: 5px;
-      /*width: 100%;*/  
-      /*box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
-      /* color: var(--accent-color);*/
+  /* Profile Header */
+  /* Container for Left and Right Sections */
+  .container {
+      display: flex; /* Use flexbox for layout */
+      padding: 40px 5%; /* Add padding around the container */
+      background-color: var(--primary-bg); /* Background color */
+      margin-top: 30px; /* Margin for top spacing */
+      margin-bottom: 30px; /* Margin for bottom spacing */
+      border-radius: 5px; /* Rounded corners */
+  }
+
+  /* Left Section Styles */
+  .left-section {
+      flex: 1; /* Take equal space */
+      display: flex; /* Flex for inner layout */
+      flex-direction: column; /* Stack profile components */
+  }
+
+  /* Profile Header */
+  .profile-header {
+      display: flex; /* Use flex layout */
+      align-items: flex-start; /* Align items to the start */
       font-family: var(--primary-font);
-      /*margin-bottom: 0; /* Reduces space below the profile header */
-    }
+  }
 
-    .profile-photo {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: #ddd;
-      display: inline-block;
-      cursor: pointer;
-      margin-right: 20px;
-      font-size: 14px;
-      color: #888;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-    }
+  /* Profile Photo */
+  .profile-photo {
+      width: 200px; /* Size for the cycle */
+      height: 200px;
+      border-radius: 50%; /* Circular shape */
+      background: #ddd; /* Background color */
+      cursor: pointer; /* Pointer cursor */
+      margin-right: 30px; /* Space between photo and info */
+      margin-left: 70px; /* Left margin for centering */
+      /*margin-top: 30px; /* Pull photo higher */
+      font-size: 16px; /* Font size for photo text */
+      color: #888; /* Color for text */
+      display: flex; /* Flex for centering */
+      align-items: center; /* Center vertically */
+      justify-content: center; /* Center horizontally */
+      font-weight: bold; /* Bold text */
+  }
 
-    .profile-info {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 5px;
-    }
+  /* Profile Info Styles */
+  .profile-info {
+      flex-grow: 1; /* Allow it to grow */
+      display: flex; /* Flex layout */
+      flex-direction: column; /* Stack vertically */
+      align-items: flex-start; /* Align left */
+      gap: 5px; /* Spacing between elements */
+      padding-top: 30px; /* Padding for top spacing */
+      margin: 0 56px; /* Space between photo and buttons & name*/
+  }
 
-    .profile-header-content {
-      display: flex;
-      align-items: center; 
-      gap: 10px;
-    }
+  /* Profile Header Content */
+  .profile-header-content {
+      display: flex; /* Flex for alignment */
+      align-items: center; /* Center items */
+      gap: 10px; /* Spacing between elements */
+      margin-left: 70px;
+      font-size: 20px;
+  }
 
-    .profile-info h2 {
-      margin: 0;
-      font-size: 24px;
-    }
+  /* Profile Info Heading */
+  .profile-info h2 {
+    width: 100%;
+    max-width: 400px;
+    padding: 0px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px
+    /*margin: 0; /* Remove default margin */
+  }
 
-    .edit-button {
-      background-color: var(--secondary-bg);
-      color: white;
-      border: none;
-      padding: 6px 12px;
-      cursor: pointer;
-      border-radius: 5px;
-      font-size: 12px;
-      cursor: pointer; /* not sure if its necessary */
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-    
-    .edit-button:hover{
-      background-color: #416556; /* testing color*/
-      transform: scale(1.05);
-    }
+/* Button Styles */
+  .button-group {
+    display: flex; /* Flex layout */
+    justify-content: space-between; /* Space between buttons */
+    gap: 15px; /* Spacing */
+    margin: 5px 0; /* Vertical margin */
+  }
 
-    .button-group {
-      display: flex;
-      justify-content: flex-start;
-      gap: 15px;
-      margin: 5px 0;
-    }
+  .button-group button {
+    background-color: var(--secondary-bg); /* Button background */
+    color: white; /* Text color */
+    border: none; /* No border */
+    padding: 12px 24px; /* Padding for buttons */
+    cursor: pointer; /* Pointer cursor */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 14px; /* Font size */
+    margin-left: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition for effects */
+    /*margin: 0 5px ;*/
+  }
 
-    .button-group button {
-      background-color: var(--secondary-bg);
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      border-radius: 5px;
-      font-size: 12px;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
+  /* Button Hover Effects */
+  .edit-button:hover, .logout-button:hover, 
+  .follower-following-buttons button:hover {
+      background-color: #416556; /* Testing hover color */
+      transform: scale(1.05); /* Scale effect on hover */
+  }
 
-    .button-group .count {
-      display: block; /* Makes it appear on a new line */
-      font-size: 11px;
-      color: white;
-      margin-top: 4px; /* Adds a bit of spacing between the text and the number */
-    }
+  /* Follower/Following Buttons */
+  .follower-following-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 5px 0;
+  }
+  
+  .follower-following-buttons button {
+    background-color: var(--secondary-bg);
+    color: white;
+    margin-right: 48px;
+    margin-left: -40px;
+    border: none;
+    padding: 12px 40px; /* The second number it the horizontal padding */
+    cursor: pointer;
+    border-radius: 8px;
 
-    .button-group button:hover{
-      background-color: #416556; /* testing color*/
-      transform: scale(1.05);
-    }
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.3s ease;   
+  }
 
-    /* Parent Container Styles */
-    .parent-container {
-      display: flex; /* Make sure the parent is a flex container */
-      justify-content: flex-end; /* Align children to the right */
-      width: 100%; /* Ensure the parent takes full width */
-      font-size: 24px;
-    }
+  .follower-following-buttons .count {
+    display: block; /* Makes it appear on a new line */
+    font-size: 12px;
+    color: white;
+    margin-top: 6px; /* Adds a bit of spacing between the text and the number */
+  }
 
-    /* New Info Box Styles */
-    .info-container {
-      display: flex;
-      flex-direction: column; /* Stack the label and box */
-      align-items: flex-start; /* Align items to the left */
-      margin-right: 20px; /* Spacing between profile info and the info box */
-      margin-top: -110px; /* Adjust this value to move higher */
-    }
+  .follower-following-buttons button:hover{
+    background-color: #416556; /* testing color*/
+    transform: scale(1.05);
+  }
 
-    /*.info-box {
-       border: none; 
-       border-radius: 5px;
-       padding: 10px;
-       background-color: var(--secondary-bg); /* Light background color */
-      /* width: 400px; /* Set a width for the text box */
-      /* height: auto;
-       min-height: 100px;
-       margin-top: 5px; /* Spacing between the label and the box */
-    /*}*/
+  /* Right Section Styles */
+  .right-section {
+      flex: 1; /* Take equal space */
+      padding: 20px; /* Padding inside the right section */
+  }
 
-    .info-box p {
-       margin: 0; /* Remove default margins for the paragraph */
-       color: white; /* Color for the text */
-       font-size: 14px; /* Font size for the paragraph */
+  /* Info Container Styles */
+  .info-container {
+      display: flex; /* Flex layout */
+      flex-direction: column; /* Stack vertically */
+      align-items: flex-start; /* Align left */
+      margin-top: 50px; /* Adjust this value to move higher */
+  }
 
-       display: -webkit-box;
-       -webkit-box-orient: vertical;
-       overflow: hidden;
-       -webkit-line-clamp: 13;
-       cursor: pointer;
-       /* Show pointer cursor for clickable text */
-       transition: all 0.3s ease;
-       /* Smooth transition */
-    }
+  /* Info Box Styles */
+  /*.info-box {
+      border: none; /* No border */
+    /*  border-radius: 5px; /* Rounded corners */
+   /*   padding: 10px; /* Padding */
+   /*   background-color: var(--secondary-bg); /* Light background color */
+  /*    width: 100%; /* Full width */
+    /*  height: auto; /* Automatic height */
+   /*   min-height: 100px; /* Minimum height */
+   /*   margin-top: 5px; /* Spacing */
+ /* }*/
 
-    .info-box.expanded {
-      -webkit-line-clamp: unset;
-      /* Remove line limit */
-      overflow: visible;
-      /* Allow full visibility */
-    }
-    
+  /* Paragraph Styles in Info Box */
+  .info-box p {
+      margin: 0; /* Remove default margins */
+      color: white; /* Text color */
+      font-size: 14px; /* Font size */
+      display: -webkit-box; /* Box for clamping */
+      -webkit-box-orient: vertical; /* Vertical orientation */
+      overflow: hidden; /* Hide overflow */
+      -webkit-line-clamp: 4; /* Limit to 4 lines */
+      cursor: pointer; /* Pointer cursor */
+      transition: all 0.3s ease; /* Smooth transition */
+      font-family: var(--primary-font);
+  }
+
+  /* Expanded Info Box */
+  .info-box.expanded {
+      -webkit-line-clamp: unset; /* Remove line limit */
+      overflow: visible; /* Allow full visibility */
+  }
+
 
 /* You Might Also Like Section */ /* Favourites */
     .cards-section {
@@ -434,57 +466,53 @@
     <div class="logo">FilmBro</div>
   </header>
 
-  <!-- Space Between Header and Profile Header -->
-  <!--<div class="header-spacing"></div>-->
-
   <!-- Profile Header with Photo, Name, and Edit Button -->
-  <div class="profile-header">
+  <div class="container">
+    <div class="left-section">
+        <!-- Profile Header with Photo, Name, and Buttons -->
+        <div class="profile-header">
+            <div class="profile-photo" onclick="alert('Change profile photo')">
+                + Photo
+            </div>
 
-    <div class="profile-photo" onclick="alert('Change profile photo')">
-        + Photo
-    </div>
-    <div class="profile-info">
+            <div class="profile-info">
+                <div class="profile-header-content">
+                    <h2>Name</h2>
+                </div>
 
-      <div class="profile-header-content">
-        <h2>Name</h2>
-        <button class="edit-button" onclick="window.location.href='editmyprofile.html'">Edit ✎</button>
-      </div>
+                <div class="button-group">
+                    <button class="edit-button" onclick="window.location.href='editmyprofile.html'">Edit ✎</button>
+                    <button class="logout-button">Logout</button>
+                </div>
 
-      <div class="button-group">
-          <button>
-            Followers
-            <span class="count">526</span>
-          </button>
-          <button>
-            Following
-            <span class="count">500</span>
-          </button>
-      </div>
-
-      <!-- New Text Box Section -->
-      <div class="parent-container">
-        <div class="info-container">
-          <!--<label>Info about me</label>-->
-          <div class="info-box" onclick="toggleText(this)">
-            <p>I have a deep appreciation for films that deliver powerful</p>
-            <p>narratives and emotional depth, such as Inception, The Shawshank Redemption, and Eternal Sunshine of the</p>
-            <p>Spotless Mind. Each of these movies showcases remarkable storytelling and exceptional p/erformances that</p>
-            <p>leave a lasting impression on me. Christopher Nolan and Charlie Kaufman are my favorite writers, as they<p>
-            <p>craft intricate plots and explore complex themes that challenge the viewer’s perception of reality and</p>
-            <p>relationships. I am particularly drawn to the versatility of actors like Leonardo DiCaprio, whose intense</p>
-            <p>portrayals in films like The Revenant and The Wolf of Wall Street are nothing short of mesmerizing.</p>
-            <p>Meryl Streep’s ability to embody diverse characters with grace and authenticity, as seen in The Devil Wears</p>
-            <p>Prada and Sophie's Choice, is truly inspiring. Kate Winslet’s powerful performances, especially in Titanic</p> 
-            <p>and Eternal Sunshine of the Spotless Mind, resonate deeply with me. Together, these films and talents not only</p>
-            <p>entertain but also provoke thought and evoke a wide range of emotions, making cinema an essential part of my</p>
-            <p>life and a source of inspiration.</p>
-          </div>
+                <div class="follower-following-buttons">
+                    <button>
+                        Followers
+                        <span class="count">526</span>
+                    </button>
+                    <button>
+                        Following
+                        <span class="count">500</span>
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
-
     </div>
 
-  </div>
+    <div class="right-section">
+        <!-- Info Box Section -->
+        <div class="info-container">
+            <div class="info-box">
+                <p>
+                    I enjoy movies that provoke thought and evoke emotions, such as Inception and The Dark Knight. 
+                    Filmmakers like Nolan inspire me with their storytelling. I also admire performances by actors like 
+                    DiCaprio and Streep for their depth and versatility.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
 
   <!-- Favourite Movies Section -->
   <section class="cards-section">
