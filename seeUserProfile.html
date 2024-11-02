@@ -9,6 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="cardSection.css">  
+
 
   <style>
 
@@ -195,125 +197,7 @@
     border-bottom-left-radius: 5px;   /* No rounding for bottom left */
     border-bottom-right-radius: 5px;
 }
- /* Favourites */
-    .cards-section {
-            padding: 40px 5%;
-            background-color: var(--primary-bg);
-            margin-top: 0px;
-            border-radius: 5px;
-    }
 
-    .cards-section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-    }
-
-        .cards-section-title {
-            font-family: var(--primary-font);
-            font-size: 1.8em;
-            color: var(--accent-color);
-        }
-
-        .view-more {
-            text-decoration: none;
-            font-family: var(--secondary-font);
-            font-size: 1.1em;
-            color: var(--light-bg);
-            transition: color 0.3s ease;
-        }
-
-        .view-more:hover {
-            color: var(--accent-color);
-        }
-
-        .cards-list {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .card {
-            width: 18%;
-            background-color: var(--secondary-bg);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            padding-bottom: 10px;
-            border: 1.5px solid var(--accent-color);
-            cursor: pointer;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .card-wrapper {
-            width: 100%;
-            overflow: hidden;
-            border-radius: 10px 10px 0 0;
-            /* Rounded top corners, sharp bottom corners */
-            margin-bottom: 5px;
-        }
-
-        .card-picture {
-            width: 100%;
-            display: block;
-        }
-
-        .card-rating {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            margin-bottom: 5px;
-            color: var(--accent-color);
-        }
-
-        .card-rating i {
-            color: var(--accent-color);
-        }
-
-        .rating-score {
-            font-size: 1.2em;
-            font-family: var(--secondary-font);
-            color: var(--light-bg);
-        }
-
-        .card-title {
-            font-size: 1.3em;
-            /* Font size as needed */
-            text-align: center;
-            color: var(--accent-color);
-            margin-top: 15px;
-            margin-bottom: 10px;
-            height: 2.4em;
-            /* Height for two lines of text */
-            line-height: 1.0em;
-            /* Set the line height */
-            -webkit-box-orient: vertical;
-            /* Vertical orientation for the box */
-        }
-
-        .movie-card-info {
-            font-size: 1.1em;
-            text-align: center;
-            color: var(--light-bg);
-            margin-top: 15px;
-            margin-bottom: 5px;
-        }
-
-
-        .person-card-info {
-            font-size: 1.1em;
-            text-align: center;
-            color: var(--light-bg);
-            margin-top: 15px;
-            margin-bottom: 5px;
-        }
-    
     /* Footer */
     footer {
             background-color: var(--primary-bg);
@@ -376,7 +260,7 @@
                 + Photo
             </div>
             <div class="profile-name">
-                <h2 class="profile-name">my_username</h2>
+                <h2 class="profile-name">username12345</h2>
                 <div class="button-group">
                     <button>
                         Followers
@@ -481,75 +365,6 @@
     </div>
 
 </section>
-<!-- Watchlist Section -->
-<section class="cards-section">
-    <div class="cards-section-header">
-        <h2 class="cards-section-title">Watchlist</h2>
-    </div>
-    <div class="cards-list">
-        <div class="card">
-            <div class="card-wrapper">
-                <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" class="card-picture">
-            </div>
-            <div class="card-rating">
-                <i class="fas fa-star"></i>
-                <span class="rating-score">8.7</span>
-            </div>
-            <h3 class="card-title">Interstellar</h3>
-            <p class="movie-card-info">2014 | 169 min</p>
-        </div>
-
-        <div class="card">
-            <div class="card-wrapper">
-                <img src="https://image.tmdb.org/t/p/w500/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg" class="card-picture">
-            </div>
-            <div class="card-rating">
-                <i class="fas fa-star"></i>
-                <span class="rating-score">9.0</span>
-            </div>
-            <h3 class="card-title">The Lord of the Rings: The Return of the King</h3>
-            <p class="movie-card-info">2003 | 201 min</p>
-        </div>
-
-        <div class="card">
-            <div class="card-wrapper">
-                <img src="https://image.tmdb.org/t/p/w500/or1gBugydmjToAEq7OZY0owwFk.jpg" class="card-picture">
-            </div>
-            <div class="card-rating">
-                <i class="fas fa-star"></i>
-                <span class="rating-score">8.3</span>
-            </div>
-            <h3 class="card-title">Braveheart</h3>
-            <p class="movie-card-info">1995 | 178 min</p>
-        </div>
-
-        <div class="card">
-            <div class="card-wrapper">
-                <img src="https://image.tmdb.org/t/p/w500/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg" class="card-picture">
-            </div>
-            <div class="card-rating">
-                <i class="fas fa-star"></i>
-                <span class="rating-score">8.8</span>
-            </div>
-            <h3 class="card-title">Fight Club</h3>
-            <p class="movie-card-info">1999 | 199 min</p>
-        </div>
-
-        <div class="card">
-            <div class="card-wrapper">
-                <img src="https://image.tmdb.org/t/p/w500/1hRoyzDtpgMU7Dz4JF22RANzQO7.jpg" class="card-picture">
-            </div>
-            <div class="card-rating">
-                <i class="fas fa-star"></i>
-                <span class="rating-score">9.0</span>
-            </div>
-            <h3 class="card-title">The Dark Knight</h3>
-            <p class="movie-card-info">2008 | 152 min</p>
-        </div>
-    </div>
-
-</section>
-
 
  
 
