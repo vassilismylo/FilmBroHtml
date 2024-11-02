@@ -95,6 +95,7 @@
         }
 
         /* Profile Image */
+        /* Profile Image */
         .profile-icon {
             width: 40px;
             height: 40px;
@@ -108,90 +109,6 @@
             transform: scale(1.1);
         }
 
-        .user {
-
-            margin: 15px;
-            top: 0;
-            right: 0;
-            position: absolute;
-
-        }
-
-        #us_menu {
-
-            background-color: #334e41;
-            border: none;
-            border-radius: 100%;
-            cursor: pointer;
-            padding: 5.5px;
-            position: absolute;
-            right: 0;
-            top: 0;
-
-        }
-
-        .us_opt {
-
-            border-radius: 5px;
-            position: absolute;
-            display: block;
-            padding: 5px;
-            top: calc(100% + 43px);
-            right: 0;
-            background-color: #334e41;
-
-        }
-
-        .us_opt a {
-
-            display: block;
-            padding: 5px;
-            font-family: 'Open Sans', Verdana, Helvetica, sans-serif;
-            font-size: 14px;
-            color: #FFB74D;
-            text-decoration: none;
-        }
-
-        #us_menu:hover {
-            background-color: #334e41;;
-        }
-
-        .user:hover .us_opt {
-
-            pointer-events: auto;
-            opacity: 1;
-        }
-
-        .us_opt a:hover {
-            border-radius: 5px;
-            background-color:#334e41;
-        }
-
-        .us_opt:hover {
-            background-color: #334e41;
-        }
-
-        #us_icon {
-            background-color: transparent;
-            height: 31px;
-        }
-
-        #us_menu {
-
-            transition-duration: 0.3s;
-
-        }
-        .us_opt a {
-
-            transition-duration: 0.3s;
-        }
-
-        .us_opt {
-
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
 
 
         /* Hero Section */
@@ -556,6 +473,245 @@
             cursor: pointer;
             float: right;
         }
+
+        /* User Reviews Section */
+        .user-reviews-title {
+            font-family: var(--primary-font);
+            font-size: 1.8em;
+            color: var(--accent-color);
+        }
+
+        .user-reviews-options a {
+            text-decoration: none;
+            font-family: var(--secondary-font);
+            font-size: 1.1em;
+            color: var(--light-bg);
+            margin-left: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .user-reviews-options a:hover {
+            color: var(--accent-color);
+        }
+
+        .user-reviews-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .review-card {
+            width: calc(50% - 20px);
+            background-color: var(--secondary-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            /* Keep flex display */
+            align-items: flex-start;
+            /* Align items to the start vertically */
+            padding: 15px;
+            gap: 15px;
+            /* Gap between elements */
+            border: 1.5px solid var(--accent-color);
+            /* Add border around text */
+            border-radius: 15px;
+            /* Optional: rounded corners for the border */
+            padding: 20px;
+            /* Add some padding inside the border */
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .write-review-card {
+            width: calc(50% - 20px);
+            background-color: var(--secondary-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            /* Keep flex display */
+            align-items: flex-start;
+            /* Align items to the start vertically */
+            padding: 15px;
+            gap: 15px;
+            /* Gap between elements */
+            border: 1.5px solid var(--accent-color);
+            /* Add border around text */
+            border-radius: 15px;
+            /* Optional: rounded corners for the border */
+            padding: 20px;
+            /* Add some padding inside the border */
+        }
+
+        .write-review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .write-review-text:hover {
+            color: var(--hover-light-bg);
+        }
+
+
+
+
+
+
+
+        .user-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .review-content {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .username {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .review-text {
+            font-size: 0.9em;
+            /* Text size */
+            color: var(--light-bg);
+            /* Text color */
+            line-height: 1.4;
+            /* Line height for spacing */
+            overflow: hidden;
+            /* Hide overflow */
+            text-overflow: ellipsis;
+            /* Show ellipsis when text overflows */
+            display: -webkit-box;
+            /* Use flexbox for the text */
+            -webkit-box-orient: vertical;
+            /* Define the box orientation */
+            -webkit-line-clamp: 3;
+            /* Limit to 3 lines */
+            cursor: pointer;
+        }
+
+        .review-text:hover {
+            color: var(--hover-light-bg);
+        }
+
+        .user-rating {
+            display: inline-block;
+        }
+
+        .stars {
+            font-size: 1.5em;
+            /* Size of the stars */
+            color: var(--accent-color);
+            /* Color for filled stars */
+        }
+
+        /* Hide all stars initially */
+        .stars::before {
+            content: "☆☆☆☆☆☆☆☆☆☆";
+            /* Ten empty stars */
+            letter-spacing: 2px;
+            /* Space between stars */
+        }
+
+        /* Display the right amount of filled stars based on data-rating */
+        .stars[data-rating="1"]::before {
+            content: "★☆☆☆☆☆☆☆☆☆";
+        }
+
+        .stars[data-rating="2"]::before {
+            content: "★★☆☆☆☆☆☆☆☆";
+        }
+
+        .stars[data-rating="3"]::before {
+            content: "★★★☆☆☆☆☆☆☆";
+        }
+
+        .stars[data-rating="4"]::before {
+            content: "★★★★☆☆☆☆☆☆";
+        }
+
+        .stars[data-rating="5"]::before {
+            content: "★★★★★☆☆☆☆☆";
+        }
+
+        .stars[data-rating="6"]::before {
+            content: "★★★★★★☆☆☆☆";
+        }
+
+        .stars[data-rating="7"]::before {
+            content: "★★★★★★★☆☆☆";
+        }
+
+        .stars[data-rating="8"]::before {
+            content: "★★★★★★★★☆☆";
+        }
+
+        .stars[data-rating="9"]::before {
+            content: "★★★★★★★★★☆";
+        }
+
+        .stars[data-rating="10"]::before {
+            content: "★★★★★★★★★★";
+        }
+
+        .like-section {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            /* Aligns items to the right */
+            margin-top: auto;
+            /* Pushes the like section to the bottom */
+        }
+
+        .like-button {
+            background-color: transparent;
+            /* No background color */
+            border: none;
+            /* Remove default button border */
+            color: var(--light-bg);
+            /* Initial heart color */
+            font-size: 1.5em;
+            /* Size of the heart */
+            cursor: pointer;
+            /* Change cursor to pointer */
+            transition: color 1s ease;
+            /* Smooth transition for color change */
+
+        }
+
+        .like-button.liked {
+            color: var(--accent-color);
+            /* Color when liked */
+        }
+
+        .like-count {
+            margin-left: 5px;
+            /* Space between button and count */
+            font-size: 1em;
+            /* Size of the like count */
+            color: var(--light-bg);
+            /* Color of the like count */
+        }
     </style>
 </head>
 
@@ -570,16 +726,7 @@
             <a href="#">Your Activity</a>
             <!-- Search Icon -->
             <a href="#" onclick="toggleSearch()"><i class="fas fa-search icon"></i></a>
-            <div class="user">
-                <button id="us_menu">
-                    <i class="fa-regular fa-user"></i>
-                </button>
-                <div class="us_opt">
-                    <a href="">Χρήστης</a>
-                    <a href="">Ρυθμίσεις</a>
-                    <a href="">Αποσύνδεση</a>
-                </div>
-            </div>
+            <a href="#"><img src="" alt="Profile" class="profile-icon"></a>
         </nav>
     </header>
 
@@ -594,7 +741,8 @@
         </select>
         <input type="text" id="searchQuery" placeholder="Search...">
         <a href="testresults.html"><button onclick="performSearch()">Search</button></a>
-        <button id="advancedSearchBtn" onclick="toggleAdvancedFilters()" style="display: none;">Advanced Search</button>
+        <button id="advancedSearchBtn" onclick="toggleAdvancedFilters()" style="margin-left: 10px;">Advanced
+            Search</button>
     </div>
 
     <script>
@@ -772,24 +920,133 @@
         </div>
     </section>
 
-    </section>
-    <!-- Popular Reviews Section -->
-    <section class="reviews-section">
-        <h2 class="section-title">Popular Reviews on Filmbro</h2>
-        <div class="review-item">
-            <img src="https://source.unsplash.com/60x60/?person1" alt="Friend 1" class="review-avatar">
-            <div class="review-content">
-                <h3 class="review-name">Alex Smith</h3>
-                <p class="review-text">"Absolutely loved the cinematography in this one. A true masterpiece!" ⭐9/10</p>
+    <!-- Popular Reviews on Filmbro -->
+    <section class="cards-section">
+        <div class="cards-section-header">
+            <h2 class="cards-section-title">User Reviews</h2>
+            <div class="user-reviews-options">
+                <a href="#" class="view-more">View More</a>
             </div>
         </div>
-        <!-- Additional review items -->
+        <div class="user-reviews-list">
+            <div class="review-card">
+                <img src="https://via.placeholder.com/60" class="user-photo" alt="User Photo">
+                <div class="review-content">
+                    <div class="review-header">
+                        <span class="username">John Doe</span>
+                        <span class="user-rating">
+                            <span class="stars" data-rating="8"></span>
+                        </span>
+                    </div>
+                    <p class="review-text" id="review1" onclick="openModal('review1')">
+                        Amazing movie! The storyline was captivating and the visuals were stunning. Would highly
+                        recommend it to any sci-fi fan. The characters were well-developed, each bringing a unique
+                        perspective to the narrative. The film cleverly intertwined themes of exploration and human
+                        resilience, making it not only entertaining but thought-provoking as well. The pacing kept me on
+                        the edge of my seat, and the sound design truly enhanced the overall experience. I found myself
+                        immersed in the world the filmmakers created, feeling every emotion alongside the characters.
+                        It's a must-watch for anyone who appreciates a good blend of action, drama, and philosophical
+                        questions about our place in the universe. I can't wait to watch it again and discuss it with
+                        friends!
+                    </p>
+                    <div class="like-section">
+                        <button class="like-button" onclick="toggleLike(this)">&#10084;</button>
+                        <span class="like-count">37</span> <!-- Random number of likes -->
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <img src="https://via.placeholder.com/60" class="user-photo" alt="User Photo">
+                <div class="review-content">
+                    <div class="review-header">
+                        <span class="username">Jane Smith</span>
+                        <span class="user-rating">
+                            <span class="stars" data-rating="9"></span>
+                        </span>
+                    </div>
+                    <p class="review-text" id="review2" onclick="openModal('review2')">
+                        Absolutely loved it! The movie explores deep themes of human nature and survival while taking us
+                        on a visual journey through space. The way it delves into the complexities of relationships
+                        during times of crisis really resonated with me. Each character faced their own struggles, and
+                        the film did an excellent job of portraying their emotional arcs against the backdrop of
+                        breathtaking visuals. The cinematography was simply stunning, with each scene meticulously
+                        crafted to draw the audience into this otherworldly experience. The score complemented the
+                        visuals beautifully, enhancing the emotional impact of key moments. I left the theater feeling a
+                        mix of awe and contemplation, pondering the moral dilemmas presented throughout the story. It's
+                        a film that not only entertains but also invites reflection on what it means to be human. This
+                        is definitely one of those films that stays with you long after the credits roll.
+                    </p>
+                    <div class="like-section">
+                        <button class="like-button"
+                            onclick="toggleLike(this); event.stopPropagation();">&#10084;</button>
+                        <span class="like-count">42</span> <!-- Random number of likes -->
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <img src="https://via.placeholder.com/60" class="user-photo" alt="User Photo">
+                <div class="review-content">
+                    <div class="review-header">
+                        <span class="username">Alex Brown</span>
+                        <span class="user-rating">
+                            <span class="stars" data-rating="7"></span>
+                        </span>
+                    </div>
+                    <p class="review-text" id="review3" onclick="openModal('review3')">
+                        Good movie, but some parts felt too slow. The visuals were great, showcasing stunning landscapes
+                        and intricate details that brought the sci-fi setting to life. However, I found that certain
+                        scenes lingered a bit too long, which made the pacing uneven. While the character development
+                        was commendable, I think the plot could have been a bit tighter to maintain the audience's
+                        engagement. There were moments that could have benefited from a more dynamic approach,
+                        potentially heightening the tension and excitement. The film had an interesting premise, and I
+                        believe that with a bit more editing, it could have transformed from good to great. Despite its
+                        flaws, I still appreciated the creativity and ambition behind the project. Overall, it's worth
+                        watching for the visuals and thought-provoking themes, but be prepared for some slower moments
+                        along the way.
+                    </p>
+                    <div class="like-section">
+                        <button class="like-button"
+                            onclick="toggleLike(this); event.stopPropagation();">&#10084;</button>
+                        <span class="like-count">67</span> <!-- Random number of likes -->
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <img src="https://via.placeholder.com/60" class="user-photo" alt="User Photo">
+                <div class="review-content">
+                    <div class="review-header">
+                        <span class="username">Sam Green</span>
+                        <span class="user-rating">
+                            <span class="stars" data-rating="8"></span>
+                        </span>
+                    </div>
+                    <p class="review-text" id="review4" onclick="openModal('review4')">
+                        A thrilling experience! The science behind the movie is intriguing and makes you think about the
+                        possibilities of space exploration. The filmmakers did an impressive job of incorporating real
+                        scientific theories and concepts, which added depth to the narrative. It’s not just a visual
+                        spectacle; it genuinely prompts viewers to ponder the future of humanity and our place in the
+                        cosmos. The blend of thrilling action sequences with thoughtful discussions about technology and
+                        ethics creates a balanced viewing experience. There were moments that sparked lively debates
+                        among friends after the screening, as we explored the ethical implications of advanced space
+                        travel and what it means for our future. The cinematography beautifully captured the vastness of
+                        space, making it feel both exhilarating and terrifying. Overall, this film isn’t just
+                        entertainment; it’s a thought-provoking journey that leaves you contemplating the wonders and
+                        dangers of the universe long after the credits roll.
+                    </p>
+                    <div class="like-section">
+                        <button class="like-button"
+                            onclick="toggleLike(this); event.stopPropagation();">&#10084;</button>
+                        <span class="like-count">94</span> <!-- Random number of likes -->
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    </section>
+
 
     <section class="cards-section">
         <div class="cards-section-header">
-            <h2 class="cards-section-title">Popular on Filmbro</h2>
+            <h2 class="cards-section-title">Your activity</h2>
             <a href="#" class="view-more">View More</a>
         </div>
         <div class="cards-list">
