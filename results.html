@@ -129,7 +129,7 @@
     </header>
     <section class="cards-section">
         <div class="cards-section-header">
-            <h2 class="cards-section-title">Movies</h2>
+            <h2 class="cards-section-title">Results</h2>
             <div class="card-section-button-container">
                 <!-- Sort By Button -->
                 <button class="card-button" onclick="toggleDropdown('sortOptions')">Sort by ▼</button>
@@ -137,28 +137,14 @@
                 <!-- Sort Options Dropdown -->
                 <ul class="button-options hidden" id="sortOptions">
                     <li class="selected" data-sort="popularity">
-                        Popularity
+                        Most Relevant
                         <div class="arrow-container">
                             <span class="arrow active" onclick="changeSortDirection(event, 'descending')">&#8595;</span>
                             <span class="arrow" onclick="changeSortDirection(event, 'ascending')">&#8593;</span>
                         </div>
                     </li>
-                    <li data-sort="alphabetical">
-                        Alphabetical
-                        <div class="arrow-container">
-                            <span class="arrow" onclick="changeSortDirection(event, 'descending')">&#8595;</span>
-                            <span class="arrow" onclick="changeSortDirection(event, 'ascending')">&#8593;</span>
-                        </div>
-                    </li>
                     <li data-sort="film_bro_rating">
-                        FilmBro Rating
-                        <div class="arrow-container">
-                            <span class="arrow" onclick="changeSortDirection(event, 'descending')">&#8595;</span>
-                            <span class="arrow" onclick="changeSortDirection(event, 'ascending')">&#8593;</span>
-                        </div>
-                    </li>
-                    <li data-sort="imdb_rating">
-                        IMDb Rating
+                       Most Popular
                         <div class="arrow-container">
                             <span class="arrow" onclick="changeSortDirection(event, 'descending')">&#8595;</span>
                             <span class="arrow" onclick="changeSortDirection(event, 'ascending')">&#8593;</span>
@@ -172,19 +158,11 @@
                         </div>
                     </li>
                     <li data-sort="year">
-                        Year
+                        FilmBro Rating
                         <div class="arrow-container">
                             <span class="arrow" onclick="changeSortDirection(event, 'descending')">&#8595;</span>
                             <span class="arrow" onclick="changeSortDirection(event, 'ascending')">&#8593;</span>
                         </div>
-                    </li>
-                    <li data-sort="your_rating">
-                        Your Rating
-                        <div class="arrow-container">
-                            <span class="arrow" onclick="changeSortDirection(event, 'descending')">&#8595;</span>
-                            <span class="arrow" onclick="changeSortDirection(event, 'ascending')">&#8593;</span>
-                        </div>
-                    </li>
                 </ul>
             </div>
 
