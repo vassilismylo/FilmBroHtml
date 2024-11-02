@@ -9,6 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="cardSection.css">
+
 
   <style>
 
@@ -199,126 +201,75 @@
 
 
 
+        .edit-button {
+    position: absolute;
+    top: 35%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width: 80px; /* Width of the circle */
+    height: 80px; /* Height of the circle */
+    border-radius: 50%; /* Makes the button circular */
+    background-color: var(--accent-color); /* Background color */
+    color: white;
+    border: none; /* Remove border */
+    font-size: 2.5em; /* Font size for the symbol */
+    cursor: pointer; /* Pointer on hover */
+    transform: translate(-50%, -50%); /* Adjust position to truly center the button */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Transition for fade effect */
+    align-items: center;
+}
+
+.edit-button:hover {
+  background-color: var(--secondary-bg)
+}
+
+/* Show the button on card hover */
+.card:hover .edit-button {
+    opacity: 1; /* Show button on hover */
+}
 
 
- /* Favourites */
-    .cards-section {
-            padding: 40px 5%;
-            background-color: var(--primary-bg);
-            margin-top: 0px;
-            border-radius: 5px;
-    }
 
-    .cards-section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-    }
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    z-index: 1000; /* Ensure it's above other content */
+}
 
-        .cards-section-title {
-            font-family: var(--primary-font);
-            font-size: 1.8em;
-            color: var(--accent-color);
-        }
+.popup-content {
+    background-color: var(--secondary-bg); /* Background color of the popup */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px;
+    text-align: center;
+    width: 300px; /* Width of the popup */
+    border: 2px solid var(--accent-color);
+}
 
-        .view-more {
-            text-decoration: none;
-            font-family: var(--secondary-font);
-            font-size: 1.1em;
-            color: var(--light-bg);
-            transition: color 0.3s ease;
-        }
+.close-button {
+    cursor: pointer; /* Pointer on hover */
+    font-size: 1.5em; /* Size of the close button */
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: var(--accent-color); /* Color of the close button */
+}
 
-        .view-more:hover {
-            color: var(--accent-color);
-        }
-
-        .cards-list {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .card {
-            width: 18%;
-            background-color: var(--secondary-bg);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            padding-bottom: 10px;
-            border: 1.5px solid var(--accent-color);
-            cursor: pointer;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .card-wrapper {
-            width: 100%;
-            overflow: hidden;
-            border-radius: 10px 10px 0 0;
-            /* Rounded top corners, sharp bottom corners */
-            margin-bottom: 5px;
-        }
-
-        .card-picture {
-            width: 100%;
-            display: block;
-        }
-
-        .card-rating {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            margin-bottom: 5px;
-            color: var(--accent-color);
-        }
-
-        .card-rating i {
-            color: var(--accent-color);
-        }
-
-        .rating-score {
-            font-size: 1.2em;
-            font-family: var(--secondary-font);
-            color: var(--light-bg);
-        }
-
-        .card-title {
-            font-size: 1.3em;
-            /* Font size as needed */
-            text-align: center;
-            color: var(--accent-color);
-            margin-top: 15px;
-            margin-bottom: 10px;
-            height: 2.4em;
-            /* Height for two lines of text */
-            line-height: 1.0em;
-            /* Set the line height */
-            -webkit-box-orient: vertical;
-            /* Vertical orientation for the box */
-        }
-
-        .movie-card-info {
-            font-size: 1.1em;
-            text-align: center;
-            color: var(--light-bg);
-            margin-top: 15px;
-            margin-bottom: 5px;
-        }
+.search-bar {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding for input */
+    margin-top: 10px; /* Space above the input */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid var(--accent-color); /* Border color */
+}
 
 
-        .person-card-info {
-            font-size: 1.1em;
-            text-align: center;
-            color: var(--light-bg);
-            margin-top: 15px;
-            margin-bottom: 5px;
-        }
     
     /* Footer */
     footer {
@@ -420,12 +371,12 @@
   <section class="cards-section">
     <div class="cards-section-header">
         <h2 class="cards-section-title">Favourites</h2>
-        <a href="#" class="view-more">Edit ✎</a>
     </div>
     <div class="cards-list">
         <div class="card">
             <div class="card-wrapper">
                 <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" class="card-picture">
+                <button class="edit-button">✎</button>
             </div>
             <div class="card-rating">
                 <i class="fas fa-star"></i>
@@ -438,6 +389,7 @@
         <div class="card">
             <div class="card-wrapper">
                 <img src="https://image.tmdb.org/t/p/w500/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg" class="card-picture">
+                <button class="edit-button">✎</button>
             </div>
             <div class="card-rating">
                 <i class="fas fa-star"></i>
@@ -450,6 +402,7 @@
         <div class="card">
             <div class="card-wrapper">
                 <img src="https://image.tmdb.org/t/p/w500/or1gBugydmjToAEq7OZY0owwFk.jpg" class="card-picture">
+                <button class="edit-button">✎</button>
             </div>
             <div class="card-rating">
                 <i class="fas fa-star"></i>
@@ -462,6 +415,7 @@
         <div class="card">
             <div class="card-wrapper">
                 <img src="https://image.tmdb.org/t/p/w500/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg" class="card-picture">
+                <button class="edit-button">✎</button>
             </div>
             <div class="card-rating">
                 <i class="fas fa-star"></i>
@@ -474,6 +428,7 @@
         <div class="card">
             <div class="card-wrapper">
                 <img src="https://image.tmdb.org/t/p/w500/1hRoyzDtpgMU7Dz4JF22RANzQO7.jpg" class="card-picture">
+                <button class="edit-button">✎</button>
             </div>
             <div class="card-rating">
                 <i class="fas fa-star"></i>
@@ -484,6 +439,15 @@
         </div>
     </div>
 
+    <!-- Popup Structure -->
+    <div class="popup" id="popup">
+      <div class="popup-content">
+          <span class="close-button" id="close-button">&times;</span>
+          <h2>Pick a favorite movie</h2>
+          <input type="text" class="search-bar" placeholder="Search for a film...">
+      </div>
+  </div>
+
 </section>
 
  
@@ -492,6 +456,34 @@
   <footer>
     <p>Powered by <a href="testhome.html">FilmBro</a> | © 2024 All Rights Reserved</p>
   </footer>
+
+
+
+  <script>
+    // Get elements
+    const editButtons = document.querySelectorAll('.edit-button');
+    const popup = document.getElementById('popup');
+    const closeButton = document.getElementById('close-button');
+
+    // Show popup on button click
+    editButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            popup.style.display = 'flex'; // Show popup
+        });
+    });
+
+    // Close popup on close button click
+    closeButton.addEventListener('click', () => {
+        popup.style.display = 'none'; // Hide popup
+    });
+
+    // Close popup when clicking outside of popup content
+    popup.addEventListener('click', (event) => {
+        if (event.target === popup) {
+            popup.style.display = 'none'; // Hide popup
+        }
+    });
+</script>
 
 </body>
 </html>

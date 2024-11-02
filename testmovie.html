@@ -12,6 +12,7 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="cardSection.css">
 
     <style>
         /* Global Styles */
@@ -387,386 +388,6 @@
         }
 
 
-
-
-
-        /* You Might Also Like Section */
-        .cards-section {
-            padding: 40px 5%;
-            background-color: var(--primary-bg);
-            margin-top: 30px;
-            border-radius: 5px;
-        }
-
-        .cards-section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .cards-section-title {
-            font-family: var(--primary-font);
-            font-size: 1.8em;
-            color: var(--accent-color);
-        }
-
-        .view-more {
-            text-decoration: none;
-            font-family: var(--secondary-font);
-            font-size: 1.1em;
-            color: var(--light-bg);
-            transition: color 0.3s ease;
-        }
-
-        .view-more:hover {
-            color: var(--accent-color);
-        }
-
-        .cards-list {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .card {
-            width: 18%;
-            background-color: var(--secondary-bg);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            padding-bottom: 10px;
-            border: 1.5px solid var(--accent-color);
-            cursor: pointer;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .card-wrapper {
-            width: 100%;
-            overflow: hidden;
-            border-radius: 10px 10px 0 0;
-            /* Rounded top corners, sharp bottom corners */
-            margin-bottom: 5px;
-        }
-
-        .card-picture {
-            width: 100%;
-            display: block;
-        }
-
-        .card-rating {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            margin-bottom: 5px;
-            color: var(--accent-color);
-        }
-
-        .card-rating i {
-            color: var(--accent-color);
-        }
-
-        .rating-score {
-            font-size: 1.2em;
-            font-family: var(--secondary-font);
-            color: var(--light-bg);
-        }
-
-        .card-title {
-            font-size: 1.3em;
-            /* Font size as needed */
-            text-align: center;
-            color: var(--accent-color);
-            margin-top: 15px;
-            margin-bottom: 3px;
-            height: 2.4em;
-            /* Height for two lines of text */
-            line-height: 1.1em;
-            /* Set the line height */
-            -webkit-box-orient: vertical;
-            /* Vertical orientation for the box */
-        }
-
-        .movie-card-info {
-            font-size: 1.1em;
-            text-align: center;
-            color: var(--light-bg);
-            margin-top: 15px;
-            margin-bottom: 5px;
-        }
-
-
-        .person-card-info {
-            font-size: 1.1em;
-            text-align: center;
-            color: var(--light-bg);
-            margin-top: 15px;
-            margin-bottom: 5px;
-        }
-
-
-
-        /* User Reviews Section */
-        .user-reviews-title {
-            font-family: var(--primary-font);
-            font-size: 1.8em;
-            color: var(--accent-color);
-        }
-
-        .user-reviews-options a {
-            text-decoration: none;
-            font-family: var(--secondary-font);
-            font-size: 1.1em;
-            color: var(--light-bg);
-            margin-left: 15px;
-            transition: color 0.3s ease;
-        }
-
-        .user-reviews-options a:hover {
-            color: var(--accent-color);
-        }
-
-        .user-reviews-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .review-card {
-            width: calc(50% - 20px);
-            background-color: var(--secondary-bg);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            /* Keep flex display */
-            align-items: flex-start;
-            /* Align items to the start vertically */
-            padding: 15px;
-            gap: 15px;
-            /* Gap between elements */
-            border: 1.5px solid var(--accent-color);
-            /* Add border around text */
-            border-radius: 15px;
-            /* Optional: rounded corners for the border */
-            padding: 20px;
-            /* Add some padding inside the border */
-        }
-
-        .review-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .user-photo {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
-        .review-content {
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .review-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 5px;
-        }
-
-        .username {
-            font-size: 1.1em;
-            font-weight: bold;
-            color: var(--accent-color);
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
-        .review-text {
-            font-size: 0.9em;
-            /* Text size */
-            color: var(--light-bg);
-            /* Text color */
-            line-height: 1.4;
-            /* Line height for spacing */
-            overflow: hidden;
-            /* Hide overflow */
-            text-overflow: ellipsis;
-            /* Show ellipsis when text overflows */
-            display: -webkit-box;
-            /* Use flexbox for the text */
-            -webkit-box-orient: vertical;
-            /* Define the box orientation */
-            -webkit-line-clamp: 3;
-            /* Limit to 3 lines */
-            cursor: pointer;
-        }
-
-        .review-text:hover {
-            color: var(--hover-light-bg);
-        }
-
-        .user-rating {
-            display: inline-block;
-        }
-
-        .stars {
-            font-size: 1.5em;
-            /* Size of the stars */
-            color: var(--accent-color);
-            /* Color for filled stars */
-        }
-
-        /* Hide all stars initially */
-        .stars::before {
-            content: "☆☆☆☆☆☆☆☆☆☆";
-            /* Ten empty stars */
-            letter-spacing: 2px;
-            /* Space between stars */
-        }
-
-        /* Display the right amount of filled stars based on data-rating */
-        .stars[data-rating="1"]::before {
-            content: "★☆☆☆☆☆☆☆☆☆";
-        }
-
-        .stars[data-rating="2"]::before {
-            content: "★★☆☆☆☆☆☆☆☆";
-        }
-
-        .stars[data-rating="3"]::before {
-            content: "★★★☆☆☆☆☆☆☆";
-        }
-
-        .stars[data-rating="4"]::before {
-            content: "★★★★☆☆☆☆☆☆";
-        }
-
-        .stars[data-rating="5"]::before {
-            content: "★★★★★☆☆☆☆☆";
-        }
-
-        .stars[data-rating="6"]::before {
-            content: "★★★★★★☆☆☆☆";
-        }
-
-        .stars[data-rating="7"]::before {
-            content: "★★★★★★★☆☆☆";
-        }
-
-        .stars[data-rating="8"]::before {
-            content: "★★★★★★★★☆☆";
-        }
-
-        .stars[data-rating="9"]::before {
-            content: "★★★★★★★★★☆";
-        }
-
-        .stars[data-rating="10"]::before {
-            content: "★★★★★★★★★★";
-        }
-
-
-
-
-        .modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 1000;
-            /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%;
-            /* Full width */
-            height: 100%;
-            /* Full height */
-            overflow: auto;
-            /* Enable scroll if needed */
-            background-color: rgba(0, 0, 0, 0.8);
-            /* Black w/ opacity */
-        }
-
-        .modal-content {
-            background-color: var(--secondary-bg);
-            margin: 15% auto;
-            /* 15% from the top and centered */
-            padding: 20px;
-            border: 2px solid var(--accent-color);
-            border-radius: 15px;
-            width: 80%;
-            /* Could be more or less, depending on screen size */
-        }
-
-        .close {
-            color: var(--light-bg);
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: var(--accent-color);
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-
-
-
-
-        .like-section {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            /* Aligns items to the right */
-            margin-top: auto;
-            /* Pushes the like section to the bottom */
-        }
-
-        .like-button {
-            background-color: transparent;
-            /* No background color */
-            border: none;
-            /* Remove default button border */
-            color: var(--light-bg);
-            /* Initial heart color */
-            font-size: 1.5em;
-            /* Size of the heart */
-            cursor: pointer;
-            /* Change cursor to pointer */
-            transition: color 1s ease;
-            /* Smooth transition for color change */
-
-        }
-
-        .like-button.liked {
-            color: var(--accent-color);
-            /* Color when liked */
-        }
-
-        .like-count {
-            margin-left: 5px;
-            /* Space between button and count */
-            font-size: 1em;
-            /* Size of the like count */
-            color: var(--light-bg);
-            /* Color of the like count */
-        }
-
-
         /* Footer */
         footer {
             background-color: var(--primary-bg);
@@ -787,7 +408,6 @@
         footer a:hover {
             text-decoration: underline;
         }
-        
     </style>
 </head>
 
@@ -977,12 +597,12 @@
                 <a href="#" class="view-more">View More</a>
             </div>
         </div>
-        <div class="user-reviews-list">
-            <div class="review-card">
-                <img src="https://via.placeholder.com/60" class="user-photo" alt="User Photo">
+        <div class="reviews-lists-list">
+            <div class="review-list-card">
+                <img src="https://via.placeholder.com/60" class="review-user-photo" alt="User Photo">
                 <div class="review-content">
-                    <div class="review-header">
-                        <span class="username">John Doe</span>
+                    <div class="review-list-header">
+                        <span class="review-list-title">John Doe</span>
                         <span class="user-rating">
                             <span class="stars" data-rating="8"></span>
                         </span>
@@ -1004,11 +624,11 @@
                     </div>
                 </div>
             </div>
-            <div class="review-card">
-                <img src="https://via.placeholder.com/60" class="user-photo" alt="User Photo">
+            <div class="review-list-card">
+                <img src="https://via.placeholder.com/60" class="review-user-photo" alt="User Photo">
                 <div class="review-content">
-                    <div class="review-header">
-                        <span class="username">Jane Smith</span>
+                    <div class="review-list-header">
+                        <span class="review-list-title">Jane Smith</span>
                         <span class="user-rating">
                             <span class="stars" data-rating="9"></span>
                         </span>
@@ -1032,11 +652,11 @@
                     </div>
                 </div>
             </div>
-            <div class="review-card">
-                <img src="https://via.placeholder.com/60" class="user-photo" alt="User Photo">
+            <div class="review-list-card">
+                <img src="https://via.placeholder.com/60" class="review-user-photo" alt="User Photo">
                 <div class="review-content">
-                    <div class="review-header">
-                        <span class="username">Alex Brown</span>
+                    <div class="review-list-header">
+                        <span class="review-list-title">Alex Brown</span>
                         <span class="user-rating">
                             <span class="stars" data-rating="7"></span>
                         </span>
@@ -1060,11 +680,11 @@
                     </div>
                 </div>
             </div>
-            <div class="review-card">
-                <img src="https://via.placeholder.com/60" class="user-photo" alt="User Photo">
+            <div class="review-list-card">
+                <img src="https://via.placeholder.com/60" class="review-user-photo" alt="User Photo">
                 <div class="review-content">
-                    <div class="review-header">
-                        <span class="username">Sam Green</span>
+                    <div class="review-list-header">
+                        <span class="review-list-title">Sam Green</span>
                         <span class="user-rating">
                             <span class="stars" data-rating="8"></span>
                         </span>
@@ -1168,6 +788,7 @@
                 <h3 class="card-title">The Dark Knight</h3>
                 <p class="movie-card-info">2008 | 152 min</p>
             </div>
+            
         </div>
     </section>
 
