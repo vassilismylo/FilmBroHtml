@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmBro | Results</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="cardSection.css">
+    <style>
+        /* Global Styles */
+        a {
+            text-decoration: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #2C1E1A;
+            color: #d8bca9;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Color Palette */
+        :root {
+            --primary-bg: #334e41;
+            --accent-color: #FFB74D;
+            /* Yellow */
+            --secondary-bg: #5b8a73;
+            /* Green */
+            --light-bg: #e4cec0;
+            --hover-light-bg: #d3b9a8;
+            --hover-bg: #416556;
+            --active-bg: #FFB74D;
+            /* Active button color */
+            --primary-font: 'Playfair Display', serif;
+            --secondary-font: 'Poppins', sans-serif;
+            --genre-color: #FFB74D;
+            /* Yellow for genres */
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-bg);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-family: var(--primary-font);
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+            margin-left: 20px;
+        }
+
+        nav {
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--accent-color);
+            margin: 0 15px;
+            font-size: 1.2em;
+            font-family: var(--secondary-font);
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--light-bg);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-bg);
+            padding: 30px;
+            text-align: center;
+            color: var(--light-bg);
+            margin-top: 60px;
+            font-size: 1.2em;
+            border-top: 3px solid var(--accent-color);
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+</style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="testhome.html">
+            <div class="logo">FilmBro</div>
+        </a>
+        <nav>
+            <a href="#" onclick="toggleSearch()"><i class="fas fa-search icon"></i></a>
+            <a href="#"><img src="https://source.unsplash.com/40x40/?profile" alt="Profile" class="profile-icon"></a>
+        </nav>
+    </header>
+    <section class="cards-section">
+        <div class="cards-section-header">
+            <h2 class="cards-section-title">Movies</h2>
+            <div class="card-section-button-container">
+                <!-- Sort By Button -->
+                <button class="card-button" onclick="toggleDropdown('sortOptions')">Sort by ▼</button>
+
+                <!-- Sort Options Dropdown -->
+                <ul class="button-options hidden" id="sortOptions">
+                    <li class="selected" data-sort="popularity">
+                        Popularity
+                        <div class="arrow-container">
+                            <span class="arrow active" onclick="changeSortDirection(event, 'descending')">&#8595;</span>
+                            <span class="arrow" onclick="changeSortDirection(event, 'ascending')">&#8593;</span>
+                        </div>
+                    </li>
+                    <li data-sort="alphabetical">
+                        Alphabetical
+                        <div class="arrow-container">
+                            <span class="arrow" onclick="changeSortDirection(event, 'descending')">&#8595;</span>
+                            <span class="arrow" onclick="changeSortDirection(event, 'ascending')">&#8593;</span>
+                        </div>
+                    </li>
+                    <li data-sort="film_bro_rating">
+                        FilmBro Rating
+                        <div class="arrow-container">
+                            <span class="arrow" onclick="changeSortDirection(event, 'descending')">&#8595;</span>
+                            <span class="arrow" onclick="changeSortDirection(event, 'ascending')">&#8593;</span>
+                        </div>
+                    </li>
+                    <li data-sort="imdb_rating">
+                        IMDb Rating
+                        <div class="arrow-container">
+                            <span class="arrow" onclick="changeSortDirection(event, 'descending')">&#8595;</span>
+                            <span class="arrow" onclick="changeSortDirection(event, 'ascending')">&#8593;</span>
+                        </div>
+                    </li>
+                    <li data-sort="runtime">
+                        Runtime
+                        <div class="arrow-container">
+                            <span class="arrow" onclick="changeSortDirection(event, 'descending')">&#8595;</span>
+                            <span class="arrow" onclick="changeSortDirection(event, 'ascending')">&#8593;</span>
+                        </div>
+                    </li>
+                    <li data-sort="year">
+                        Year
+                        <div class="arrow-container">
+                            <span class="arrow" onclick="changeSortDirection(event, 'descending')">&#8595;</span>
+                            <span class="arrow" onclick="changeSortDirection(event, 'ascending')">&#8593;</span>
+                        </div>
+                    </li>
+                    <li data-sort="your_rating">
+                        Your Rating
+                        <div class="arrow-container">
+                            <span class="arrow" onclick="changeSortDirection(event, 'descending')">&#8595;</span>
+                            <span class="arrow" onclick="changeSortDirection(event, 'ascending')">&#8593;</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+
+        <div class="cards-list">
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/gt3iyguaCIw8DpQZI1LIN5TohM2.jpg" class="card-picture">
+                </div>
+                <div class="card-rating">
+                    <i class="fas fa-star"></i>
+                    <span class="rating-score">8.0</span>
+                </div>
+                <h3 class="card-title">Twelve Monkeys</h3>
+                <p class="movie-card-info">1995 | 189 min</p>
+            </div>
+
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/hQQCdZrsHtZyR6NbKH2YyCqd2fR.jpg" class="card-picture">
+                </div>
+                <div class="card-rating">
+                    <i class="fas fa-star"></i>
+                    <span class="rating-score">7.7</span>
+                </div>
+                <h3 class="card-title">Ocean's Eleven</h3>
+                <p class="movie-card-info">2001 | 176 min</p>
+            </div>
+
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/8KSDI7ijEv7QVZdIyrLw5Gnhhr8.jpg" class="card-picture">
+                </div>
+                <div class="card-rating">
+                    <i class="fas fa-star"></i>
+                    <span class="rating-score">8.2</span>
+                </div>
+                <h3 class="card-title">Snatch</h3>
+                <p class="movie-card-info">2000 | 102 min</p>
+            </div>
+
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg" class="card-picture">
+                </div>
+                <div class="card-rating">
+                    <i class="fas fa-star"></i>
+                    <span class="rating-score">8.8</span>
+                </div>
+                <h3 class="card-title">Fight Club</h3>
+                <p class="movie-card-info">1999 | 199 min</p>
+            </div>
+
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/191nKfP0ehp3uIvWqgPbFmI4lv9.jpg" class="card-picture">
+                </div>
+                <div class="card-rating">
+                    <i class="fas fa-star"></i>
+                    <span class="rating-score">8.6</span>
+                </div>
+                <h3 class="card-title">Se7en</h3>
+                <p class="movie-card-info">1995 | 187 min</p>
+            </div>
+
+            <!-- Duplicate the first 4 cards to make 9 in total -->
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/26wEWZYt6yJkwRVkjcbwJEFh9IS.jpg" class="card-picture">
+                </div>
+                <div class="card-rating">
+                    <i class="fas fa-star"></i>
+                    <span class="rating-score">7.8</span>
+                </div>
+                <h3 class="card-title">The Curious Case of Benjamin Button</h3>
+                <p class="movie-card-info">2008 | 236 min</p>
+            </div>
+
+            <div class="card">
+                <div class="card-wrapper">
+                    <img src="https://image.tmdb.org/t/p/w500/to0spRl1CMDvyUbOnbb4fTk3VAd.jpg" class="card-picture">
+                </div>
+                <div class="card-rating">
+                    <i class="fas fa-star"></i>
+                    <span class="rating-score">7.6</span>
+                </div>
+                <h3 class="card-title">Deadpool 2</h3>
+                <p class="movie-card-info">2017 | 179 min</p>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 FilmBro. All Rights Reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+
+
+</body>
+
+
+
+<script>
+    function toggleText(element) {
+        element.classList.toggle('expanded');
+    }
+</script>
+
+
+
+
+<script>
+    // Toggle the visibility of a specific dropdown (either sortOptions or jobOptions)
+    function toggleDropdown(id) {
+        const dropdown = document.getElementById(id);
+        dropdown.classList.toggle('hidden'); // Toggle visibility of the specific dropdown
+    }
+
+    // Close dropdown if clicked outside
+    window.addEventListener('click', (event) => {
+        const sortOptions = document.getElementById('sortOptions');
+        const jobOptions = document.getElementById('jobOptions');
+        const sortButton = document.querySelector('.card-button:nth-child(1)');
+        const jobButton = document.querySelector('.card-button:nth-child(2)');
+
+        // Hide sortOptions dropdown if clicked outside
+        if (!sortButton.contains(event.target) && !sortOptions.contains(event.target)) {
+            sortOptions.classList.add('hidden');
+        }
+
+        // Hide jobOptions dropdown if clicked outside
+        if (!jobButton.contains(event.target) && !jobOptions.contains(event.target)) {
+            jobOptions.classList.add('hidden');
+        }
+    });
+
+    // Add event listeners for each option in the sort dropdown
+    document.querySelectorAll('#sortOptions li').forEach(option => {
+        option.addEventListener('click', (e) => {
+            // Prevent arrow clicks from triggering this event
+            if (e.target.classList.contains('arrow')) return;
+
+            // Remove 'selected' class from all options in the sort dropdown
+            document.querySelectorAll('#sortOptions li').forEach(opt => {
+                opt.classList.remove('selected'); // Remove selected class
+            });
+
+            // Add 'selected' class to the clicked option
+            option.classList.add('selected'); // Add selected class
+            console.log(`Selected sort option: ${option.dataset.sort}`);
+
+            // Reset arrows on all options
+            document.querySelectorAll('.arrow').forEach(arrow => {
+                arrow.classList.remove('active'); // Remove active class from all arrows
+            });
+
+            // Activate the down arrow for the clicked option (default)
+            const downArrow = option.querySelector('.arrow:first-child');
+            if (downArrow) {
+                downArrow.classList.add('active'); // Add active class to the down arrow
+            }
+
+            // Close the dropdown after selection
+            document.getElementById('sortOptions').classList.add('hidden');
+        });
+    });
+
+    // Add event listeners for each option in the job dropdown
+    document.querySelectorAll('#jobOptions li').forEach(option => {
+        option.addEventListener('click', (e) => {
+            // Remove 'selected' class from all options in the job dropdown
+            document.querySelectorAll('#jobOptions li').forEach(opt => {
+                opt.classList.remove('selected'); // Remove selected class
+            });
+
+            // Add 'selected' class to the clicked option
+            option.classList.add('selected'); // Add selected class
+            console.log(`Selected job option: ${option.dataset.sort}`);
+
+            // Close the dropdown after selection
+            document.getElementById('jobOptions').classList.add('hidden');
+        });
+    });
+
+    // Change sort direction and toggle active arrow (only for Sort By dropdown)
+    function changeSortDirection(event, direction) {
+        event.stopPropagation(); // Prevent click event from bubbling up
+        const parentLi = event.target.closest('li'); // Get parent li element
+        const arrows = parentLi.querySelectorAll('.arrow');
+
+        // Ensure this only applies to the selected option in Sort By dropdown
+        if (!parentLi.classList.contains('selected')) {
+            return; // Do nothing if not selected
+        }
+
+        // Reset all arrows in this option
+        arrows.forEach(arrow => arrow.classList.remove('active')); // Remove active class from arrows
+
+        // Add active class to the clicked arrow based on direction
+        if (direction === 'ascending') {
+            arrows[1].classList.add('active'); // Activate the up arrow
+        } else {
+            arrows[0].classList.add('active'); // Activate the down arrow
+        }
+
+        console.log(`Changed sort direction to: ${direction}`);
+    }
+
+    // Set default selected option for Job dropdown
+    document.addEventListener('DOMContentLoaded', () => {
+        const defaultJobOption = document.querySelector('#jobOptions li[data-sort="actor"]');
+        if (defaultJobOption) {
+            defaultJobOption.classList.add('selected');
+        }
+    });
+
+</script>
+</html>
+
+

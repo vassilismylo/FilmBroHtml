@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmBro | Lists</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="cardSection.css">
+    <style>
+        /* Global Styles */
+        a {
+            text-decoration: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #2C1E1A;
+            color: #d8bca9;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Color Palette */
+        :root {
+            --primary-bg: #334e41;
+            --accent-color: #FFB74D;
+            /* Yellow */
+            --secondary-bg: #5b8a73;
+            /* Green */
+            --light-bg: #e4cec0;
+            --hover-light-bg: #d3b9a8;
+            --hover-bg: #416556;
+            --active-bg: #FFB74D;
+            /* Active button color */
+            --primary-font: 'Playfair Display', serif;
+            --secondary-font: 'Poppins', sans-serif;
+            --genre-color: #FFB74D;
+            /* Yellow for genres */
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-bg);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-family: var(--primary-font);
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+            margin-left: 20px;
+        }
+
+        nav {
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--accent-color);
+            margin: 0 15px;
+            font-size: 1.2em;
+            font-family: var(--secondary-font);
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--light-bg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-bg);
+            padding: 30px;
+            text-align: center;
+            color: var(--light-bg);
+            margin-top: 60px;
+            font-size: 1.2em;
+            border-top: 3px solid var(--accent-color);
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .review-list-card {
+    margin-bottom: 20px; /* Adjust the value as needed */
+    margin-left: 20px;
+}
+</style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="testhome.html">
+            <div class="logo">FilmBro</div>
+        </a>
+        <nav>
+            <a href="#" onclick="toggleSearch()"><i class="fas fa-search icon"></i></a>
+            <a href="#"><img src="https://source.unsplash.com/40x40/?profile" alt="Profile" class="profile-icon"></a>
+        </nav>
+    </header>
+    <section class="cards-section">
+        <div class="cards-section-header">
+            <h2 class="cards-section-title">Movies</h2>
+            <div class="card-section-button-container">
+                <!-- Sort By Button -->
+                <button class="card-button" onclick="toggleDropdown('sortOptions')">Sort by ▼</button>
+
+                <!-- Sort Options Dropdown -->
+                <ul class="button-options hidden" id="sortOptions">
+                    <li class="selected" data-sort="popularity">
+                        Popularity
+                        <div class="arrow-container">
+                            <span class="arrow active" onclick="changeSortDirection(event, 'descending')">&#8595;</span>
+                            <span class="arrow" onclick="changeSortDirection(event, 'ascending')">&#8593;</span>
+                        </div>
+                    </li>
+                    <li data-sort="alphabetical">
+                        Alphabetical
+                        <div class="arrow-container">
+                            <span class="arrow" onclick="changeSortDirection(event, 'descending')">&#8595;</span>
+                            <span class="arrow" onclick="changeSortDirection(event, 'ascending')">&#8593;</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+
+        <div class="cards-list">
+            <div class="review-list-card">
+                <div class="poster-section">
+                    <img src="https://image.tmdb.org/t/p/w500/ljsZTbVsrQSqZgWeep2B1QiDKuh.jpg" class="list-movie-poster" alt="Movie Poster 1">
+                    <img src="https://image.tmdb.org/t/p/w500/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg" class="list-movie-poster" alt="Movie Poster 2">
+                    <img src="https://image.tmdb.org/t/p/w500/5BHuvQ6p9kfc091Z8RiFNhCwL4b.jpg" class="list-movie-poster" alt="Movie Poster 3">
+                </div>
+                <div class="review-list-content">
+                    <div class="list-header">
+                        <h3 class="review-list-title">Top Sci-Fi Movies</h3>
+                    </div>
+                    <div class="list-user-info">
+                        <img src="https://via.placeholder.com/40" class="list-user-photo" alt="User Photo">
+                        <span class="review-list-title">John Doe</span>
+                        <span class="film-count">(12 Films)</span>
+                    </div>
+                    <p class="list-description">
+                        A curated list of must-watch sci-fi films that explore the boundaries of technology and humanity.
+                    </p>
+                    <div class="like-section">
+                        <button class="like-button" onclick="toggleLike(this)">&#10084;</button>
+                        <span class="like-count">24</span>
+                    </div>
+                </div>
+    
+                
+            </div>
+
+            <div class="review-list-card">
+                <div class="poster-section">
+                    <img src="https://image.tmdb.org/t/p/w500/ljsZTbVsrQSqZgWeep2B1QiDKuh.jpg" class="list-movie-poster" alt="Movie Poster 1">
+                    <img src="https://image.tmdb.org/t/p/w500/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg" class="list-movie-poster" alt="Movie Poster 2">
+                    <img src="https://image.tmdb.org/t/p/w500/5BHuvQ6p9kfc091Z8RiFNhCwL4b.jpg" class="list-movie-poster" alt="Movie Poster 3">
+                </div>
+                <div class="review-list-content">
+                    <div class="list-header">
+                        <h3 class="review-list-title">Top Sci-Fi Movies</h3>
+                    </div>
+                    <div class="list-user-info">
+                        <img src="https://via.placeholder.com/40" class="list-user-photo" alt="User Photo">
+                        <span class="review-list-title">John Doe</span>
+                        <span class="film-count">(12 Films)</span>
+                    </div>
+                    <p class="list-description">
+                        A curated list of must-watch sci-fi films that explore the boundaries of technology and humanity.
+                    </p>
+                    <div class="like-section">
+                        <button class="like-button" onclick="toggleLike(this)">&#10084;</button>
+                        <span class="like-count">24</span>
+                    </div>
+                </div>
+    
+                
+            </div>
+            <div class="review-list-card">
+                <div class="poster-section">
+                    <img src="https://image.tmdb.org/t/p/w500/ljsZTbVsrQSqZgWeep2B1QiDKuh.jpg" class="list-movie-poster" alt="Movie Poster 1">
+                    <img src="https://image.tmdb.org/t/p/w500/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg" class="list-movie-poster" alt="Movie Poster 2">
+                    <img src="https://image.tmdb.org/t/p/w500/5BHuvQ6p9kfc091Z8RiFNhCwL4b.jpg" class="list-movie-poster" alt="Movie Poster 3">
+                </div>
+                <div class="review-list-content">
+                    <div class="list-header">
+                        <h3 class="review-list-title">Top Sci-Fi Movies</h3>
+                    </div>
+                    <div class="list-user-info">
+                        <img src="https://via.placeholder.com/40" class="list-user-photo" alt="User Photo">
+                        <span class="review-list-title">John Doe</span>
+                        <span class="film-count">(12 Films)</span>
+                    </div>
+                    <p class="list-description">
+                        A curated list of must-watch sci-fi films that explore the boundaries of technology and humanity.
+                    </p>
+                    <div class="like-section">
+                        <button class="like-button" onclick="toggleLike(this)">&#10084;</button>
+                        <span class="like-count">24</span>
+                    </div>
+                </div>
+    
+                
+            </div>
+
+            <div class="review-list-card">
+                <div class="poster-section">
+                    <img src="https://image.tmdb.org/t/p/w500/ljsZTbVsrQSqZgWeep2B1QiDKuh.jpg" class="list-movie-poster" alt="Movie Poster 1">
+                    <img src="https://image.tmdb.org/t/p/w500/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg" class="list-movie-poster" alt="Movie Poster 2">
+                    <img src="https://image.tmdb.org/t/p/w500/5BHuvQ6p9kfc091Z8RiFNhCwL4b.jpg" class="list-movie-poster" alt="Movie Poster 3">
+                </div>
+                <div class="review-list-content">
+                    <div class="list-header">
+                        <h3 class="review-list-title">Top Sci-Fi Movies</h3>
+                    </div>
+                    <div class="list-user-info">
+                        <img src="https://via.placeholder.com/40" class="list-user-photo" alt="User Photo">
+                        <span class="review-list-title">John Doe</span>
+                        <span class="film-count">(12 Films)</span>
+                    </div>
+                    <p class="list-description">
+                        A curated list of must-watch sci-fi films that explore the boundaries of technology and humanity.
+                    </p>
+                    <div class="like-section">
+                        <button class="like-button" onclick="toggleLike(this)">&#10084;</button>
+                        <span class="like-count">24</span>
+                    </div>
+                </div>
+    
+                
+            </div>
+            <div class="review-list-card">
+                <div class="poster-section">
+                    <img src="https://image.tmdb.org/t/p/w500/ljsZTbVsrQSqZgWeep2B1QiDKuh.jpg" class="list-movie-poster" alt="Movie Poster 1">
+                    <img src="https://image.tmdb.org/t/p/w500/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg" class="list-movie-poster" alt="Movie Poster 2">
+                    <img src="https://image.tmdb.org/t/p/w500/5BHuvQ6p9kfc091Z8RiFNhCwL4b.jpg" class="list-movie-poster" alt="Movie Poster 3">
+                </div>
+                <div class="review-list-content">
+                    <div class="list-header">
+                        <h3 class="review-list-title">Top Sci-Fi Movies</h3>
+                    </div>
+                    <div class="list-user-info">
+                        <img src="https://via.placeholder.com/40" class="list-user-photo" alt="User Photo">
+                        <span class="review-list-title">John Doe</span>
+                        <span class="film-count">(12 Films)</span>
+                    </div>
+                    <p class="list-description">
+                        A curated list of must-watch sci-fi films that explore the boundaries of technology and humanity.
+                    </p>
+                    <div class="like-section">
+                        <button class="like-button" onclick="toggleLike(this)">&#10084;</button>
+                        <span class="like-count">24</span>
+                    </div>
+                </div>
+    
+                
+            </div>
+
+            <div class="review-list-card">
+                <div class="poster-section">
+                    <img src="https://image.tmdb.org/t/p/w500/ljsZTbVsrQSqZgWeep2B1QiDKuh.jpg" class="list-movie-poster" alt="Movie Poster 1">
+                    <img src="https://image.tmdb.org/t/p/w500/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg" class="list-movie-poster" alt="Movie Poster 2">
+                    <img src="https://image.tmdb.org/t/p/w500/5BHuvQ6p9kfc091Z8RiFNhCwL4b.jpg" class="list-movie-poster" alt="Movie Poster 3">
+                </div>
+                <div class="review-list-content">
+                    <div class="list-header">
+                        <h3 class="review-list-title">Top Sci-Fi Movies</h3>
+                    </div>
+                    <div class="list-user-info">
+                        <img src="https://via.placeholder.com/40" class="list-user-photo" alt="User Photo">
+                        <span class="review-list-title">John Doe</span>
+                        <span class="film-count">(12 Films)</span>
+                    </div>
+                    <p class="list-description">
+                        A curated list of must-watch sci-fi films that explore the boundaries of technology and humanity.
+                    </p>
+                    <div class="like-section">
+                        <button class="like-button" onclick="toggleLike(this)">&#10084;</button>
+                        <span class="like-count">24</span>
+                    </div>
+                </div>
+    
+                
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 FilmBro. All Rights Reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+
+
+</body>
+
+
+
+<script>
+    function toggleText(element) {
+        element.classList.toggle('expanded');
+    }
+</script>
+
+
+
+
+<script>
+    // Toggle the visibility of a specific dropdown (either sortOptions or jobOptions)
+    function toggleDropdown(id) {
+        const dropdown = document.getElementById(id);
+        dropdown.classList.toggle('hidden'); // Toggle visibility of the specific dropdown
+    }
+
+    // Close dropdown if clicked outside
+    window.addEventListener('click', (event) => {
+        const sortOptions = document.getElementById('sortOptions');
+        const jobOptions = document.getElementById('jobOptions');
+        const sortButton = document.querySelector('.card-button:nth-child(1)');
+        const jobButton = document.querySelector('.card-button:nth-child(2)');
+
+        // Hide sortOptions dropdown if clicked outside
+        if (!sortButton.contains(event.target) && !sortOptions.contains(event.target)) {
+            sortOptions.classList.add('hidden');
+        }
+
+        // Hide jobOptions dropdown if clicked outside
+        if (!jobButton.contains(event.target) && !jobOptions.contains(event.target)) {
+            jobOptions.classList.add('hidden');
+        }
+    });
+
+    // Add event listeners for each option in the sort dropdown
+    document.querySelectorAll('#sortOptions li').forEach(option => {
+        option.addEventListener('click', (e) => {
+            // Prevent arrow clicks from triggering this event
+            if (e.target.classList.contains('arrow')) return;
+
+            // Remove 'selected' class from all options in the sort dropdown
+            document.querySelectorAll('#sortOptions li').forEach(opt => {
+                opt.classList.remove('selected'); // Remove selected class
+            });
+
+            // Add 'selected' class to the clicked option
+            option.classList.add('selected'); // Add selected class
+            console.log(`Selected sort option: ${option.dataset.sort}`);
+
+            // Reset arrows on all options
+            document.querySelectorAll('.arrow').forEach(arrow => {
+                arrow.classList.remove('active'); // Remove active class from all arrows
+            });
+
+            // Activate the down arrow for the clicked option (default)
+            const downArrow = option.querySelector('.arrow:first-child');
+            if (downArrow) {
+                downArrow.classList.add('active'); // Add active class to the down arrow
+            }
+
+            // Close the dropdown after selection
+            document.getElementById('sortOptions').classList.add('hidden');
+        });
+    });
+
+    // Add event listeners for each option in the job dropdown
+    document.querySelectorAll('#jobOptions li').forEach(option => {
+        option.addEventListener('click', (e) => {
+            // Remove 'selected' class from all options in the job dropdown
+            document.querySelectorAll('#jobOptions li').forEach(opt => {
+                opt.classList.remove('selected'); // Remove selected class
+            });
+
+            // Add 'selected' class to the clicked option
+            option.classList.add('selected'); // Add selected class
+            console.log(`Selected job option: ${option.dataset.sort}`);
+
+            // Close the dropdown after selection
+            document.getElementById('jobOptions').classList.add('hidden');
+        });
+    });
+
+    // Change sort direction and toggle active arrow (only for Sort By dropdown)
+    function changeSortDirection(event, direction) {
+        event.stopPropagation(); // Prevent click event from bubbling up
+        const parentLi = event.target.closest('li'); // Get parent li element
+        const arrows = parentLi.querySelectorAll('.arrow');
+
+        // Ensure this only applies to the selected option in Sort By dropdown
+        if (!parentLi.classList.contains('selected')) {
+            return; // Do nothing if not selected
+        }
+
+        // Reset all arrows in this option
+        arrows.forEach(arrow => arrow.classList.remove('active')); // Remove active class from arrows
+
+        // Add active class to the clicked arrow based on direction
+        if (direction === 'ascending') {
+            arrows[1].classList.add('active'); // Activate the up arrow
+        } else {
+            arrows[0].classList.add('active'); // Activate the down arrow
+        }
+
+        console.log(`Changed sort direction to: ${direction}`);
+    }
+
+    // Set default selected option for Job dropdown
+    document.addEventListener('DOMContentLoaded', () => {
+        const defaultJobOption = document.querySelector('#jobOptions li[data-sort="actor"]');
+        if (defaultJobOption) {
+            defaultJobOption.classList.add('selected');
+        }
+    });
+
+</script>
+</html>
+
+
