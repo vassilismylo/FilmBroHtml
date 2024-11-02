@@ -36,6 +36,13 @@
     justify-content: flex-start;
 }
 
+.reviews-lists-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
 /*Movies and People*/
 
 .card {
@@ -47,6 +54,7 @@
     position: relative;
     border: 1.5px solid var(--accent-color);
     cursor: pointer;
+    margin-bottom: 20px;
 }
 
 .card:nth-child(5n+1) {
