@@ -1,41 +1,11 @@
-/*Αυτό εμφανίζει και τις 4 κάρτες στην ίδια γραμμή ότι και να γίνει*/
-.four-card-container {
-    display: flex;
-    justify-content: center;
-}
-
-/*Αυτό εμφανίζει τις κάρτες σε επόμενη γραμμή αν δεν χωράνε στην ίδια αλλά δεν τις κάνει center*/
-.full-card-container {
-    flex-wrap: wrap;
-}
-
+/* For all cards */
 .card-custom {
     border: 1.5px solid var(--accent-color);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
     cursor: pointer;
-    border-radius: 10px;
-    transform: scale(0.8);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: inline-block;
     background-color: var(--secondary-bg);
-}
-
-.card-img-top-custom {
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-}
-
-.card-title-custom {
-    color: var(--accent-color);
-}
-
-.card-text-custom {
-    color: var(--light-bg);
-}
-
-.card-body-custom {
-    border-bottom-left-radius: 9px;
-    border-bottom-right-radius: 9px;
 }
 
 .cards-section-title {
@@ -57,3 +27,104 @@
     justify-content: space-between;
     align-items: center;
 }
+
+
+/* For movies and movie contributors */
+.movie-contributor-card {
+    border-radius: 10px;
+    transform: scale(0.8);
+}
+
+.movie-contributor-card-img {
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+}
+
+.movie-contributor-card-title {
+    color: var(--accent-color);
+}
+
+.movie-contributor-card-text {
+    color: var(--light-bg);
+}
+
+.movie-contributor-card-body {
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
+
+/*Αυτό εμφανίζει και τις 4 κάρτες στην ίδια γραμμή ότι και να γίνει*/
+.four-card-container {
+    display: flex;
+    justify-content: center;
+}
+
+/*Αυτό εμφανίζει τις κάρτες σε επόμενη γραμμή αν δεν χωράνε στην ίδια αλλά δεν τις κάνει center*/
+.full-card-container {
+    flex-wrap: wrap;
+}
+
+/*For reviews and lists*/
+.review-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.review-list-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--accent-color);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.review-list-card {
+    border-radius: 15px;
+}
+
+.like-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: auto;
+}
+
+.like-button {
+    background-color: transparent;
+    border: none;
+    color: var(--light-bg);
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: color 1s ease;
+}
+
+.like-count {
+    margin-left: 5px;
+    font-size: 1em;
+    color: var(--light-bg);
+}
+
+
+/*For reviews only*/
+.review-profile-pic {
+    margin-left: 25%; 
+    margin-top: 25%; 
+    border-radius: 50%;
+}
+
+.review-stars {
+    color: var(--accent-color)
+}
+
+.review-text {
+    font-size: 0.9em;
+    color: var(--light-bg);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    cursor: pointer;
+}
+
