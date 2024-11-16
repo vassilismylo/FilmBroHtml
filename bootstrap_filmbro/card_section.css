@@ -1,0 +1,59 @@
+/*Αυτό εμφανίζει και τις 4 κάρτες στην ίδια γραμμή ότι και να γίνει*/
+.four-card-container {
+    display: flex;
+    justify-content: center;
+}
+
+/*Αυτό εμφανίζει τις κάρτες σε επόμενη γραμμή αν δεν χωράνε στην ίδια αλλά δεν τις κάνει center*/
+.full-card-container {
+    flex-wrap: wrap;
+}
+
+.card-custom {
+    border: 1.5px solid var(--accent-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    border-radius: 10px;
+    transform: scale(0.8);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+}
+
+.card-img-top-custom {
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+}
+
+.card-title-custom {
+    color: var(--accent-color);
+}
+
+.card-text-custom {
+    color: var(--light-bg);
+}
+
+.card-body-custom {
+    background-color: var(--secondary-bg);
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
+
+.cards-section-title {
+    font-family: var(--primary-font);
+    font-size: 3em;
+    color: var(--accent-color);
+}
+
+.view-more {
+    text-decoration: none;
+    font-family: var(--secondary-font);
+    font-size: 1.3em;
+    color: var(--light-bg);
+    transition: color 0.3s ease;
+}
+
+.cards-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
