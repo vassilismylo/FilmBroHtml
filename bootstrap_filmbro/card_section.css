@@ -17,6 +17,7 @@
     transform: scale(0.8);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: inline-block;
+    background-color: var(--secondary-bg);
 }
 
 .card-img-top-custom {
@@ -33,7 +34,6 @@
 }
 
 .card-body-custom {
-    background-color: var(--secondary-bg);
     border-bottom-left-radius: 9px;
     border-bottom-right-radius: 9px;
 }
