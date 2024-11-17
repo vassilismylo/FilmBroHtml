@@ -80,6 +80,17 @@
     cursor: pointer;
 }
 
+.review-list-text {
+    font-size: 0.9em;
+    color: var(--light-bg);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    cursor: pointer;
+    margin-bottom: 2px;
+}
+
 .review-list-card {
     border-radius: 15px;
 }
@@ -101,7 +112,6 @@
 }
 
 .like-count {
-    margin-left: 5px;
     font-size: 1em;
     color: var(--light-bg);
 }
@@ -118,13 +128,45 @@
     color: var(--accent-color)
 }
 
-.review-text {
+
+/*For lists only*/
+.list-user-photo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+.list-film-count {
+    font-size: 0.8em;
+    color: var(--light-bg);
+}
+
+.image-collage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0;
+    width: 104%;
+    height: 100%;
+  }
+  
+  .image-collage img {
+    width: 100%;
+    height: auto;
+  }
+
+/*For users only*/
+
+.user-card-text {
     font-size: 0.9em;
     color: var(--light-bg);
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 5;
     cursor: pointer;
+    margin-bottom: 2px;
 }
 
