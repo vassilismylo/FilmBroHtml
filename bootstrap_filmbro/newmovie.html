@@ -1,0 +1,967 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="this is for the page icon">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    <!--Custom css-->
+      <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="card_Section.css">
+    <link rel="stylesheet" href="header-footer.css">
+</head>
+
+<style>
+        /* Global Styles */
+        a {
+            text-decoration: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #2C1E1A;
+            color: #d8bca9;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Color Palette */
+        :root {
+            --background-color: #2C1E1A;
+            --primary-bg: #334e41;
+            --accent-color: #FFB74D;
+            /* Yellow */
+            --secondary-bg: #5b8a73;
+            /* Green */
+            --light-bg: #e4cec0;
+            --hover-light-bg: #d3b9a8;
+            --hover-bg: #416556;
+            --active-bg: #FFB74D;
+            /* Active button color */
+            --primary-font: 'Playfair Display', serif;
+            --secondary-font: 'Poppins', sans-serif;
+            --genre-color: #FFB74D;
+            /* Yellow for genres */
+        }
+
+
+        /* Movie Details Section */
+        .movie-details {
+            display: flex;
+            padding: 60px 5%;
+            background-color: var(--primary-bg);
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+
+
+        .movie-poster {
+            width: 300px;
+            /* Ensure the poster does not exceed this width */
+            margin: 20px;
+            /* Center the poster horizontally */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: block;
+            /* Make it a block element */
+        }
+
+        .movie-title {
+            font-family: var(--primary-font);
+            font-size: 2.5em;
+            margin-bottom: 8px;
+            /* Reduce space below the title */
+            color: var(--accent-color);
+            display: inline-block;
+
+        }
+
+        .director-name {
+            font-size: 1em;
+            color: var(--light-bg);
+            display: block;
+            margin-top: 0;
+            /* Remove any additional space above */
+            margin-bottom: 15px;
+            /* Space below the director name */
+        }
+
+
+        .movie-info {
+            font-family: var(--secondary-font);
+            font-size: 1.2em;
+            color: var(--light-bg);
+            margin-bottom: 10px;
+        }
+
+        .genres {
+            display: flex;
+            /* Use flexbox for layout */
+            flex-wrap: wrap;
+            /* Allow genres to wrap onto multiple lines */
+            margin-bottom: 10px;
+            /* Space below the genres */
+        }
+
+        .genre {
+            padding: 8px;
+            /* Padding around genre boxes */
+            border: 2px solid var(--accent-color);
+            /* Border style */
+            border-radius: 15px;
+            /* Rounded corners */
+            color: var(--accent-color);
+            /* Text color */
+            margin-right: 10px;
+            /* Space between genre boxes */
+            margin-bottom: 5px;
+            /* Space below genre boxes */
+            flex: 1 0 30%;
+            /* Flex item takes 30% of the row */
+            max-width: calc(33.33% - 10px);
+            /* Max width for three genres per line */
+            box-sizing: border-box;
+            text-align: center;
+            /* Include padding and border in the element's total width */
+        }
+
+
+        .movie-description {
+            max-width: 500px;
+            font-size: 1.1em;
+            color: var(--light-bg);
+            display: -webkit-box;
+            -webkit-line-clamp: 6;
+            /* Limit to 6 lines */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: pointer;
+            /* Indicates clickable for more */
+        }
+
+        /* Trailer Button */
+        .trailer-button {
+            margin: 10px 0;
+            /* Space above and below */
+            padding: 10px 20px;
+            background-color: var(--secondary-bg);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* Space between icon and text */
+        }
+
+        .trailer-button i {
+            font-size: 20px;
+            /* Icon size */
+        }
+
+        /* Ratings Section */
+        .ratings {
+            display: flex;
+            justify-content: space-between;
+            /* Space ratings equally */
+            width: 100%;
+            /* Make the ratings container take full width */
+            margin-top: 30px;
+            /* Space from movie details */
+            color: var(--light-bg);
+            gap: 20px;
+            /* Add space between each rating */
+            border-top: 1px solid var(--genre-color);
+            /* Add thin yellow line above */
+            padding-top: 10px;
+            /* Space between line and ratings */
+            padding-left: 0;
+            /* Remove left padding */
+            padding-right: 0;
+            /* Remove right padding */
+        }
+
+        .rating {
+            flex-basis: auto;
+            /* Allow it to auto-size based on content */
+            flex-shrink: 0;
+            /* Prevent the rating block from shrinking */
+            text-align: center;
+            /* Center the text */
+        }
+
+        .rating-title {
+            font-size: 1em;
+            margin-bottom: 5px;
+            /* Space between title and score */
+            color: var(--genre-color);
+            /* Yellow text for ratings */
+        }
+
+        .rating-score {
+            font-size: 1.2em;
+            font-weight: bold;
+            /* Make the score bold */
+            color: var(--genre-color);
+            /* Yellow text for ratings */
+        }
+
+        .rating-reviews {
+            font-size: 0.8em;
+            /* Smaller font size for reviews count */
+            color: var(--light-bg);
+            /* Keeping reviews count in light color */
+        }
+
+        /* Button Styles */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            /* Center buttons */
+            margin-top: 30px;
+            /* Space from movie poster */
+            gap: 20px;
+            /* Space between buttons */
+        }
+
+        .button {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--secondary-bg);
+            /* Initial green color */
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+            transition: background-color 0.3s;
+        }
+
+        .button.active {
+            background-color: var(--accent-color);
+            /* Change to yellow when active */
+        }
+
+        .button::after {
+            content: attr(data-hover);
+            position: absolute;
+            bottom: 70px;
+            /* Adjust for position */
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-color);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            white-space: nowrap;
+            opacity: 0;
+            /* Hidden by default */
+            transition: opacity 0.3s;
+            visibility: hidden;
+            /* Hidden by default */
+        }
+
+        .button:hover::after {
+            opacity: 1;
+            /* Show on hover */
+            visibility: visible;
+            /* Show on hover */
+        }
+
+
+
+
+        /* Updated Watch Table Styling */
+        .watch-table-container {
+            margin: 30px;
+            width: 270px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+            /* Subtle shadow around the table */
+        }
+
+        /* Table Header Title Row */
+        .table-title-row {
+            background-color: var(--accent-color);
+            /* Yellow background for the title */
+            color: var(--hover-bg);
+            /* Dark text for contrast */
+            text-align: center;
+            padding: 15px;
+            font-family: var(--primary-font);
+            font-size: 1.6em;
+        }
+
+        /* Watch Table Styling */
+        .watch-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            /* Fixed layout for equal column width */
+        }
+
+        /* Table Header */
+        .watch-table thead {
+            background-color: var(--hover-bg);
+            /* Use a light blue for the header */
+        }
+
+        .watch-table thead th {
+            font-family: var(--secondary-font);
+            font-size: 1.1em;
+            color: var(--accent-color);
+            /* Yellow text for header */
+            padding: 15px;
+            text-align: center;
+            text-transform: uppercase;
+            /* Capitalize header text */
+        }
+
+        /* Table Body */
+        .watch-table tbody {
+            background-color: var(--background-color);
+            /* Change this to your desired background color */
+        }
+
+        /* Ensure columns are properly aligned */
+        .watch-table tbody td {
+            vertical-align: top;
+            /* Center items vertically in the cell */
+            text-align: center;
+            /* Center items horizontally in the cell */
+            padding: 10px;
+            /* Adds padding inside the cell for spacing */
+        }
+
+        /* Service Icon Styles */
+        .service-icon {
+            max-width: 50px;
+            /* Keep the icon size */
+            margin: 5px 0;
+            /* Set vertical margin for spacing */
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            /* Deep shadow on hover */
+        }
+
+
+
+        /* everything is for the write a review pop up
+        /* Modal review Background */
+        .modal-review {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        /* Modal Content Box */
+        .modal-review-content {
+            position: relative;
+            background-color: var(--primary-bg);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Close Button */
+        .close-review-button {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--accent-color);
+        }
+
+
+
+        /* Adjustments for the Review Form inside the Modal */
+        .review-container {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .review-container h2 {
+            font-family: var(--primary-font);
+            color: var(--accent-color);
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .review-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .review-form input[type="number"],
+        .review-form textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #e0d7d1;
+            font-size: 1em;
+        }
+
+        .review-form textarea {
+            height: 180px;
+            resize: none;
+        }
+
+        .review-form button {
+            padding: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: var(--accent-color);
+            color: var(--primary-bg);
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .review-form button:hover {
+            background-color: var(--hover-bg);
+        }
+
+        /* Stars Rating */
+        .rating-stars {
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+        }
+
+        .rating-stars span {
+            font-size: 1.5em;
+            /* Keep the original size */
+            color: #ccc;
+            /* Default color for empty stars */
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .rating-stars label {
+            margin-right: 15px;
+            font-size: 1.2em;
+            /* Space between the label and stars */
+        }
+
+
+        .rating-stars span:hover,
+        .rating-stars span:hover~span {
+            color: #FFB74D;
+            /* Hover color */
+        }
+
+
+        .movie-review-poster {
+            width: 120px;
+            /* Slightly larger for emphasis */
+            height: 180px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .movie-details-review {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            justify-content: flex-start;
+            /* Align items to the start */
+        }
+
+        .movie-info-review {
+            text-align: left;
+            /* Align text to the left */
+            flex: 1;
+            /* Take up remaining space */
+        }
+
+        .movie-info-review h2 {
+            font-family: var(--primary-font);
+            color: var(--accent-color);
+            font-size: 2em;
+            margin: 0;
+        }
+
+        .movie-info-review p {
+            font-family: var(--secondary-font);
+            color: var(--light-bg);
+            font-size: 1.2em;
+        }
+
+        /* Styles for the  add to list pop-up */
+  .popup {
+    display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        max-width: 90%;
+        background-color: var(--secondary-bg); 
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        color: #eaeaea; /* Light text color for contrast */
+    }
+   
+    /* Popup Content */
+    .popup-content h3 {
+        color: var(--accent-color); /* Accent color for header */
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    
+    .popup-content ul {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0;
+    }
+
+    .popup-content li {
+        margin: 8px 0;
+    }
+
+    .popup-content label {
+        margin-left: 8px;
+        font-size: 16px;
+    }
+
+    /* Buttons inside the popup */
+    .popup-content .create-list-button,
+    .popup-content .close-button {
+        background-color: var(--accent-color); /* Accent button color */
+        color: #1f1f1f;
+        border: none;
+        padding: 10px 15px;
+        font-size: 16px;
+        border-radius: 6px;
+        margin-top: 15px;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s;
+    }
+    
+
+    .popup-content .create-list-button:hover,
+    .popup-content .close-button:hover {
+        background-color: var(--primary-bg) /* Darken on hover */
+    }
+    .overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    z-index: 900; /* Positioned below the popup */
+}
+    </style></head>
+<body>
+<!-- Movie Details Section -->
+<section class="movie-details">
+<div>
+<img class="movie-poster" src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"/>
+
+<div class="button-container">
+<div class="button" data-hover="Add to Seen" onclick="toggleButton(this, 'seen')">
+<i class="fas fa-eye" style="color: white; font-size: 24px;"></i>
+</div>
+<div class="button" data-hover="Add to Watch List" onclick="toggleButton(this, 'watch')">
+<i class="fas fa-clock" style="color: white; font-size: 24px;"></i>
+</div>
+<div class="button" data-hover="Add to List" onclick="openAddToListPopup()">
+<i class="fas fa-plus" style="color: white; font-size: 24px;"></i>
+</div>
+</div>
+</div>
+<div>
+<h1 class="movie-title">Interstellar</h1>
+<span class="director-name"> Directed By Christopher Nolan</span>
+<div class="movie-info">
+<p>Release Year: 2014</p>
+<p>Duration: 169 minutes</p>
+<p>Language: English</p>
+</div>
+<div class="genres">
+<div class="genre">Adventure</div>
+<div class="genre">Drama</div>
+<div class="genre">Science Fiction</div>
+</div>
+<button class="trailer-button">
+<i class="fas fa-play"></i>
+                Trailer
+            </button>
+<p class="movie-description" data-expanded="false" onclick="toggleDescription()">The adventures of a group
+                of explorers who make use of a newly discovered
+                wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an
+                interstellar voyage. </p>
+<!-- Ratings Section -->
+<div class="ratings">
+<div class="rating">
+<div class="rating-title">FilmBro</div>
+<div class="rating-score">9.2/10</div>
+<div class="rating-reviews">Ratings: 15</div>
+</div>
+<div class="rating">
+<div class="rating-title">Your Rating</div>
+<div class="rating-score">9/10</div>
+</div>
+<div class="rating">
+<div class="rating-title">IMDb</div>
+<div class="rating-score">8.6/10</div>
+</div>
+<div class="rating">
+<div class="rating-title">Letterboxd</div>
+<div class="rating-score">4.5/5</div>
+</div>
+</div>
+</div>
+<div>
+<div class="watch-table-container">
+<div class="table-title-row">Where to Watch in: Greece</div>
+<table class="watch-table">
+<thead>
+<tr>
+<th>Stream</th>
+<th>Rent</th>
+<th>Buy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img class="service-icon" src="https://image.tmdb.org/t/p/w500/h5DcR0J2EESLitnhR8xLG1QymTE.jpg"/>
+<img class="service-icon" src="https://image.tmdb.org/t/p/w500/tJqmTmQ8jp9WfyaZfApHK8lSywA.jpg"/>
+<img class="service-icon" src="https://image.tmdb.org/t/p/w500/hExO4PtimLIYn3kBOrzsejNv7cT.jpg"/>
+<img class="service-icon" src="https://image.tmdb.org/t/p/w500/ywIoxSjoYJGUIbR6BfxUiCHdPi3.jpg"/>
+</td>
+<td>
+<img class="service-icon" src="https://image.tmdb.org/t/p/w500/9ghgSC0MA082EL6HLCW3GalykFD.jpg"/>
+<img class="service-icon" src="https://image.tmdb.org/t/p/w500/seGSXajazLMCKGB5hnRCidtjay1.jpg"/>
+<img class="service-icon" src="https://image.tmdb.org/t/p/w500/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"/>
+<img class="service-icon" src="https://image.tmdb.org/t/p/w500/pTnn5JwWr4p3pG8H6VrpiQo7Vs0.jpg"/>
+<td>
+<img class="service-icon" src="https://image.tmdb.org/t/p/w500/9ghgSC0MA082EL6HLCW3GalykFD.jpg"/>
+<img class="service-icon" src="https://image.tmdb.org/t/p/w500/seGSXajazLMCKGB5hnRCidtjay1.jpg"/>
+<img class="service-icon" src="https://image.tmdb.org/t/p/w500/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"/>
+<img class="service-icon" src="https://image.tmdb.org/t/p/w500/pTnn5JwWr4p3pG8H6VrpiQo7Vs0.jpg"/>
+</td></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Cast Section -->
+
+<div class="container-fluid container-custom">
+    <div class="cards-section-header">
+        <h2 class="cards-section-title">Cast</h2>
+        <a href="#" class="view-more">View Full Cast</a>
+    
+    </div>
+
+    <div class="four-card-container">
+        <div class="card card-custom movie-contributor-card" style="width: 18rem;">
+           
+            <img src="https://image.tmdb.org/t/p/w500/rUxLWWCDUF8RnDaocSqrVDJ2MS1.jpg"
+                class="card-img-top movie-contributor-card-img">
+            <div class="card-body movie-contributor-card-body">
+                <h3 class="card-title movie-contributor-card-title">
+                    <i class="bi bi-film"></i> Matthew McConaughey
+                </h5>
+                <p class="card-text movie-contributor-card-text">Cooper</p>
+
+            </div>
+        </div>
+
+        <div class="card card-custom movie-contributor-card" style="width: 18rem;">
+           
+            <img src="https://image.tmdb.org/t/p/w500/kRYxBuUtN3vNz5pLfqCf32ZYlw2.jpg"
+                class="card-img-top movie-contributor-card-img">
+            <div class="card-body movie-contributor-card-body">
+                <h3 class="card-title movie-contributor-card-title">
+                    <i class="bi bi-film"></i> Anne Hathaway
+                </h5>
+             
+                <p class="card-text movie-contributor-card-text">Brand</p>
+
+            </div>
+        </div>
+
+        <div class="card card-custom movie-contributor-card" style="width: 18rem;">
+           
+            <img src="https://image.tmdb.org/t/p/w500/bVZRMlpjTAO2pJK6v90buFgVbSW.jpg"
+                class="card-img-top movie-contributor-card-img">
+            <div class="card-body movie-contributor-card-body">
+                <h3 class="card-title movie-contributor-card-title">
+                    <i class="bi bi-film"></i> Michael Caine
+                </h5>
+             
+                <p class="card-text movie-contributor-card-text">Professor Brand</p>
+
+            </div>
+        </div>
+
+        <div class="card card-custom movie-contributor-card" style="width: 18rem;">
+
+            <img src="https://image.tmdb.org/t/p/w500/xRvRzxiiHhgUErl0yf9w8WariRE.jpg"
+                class="card-img-top movie-contributor-card-img">
+            <div class="card-body movie-contributor-card-body">
+                <h3 class="card-title movie-contributor-card-title">
+                    <i class="bi bi-film"></i> Jessica Chastain
+                </h5>
+               
+                <p class="card-text movie-contributor-card-text">Murph</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- User Reviews Section -->
+    <div class="container-fluid container-custom">
+        <h2 class="cards-section-title">Reviews</h2>  
+        <p></p>
+        <div class="card mb-3 card-custom review-list-card" style="max-width: 540px;">
+        
+            <div class="row g-0">
+                <div class="col-md-2">
+                    <img src="https://via.placeholder.com/60" class="img-fluid review-profile-pic" alt="...">
+                </div>
+                <div class="col-md-10">
+                    <div class="card-body">
+                        <div class="review-list-header">
+                            <span class="review-list-title">Alex Brown</span>
+                            <span class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i><i class="bi bi-star"></i></span>
+                        </div>
+                        <p class="card-text review-text">
+                            Absolutely loved it! The movie explores deep themes of human nature and survival while taking us
+                            on a visual journey through space. The way it delves into the complexities of relationships
+                            during times of crisis really resonated with me. Each character faced their own struggles, and
+                            the film did an excellent job of portraying their emotional arcs against the backdrop of
+                            breathtaking visuals. The cinematography was simply stunning, with each scene meticulously
+                            crafted to draw the audience into this otherworldly experience. The score complemented the
+                            visuals beautifully, enhancing the emotional impact of key moments. I left the theater feeling a
+                            mix of awe and contemplation, pondering the moral dilemmas presented throughout the story. It's
+                            a film that not only entertains but also invites reflection on what it means to be human. This
+                            is definitely one of those films that stays with you long after the credits roll.
+                        </p>
+                        <div class="like-section">
+                            <button class="like-button"><i class="bi bi-heart"></i></button>
+                            <span class="like-count">94</span> <!-- Random number of likes -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3 card-custom review-list-card" style="max-width: 540px;">
+            
+            <div class="row g-0">
+                <div class="col-md-12">
+                    <div class="card-body">
+                        <div class="review-list-header">
+                            <span class="review-list-title">Interstellar</span>
+                            <span class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i><i class="bi bi-star"></i></span>
+                        </div>
+                        <p class="card-text review-text">
+                            Absolutely loved it! The movie explores deep themes of human nature and survival while taking us
+                            on a visual journey through space. The way it delves into the complexities of relationships
+                            during times of crisis really resonated with me. Each character faced their own struggles, and
+                            the film did an excellent job of portraying their emotional arcs against the backdrop of
+                            breathtaking visuals. The cinematography was simply stunning, with each scene meticulously
+                            crafted to draw the audience into this otherworldly experience. The score complemented the
+                            visuals beautifully, enhancing the emotional impact of key moments. I left the theater feeling a
+                            mix of awe and contemplation, pondering the moral dilemmas presented throughout the story. It's
+                            a film that not only entertains but also invites reflection on what it means to be human. This
+                            is definitely one of those films that stays with you long after the credits roll.
+                        </p>
+                        <div class="like-section">
+                            <button class="like-button"><i class="bi bi-heart"></i></button>
+                            <span class="like-count">94</span> <!-- Random number of likes -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Modal -->
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalUsername"></h2>
+            <p id="modalReviewText"></p>
+        </div>
+    </div>
+
+    <!-- Write a Review Modal POP UP -->
+    <div id="writeReviewModal" class="modal-review" style="display: none;">
+        <div class="modal-review-content">
+            <span class="close-review-button" onclick="closeReviewModal()">×</span>
+            <!-- Insert the Review Form -->
+            <div class="review-container">
+                <div class="movie-details-review">
+                    <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" alt="Interstellar Poster"
+                        class="movie-review-poster">
+                    <div class="movie-info-review">
+                        <h2>Write a Review for Interstellar (2014)</h2>
+                    </div>
+                </div>
+                <form class="review-form" action="#" method="POST">
+                    <div class="rating-stars">
+                        <label>Rating:</label>
+                        <div class="rating-stars" id="rating">
+                            <span data-value="1">&#9733;</span>
+                            <span data-value="2">&#9733;</span>
+                            <span data-value="3">&#9733;</span>
+                            <span data-value="4">&#9733;</span>
+                            <span data-value="5">&#9733;</span>
+                            <span data-value="6">&#9733;</span>
+                            <span data-value="7">&#9733;</span>
+                            <span data-value="8">&#9733;</span>
+                            <span data-value="9">&#9733;</span>
+                            <span data-value="10">&#9733;</span>
+                        </div>
+                        <input type="hidden" id="rating" name="rating" required>
+                    </div>
+                    <div class="review-text-review">
+                        <label for="review">Your Review:</label>
+                        <textarea id="review" name="review" placeholder="Write your thoughts about Interstellar..."
+                            required></textarea>
+                    </div>
+                    <div class="spoiler-checkbox">
+                        <input type="checkbox" id="spoiler" name="spoiler">
+                        <label for="spoiler">Contains Spoilers</label>
+                    </div>
+                    <button type="submit" onclick="submitReview()">Submit Review</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<!--Movies section-->
+<div class="container-fluid container-custom">
+    <div class="cards-section-header">
+        <h2 class="cards-section-title">You might also like</h2>
+        <a href="#" class="view-more">View More</a>
+    </div>
+
+    <div class="four-card-container">
+        <div class="card card-custom movie-contributor-card" style="width: 18rem;">
+            <span class="position-absolute top-0 start-100 translate-middle badge" style="background-color: var(--accent-color);">
+                <h3><i class="bi bi-eye-fill"></i> <i class="bi bi-clock-fill"></i></h3>
+            </span>
+            <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
+                class="card-img-top movie-contributor-card-img">
+            <div class="card-body movie-contributor-card-body">
+                <h3 class="card-title movie-contributor-card-title">
+                    <i class="bi bi-film"></i> Interstellar
+                </h5>
+                <h5 class="card-title movie-contributor-card-title">
+                    <i class="bi bi-star-fill"></i> 8.4
+                </h5>
+                <p class="card-text movie-contributor-card-text">2014 | 169m</p>
+
+            </div>
+        </div>
+
+        <div class="card card-custom movie-contributor-card" style="width: 18rem;">
+            <span class="position-absolute top-0 start-100 translate-middle badge" style="background-color: var(--accent-color);">
+                <h3><i class="bi bi-eye-fill"></i> <i class="bi bi-clock-fill"></i></h3>
+            </span>
+            <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
+                class="card-img-top movie-contributor-card-img">
+            <div class="card-body movie-contributor-card-body">
+                <h3 class="card-title movie-contributor-card-title">
+                    <i class="bi bi-film"></i> Interstellar
+                </h5>
+                <h5 class="card-title movie-contributor-card-title">
+                    <i class="bi bi-star-fill"></i> 8.4
+                </h5>
+                <p class="card-text movie-contributor-card-text">2014 | 169m</p>
+
+            </div>
+        </div>
+
+        <div class="card card-custom movie-contributor-card" style="width: 18rem;">
+            <span class="position-absolute top-0 start-100 translate-middle badge" style="background-color: var(--accent-color);">
+                <h3><i class="bi bi-eye-fill"></i> <i class="bi bi-clock-fill"></i></h3>
+            </span>
+            <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
+                class="card-img-top movie-contributor-card-img">
+            <div class="card-body movie-contributor-card-body">
+                <h3 class="card-title movie-contributor-card-title">
+                    <i class="bi bi-film"></i> Interstellar
+                </h5>
+                <h5 class="card-title movie-contributor-card-title">
+                    <i class="bi bi-star-fill"></i> 8.4
+                </h5>
+                <p class="card-text movie-contributor-card-text">2014 | 169m</p>
+
+            </div>
+        </div>
+
+        <div class="card card-custom movie-contributor-card" style="width: 18rem;">
+            <span class="position-absolute top-0 start-100 translate-middle badge" style="background-color: var(--accent-color);">
+                <h3><i class="bi bi-eye-fill"></i> <i class="bi bi-clock-fill"></i></h3>
+            </span>
+            <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
+                class="card-img-top movie-contributor-card-img">
+            <div class="card-body movie-contributor-card-body">
+                <h3 class="card-title movie-contributor-card-title">
+                    <i class="bi bi-film"></i> Interstellar
+                </h5>
+                <h5 class="card-title movie-contributor-card-title">
+                    <i class="bi bi-star-fill"></i> 8.4
+                </h5>
+                <p class="card-text movie-contributor-card-text">2014 | 169m</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</div></body>
+</html>
