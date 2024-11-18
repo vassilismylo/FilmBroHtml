@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FilmBro | Login_Register</title>
+        <!-- Bootstrap 5 CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="login-register_form.css" rel="stylesheet">
+        <link href="general.css" rel="stylesheet">
+    </head>
+    <body>
+
+    <!-- Header -->
+    <header class="navbar navbar-light bg-light">
+        <a href="index.html" class="navbar-brand">FilmBro</a>
+        <nav>
+            <a href="#" class="btn btn-link text-decoration-none" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a>
+            <a href="#" class="btn btn-link text-decoration-none" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+        </nav>
+    </header>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm width-form-style">
+            <div class="modal-content general-form-style">
+                <!-- Modal Header -->
+                <div class="modal-header header-form-style">
+                    <h5 class="modal-title header-title-form-style" id="loginModalLabel">Log In</h5>
+                    <button type="button" class="btn-close form-close-button-style" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body form-body-style">
+                    <form>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control form-control-custom-style" id="username" placeholder="Enter your username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control form-control-custom-style" id="password" placeholder="Enter your password">
+                        </div>
+                        <button type="button" class="btn btn-primary button-style" onclick="login()">Log In</button>
+                        <a href="#" class="d-block mt-2 text-center link-style">Forgot my password</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal (Optional) -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm width-form-style">
+            <div class="modal-content general-form-style">
+                <!-- Modal Header-->
+                <div class="modal-header header-form-style">
+                    <h5 class="modal-title header-title-form-style" id="registerModalLabel">Register</h5>
+                    <button type="button" class="btn-close form-close-button-style" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!--Modal Body-->
+                <div class="modal-body form-body-style">
+                    <form action="#" method="post"> <!--in the action we will add the server/data base (.php) and then we will use the onclick()-->
+                        <!--username-->
+                        <div class="mb-3">
+                            <label for="registerUsername" class="form-label">Username</label>
+                            <input type="text" class="form-control form-control-custom-style" id="registerUsername" placeholder="Enter your username">
+                        </div>
+                        <!--email-->
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control form-control-custom-style" id="registerEmail" placeholder="Enter your email">
+                        </div>
+                        <!--password-->
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control form-control-custom-style" id="registerPassword" placeholder="Enter your password">
+                        </div>
+                        <!--confirm-->
+                        <div class="mb-3">
+                            <label for="registerConfirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control form-control-custom-style" id="registerConfirmPassword" placeholder="Confirm your password">
+                        </div>
+
+                        <!-- Private-Public Options -->
+                        <div class="select-option">
+                            <label class="form-label form-label-custom">I want my profile to be:</label>
+                            <div class="option-container">
+                                <!-- Private option -->
+                                <label class="option option-custom-style" tabindex="0" role="button" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="hover"  data-bs-content="Only your followers can see your lists, reviews, and followers.">
+                                    <input type="checkbox" name="option" value="private" class="option-checkbox custom-checkbox">
+                                    Private
+                                </label>
+                                
+                                <!-- Public option -->
+                                <label class="option option-custom-style" tabindex="0" role="button" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="hover" data-bs-content="ALL users can see your lists, reviews, and followers.">
+                                    <input type="checkbox" name="option" value="public" class="option-checkbox custom-checkbox">
+                                    Public
+                                </label>
+                            </div>
+                        </div>                        
+
+                        <button type="button" class="btn btn-primary button-style">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS & Popper (Required for Modal) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // Function to open and close modals (Bootstrap 5 handles most of this with data-bs-toggle)
+        function toggleLoginModal() {
+            var myModal = new bootstrap.Modal(document.getElementById('loginModal'));
+            myModal.toggle();
+        }
+
+        function toggleRegisterModal() {
+            var myModal = new bootstrap.Modal(document.getElementById('registerModal'));
+            myModal.toggle();
+        }
+
+        // Sample login function
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            alert('Logging in with ' + username + ' and ' + password);
+            // Here, you would typically send a request to your server to handle the login
+        }
+
+        // Initialize Bootstrap popovers
+        document.addEventListener('DOMContentLoaded', function () {
+            var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+            popoverTriggerList.forEach(function (popoverTriggerEl) {
+                new bootstrap.Popover(popoverTriggerEl);
+            });
+        });
+
+        // Ensure only one checkbox is selected at a time
+        const checkboxes = document.querySelectorAll('.option-checkbox');
+        
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                if (this.checked) {
+                    checkboxes.forEach(otherCheckbox => {
+                        if (otherCheckbox !== this) {
+                            otherCheckbox.checked = false;
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+    </body>
+</html>
