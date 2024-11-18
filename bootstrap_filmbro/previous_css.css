@@ -1,0 +1,178 @@
+:root {
+  --background-color: #2C1E1A;
+  --primary-bg: #334e41;
+  --accent-color: #FFB74D;
+  --secondary-bg: #5b8a73;
+  --light-bg: #e4cec0;
+  --primary-font: 'Playfair Display', serif;
+  --secondary-font: 'Poppins', sans-serif;
+  --hover-accent: #ffc163;
+}
+
+/* Modal Styling */
+.modal-content {
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  background-color: var(--primary-bg);
+}
+
+/* Modal Container Width */
+.modal-dialog {
+  max-width: 500px; /* Increase the max-width to make the form wider */
+  width: 100%; /* Ensures the modal takes up available space */
+}
+
+/* Modal Header */
+.modal-header {
+  color: var(--accent-color);
+  padding: 15px;
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  position: relative;
+}
+
+/* Center the titles */
+.modal-header .modal-title {
+  font-size: 2rem;
+  margin: 0; /* Remove any default margins */
+  text-align: center;
+  flex: 1;
+  font-family: var(--primary-font);
+}
+
+/* Form close button */
+.modal-header .btn-close {
+  background-color: transparent; /* Remove background color */
+  color: var(--accent-color); /* Color of the x button */
+  border: none;
+  opacity: 1;
+  padding: 5px;
+  box-shadow: none;
+  font-size: 0.7rem;
+  margin-top: -35px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.modal-header .btn-close:hover {
+  transform: scale(1.05);
+  color: var(--accent-color);
+}
+
+/* Form Elements */
+.modal-body form label {
+  font-size: 1rem;
+  color: var(--light-bg);
+  font-family: var(--secondary-font);
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+.modal-body form .form-control {
+  border: none;
+  border-radius: 5px;
+  font-size: 0.90rem;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: var(--background-color);
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-body form .form-control::placeholder {
+  color: var(--light-bg);
+  font-size: 0.90rem;
+  opacity: 1; /* Ensure the placeholder is fully opaque */
+}
+
+.modal-body form .form-control:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 15px var(--accent-color);
+}
+
+/* Form button */
+.modal-body form button {
+  background-color: var(--accent-color);
+  border: none;
+  color: black;
+  font-size: 1rem;
+  font-family: var(--secondary-font);
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for button */
+.modal-body form button:hover {
+  background-color: var(--hover-accent);
+  transform: scale(1.05);
+}
+
+/* Focus state for button (override default blue) */
+.modal-body form button:focus {
+  outline: none; /* Remove the default focus outline */
+  box-shadow: 0 0 0 3px var(--accent-color); /* Custom focus box-shadow */
+}
+
+/* Active state for button (override default active color) */
+.modal-body form button:active {
+  background-color: var(--accent-color);
+  transform: scale(1.05); /* Keep the hover-like scale effect */
+}
+
+/* Link for password reset */
+.modal-body form a {
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.modal-body form a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+  .modal-dialog {
+      margin: 10px;
+  }
+}
+
+/* Styling for checkbox options */
+.option {
+  position: relative;
+  display: flex; /* Align items horizontally */
+  align-items: center;
+  margin-bottom: 15px;
+  margin-right: 20px; /* Add space between the 2 options */
+  margin-left: 0px;
+  cursor: pointer; /* Show pointer cursor on hover */
+  font-weight: normal;
+}
+
+/* Customize the default checkbox */
+input[type="checkbox"] {
+  accent-color: var(--accent-color); 
+  width: 16px; /* Customize size of the checkbox */
+  height: 16px; /* Customize size of the checkbox */
+  cursor: pointer; /* Pointer cursor for better UX */
+}
+
+/* Optional: Style the checkbox container for spacing and alignment */
+.custom-checkbox {
+  display: inline-block;
+}
+
+/* Optional: Label text styling */
+label.option {
+  font-size: 16px;
+  color: var(--light-bg); 
+}
