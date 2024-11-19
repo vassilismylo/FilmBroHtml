@@ -103,7 +103,7 @@ input[type="checkbox"] {
     }
 }
 
- @media (max-width: 7680px ) { /*for tablet*/
+ @media (max-width: 768px ) { /*for tablet*/
    .width-form-style {
         width: 65%;
         margin: 20px auto 0; /* 20px top margin, auto centers horizontally */
