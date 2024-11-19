@@ -151,3 +151,16 @@ input[type="checkbox"] {
 .custom-checkbox {
     display: inline-block;
 }
+
+/* Responsive Adjustments */ /*κάνει προσαρμογή στη σελ όταν αλλάζει το μέγεθος*/
+@media (max-width: 480px ) { /*for phone*/
+    .width-form-style {
+        width: 65%;
+    }
+  }
+
+  @media (max-width: 7680px ) { /*for tablet*/
+    .width-form-style {
+        width: 65%;
+    }
+  }

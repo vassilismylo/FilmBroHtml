@@ -1,0 +1,99 @@
+:root {
+    --hover-accent: #ffc163;
+  }
+
+.width-form-style {
+    max-width: 750px; /* Increase the max-width to make the form wider */
+    width: 100%; /* Ensures the modal takes up available space */
+}
+
+.general-form-style {
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    background-color: var(--primary-bg) !important;
+}
+
+.header-form-style {
+    color: var(--accent-color);
+    padding: 15px;
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+}
+
+.header-title-form-style {
+    font-size: 2rem;
+    margin: 0; /* Remove any default margins */
+    text-align: center;
+    flex: 1;
+    font-family: var(--primary-font);
+    color: var(--accent-color);
+}
+
+/* Form Elements */
+.form-body-style form label {
+    font-size: 1rem;
+    color: var(--light-bg);
+    font-family: var(--secondary-font);
+    margin-bottom: 5px;
+    display: inline-block;
+}
+  
+.form-body-style form .form-control-custom-style {
+    border: none;
+    border-radius: 5px;
+    font-size: 0.90rem;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: var(--background-color);
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+  
+.form-body-style form .form-control-custom-style::placeholder {
+    color: var(--light-bg);
+    font-size: 0.90rem;
+    opacity: 1; /* Ensure the placeholder is fully opaque */
+}
+  
+.form-body-style form .form-control-custom-style:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+.textarea-custom-style {
+    resize: none; /* Disables resizing by the user */
+    width: 100%; /* Optional: Adjust to your desired width */
+    height: 150px; /* Set a fixed height */
+}
+
+/* Form button */
+.form-body-style .button-style {
+    background-color: var(--accent-color);
+    border: none;
+    color: black;
+    font-size: 1rem;
+    font-family: var(--secondary-font);
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 15%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+  
+/* Hover effect for button */
+.form-body-style .button-style:hover {
+    background-color: var(--hover-accent);
+    transform: scale(1.05);
+}
+
+/* Focus state for button (override default blue) */
+.form-body-style .button-style:hover:focus {
+    outline: none; /* Remove the default focus outline */
+    box-shadow: 0 0 0 3px var(--accent-color); /* Custom focus box-shadow */
+}
