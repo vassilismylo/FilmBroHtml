@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
+    
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,102 +18,171 @@
     <link rel="stylesheet" href="header-footer.css">
     <link rel="stylesheet" href="moviestyles.css">
 </head>
+<style>
+    :root {
+        --background-color: #2C1E1A;
+        --primary-bg: #334e41;
+        --accent-color: #FFB74D;
+        --secondary-bg: #5b8a73;
+        --light-bg: #e4cec0;
+        --primary-font: 'Playfair Display', serif;
+        --secondary-font: 'Poppins', sans-serif;
+    }</style>
 
-<body>
-<!-- Movie Details Section -->
-<section class="movie-details">
-<div>
-<img class="movie-poster" src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"/>
+<div class="container-fluid container-custom">
+    <div class="row">
+        <!-- Movie Poster Section -->
+        <div class="col-md-3 text-center">
+            <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" 
+                 alt="Interstellar Poster" 
+                 class="img-fluid rounded shadow mb-3">
+            <!-- Buttons -->
+            <div class="d-flex justify-content-center gap-3">
+                <button class="btn btn-outline-light rounded-circle shadow" 
+                        style="background-color: var(--secondary-bg); color: var(--light-bg);" 
+                        title="Add to Seen">
+                    <i class="fas fa-eye"></i>
+                </button>
+                <button class="btn btn-outline-light rounded-circle shadow" 
+                        style="background-color: var(--secondary-bg); color: var(--light-bg);" 
+                        title="Add to Watch List">
+                    <i class="fas fa-clock"></i>
+                </button>
+                <button class="btn btn-outline-light rounded-circle shadow" 
+                        style="background-color: var(--secondary-bg); color: var(--light-bg);" 
+                        title="Add to List">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
 
-<div class="button-container">
-<div class="button" data-hover="Add to Seen" onclick="toggleButton(this, 'seen')">
-<i class="fas fa-eye" style="color: white; font-size: 24px;"></i>
+        <!-- Movie Details Section -->
+        <div class="col-md-6">
+            <h1 class="mb-0" style="color: var(--accent-color); font-family: var(--primary-font);">Interstellar</h1>
+            <p style="color: var(--light-bg); font-family: var(--primary-font);">Directed By Christopher Nolan</p>
+            <ul class="list-unstyled mb-4" style="color: var(--light-bg);">
+                <li>Release Year: 2014</li>
+                <li>Duration: 169 minutes</li>
+                <li>Language: English</li>
+            </ul>
+            <div class="d-flex flex-wrap gap-2 mb-3">
+                <span class="badge px-3 py-2" 
+                      style="background-color: var(--secondary-bg); color: var(--light-bg);">Adventure</span>
+                <span class="badge px-3 py-2" 
+                      style="background-color: var(--secondary-bg); color: var(--light-bg);">Drama</span>
+                <span class="badge px-3 py-2" 
+                      style="background-color: var(--secondary-bg); color: var(--light-bg);">Science Fiction</span>
+            </div>
+            <button class="btn shadow mb-3" 
+            style="background-color: var(--accent-color); color: var(--background-color);">
+        <i class="fas fa-play"></i> Trailer
+    </button>
+            <p style="color: var(--light-bg);">
+                The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.
+            </p>
+
+            <!-- Ratings Section -->
+            <div class="border-top pt-3" style="border-color: var(--light-bg);">
+                <h5 style="color: var(--accent-color); font-family: var(--primary-font);">Ratings</h5>
+                <div class="row text-center mt-2" style="color: var(--light-bg);">
+                    <div class="col-3">
+                        <p class="mb-0 fw-bold" style="color: var(--accent-color);">FilmBro</p>
+                        <p class="mb-0">9.2/10</p>
+                        <small style="color: var(--light-bg);">Ratings: 15</small>
+                    </div>
+                    <div class="col-3">
+                        <p class="mb-0 fw-bold" style="color: var(--accent-color);">Your Rating</p>
+                        <p class="mb-0">9/10</p>
+                    </div>
+                    <div class="col-3">
+                        <p class="mb-0 fw-bold" style="color: var(--accent-color);">IMDb</p>
+                        <p class="mb-0">8.6/10</p>
+                    </div>
+                    <div class="col-3">
+                        <p class="mb-0 fw-bold" style="color: var(--accent-color);">Letterboxd</p>
+                        <p class="mb-0">4.5/5</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Watch Options Section -->
+        <div class="col-md-3">
+            <div class="card shadow border-0" style="background-color: var(--accent-color); color: var(--background-color);">
+                <div class="card-header text-center" style="background-color: var(--primary-bg); color: var(--accent-color);">
+                    <h5 class="mb-0">Where to Watch in:</h5>
+                    <p class="mb-0">Greece</p>
+                </div>
+                <div class="card-body">
+                    <table class="table table-borderless text-center">
+                        <thead>
+                            <tr style="background-color: var(--primary-bg); color: var(--accent-color);">
+                                <th>STREAM</th>
+                                <th>RENT</th>
+                                <th>BUY</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="https://image.tmdb.org/t/p/w500/h5DcR0J2EESLitnhR8xLG1QymTE.jpg" 
+                                         alt="Stream Icon" 
+                                         class="img-fluid" width="50">
+                                </td>
+                                <td>
+                                    <img src="https://image.tmdb.org/t/p/w500/seGSXajazLMCKGB5hnRCidtjay1.jpg" 
+                                         alt="Rent Icon" 
+                                         class="img-fluid" width="50">
+                                </td>
+                                <td>
+                                    <img src="https://image.tmdb.org/t/p/w500/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg" 
+                                         alt="Buy Icon" 
+                                         class="img-fluid" width="50">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="https://image.tmdb.org/t/p/w500/h5DcR0J2EESLitnhR8xLG1QymTE.jpg" 
+                                         alt="Stream Icon" 
+                                         class="img-fluid" width="50">
+                                </td>
+                                <td>
+                                    <img src="https://image.tmdb.org/t/p/w500/seGSXajazLMCKGB5hnRCidtjay1.jpg" 
+                                         alt="Rent Icon" 
+                                         class="img-fluid" width="50">
+                                </td>
+                                <td>
+                                    <img src="https://image.tmdb.org/t/p/w500/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg" 
+                                         alt="Buy Icon" 
+                                         class="img-fluid" width="50">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="https://image.tmdb.org/t/p/w500/h5DcR0J2EESLitnhR8xLG1QymTE.jpg" 
+                                         alt="Stream Icon" 
+                                         class="img-fluid" width="50">
+                                </td>
+                                <td>
+                                    <img src="https://image.tmdb.org/t/p/w500/seGSXajazLMCKGB5hnRCidtjay1.jpg" 
+                                         alt="Rent Icon" 
+                                         class="img-fluid" width="50">
+                                </td>
+                                <td>
+                                    <img src="https://image.tmdb.org/t/p/w500/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg" 
+                                         alt="Buy Icon" 
+                                         class="img-fluid" width="50">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="button" data-hover="Add to Watch List" onclick="toggleButton(this, 'watch')">
-<i class="fas fa-clock" style="color: white; font-size: 24px;"></i>
-</div>
-<div class="button" data-hover="Add to List" onclick="openAddToListPopup()">
-<i class="fas fa-plus" style="color: white; font-size: 24px;"></i>
-</div>
-</div>
-</div>
-<div>
-<h1 class="movie-title">Interstellar</h1>
-<span class="director-name"> Directed By Christopher Nolan</span>
-<div class="movie-info">
-<p>Release Year: 2014</p>
-<p>Duration: 169 minutes</p>
-<p>Language: English</p>
-</div>
-<div class="genres">
-<div class="genre">Adventure</div>
-<div class="genre">Drama</div>
-<div class="genre">Science Fiction</div>
-</div>
-<button class="trailer-button">
-<i class="fas fa-play"></i>
-                Trailer
-            </button>
-<p class="movie-description" data-expanded="false" onclick="toggleDescription()">The adventures of a group
-                of explorers who make use of a newly discovered
-                wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an
-                interstellar voyage. </p>
-<!-- Ratings Section -->
-<div class="ratings">
-<div class="rating">
-<div class="rating-title">FilmBro</div>
-<div class="rating-score">9.2/10</div>
-<div class="rating-reviews">Ratings: 15</div>
-</div>
-<div class="rating">
-<div class="rating-title">Your Rating</div>
-<div class="rating-score">9/10</div>
-</div>
-<div class="rating">
-<div class="rating-title">IMDb</div>
-<div class="rating-score">8.6/10</div>
-</div>
-<div class="rating">
-<div class="rating-title">Letterboxd</div>
-<div class="rating-score">4.5/5</div>
-</div>
-</div>
-</div>
-<div>
-<div class="watch-table-container">
-<div class="table-title-row">Where to Watch in: Greece</div>
-<table class="watch-table">
-<thead>
-<tr>
-<th>Stream</th>
-<th>Rent</th>
-<th>Buy</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<img class="service-icon" src="https://image.tmdb.org/t/p/w500/h5DcR0J2EESLitnhR8xLG1QymTE.jpg"/>
-<img class="service-icon" src="https://image.tmdb.org/t/p/w500/tJqmTmQ8jp9WfyaZfApHK8lSywA.jpg"/>
-<img class="service-icon" src="https://image.tmdb.org/t/p/w500/hExO4PtimLIYn3kBOrzsejNv7cT.jpg"/>
-<img class="service-icon" src="https://image.tmdb.org/t/p/w500/ywIoxSjoYJGUIbR6BfxUiCHdPi3.jpg"/>
-</td>
-<td>
-<img class="service-icon" src="https://image.tmdb.org/t/p/w500/9ghgSC0MA082EL6HLCW3GalykFD.jpg"/>
-<img class="service-icon" src="https://image.tmdb.org/t/p/w500/seGSXajazLMCKGB5hnRCidtjay1.jpg"/>
-<img class="service-icon" src="https://image.tmdb.org/t/p/w500/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"/>
-<img class="service-icon" src="https://image.tmdb.org/t/p/w500/pTnn5JwWr4p3pG8H6VrpiQo7Vs0.jpg"/>
-<td>
-<img class="service-icon" src="https://image.tmdb.org/t/p/w500/9ghgSC0MA082EL6HLCW3GalykFD.jpg"/>
-<img class="service-icon" src="https://image.tmdb.org/t/p/w500/seGSXajazLMCKGB5hnRCidtjay1.jpg"/>
-<img class="service-icon" src="https://image.tmdb.org/t/p/w500/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"/>
-<img class="service-icon" src="https://image.tmdb.org/t/p/w500/pTnn5JwWr4p3pG8H6VrpiQo7Vs0.jpg"/>
-</td></td></tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
+ 
+
 <!-- Cast Section -->
 
 <div class="container-fluid container-custom">
