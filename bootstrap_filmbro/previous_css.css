@@ -139,10 +139,10 @@
   text-decoration: underline;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 576px) {
+/* Responsive Adjustments */ /*κάνει προσαρμογή στη σελ όταν αλλάζει το μέγεθος*/
+@media (max-width: 576px ) {
   .modal-dialog {
-      margin: 10px;
+      margin: 10px ;
   }
 }
 
