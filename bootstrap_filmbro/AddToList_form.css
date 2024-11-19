@@ -9,8 +9,17 @@
 }
 
 .width-form-style {
-    max-width: 500px; /* Increase the max-width to make the form wider */
+    max-width: 350px; /* Increase the max-width to make the form wider */
     width: 100%; /* Ensures the modal takes up available space */
+}
+
+.form-body-style {
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack the checkboxes vertically */
+    justify-content: center; /* Keep vertical centering */
+    align-items: flex-start; /* Align items to the left */
+    padding: 20px; /* Add some padding for spacing */
+    padding-left: 30px; /* Adjust left padding to position the checkboxes slightly inward */
 }
 
 .header-form-style {
@@ -50,84 +59,6 @@
     color: var(--accent-color);
 }
 
-/* Form Elements */
-.form-body-style form label {
-    font-size: 1rem;
-    color: var(--light-bg);
-    font-family: var(--secondary-font);
-    margin-bottom: 5px;
-    display: inline-block;
-}
-  
-.form-body-style form .form-control-custom-style {
-    border: none;
-    border-radius: 5px;
-    font-size: 0.90rem;
-    padding: 10px;
-    margin-bottom: 15px;
-    background-color: var(--background-color);
-    color: white;
-    transition: all 0.3s ease-in-out;
-}
-  
-.form-body-style form .form-control-custom-style::placeholder {
-    color: var(--light-bg);
-    font-size: 0.90rem;
-    opacity: 1; /* Ensure the placeholder is fully opaque */
-}
-  
-.form-body-style form .form-control-custom-style:focus {
-    border-color: var(--accent-color);
-    box-shadow: 0 0 15px var(--accent-color);
-}
-
-/* Form button */
-.form-body-style .button-style {
-    background-color: var(--accent-color);
-    border: none;
-    color: black;
-    font-size: 1rem;
-    font-family: var(--secondary-font);
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    width: 100%;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-  
-/* Hover effect for button */
-.form-body-style .button-style:hover {
-    background-color: var(--hover-accent);
-    transform: scale(1.05);
-}
-
-/* Focus state for button (override default blue) */
-.form-body-style .button-style:hover:focus {
-    outline: none; /* Remove the default focus outline */
-    box-shadow: 0 0 0 3px var(--accent-color); /* Custom focus box-shadow */
-}
-  
-/* Active state for button (override default active color) */
-.form-body-style .button-style:hover:active {
-    background-color: var(--accent-color);
-    transform: scale(1.05); /* Keep the hover-like scale effect */
-}
-
-/* Link for password reset */
-.link-style {
-    font-size: 0.85rem;
-    color: var(--accent-color);
-    text-decoration: none;
-    display: block;
-    text-align: center;
-    margin-top: 10px;
-}
-  
-.link-style:hover {
-    text-decoration: underline;
-}
-
 /* Styling for checkbox options */
 .option-custom-style {
     position: relative;
@@ -138,7 +69,7 @@
     margin-left: 0px;
     cursor: pointer; /* Show pointer cursor on hover */
 }
-  
+
 /* Customize the default checkbox */
 input[type="checkbox"] {
     accent-color: var(--accent-color); 
@@ -146,9 +77,17 @@ input[type="checkbox"] {
     height: 16px; /* Customize size of the checkbox */
     cursor: pointer; /* Pointer cursor for better UX */
 }
-  
-/* Optional: Style the checkbox container for spacing and alignment */
+
 .custom-checkbox {
+    display: inline-block;
+}
+
+/* Form Elements */
+.checkbox-custom-style {
+    font-size: 1rem;
+    color: var(--light-bg);
+    font-family: var(--secondary-font);
+    margin-bottom: 5px;
     display: inline-block;
 }
 
@@ -164,13 +103,13 @@ input[type="checkbox"] {
     }
 }
 
-@media (max-width: 7680px ) { /*for tablet*/
-    .width-form-style {
+ @media (max-width: 7680px ) { /*for tablet*/
+   .width-form-style {
         width: 65%;
         margin: 20px auto 0; /* 20px top margin, auto centers horizontally */
         display: flex; /* to support vertical centering if needed */
         justify-content: center; /* aligns content horizontally */
         align-items: center; /* aligns content vertically */
         flex-direction: column; /* optional for stacking content */
-    }
+   }
 }
