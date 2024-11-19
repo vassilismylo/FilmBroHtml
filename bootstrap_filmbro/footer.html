@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Sticky Footer with Bootstrap
+    </title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+
+    <style>
+        :root {
+            --background-color: #2C1E1A;
+            --primary-bg: #334e41;
+            --accent-color: #FFB74D;
+            --secondary-bg: #5b8a73;
+            --light-bg: #e4cec0;
+            --primary-font: 'Playfair Display', serif;
+            --secondary-font: 'Poppins', sans-serif;
+        }
+
+        .custom-footer {
+            background-color: var(--primary-bg);
+            color: var(--light-bg);
+            font-family: var(--secondary-font);
+        }
+
+        .custom-link {
+            color: var(--accent-color);
+            font-family: var(--primary-font);
+        }
+    </style>
+</head>
+
+<body>
+
+    <footer class="custom-footer">
+        <div class="text-center  p-3">
+            <p>Powered by <a class="custom-link" href="index.html">FilmBro</a> | © 2024 All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+
+</html>
