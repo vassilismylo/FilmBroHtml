@@ -2,7 +2,7 @@
     --hover-accent: #ffc163;
   }
 
-.general-form-style {
+  .general-form-style {
     border-radius: 10px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     background-color: var(--primary-bg);
@@ -14,17 +14,20 @@
 }
 
 .form-body-style {
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding is included in width */
     display: flex; /* Use flexbox for alignment */
     flex-direction: column; /* Stack the checkboxes vertically */
-    justify-content: center; /* Keep vertical centering */
-    align-items: flex-start; /* Align items to the left */
-    padding: 20px; /* Add some padding for spacing */
-    padding-left: 30px; /* Adjust left padding to position the checkboxes slightly inward */
+    justify-content: flex-start; /* Keep vertical centering */
+    align-items: stretch; /* Ensures children take full width */
+    padding: 10px; /* Add some padding for spacing */
+    gap: 10px; /* Adds gap between form elements (checkboxes) */
 }
 
 .header-form-style {
     color: var(--accent-color);
-    padding: 15px;
+    padding: 10px 15px;  /* Reduce padding to bring the content closer */
+    margin-bottom: 0;  /* Remove any margin if present */
     display: flex; /* Use flexbox for centering */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
@@ -59,27 +62,12 @@
     color: var(--accent-color);
 }
 
-/* Styling for checkbox options */
-.option-custom-style {
-    position: relative;
-    display: flex; /* Align items horizontally */
-    align-items: center;
-    margin-bottom: 15px;
-    margin-right: 20px; /* Add space between the 2 options */
-    margin-left: 0px;
-    cursor: pointer; /* Show pointer cursor on hover */
-}
-
 /* Customize the default checkbox */
 input[type="checkbox"] {
-    accent-color: var(--accent-color); 
+    accent-color: var(--accent-color);
     width: 16px; /* Customize size of the checkbox */
     height: 16px; /* Customize size of the checkbox */
     cursor: pointer; /* Pointer cursor for better UX */
-}
-
-.custom-checkbox {
-    display: inline-block;
 }
 
 /* Form Elements */
@@ -89,6 +77,35 @@ input[type="checkbox"] {
     font-family: var(--secondary-font);
     margin-bottom: 5px;
     display: inline-block;
+}
+
+/* Form button */
+.form-body-style .button-style {
+    background-color: var(--accent-color);
+    border: none;
+    color: black;
+    font-size: 1rem;
+    font-family: var(--secondary-font);
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0; /* Remove margins to avoid spacing issues */
+    width: 100%; /* Button should take full width */
+    box-sizing: border-box; /* Ensure padding is included in width */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-bottom: 10px; /* Add space between the buttons */
+}
+
+/* Hover effect for button */
+.form-body-style .button-style:hover {
+    background-color: var(--hover-accent);
+    transform: scale(1.05);
+}
+
+/* Focus state for button (override default blue) */
+.form-body-style .button-style:hover:focus {
+    outline: none; /* Remove the default focus outline */
+    box-shadow: 0 0 0 3px var(--accent-color); /* Custom focus box-shadow */
 }
 
 /* Responsive Adjustments */ /*κάνει προσαρμογή στη σελ όταν αλλάζει το μέγεθος*/
