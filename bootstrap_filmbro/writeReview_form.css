@@ -238,6 +238,7 @@ input[type="checkbox"] {
     .form-body-style form .form-control-custom-style {
         font-size: 0.8rem; /* Reduce input font size */
         padding: 8px; /* Adjust padding for better alignment */
+        margin-top: -60px;
     }
 
     .form-body-style .button-style {
