@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FilmBro | Create_List</title>
+        <!-- Bootstrap 5 CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+        <link href="writeReview_form.css" rel="stylesheet">
+        <link href="general.css" rel="stylesheet">
+    </head>
+    <body class="bg-light">
+
+    <!-- Header -->
+    <header class="navbar navbar-light bg-light">
+        <a href="index.html" class="navbar-brand">FilmBro</a>
+        <nav>
+            <a href="#" class="btn btn-link text-decoration-none" data-bs-toggle="modal" data-bs-target="#selectListsModal">Write a Review</a>
+        </nav>
+    </header>
+
+    <div class="modal fade" id="selectListsModal" tabindex="-1" aria-labelledby="selectListsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm width-form-style popup-center">
+            <div class="modal-content general-form-style">
+                <!-- Modal Header -->
+                <div class="modal-header header-form-style">
+                    <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" 
+                         alt="Interstellar Poster" 
+                         class="movie-poster me-3">
+                    <h5 class="modal-title header-title-form-style" id="selectListsModalLabel">Write a Review for Interstellar (2014)</h5>
+                    <button type="button" class="btn-close form-close-button-style" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body form-body-style">
+                    <form action="#" method="POST">
+                        <!--Write the review-->
+                        <div class="mb-3 d-flex align-items-center">
+                            <label for="rating" class="form-label me-2">Rating:</label>
+                            <div class="rating" id="rating">
+                                <i class="bi bi-star" data-index="1"></i>
+                                <i class="bi bi-star" data-index="2"></i>
+                                <i class="bi bi-star" data-index="3"></i>
+                                <i class="bi bi-star" data-index="4"></i>
+                                <i class="bi bi-star" data-index="5"></i>
+                                <i class="bi bi-star" data-index="6"></i>
+                                <i class="bi bi-star" data-index="7"></i>
+                                <i class="bi bi-star" data-index="8"></i>
+                                <i class="bi bi-star" data-index="9"></i>
+                                <i class="bi bi-star" data-index="10"></i>
+                            </div>
+                        </div>
+                        <input type="hidden" id="rating-value" name="rating" required>
+
+                        <!--Write the review-->
+                        <div class="mb-3">
+                            <label for="review" class="form-label">Your Review:</label>
+                            <textarea class="form-control form-control-custom-style textarea-custom-style" id="description" rows="5" placeholder="Write you though about the Interstellar..."></textarea>
+                        </div>
+
+                        <!-- Checkbox -->
+                       <!-- <div class="form-check custom-checkbox">-->
+                            <input type="checkbox" value="" id="checkbox">
+                            <label class="form-check-label checkbox-custom-style" for="checkbox2">
+                                Contains Spoilers
+                            </label>
+                       <!-- </div>  -->
+
+                       <!--Submit Button-->
+                       <button type="submit" class="btn btn-primary button-style">Submit Review</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--Rating-->
+    <script>
+        const stars = document.querySelectorAll('#rating i');
+        const ratingValue = document.getElementById('rating-value');
+
+        // Function to reset all stars to `bi-star`
+        function resetStars() {
+            stars.forEach(star => {
+                star.classList.remove('hovered', 'selected');
+                star.classList.remove('bi-star-fill');
+                star.classList.add('bi-star');
+            });
+        }
+
+        // Function to highlight stars on hover or selection
+        function highlightStars(rating, isSelected = false) {
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add(isSelected ? 'selected' : 'hovered');
+                    star.classList.remove('bi-star');
+                    star.classList.add('bi-star-fill'); // Highlight with filled star
+                } else {
+                    star.classList.remove('hovered', 'selected');
+                    star.classList.remove('bi-star-fill');
+                    star.classList.add('bi-star'); // Revert to unselected icon
+                }
+            });
+        }
+
+        // Add event listeners for hover and click
+        stars.forEach((star, index) => {
+            star.addEventListener('mouseover', () => {
+                highlightStars(index + 1); // Temporarily highlight stars
+            });
+
+            star.addEventListener('mouseout', () => {
+                highlightStars(Number(ratingValue.value), true); // Restore based on current selection
+            });
+
+            star.addEventListener('click', () => {
+                ratingValue.value = index + 1; // Update the rating value
+                highlightStars(ratingValue.value, true); // Permanently highlight selected stars
+            });
+
+            star.addEventListener('dblclick', () => {
+                resetStars(); // Clear all stars
+                ratingValue.value = ''; // Clear the rating value
+            });
+        });
+
+    </script>      
+      
+    </body>
+</html>

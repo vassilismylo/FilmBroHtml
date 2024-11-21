@@ -8,6 +8,16 @@
     background-color: var(--primary-bg);
 }
 
+/*classes popup-center and width can be in the same*/
+.popup-center {
+    display: flex;
+    align-items: center; /* Vertically centers the modal */
+    justify-content: center; /* Horizontally centers the modal */
+    height: 100vh; /* Makes sure the modal container uses full viewport height */
+    margin: 0 auto; /* Centers the modal horizontally */
+    max-width: 350px;
+}
+
 .width-form-style {
     max-width: 350px; /* Increase the max-width to make the form wider */
     width: 100%; /* Ensures the modal takes up available space */
