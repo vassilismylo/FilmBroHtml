@@ -49,3 +49,13 @@
 .rounded {
     border-radius: 0.5rem;
 }
+@media (max-width: 480px){
+    .width-form-style{
+        width: 65%;
+    }
+}
+@media (max-width: 47680px){
+    .width-form-style{
+        width: 65%;
+    }
+}
