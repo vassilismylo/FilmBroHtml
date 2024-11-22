@@ -213,8 +213,13 @@ input[type="checkbox"] {
     .rating i {
         font-size: 0.9rem;
     }
-}
 
+    .textarea-custom-style {
+       
+        height: clamp(40px, 5vw, 150px);; /* Reduce the height of the textarea even further for mobile */
+        padding: 6px; /* Adjust padding for better alignment */
+    }
+}
 
  @media (max-width: 768px ) { /*for tablet*/
    .width-form-style {
@@ -252,5 +257,10 @@ input[type="checkbox"] {
 
     .rating i {
         font-size: 0.9rem;
+    }
+
+    .textarea-custom-style {
+        height: 120px; /* Reduce the height of the textarea */
+        padding: 8px; /* Adjust padding for better alignment */
     }
 }
