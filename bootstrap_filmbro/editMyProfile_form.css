@@ -43,10 +43,6 @@
 }
 
 .custom-style-message {
-    color: var(--light-bg);
-}
-
-.custom-style-message-2 {
     color: white;
 }
 
@@ -127,10 +123,28 @@ input[type="checkbox"] {
     overflow-y: auto;  /* Enable scrolling within the dropdown */
 }
 
+.custom-checkbox-style {
+    color: black;
+}
+
+#streamingDropdownMenu .form-check-input.custom-checkbox {
+    accent-color: var(--accent-color); /* Ensure your variable is defined */
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+#streamingDropdownMenu .form-check-label.custom-checkbox-style {
+    color: var(--primary-color); /* Replace with your custom color */
+    font-size: 1rem;
+}
+
+
 .dropdown-button-custome-style {
+    width: 100%;
     border: none;
     background-color: var(--accent-color);
-    color: black;
+    color: black !important;
     font-family: var(--secondary-font);
     padding: 10px;
     border-radius: 5px;
@@ -144,17 +158,74 @@ input[type="checkbox"] {
 .dropdown-button-custome-style:hover {
     background-color: var(--hover-accent);
     transform: scale(1.05);
+    outline: none;
+    color: white !important;
 }
 
 .dropdown-button-custome-style:hover:focus {
+    background-color: var(--hover-accent); /* Same as hover effect */
+    color: black;
     outline: none; /* Remove the default focus outline */
-    box-shadow: 0 0 0 3px var(--hover-accent); /* Custom focus box-shadow */
+    box-shadow: none; /* Remove Bootstrap focus box-shadow */
 }
 
+/* Prevent blue-grey when button is active (clicked) */
+.dropdown-button-custome-style:active {
+    background-color: var(--hover-accent); /* Keep consistent color */
+    color: black; /* Retain text color */
+    box-shadow: none; /* Remove any Bootstrap shadow */
+    /*box-shadow: 0 0 0 3px var(--hover-accent); /* Optional custom focus effect */
+    outline: none; /* Remove default outline */
+}
+
+/* Prevent blue-grey on click (when dropdown is open) */
+.dropdown-button-custome-style[aria-expanded="true"] {
+    background-color: var(--hover-accent); /* Keep the original color */
+    color: black; /* Maintain the text color */
+    box-shadow: none; /* Remove any outline or shadow */
+    outline: none;
+}
+
+/* Explicitly target Bootstrap's button styles to ensure overrides */
+.btn:focus, .btn:active, .btn[aria-expanded="true"] {
+    background-color: var(--hover-accent) !important;
+    color: white !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
 
 /* Optional: Make dropdown items larger or styled */
-.dropdown-item {
+.dropdown-item-custom {
     white-space: nowrap; /* Prevent wrapping of country names */
+    color: black;
+    background-color: var(--secondary-bg);
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.2s ease; /* Smooth transition */
+}
+
+/* Hover state for dropdown items */
+.dropdown-item-custom:hover {
+    background-color: var(--accent-color); /* Highlight on hover */
+    color: black;
+}
+
+/* Focus state for accessibility */
+.dropdown-item-custom:focus {
+    outline: none;
+    background-color: var(--accent-color);
+    color: black;
+}
+
+/* Active state (if a dropdown item is selected) */
+.dropdown-item-custom.active {
+    background-color: var(--accent-color); /* Match hover */
+    color: black; /* Ensure visibility */
+    font-weight: bold; /* Optional: Bold for emphasis */
+}
+
+.dropdown-item-custom-2 {
+    background-color: var(--secondary-bg); /* Highlight on hover */
+    color: black;
 }
 
 /* Form button */
@@ -168,7 +239,7 @@ input[type="checkbox"] {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
-    width: 15%;
+    width: 30%;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
   
@@ -185,7 +256,7 @@ input[type="checkbox"] {
 }
 
 /* Responsive Adjustments */ /*κάνει προσαρμογή στη σελ όταν αλλάζει το μέγεθος*/
-@media (max-width: 480px ) { /*for phone*/
+@media (max-width: 480px) { /*for phone*/
     .width-form-style {
         width: 65%;
         margin: 20px auto 0; /* 20px top margin, auto centers horizontally */

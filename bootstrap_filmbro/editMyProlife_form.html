@@ -56,34 +56,34 @@
                             <button class="btn btn-outline-secondary dropdown-toggle dropdown-button-custome-style" type="button" id="streamingDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                 Select Services
                             </button>
-                            <ul class="dropdown-menu p-3 dropdown-menu-custom" id="streamingDropdownMenu">
+                            <ul class="dropdown-menu p-3 dropdown-menu-custom dropdown-item-custom-2" id="streamingDropdownMenu">
                                 <li>
-                                    <div class="form-check custom-checkbox">
-                                        <input class="form-check-input" type="checkbox" id="netflix" value="Netflix">
+                                    <div class="form-check">
+                                        <input class="form-check-input custom-checkbox" type="checkbox" id="netflix" value="Netflix">
                                         <label class="form-check-label custom-checkbox-style" for="netflix">
                                             Netflix
                                         </label>
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="form-check custom-checkbox">
-                                        <input class="form-check-input" type="checkbox" id="disney" value="Disney Plus">
+                                    <div class="form-check">
+                                        <input class="form-check-input custom-checkbox" type="checkbox" id="disney" value="Disney Plus">
                                         <label class="form-check-label custom-checkbox-style" for="disney">
                                             Disney Plus
                                         </label>
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="form-check custom-checkbox">
-                                        <input class="form-check-input" type="checkbox" id="apple" value="Apple TV">
+                                    <div class="form-check">
+                                        <input class="form-check-input custom-checkbox" type="checkbox" id="apple" value="Apple TV">
                                         <label class="form-check-label custom-checkbox-style" for="apple">
                                             Apple TV
                                         </label>
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="form-check custom-checkbox">
-                                        <input class="form-check-input" type="checkbox" id="prime" value="Prime Video">
+                                    <div class="form-check">
+                                        <input class="form-check-input custom-checkbox" type="checkbox" id="prime" value="Prime Video">
                                         <label class="form-check-label custom-checkbox-style" for="prime">
                                             Prime Video
                                         </label>
@@ -91,15 +91,19 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                    <small class="d-block mt-2 custom-style-message">You selected: None</p>
-                             
+                    </div>      
 
+                    <!--Upload a photo-->
                     <div class="mb-3">
                         <label for="photo" class="form-label">Profile photo:</label>
-                        <input type="file" id="photo" name="photo" accept="image/*" style="opacity: 0; position: absolute; z-index: -1;">
-                        <label for="photo" class="custom-file-upload">Choose File</label>
-                        <small class="d-block mt-2 custom-style-message-2">Please upload a clear image. Accepted formats: JPG, PNG.</small>
+    
+                        <div class="d-inline-block">
+                            <!-- Custom button for file upload -->
+                            <input type="file" id="photo" name="photo" accept="image/*" style="display: none;">
+                            <label for="photo" class="btn btn-primary dropdown-button-custome-style">Choose File</label>
+                        </div>
+                    
+                        <small class="d-block mt-2 custom-style-message">Please upload a clear image. Accepted formats: JPG, PNG.</small>
                     </div>
                     
                     <!--Info-->
@@ -154,20 +158,8 @@
 
         countries.forEach(country => {
             const listItem = document.createElement("li");
-            listItem.innerHTML = `<a class="dropdown-item" href="#">${country}</a>`;
+            listItem.innerHTML = `<a class="dropdown-item dropdown-item-custom" href="#">${country}</a>`;
             countryDropdown.appendChild(listItem);
-        });
-    </script>
-    
-    <!--Services-->
-    <script>
-        // Update selected services dynamically
-        document.querySelectorAll('#streamingDropdownMenu .form-check-input').forEach(checkbox => {
-            checkbox.addEventListener('change', function () {
-                const selectedServices = Array.from(document.querySelectorAll('#streamingDropdownMenu .form-check-input:checked'))
-                    .map(input => input.value);
-                document.getElementById('selectedOption').innerText = `You selected: ${selectedServices.join(', ') || 'None'}`;
-            });
         });
     </script>
 

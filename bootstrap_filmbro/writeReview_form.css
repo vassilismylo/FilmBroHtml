@@ -216,7 +216,7 @@ input[type="checkbox"] {
 
     .textarea-custom-style {
        
-        height: clamp(40px, 5vw, 150px);; /* Reduce the height of the textarea even further for mobile */
+        height: clamp(40px, 5vw, 150px); /* Reduce the height of the textarea even further for mobile */
         padding: 6px; /* Adjust padding for better alignment */
     }
 }
