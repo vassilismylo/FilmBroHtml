@@ -19,97 +19,184 @@
             --secondary-font: 'Poppins', sans-serif;
         }
 
-        /* Navbar */
         nav {
             background-color: var(--primary-bg) !important;
         }
-        
+
         .navbar-brand {
-            font-size: 2rem; /* Adjusted size */
+            font-size: 2.5rem;
             color: var(--accent-color) !important;
             font-family: var(--primary-font);
-        }
-        /* font for the text */
-        .custom-font {
-         font-family:var(--secondary-font);
+            margin: 0 auto;
         }
 
         .rounded-circle {
-            height: 40px; 
+            height: 40px;
             width: 40px;
         }
 
         .form-select-sm,
         .form-control-sm {
-            background-color: var(--secondary-bg); /* Custom background */
-            color: var(--accent-color); /* Text color */
-            border: 1px solid var(--accent-color); /* Border color */
+            background-color: var(--secondary-bg);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
         }
-        .form-control-sm::placeholder{
-            color:var(--light-bg)
+
+        .form-control-sm::placeholder {
+            color: var(--light-bg);
         }
+
         .form-select-sm:focus,
         .form-control-sm:focus {
             background-color: var(--secondary-bg);
             box-shadow: 0 0 5px var(--accent-color);
-            color:var(--light-bg);
+            color: var(--light-bg);
         }
-        .custom-brand{
-            color:var(--accent-color)
+
+        /* Search container styles */
+        .search-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            overflow: hidden;
         }
+
+        /* Ensure smooth transitions for horizontal expansion */
+        .collapse-horizontal {
+            transition: width 0.35s ease-in-out !important;
+        }
+
+        #searchContainer {
+            background-color: var(--primary-bg);
+            border: none;
+            padding: 5px 10px;
+            width: 0;
+            white-space: nowrap;
+            visibility: hidden;
+        }
+
+        #searchContainer.collapse.show {
+            width: 300px;
+            visibility: visible;
+        }
+
+        .search-icon {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .search-icon:hover {
+            color: var(--light-bg);
+        }
+
+        /* Advanced Search Button with smooth appearance */
+        #advancedSearchBtn {
+            background-color: var(--accent-color);
+            color: var(--primary-bg);
+            border: none;
+            cursor: pointer;
+            width: 0;
+
+            visibility: hidden;
+        }
+
+        /* Show Advanced Search button */
+        #advancedSearchBtn.show {
+            width: auto;
+            visibility: visible;
+        }
+
         .dropdown-menu {
-            background-color: var(--secondary-bg); /* Dropdown background */
-            border: 1px solid var(--accent-color); /* Dropdown border */
+            background-color: var(--secondary-bg);
+            border: 1px solid var(--accent-color);
         }
 
         .dropdown-item {
-            color: var(--light-bg); /* Dropdown text */
+            color: var(--light-bg);
         }
 
         .dropdown-item:hover {
-            background-color: var(--secondary-bg); /* Hover effect */
-            color: var(--accent-color); /* Hover text color */
+            background-color: var(--secondary-bg);
+            color: var(--accent-color);
         }
-    
+
+        .custom-logo {
+            margin-left: 5%;
+        }
+    @media (width <= 480px) {
+        .custom-logo {
+            margin-left: 0%;
+        }
+
+    }
     </style>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <!-- Brand -->
-            <a class="navbar-brand me-3" href="#">FilmBro</a>
+        <div class="container-fluid d-flex align-items-center">
+            <!-- Logo -->
+            <a class="navbar-brand me-auto custom-logo" href="#">FilmBro</a>
 
-            <!-- Navbar content -->
-            <div class="d-flex align-items-center custom-font">
-                <!-- Search Bar -->
-                <div class="input-group input-group-sm me-2">
+            <!-- Search Icon and Collapsible Search -->
+            <div class="d-flex align-items-center">
+                <!-- Search Icon -->
+                <i class="bi bi-search search-icon me-2" data-bs-toggle="collapse" data-bs-target="#searchContainer" aria-expanded="false" aria-controls="searchContainer"></i>
+
+                <!-- Collapsible Search Container -->
+                <div id="searchContainer" class="collapse collapse-horizontal search-container">
                     <select class="form-select form-select-sm" id="searchCategory">
-                        <option selected>Movies</option>
-                        <option value="1">Users</option>
-                        <option value="2">Movie Contributors</option>
+                        <option value="users" selected>Users</option>
+                        <option value="movies">Movies</option>
+                        <option value="contributors">Movie Contributors</option>
                     </select>
                     <input type="text" class="form-control form-control-sm" placeholder="Search..." aria-label="Search">
                 </div>
 
-                <!-- Profile Icon -->
-                <div class="dropdown text-end">
-                    <a href="#" class="d-block text-decoration-none dropdown-toggle custom-brand" data-bs-toggle="dropdown">
-                        <img src="https://github.com/mdo.png" alt="Profile" class="rounded-circle">
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
-                    </ul>
-                </div>
+                <!-- Advanced Search Button -->
+                <button id="advancedSearchBtn" class="btn btn-sm btn-warning">
+                    Advanced Search
+                </button>
+            </div>
+
+            <!-- Profile Icon -->
+            <div class="dropdown text-end ms-3">
+                <a href="#" class="d-block text-decoration-none dropdown-toggle custom-brand" data-bs-toggle="dropdown">
+                    <img src="https://github.com/mdo.png" alt="Profile" class="rounded-circle">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
             </div>
         </div>
     </nav>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const searchCategory = document.getElementById('searchCategory');
+        const searchContainer = document.getElementById('searchContainer');
+        const advancedSearchBtn = document.getElementById('advancedSearchBtn');
+
+        // Toggle the Advanced Search button based on dropdown selection
+        searchCategory.addEventListener('change', function () {
+            if (this.value === 'movies') {
+                advancedSearchBtn.classList.add('show');
+            } else {
+                advancedSearchBtn.classList.remove('show');
+            }
+        });
+
+        // Hide Advanced Search button when search container is collapsed
+        searchContainer.addEventListener('hidden.bs.collapse', function () {
+            advancedSearchBtn.classList.remove('show');
+        });
+    </script>
 </body>
 
 </html>
