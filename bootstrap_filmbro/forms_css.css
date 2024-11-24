@@ -1,0 +1,424 @@
+/* For all the forms*/
+.general-form-style {
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    background-color: var(--primary-bg) !important; 
+}
+
+/* for specific forms */
+/* create-list, wirte-review */
+.general-form-style-create-write {
+    padding: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* edit-profile */
+.general-form-style-edit {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px; /* Added padding to give space around the form */
+}
+
+.width-form-style {
+    width: 100%; /* Ensures the modal takes up available space */
+}
+
+/* for specific forms */
+/* login-register, edit-profile */
+.width-form-style-500px {
+    max-width: 500px;
+}
+
+ /* create-list, write-review */
+.width-form-style-750px {
+    max-width: 750px;
+}
+
+/* for all */
+.header-form-style {
+    color: var(--accent-color) !important;
+    padding: 15px;
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+}
+
+/* specific */
+/* add to list */
+.header-form-style-add {
+    padding: 10px 15px;  /* Reduce padding to bring the content closer */
+    margin-bottom: 0;  /* Remove any margin if present */
+}
+
+/* for all */
+.header-title-form-style {
+    font-size: 2rem;
+    margin: 0; /* Remove any default margins */
+    text-align: center;
+    flex: 1;
+    font-family: var(--primary-font);
+    color: var(--accent-color);
+}
+
+/* Form button */
+.button-style {
+    background-color: var(--accent-color);
+    border: none;
+    color: black;
+    font-size: 1rem;
+    font-family: var(--secondary-font);
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+  
+/* Hover effect for button */
+.button-style:hover {
+    background-color: var(--hover-accent);
+    transform: scale(1.05);
+}
+
+/* Focus state for button (override default blue) */
+.button-style:hover:focus {
+    outline: none; /* Remove the default focus outline */
+    box-shadow: 0 0 0 3px var(--accent-color); /* Custom focus box-shadow */
+}
+  
+/* Active state for button (override default active color) */
+.button-style:hover:active {
+    background-color: var(--accent-color);
+    transform: scale(1.05); /* Keep the hover-like scale effect */
+}
+
+/* form button for create lits */
+.button-style-createList {
+    width: 15%;
+}
+
+/* form button for edit my profile */
+.button-style-edit {
+    width: 20%;
+}
+
+/* Form close button */
+/* for login-register, write-review*/
+.header-form-style .form-close-button-style {
+    background-color: transparent; /* Remove background color */
+    color: var(--accent-color); /* Color of the x button */
+    border: none;
+    opacity: 1;
+    padding: 5px;
+    box-shadow: none;
+    font-size: 0.7rem;
+    margin-top: -35px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.header-form-style .form-close-button-style:hover {
+    transform: scale(1.05);
+    color: var(--accent-color);
+}
+
+/* specific for write-review */
+.header-form-style .form-close-button-style-writeReview {
+    margin-top: -210px;
+}
+
+/* Form Elements */
+.form-body-style form label {
+    font-size: 1rem;
+    color: var(--light-bg);
+    font-family: var(--secondary-font);
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.form-body-style form .form-control-custom-style {
+    border: none;
+    border-radius: 5px;
+    font-size: 0.90rem;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: var(--background-color);
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+  
+.form-body-style form .form-control-custom-style::placeholder {
+    color: var(--light-bg);
+    font-size: 0.90rem;
+    opacity: 1; /* Ensure the placeholder is fully opaque */
+}
+  
+.form-body-style form .form-control-custom-style:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+/* for add to list */
+.form-body-style-add {
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding is included in width */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack the checkboxes vertically */
+    justify-content: flex-start; /* Keep vertical centering */
+    align-items: stretch; /* Ensures children take full width */
+    padding: 10px; /* Add some padding for spacing */
+    gap: 10px; /* Adds gap between form elements (checkboxes) */
+}
+
+/*class popup-center for the forms: write a riview and add to list*/
+.popup-center {
+    display: flex;
+    align-items: center; /* Vertically centers the modal */
+    justify-content: center; /* Horizontally centers the modal */
+    height: 100vh; /* Makes sure the modal container uses full viewport height */
+    margin: 0 auto; /* Centers the modal horizontally */
+    max-width: 350px;
+}
+
+/* Customize the default checkbox for all */
+input[type="checkbox"] {
+    accent-color: var(--accent-color) !important; 
+    width: 16px; /* Customize size of the checkbox */
+    height: 16px; /* Customize size of the checkbox */
+    cursor: pointer; /* Pointer cursor for better UX */
+}
+
+/* Styling for checkbox options for edit logim-register*/
+.option-custom-style {
+    position: relative;
+    display: flex; /* Align items horizontally */
+    align-items: center;
+    margin-bottom: 15px;
+    margin-right: 20px; /* Add space between the 2 options */
+    margin-left: 0px;
+    cursor: pointer; /* Show pointer cursor on hover */
+}
+  
+/* Optional: Style the checkbox container for spacing and alignment for edit and login-register */
+.custom-checkbox {
+    display: inline-block;
+}
+
+/* for add to list */
+.custom-checkbox-add {
+    display: block;
+}
+
+/* for edit */
+.custom-checkbox-style {
+    color: black;
+}
+
+/* for create list, write review*/
+.textarea-custom-style {
+    resize: none; /* Disables resizing by the user */
+    width: 100%; /* Optional: Adjust to your desired width */
+    height: 130px; /* Set a fixed height */
+}
+
+/* Link for password reset for login-register */
+.link-style {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+  
+.link-style:hover {
+    text-decoration: underline;
+}
+
+/* for write review */
+.movie-poster {
+    width: clamp(50px, 20%, 150px);  /* Minimum width 50px, 20% of parent container width, maximum 150px */
+    height: auto; /* Keep the aspect ratio */
+    border-radius: 5px;  /* Optional: rounded corners for the image */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);  /* Optional: add shadow */
+}
+
+/*Rating*/
+.rating {
+    display: flex;
+    gap: 5px; /* Adds spacing between the stars */
+    align-items: flex-start; /* Aligns stars higher (start of the container) */
+   /* margin-top: -9px; /* Optional: Add space between label and stars */
+    margin-bottom: 9px; /*margin top -9 is the same*/
+}
+
+.rating i {
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--light-bg); /* Default color for unselected stars */
+    vertical-align: middle; /* Vertically center the stars */
+}
+
+.rating i.hovered {
+    color: var(--light-bg);
+}
+
+.rating i.selected {
+    color: var(--accent-color); /* Color for selected/hovered stars */
+}
+
+/* for edit mt profile */
+/* Ensure the label and dropdown button are aligned */
+.mb-3-custom {
+    display: flex;
+    align-items: center; /* Align the label and button vertically */
+    gap: 10px; /* Space between label and dropdown */
+}
+
+.custom-style-message {
+    color: white;
+}
+
+/* dropdown */
+.dropdown-custom {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-menu-custom {
+    position: absolute; /* Keep the dropdown below the button */
+    z-index: 10; /* Ensure dropdown is above other elements */
+}
+
+/* Limit visible items in the dropdown and make it scrollable */
+#countryDropdown {
+    max-height: 250px; /* Adjust the height based on your preference */
+    overflow-y: auto;  /* Enable scrolling within the dropdown */
+}
+
+#streamingDropdownMenu .form-check-input.custom-checkbox {
+    accent-color: var(--accent-color); /* Ensure your variable is defined */
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+#streamingDropdownMenu .form-check-label.custom-checkbox-style {
+    color: var(--primary-color); /* Replace with your custom color */
+    font-size: 1rem;
+}
+
+.dropdown-button-custome-style {
+    width: 100%;
+    border: none;
+    background-color: var(--accent-color);
+    color: black !important;
+    font-family: var(--secondary-font);
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0; /* Remove margins to avoid spacing issues */
+    box-sizing: border-box; /* Ensure padding is included in width */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-bottom: 10px; /* Add space between the buttons */
+}
+
+.dropdown-button-custome-style:hover {
+    background-color: var(--hover-accent);
+    transform: scale(1.05);
+    outline: none;
+    color: white !important;
+}
+
+.dropdown-button-custome-style:hover:focus {
+    background-color: var(--hover-accent); /* Same as hover effect */
+    color: black;
+    outline: none; /* Remove the default focus outline */
+    box-shadow: none; /* Remove Bootstrap focus box-shadow */
+}
+
+/* Prevent blue-grey when button is active (clicked) */
+.dropdown-button-custome-style:active {
+    background-color: var(--hover-accent); /* Keep consistent color */
+    color: black; /* Retain text color */
+    box-shadow: none; /* Remove any Bootstrap shadow */
+    /*box-shadow: 0 0 0 3px var(--hover-accent); /* Optional custom focus effect */
+    outline: none; /* Remove default outline */
+}
+
+/* Prevent blue-grey on click (when dropdown is open) */
+.dropdown-button-custome-style[aria-expanded="true"] {
+    background-color: var(--hover-accent); /* Keep the original color */
+    color: black; /* Maintain the text color */
+    box-shadow: none; /* Remove any outline or shadow */
+    outline: none;
+}
+
+/* Explicitly target Bootstrap's button styles to ensure overrides */
+.btn:focus, .btn:active, .btn[aria-expanded="true"] {
+    background-color: var(--hover-accent) !important;
+    color: white !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Optional: Make dropdown items larger or styled */
+.dropdown-item-custom {
+    white-space: nowrap; /* Prevent wrapping of country names */
+    color: black;
+    background-color: var(--secondary-bg);
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.2s ease; /* Smooth transition */
+}
+
+/* Hover state for dropdown items */
+.dropdown-item-custom:hover {
+    background-color: var(--accent-color); /* Highlight on hover */
+    color: black;
+}
+
+/* Focus state for accessibility */
+.dropdown-item-custom:focus {
+    outline: none;
+    background-color: var(--accent-color);
+    color: black;
+}
+
+/* Active state (if a dropdown item is selected) */
+.dropdown-item-custom.active {
+    background-color: var(--accent-color); /* Match hover */
+    color: black; /* Ensure visibility */
+    font-weight: bold; /* Optional: Bold for emphasis */
+}
+
+.dropdown-item-custom-2 {
+    background-color: var(--secondary-bg); /* Highlight on hover */
+    color: black;
+}
+
+/* Responsive Adjustments */ /*κάνει προσαρμογή στη σελ όταν αλλάζει το μέγεθος*/
+/* for all forms except review */
+@media (max-width: 480px ) { /*for phone*/
+    .width-form-style {
+        width: 65%;
+        margin: 20px auto 0; /* 20px top margin, auto centers horizontally */
+        display: flex; /* to support vertical centering if needed */
+        justify-content: center; /* aligns content horizontally */
+        align-items: center; /* aligns content vertically */
+        flex-direction: column; /* optional for stacking content */
+    }
+}
+
+@media (max-width: 768px ) { /*for tablet*/
+   .width-form-style {
+        width: 65%;
+        margin: 20px auto 0; /* 20px top margin, auto centers horizontally */
+        display: flex; /* to support vertical centering if needed */
+        justify-content: center; /* aligns content horizontally */
+        align-items: center; /* aligns content vertically */
+        flex-direction: column; /* optional for stacking content */
+   }
+}
