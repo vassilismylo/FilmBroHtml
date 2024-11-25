@@ -31,7 +31,7 @@
 
  /* create-list, write-review */
 .width-form-style-750px {
-    max-width: 750px;
+    max-width: 750px !important;
 }
 
 /* for all */
@@ -259,7 +259,7 @@ input[type="checkbox"] {
     font-size: 1.2rem;
     cursor: pointer;
     color: var(--light-bg); /* Default color for unselected stars */
-    vertical-align: middle; /* Vertically center the stars */
+    vertical-align: middle !important; /* Vertically center the stars */
 }
 
 .rating i.hovered {
@@ -410,6 +410,10 @@ input[type="checkbox"] {
         align-items: center; /* aligns content vertically */
         flex-direction: column; /* optional for stacking content */
     }
+
+    .rating i {
+        font-size: 0.9rem !important;
+    }
 }
 
 @media (max-width: 768px ) { /*for tablet*/
@@ -421,4 +425,16 @@ input[type="checkbox"] {
         align-items: center; /* aligns content vertically */
         flex-direction: column; /* optional for stacking content */
    }
+
+   .header-title-form-style {
+        font-size: 1.3rem !important; /* Dynamic scaling for smaller screens */
+    }
+
+    .header-form-style .form-close-button-style {
+        margin-top: -95px; /* Ensure close button is visually aligned */
+    }
+
+   .rating i {
+        font-size: 0.9rem !important;
+    }
 }
