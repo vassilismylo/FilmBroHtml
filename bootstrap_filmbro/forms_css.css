@@ -189,6 +189,8 @@ input[type="checkbox"] {
     width: 16px; /* Customize size of the checkbox */
     height: 16px; /* Customize size of the checkbox */
     cursor: pointer; /* Pointer cursor for better UX */
+    border: none; /* Remove any border if applied by dropdown */
+    appearance: checkbox;
 }
 
 /* Styling for checkbox options for edit logim-register*/
@@ -304,6 +306,8 @@ input[type="checkbox"] {
     width: 20px;
     height: 20px;
     cursor: pointer;
+    border: none; /* Remove any border if applied by dropdown */
+    appearance: checkbox;
 }
 
 #streamingDropdownMenu .form-check-label.custom-checkbox-style {
@@ -411,15 +415,7 @@ input[type="checkbox"] {
         flex-direction: column; /* optional for stacking content */
     }
 
-    .header-title-form-style {
-        font-size: 1.3rem !important; /* Dynamic scaling for smaller screens */
-    }
-
-    .header-form-style .form-close-button-style {
-        margin-top: -95px; /* Ensure close button is visually aligned */
-    }
-
-   .rating i {
+    .rating i {
         font-size: 0.9rem !important;
     }
 }
