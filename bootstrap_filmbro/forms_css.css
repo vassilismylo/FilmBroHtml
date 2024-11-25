@@ -193,6 +193,11 @@ input[type="checkbox"] {
     appearance: checkbox;
 }
 
+input[type="checkbox"]:focus {
+    outline: none; /* Remove default focus outline for all checkboxes */
+    box-shadow: none; /* Remove box-shadow for focus */
+}
+
 /* Styling for checkbox options for edit logim-register*/
 .option-custom-style {
     position: relative;
@@ -313,6 +318,11 @@ input[type="checkbox"] {
 #streamingDropdownMenu .form-check-label.custom-checkbox-style {
     color: var(--primary-color); /* Replace with your custom color */
     font-size: 1rem;
+}
+
+#streamingDropdownMenu .form-check-input.custom-checkbox:focus {
+    outline: none; /* Remove the default focus outline */
+    box-shadow: none; /* Remove any focus box shadow */
 }
 
 .dropdown-button-custome-style {
