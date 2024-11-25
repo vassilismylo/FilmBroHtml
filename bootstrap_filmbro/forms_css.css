@@ -411,7 +411,15 @@ input[type="checkbox"] {
         flex-direction: column; /* optional for stacking content */
     }
 
-    .rating i {
+    .header-title-form-style {
+        font-size: 1.3rem !important; /* Dynamic scaling for smaller screens */
+    }
+
+    .header-form-style .form-close-button-style {
+        margin-top: -95px; /* Ensure close button is visually aligned */
+    }
+
+   .rating i {
         font-size: 0.9rem !important;
     }
 }
