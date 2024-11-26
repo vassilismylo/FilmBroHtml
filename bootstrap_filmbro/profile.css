@@ -1,0 +1,41 @@
+.custom-btn:hover {
+    color: var(--light-bg);
+}
+
+.custom-btn {
+    color: var(--light-bg);
+    width: 8rem;
+}
+
+.custom-btn-2 {
+    background-color: var(--secondary-bg);
+    width: 17rem;
+    color: var(--light-bg)
+}
+
+.custom-btn-3 {
+    background-color: var(--secondary-bg);
+    width: 10rem;
+    color: var(--light-bg)
+}
+
+.custom-btn-2:hover {
+    background-color: var(--secondary-bg);
+    color: var(--light-bg)
+}
+.custom-btn-3:hover {
+    background-color: var(--secondary-bg);
+    color: var(--light-bg)
+}
+
+
+.custom-card {
+    background-color: var(--primary-bg);
+    color: var(--light-bg);
+    border-color: var(--primary-bg);
+}
+
+.custom-border {
+    border-top: 0.32rem solid var(--accent-color);
+
+}
