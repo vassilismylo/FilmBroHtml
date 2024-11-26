@@ -29,10 +29,10 @@
 
                         <!-- Followers and Following Buttons -->
                         <div class="d-flex gap-2 ">
-                            <button class="btn  btn-sm custom-btn">
+                            <button class="btn  btn-sm custom-btn" onclick="showFollowersPopup()">
                                 Followers <span>526</span>
                             </button>
-                            <button class="btn btn-sm custom-btn ">
+                            <button class="btn btn-sm custom-btn " onclick="showFollowersPopup()">
                                 Following <span>500</span>
                             </button>
                         </div>
@@ -50,7 +50,7 @@
             <!-- Right Section -->
             <div class="col-lg-6">
                 <div class="card custom-card">
-                    <div class="card-body">
+                    <div class="card-body overflow-auto" style="max-height: 300px;">
                         <p class="mb-0">
                             Film has always been more than a simple pastime—it’s
                             a journey into the unknown, an escape into worlds that
@@ -64,7 +64,6 @@
                             festivals where I can discover hidden gems and be part of the energy of a live audience.
                             Movies connect us, not just to each other, but to ideas, emotions,
                             and experiences we might never encounter otherwise.
-
                         </p>
                     </div>
                 </div>
@@ -81,6 +80,89 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+    <!-- followers pop up html:-->
+    <div class="popup" id="followersPopup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h3>Followers</h3>
+            <div class="follower-list">
+                <!-- Example follower item -->
+                <div class="follower-item">
+                    <div class="follower-photo">+</div> <!-- Placeholder for profile picture -->
+                    <div class="follower-info">
+                        <span class="follower-username">username123</span>
+                        <button class="unfollow-btn">Unfollow</button>
+                    </div>
+                </div>
+                <!-- Additional follower items go here -->
+                <div class="follower-item">
+                    <div class="follower-photo">👤</div>
+                    <div class="follower-info">
+                        <span class="follower-username">another_user</span>
+                        <button class="unfollow-btn">Unfollow</button>
+                    </div>
+                </div>
+                <div class="follower-item">
+                    <div class="follower-photo">A</div>
+                    <div class="follower-info">
+                        <span class="follower-username">alice123</span>
+                        <button class="unfollow-btn">Unfollow</button>
+                    </div>
+                </div>
+                <div class="follower-item">
+                    <div class="follower-photo">B</div>
+                    <div class="follower-info">
+                        <span class="follower-username">bob_the_builder</span>
+                        <button class="unfollow-btn">Unfollow</button>
+                    </div>
+                </div>
+                <div class="follower-item">
+                    <div class="follower-photo">C</div>
+                    <div class="follower-info">
+                        <span class="follower-username">charlie_s</span>
+                        <button class="unfollow-btn">Unfollow</button>
+                    </div>
+                </div>
+                <div class="follower-item">
+                    <div class="follower-photo">D</div>
+                    <div class="follower-info">
+                        <span class="follower-username">diana_rose</span>
+                        <button class="unfollow-btn">Unfollow</button>
+                    </div>
+                </div>
+                <div class="follower-item">
+                    <div class="follower-photo">E</div>
+                    <div class="follower-info">
+                        <span class="follower-username">edward_007</span>
+                        <button class="unfollow-btn">Unfollow</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showFollowersPopup() {
+            document.getElementById("followersPopup").style.display = "flex";
+        }
+
+        function closePopup() {
+            document.getElementById("followersPopup").style.display = "none";
+        }
+        // Close popup when clicking outside of it
+        window.onclick = function (event) {
+            const popup = document.getElementById("followersPopup");
+            if (event.target === popup) {
+                closePopup();
+            }
+        };
+    </script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
