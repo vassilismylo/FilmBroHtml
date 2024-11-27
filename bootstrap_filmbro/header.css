@@ -1,0 +1,117 @@
+nav {
+    background-color: var(--primary-bg) !important;
+}
+
+.navbar-brand {
+    font-size: 2.5rem;
+    color: var(--accent-color) !important;
+    font-family: var(--primary-font);
+    margin: 0 auto;
+}
+
+.rounded-circle {
+    height: 40px;
+    width: 40px;
+}
+
+.form-select-sm,
+.form-control-sm {
+    background-color: var(--secondary-bg);
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+}
+
+.form-control-sm::placeholder {
+    color: var(--light-bg);
+}
+
+.form-select-sm:focus,
+.form-control-sm:focus {
+    background-color: var(--secondary-bg);
+    box-shadow: 0 0 5px var(--accent-color);
+    color: var(--light-bg);
+}
+
+/* Search container styles */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+}
+
+/* Ensure smooth transitions for horizontal expansion */
+.collapse-horizontal {
+    transition: width 0.25s ease-in-out !important;
+}
+
+#searchContainer {
+    background-color: var(--primary-bg);
+    border: none;
+    padding: 5px 10px;
+    width: 0;
+    white-space: nowrap;
+    visibility: hidden;
+}
+
+#searchContainer.collapse.show {
+    width: 300px;
+    visibility: visible;
+}
+
+.search-icon {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.search-icon:hover {
+    color: var(--light-bg);
+}
+
+/* Advanced Search Button with smooth appearance */
+#advancedSearchBtn {
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
+    border: none;
+    cursor: pointer;
+    width: 0;
+    visibility: hidden;
+}
+
+/* Show Advanced Search button */
+#advancedSearchBtn.show {
+    width: auto;
+    visibility: visible;
+}
+
+.dropdown-menu {
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--accent-color);
+}
+
+.dropdown-item {
+    color: var(--light-bg);
+}
+
+.dropdown-item:hover {
+    background-color: var(--secondary-bg);
+    color: var(--accent-color);
+}
+
+.custom-logo {
+    margin-left: 5%;
+}
+@media (width <= 480px) {
+.custom-logo {
+    margin-left: 0%;
+}
+}
+.custom-brand{
+color:var(--accent-color);
+}
+.custom-text {
+color:var(--accent-color)
+
+}

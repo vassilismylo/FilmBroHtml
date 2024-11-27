@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FilmBro | Edit My Profile</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="editMyProfile_form.css" rel="stylesheet">
+    <link href="forms_css.css" rel="stylesheet">
     <link href="general.css" rel="stylesheet">
 </head>
 <body>
@@ -16,8 +15,8 @@
         <a href="index.html" class="navbar-brand">FilmBro</a>
     </header>
 
-    <div class="modal-dialog modal-sm width-form-style">
-        <div class="modal-content general-form-style">
+    <div class="modal-dialog modal-sm width-form-style width-form-style-500px">
+        <div class="modal-content general-form-style general-form-style-edit">
             <!-- Modal Header-->
             <div class="modal-header header-form-style">
                 <h1 class="text-center header-title-form-style">My Profile</h1>
@@ -56,33 +55,33 @@
                             <button class="btn btn-outline-secondary dropdown-toggle dropdown-button-custome-style" type="button" id="streamingDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                 Select Services
                             </button>
-                            <ul class="dropdown-menu p-3 dropdown-menu-custom" id="streamingDropdownMenu">
+                            <ul class="dropdown-menu p-3 dropdown-menu-custom dropdown-item-custom-2" id="streamingDropdownMenu">
                                 <li>
-                                    <div class="form-check custom-checkbox">
-                                        <input class="form-check-input" type="checkbox" id="netflix" value="Netflix">
+                                    <div class="form-check custom-checkbox-add">
+                                        <input class="form-check-input " type="checkbox" id="netflix" value="Netflix">
                                         <label class="form-check-label custom-checkbox-style" for="netflix">
                                             Netflix
                                         </label>
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="form-check custom-checkbox">
-                                        <input class="form-check-input" type="checkbox" id="disney" value="Disney Plus">
+                                    <div class="form-check custom-checkbox-add">
+                                        <input class="form-check-input " type="checkbox" id="disney" value="Disney Plus">
                                         <label class="form-check-label custom-checkbox-style" for="disney">
                                             Disney Plus
                                         </label>
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="form-check custom-checkbox">
-                                        <input class="form-check-input" type="checkbox" id="apple" value="Apple TV">
+                                    <div class="form-check custom-checkbox-add">
+                                        <input class="form-check-input " type="checkbox" id="apple" value="Apple TV">
                                         <label class="form-check-label custom-checkbox-style" for="apple">
                                             Apple TV
                                         </label>
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="form-check custom-checkbox">
+                                    <div class="form-check custom-checkbox-add">
                                         <input class="form-check-input" type="checkbox" id="prime" value="Prime Video">
                                         <label class="form-check-label custom-checkbox-style" for="prime">
                                             Prime Video
@@ -91,15 +90,19 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                    <small class="d-block mt-2 custom-style-message">You selected: None</p>
-                             
+                    </div>      
 
+                    <!--Upload a photo-->
                     <div class="mb-3">
                         <label for="photo" class="form-label">Profile photo:</label>
-                        <input type="file" id="photo" name="photo" accept="image/*" style="opacity: 0; position: absolute; z-index: -1;">
-                        <label for="photo" class="custom-file-upload">Choose File</label>
-                        <small class="d-block mt-2 custom-style-message-2">Please upload a clear image. Accepted formats: JPG, PNG.</small>
+    
+                        <div class="d-inline-block">
+                            <!-- Custom button for file upload -->
+                            <input type="file" id="photo" name="photo" accept="image/*" style="display: none;">
+                            <label for="photo" class="btn btn-primary  dropdown-button-custome-style">Choose File</label>
+                        </div>
+                    
+                        <small class="d-block mt-2 custom-style-message">Please upload a clear image. Accepted formats: JPG, PNG.</small>
                     </div>
                     
                     <!--Info-->
@@ -125,9 +128,10 @@
                             </label>
                         </div>
                     </div> 
-
-                <button type="submit" class="btn btn-primary button-style">Save</button>
-                <button type="button" class="btn btn-primary button-style" onclick="window.location.href = 'myprofile.html'">Cancel</button>
+                    <div class="d-flex justify-content"> 
+                        <button type="button" class="btn btn-secondary me-2 button-style button-style-edit" onclick="window.location.href = 'myprofile.html'">Cancel</button>
+                        <button type="submit" class="btn btn-primary button-style button-style-edit">Save</button>
+                    </div>
             </form>
         </div>
     </div>
@@ -154,20 +158,8 @@
 
         countries.forEach(country => {
             const listItem = document.createElement("li");
-            listItem.innerHTML = `<a class="dropdown-item" href="#">${country}</a>`;
+            listItem.innerHTML = `<a class="dropdown-item dropdown-item-custom" href="#">${country}</a>`;
             countryDropdown.appendChild(listItem);
-        });
-    </script>
-    
-    <!--Services-->
-    <script>
-        // Update selected services dynamically
-        document.querySelectorAll('#streamingDropdownMenu .form-check-input').forEach(checkbox => {
-            checkbox.addEventListener('change', function () {
-                const selectedServices = Array.from(document.querySelectorAll('#streamingDropdownMenu .form-check-input:checked'))
-                    .map(input => input.value);
-                document.getElementById('selectedOption').innerText = `You selected: ${selectedServices.join(', ') || 'None'}`;
-            });
         });
     </script>
 
