@@ -27,6 +27,24 @@
         --primary-font: 'Playfair Display', serif;
         --secondary-font: 'Poppins', sans-serif;
     }
+
+    .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .button {
+            width: 3.5rem;
+            height: 3.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--secondary-bg);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 </style>
 
 <div class="container-fluid container-custom">
@@ -37,18 +55,18 @@
                 class="img-fluid rounded shadow mb-3">
             <!-- Buttons -->
             <div class="d-flex justify-content-center gap-3">
-                <button class="btn btn-outline-light rounded-circle shadow"
-                    style="background-color: var(--secondary-bg); color: var(--light-bg);" title="Add to Seen">
-                    <i class="fas fa-eye"></i>
-                </button>
-                <button class="btn btn-outline-light rounded-circle shadow"
-                    style="background-color: var(--secondary-bg); color: var(--light-bg);" title="Add to Watch List">
-                    <i class="fas fa-clock"></i>
-                </button>
-                <button class="btn btn-outline-light rounded-circle shadow"
-                    style="background-color: var(--secondary-bg); color: var(--light-bg);" title="Add to List">
-                    <i class="fas fa-plus"></i>
-                </button>
+                <!-- Buttons Below the Poster -->
+                <div class="button-container">
+                    <div class="button">
+                        <i class="fas fa-eye" style="color: white; font-size: 24px;"></i>
+                    </div>
+                    <div class="button">
+                        <i class="fas fa-clock" style="color: white; font-size: 24px;"></i>
+                    </div>
+                    <div class="button">
+                        <i class="fas fa-plus" style="color: white; font-size: 24px;"></i>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -103,289 +121,7 @@
             </div>
         </div>
 
-       
-    </div>
-</div>
 
-
-<!-- Cast Section -->
-
-<div class="container-fluid container-custom">
-    <div class="cards-section-header">
-        <h2 class="cards-section-title">Cast</h2>
-        <a href="#" class="view-more">View Full Cast</a>
-
-    </div>
-
-    <div class="four-card-container">
-        <div class="card card-custom movie-contributor-card" style="width: 18rem;">
-
-            <img src="https://image.tmdb.org/t/p/w500/rUxLWWCDUF8RnDaocSqrVDJ2MS1.jpg"
-                class="card-img-top movie-contributor-card-img">
-            <div class="card-body movie-contributor-card-body">
-                <h3 class="card-title movie-contributor-card-title">
-                    <i class="bi bi-film"></i> Matthew McConaughey
-                    </h5>
-                    <p class="card-text movie-contributor-card-text">Cooper</p>
-
-            </div>
-        </div>
-
-        <div class="card card-custom movie-contributor-card" style="width: 18rem;">
-
-            <img src="https://image.tmdb.org/t/p/w500/kRYxBuUtN3vNz5pLfqCf32ZYlw2.jpg"
-                class="card-img-top movie-contributor-card-img">
-            <div class="card-body movie-contributor-card-body">
-                <h3 class="card-title movie-contributor-card-title">
-                    <i class="bi bi-film"></i> Anne Hathaway
-                    </h5>
-
-                    <p class="card-text movie-contributor-card-text">Brand</p>
-
-            </div>
-        </div>
-
-        <div class="card card-custom movie-contributor-card" style="width: 18rem;">
-
-            <img src="https://image.tmdb.org/t/p/w500/bVZRMlpjTAO2pJK6v90buFgVbSW.jpg"
-                class="card-img-top movie-contributor-card-img">
-            <div class="card-body movie-contributor-card-body">
-                <h3 class="card-title movie-contributor-card-title">
-                    <i class="bi bi-film"></i> Michael Caine
-                    </h5>
-
-                    <p class="card-text movie-contributor-card-text">Professor Brand</p>
-
-            </div>
-        </div>
-
-        <div class="card card-custom movie-contributor-card" style="width: 18rem;">
-
-            <img src="https://image.tmdb.org/t/p/w500/xRvRzxiiHhgUErl0yf9w8WariRE.jpg"
-                class="card-img-top movie-contributor-card-img">
-            <div class="card-body movie-contributor-card-body">
-                <h3 class="card-title movie-contributor-card-title">
-                    <i class="bi bi-film"></i> Jessica Chastain
-                    </h5>
-
-                    <p class="card-text movie-contributor-card-text">Murph</p>
-
-            </div>
-        </div>
-    </div>
-</div>
-<!-- User Reviews Section -->
-<div class="container-fluid container-custom">
-    <h2 class="cards-section-title">Reviews</h2>
-    <p></p>
-    <div class="card mb-3 card-custom review-list-card" style="max-width: 540px;">
-
-        <div class="row g-0">
-            <div class="col-md-2">
-                <img src="https://via.placeholder.com/60" class="img-fluid review-profile-pic" alt="...">
-            </div>
-            <div class="col-md-10">
-                <div class="card-body">
-                    <div class="review-list-header">
-                        <span class="review-list-title">Alex Brown</span>
-                        <span class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                class="bi bi-star-half"></i><i class="bi bi-star"></i></span>
-                    </div>
-                    <p class="card-text review-text">
-                        Absolutely loved it! The movie explores deep themes of human nature and survival while taking us
-                        on a visual journey through space. The way it delves into the complexities of relationships
-                        during times of crisis really resonated with me. Each character faced their own struggles, and
-                        the film did an excellent job of portraying their emotional arcs against the backdrop of
-                        breathtaking visuals. The cinematography was simply stunning, with each scene meticulously
-                        crafted to draw the audience into this otherworldly experience. The score complemented the
-                        visuals beautifully, enhancing the emotional impact of key moments. I left the theater feeling a
-                        mix of awe and contemplation, pondering the moral dilemmas presented throughout the story. It's
-                        a film that not only entertains but also invites reflection on what it means to be human. This
-                        is definitely one of those films that stays with you long after the credits roll.
-                    </p>
-                    <div class="like-section">
-                        <button class="like-button"><i class="bi bi-heart"></i></button>
-                        <span class="like-count">94</span> <!-- Random number of likes -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card mb-3 card-custom review-list-card" style="max-width: 540px;">
-
-        <div class="row g-0">
-            <div class="col-md-12">
-                <div class="card-body">
-                    <div class="review-list-header">
-                        <span class="review-list-title">Interstellar</span>
-                        <span class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                class="bi bi-star-half"></i><i class="bi bi-star"></i></span>
-                    </div>
-                    <p class="card-text review-text">
-                        Absolutely loved it! The movie explores deep themes of human nature and survival while taking us
-                        on a visual journey through space. The way it delves into the complexities of relationships
-                        during times of crisis really resonated with me. Each character faced their own struggles, and
-                        the film did an excellent job of portraying their emotional arcs against the backdrop of
-                        breathtaking visuals. The cinematography was simply stunning, with each scene meticulously
-                        crafted to draw the audience into this otherworldly experience. The score complemented the
-                        visuals beautifully, enhancing the emotional impact of key moments. I left the theater feeling a
-                        mix of awe and contemplation, pondering the moral dilemmas presented throughout the story. It's
-                        a film that not only entertains but also invites reflection on what it means to be human. This
-                        is definitely one of those films that stays with you long after the credits roll.
-                    </p>
-                    <div class="like-section">
-                        <button class="like-button"><i class="bi bi-heart"></i></button>
-                        <span class="like-count">94</span> <!-- Random number of likes -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Popup Modal -->
-<div id="reviewModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2 id="modalUsername"></h2>
-        <p id="modalReviewText"></p>
-    </div>
-</div>
-
-<!-- Write a Review Modal POP UP -->
-<div id="writeReviewModal" class="modal-review" style="display: none;">
-    <div class="modal-review-content">
-        <span class="close-review-button" onclick="closeReviewModal()">×</span>
-        <!-- Insert the Review Form -->
-        <div class="review-container">
-            <div class="movie-details-review">
-                <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" alt="Interstellar Poster"
-                    class="movie-review-poster">
-                <div class="movie-info-review">
-                    <h2>Write a Review for Interstellar (2014)</h2>
-                </div>
-            </div>
-            <form class="review-form" action="#" method="POST">
-                <div class="rating-stars">
-                    <label>Rating:</label>
-                    <div class="rating-stars" id="rating">
-                        <span data-value="1">&#9733;</span>
-                        <span data-value="2">&#9733;</span>
-                        <span data-value="3">&#9733;</span>
-                        <span data-value="4">&#9733;</span>
-                        <span data-value="5">&#9733;</span>
-                        <span data-value="6">&#9733;</span>
-                        <span data-value="7">&#9733;</span>
-                        <span data-value="8">&#9733;</span>
-                        <span data-value="9">&#9733;</span>
-                        <span data-value="10">&#9733;</span>
-                    </div>
-                    <input type="hidden" id="rating" name="rating" required>
-                </div>
-                <div class="review-text-review">
-                    <label for="review">Your Review:</label>
-                    <textarea id="review" name="review" placeholder="Write your thoughts about Interstellar..."
-                        required></textarea>
-                </div>
-                <div class="spoiler-checkbox">
-                    <input type="checkbox" id="spoiler" name="spoiler">
-                    <label for="spoiler">Contains Spoilers</label>
-                </div>
-                <button type="submit" onclick="submitReview()">Submit Review</button>
-            </form>
-        </div>
-    </div>
-</div>
-<!--Movies section-->
-<div class="container-fluid container-custom">
-    <div class="cards-section-header">
-        <h2 class="cards-section-title">You might also like</h2>
-        <a href="#" class="view-more">View More</a>
-    </div>
-
-    <div class="four-card-container">
-        <div class="card card-custom movie-contributor-card" style="width: 18rem;">
-            <span class="position-absolute top-0 start-100 translate-middle badge"
-                style="background-color: var(--accent-color);">
-                <h3><i class="bi bi-eye-fill"></i> <i class="bi bi-clock-fill"></i></h3>
-            </span>
-            <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
-                class="card-img-top movie-contributor-card-img">
-            <div class="card-body movie-contributor-card-body">
-                <h3 class="card-title movie-contributor-card-title">
-                    <i class="bi bi-film"></i> Interstellar
-                    </h5>
-                    <h5 class="card-title movie-contributor-card-title">
-                        <i class="bi bi-star-fill"></i> 8.4
-                    </h5>
-                    <p class="card-text movie-contributor-card-text">2014 | 169m</p>
-
-            </div>
-        </div>
-
-        <div class="card card-custom movie-contributor-card" style="width: 18rem;">
-            <span class="position-absolute top-0 start-100 translate-middle badge"
-                style="background-color: var(--accent-color);">
-                <h3><i class="bi bi-eye-fill"></i> <i class="bi bi-clock-fill"></i></h3>
-            </span>
-            <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
-                class="card-img-top movie-contributor-card-img">
-            <div class="card-body movie-contributor-card-body">
-                <h3 class="card-title movie-contributor-card-title">
-                    <i class="bi bi-film"></i> Interstellar
-                    </h5>
-                    <h5 class="card-title movie-contributor-card-title">
-                        <i class="bi bi-star-fill"></i> 8.4
-                    </h5>
-                    <p class="card-text movie-contributor-card-text">2014 | 169m</p>
-
-            </div>
-        </div>
-
-        <div class="card card-custom movie-contributor-card" style="width: 18rem;">
-            <span class="position-absolute top-0 start-100 translate-middle badge"
-                style="background-color: var(--accent-color);">
-                <h3><i class="bi bi-eye-fill"></i> <i class="bi bi-clock-fill"></i></h3>
-            </span>
-            <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
-                class="card-img-top movie-contributor-card-img">
-            <div class="card-body movie-contributor-card-body">
-                <h3 class="card-title movie-contributor-card-title">
-                    <i class="bi bi-film"></i> Interstellar
-                    </h5>
-                    <h5 class="card-title movie-contributor-card-title">
-                        <i class="bi bi-star-fill"></i> 8.4
-                    </h5>
-                    <p class="card-text movie-contributor-card-text">2014 | 169m</p>
-
-            </div>
-        </div>
-
-        <div class="card card-custom movie-contributor-card" style="width: 18rem;">
-            <span class="position-absolute top-0 start-100 translate-middle badge"
-                style="background-color: var(--accent-color);">
-                <h3><i class="bi bi-eye-fill"></i> <i class="bi bi-clock-fill"></i></h3>
-            </span>
-            <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
-                class="card-img-top movie-contributor-card-img">
-            <div class="card-body movie-contributor-card-body">
-                <h3 class="card-title movie-contributor-card-title">
-                    <i class="bi bi-film"></i> Interstellar
-                    </h5>
-                    <h5 class="card-title movie-contributor-card-title">
-                        <i class="bi bi-star-fill"></i> 8.4
-                    </h5>
-                    <p class="card-text movie-contributor-card-text">2014 | 169m</p>
-
-            </div>
-        </div>
     </div>
 </div>
 
