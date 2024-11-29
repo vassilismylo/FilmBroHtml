@@ -100,14 +100,18 @@
 }
 
 .review-list-text {
+    line-height: 1.2em;
     font-size: 0.9em;
     color: var(--light-bg);
     overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    display: -webkit-box;        
+    -webkit-line-clamp: 5;      
+    -webkit-box-orient: vertical; 
+    overflow: hidden;           
+    height: calc(1.2em * 5); 
     cursor: pointer;
     margin-bottom: 2px;
+    text-overflow: ellipsis;
 }
 
 .review-list-card {
@@ -174,7 +178,7 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 0;
-    width: 104%;
+    width: 153%;
     height: 100%;
   }
   
@@ -183,7 +187,7 @@
     height: auto;
   }
 
-/*For users only*/
+/*For result cards only*/
 
 .result-card-text {
     font-size: 0.9em;
