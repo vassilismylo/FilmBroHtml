@@ -191,6 +191,7 @@
 
 .result-card-text {
     font-size: 1em;
+    line-height: 1.2em;
     color: var(--light-bg);
     overflow: hidden;
     display: -webkit-box;
@@ -198,7 +199,7 @@
     -webkit-line-clamp: 5;
     cursor: pointer;
     margin-bottom: 2px;
-    height: 6em;
+    height: calc(1.2em * 5); 
 }
 
 
