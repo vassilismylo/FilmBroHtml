@@ -34,9 +34,9 @@
                     <h3 class="card-title movie-contributor-card-title">
                         <i class="bi bi-film"></i> Interstellar
                     </h3>
-                    <h5 class="card-title movie-contributor-card-title">
+                    <div class="movie-card-rating">
                         <i class="bi bi-star-fill"></i> 8.4
-                    </h5>
+                    </div>
                     <p class="card-text movie-contributor-card-text">2014 | 169m</p>
 
                 </div>
@@ -52,11 +52,11 @@
                 <div class="card-body movie-contributor-card-body">
                     <h3 class="card-title movie-contributor-card-title">
                         <i class="bi bi-film"></i> Interstellar
-                        </h5>
-                        <h5 class="card-title movie-contributor-card-title">
-                            <i class="bi bi-star-fill"></i> 8.4
-                        </h5>
-                        <p class="card-text movie-contributor-card-text">2014 | 169m</p>
+                    </h3>
+                    <div class="movie-card-rating">
+                        <i class="bi bi-star-fill"></i> 8.4
+                    </div>
+                    <p class="card-text movie-contributor-card-text">2014 | 169m</p>
 
                 </div>
             </div>
@@ -71,11 +71,11 @@
                 <div class="card-body movie-contributor-card-body">
                     <h3 class="card-title movie-contributor-card-title">
                         <i class="bi bi-film"></i> Interstellar
-                        </h5>
-                        <h5 class="card-title movie-contributor-card-title">
-                            <i class="bi bi-star-fill"></i> 8.4
-                        </h5>
-                        <p class="card-text movie-contributor-card-text">2014 | 169m</p>
+                    </h3>
+                    <div class="movie-card-rating">
+                        <i class="bi bi-star-fill"></i> 8.4
+                    </div>
+                    <p class="card-text movie-contributor-card-text">2014 | 169m</p>
 
                 </div>
             </div>
@@ -90,11 +90,11 @@
                 <div class="card-body movie-contributor-card-body">
                     <h3 class="card-title movie-contributor-card-title">
                         <i class="bi bi-film"></i> Interstellar
-                        </h5>
-                        <h5 class="card-title movie-contributor-card-title">
-                            <i class="bi bi-star-fill"></i> 8.4
-                        </h5>
-                        <p class="card-text movie-contributor-card-text">2014 | 169m</p>
+                    </h3>
+                    <div class="movie-card-rating">
+                        <i class="bi bi-star-fill"></i> 8.4
+                    </div>
+                    <p class="card-text movie-contributor-card-text">2014 | 169m</p>
 
                 </div>
             </div>
@@ -188,7 +188,7 @@
     <div class="container-fluid container-custom">
         <div class="card mb-3 card-custom review-list-card" style="max-width: 540px;">
 
-            <div class="row g-0">
+            <div class="row g-5">
                 <div class="col-md-3">
                     <div class="image-collage">
                         <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" class="img-fluid"
@@ -208,7 +208,7 @@
                         </div>
                         <div>
                             <img src="https://via.placeholder.com/40" class="list-profile-pic" alt="User Photo">
-                            <span class="review-list-title">John Doe</span>
+                            <span class="list-username">John Doe</span>
                             <span class="list-film-count">(12 Films)</span>
                         </div>
                         <p class="card-text review-list-text">
@@ -233,23 +233,51 @@
 
     <div class="container-fluid container-custom">
 
-        <div class="card card-custom" style="width: 18rem;">
-            <div class="card-body">
-                <div style="margin-bottom: 1em;">
-                    <img src="https://via.placeholder.com/40" class="user-card-profile-pic" alt="User Photo">
-                    <span class="review-list-title">John Doe</span>
-                </div>
-                <p class="card-text user-card-text">Film has always been more than a simple pastime—it’s a journey
-                    into the unknown, an escape into worlds that stretch the imagination and challenge my own
-                    perspectives. I’m drawn to films that don’t settle for the usual, ones that play with structure,
-                    dive into intricate character studies, or explore new styles. Directors like Christopher Nolan
-                    and visionary studios like Ghibli create stories that pull me in every time. Independent films
-                    and international cinema bring me unique, often untold perspectives that feel deeply authentic,
-                    and each year I make it a point to attend film festivals where I can discover hidden gems and be
-                    part of the energy of a live audience. Movies connect us, not just to each other, but to ideas,
-                    emotions, and experiences we might never encounter otherwise.</p>
-            </div>
 
+        <div class="card card-custom" style="width:100%">
+            <div class="card-body">
+                <div>
+                    <img src="https://via.placeholder.com/40" class="result-user-card-profile-pic" alt="User Photo">
+                    <span class="result-card-title">John Doe</span>
+                </div>
+                <p class="card-text result-card-text">
+                    Film has always been more than a simple pastime—it’s a journey into the unknown, an escape into
+                    worlds
+                    that stretch the imagination and challenge my own perspectives. I’m drawn to films that don’t settle
+                    for
+                    the usual, ones that play with structure, dive into intricate character studies, or explore new
+                    styles.
+                    Directors like Christopher Nolan and visionary studios like Ghibli create stories that pull me in
+                    every
+                    time. Independent films and international cinema bring me unique, often untold perspectives that
+                    feel
+                    deeply authentic, and each year I make it a point to attend film festivals where I can discover
+                    hidden
+                    gems and be part of the energy of a live audience. Movies connect us, not just to each other, but to
+                    ideas, emotions, and experiences we might never encounter otherwise.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid container-custom">
+        <div class="card mb-3 card-custom" style="width:100%">
+            <div>
+                <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
+                    class="img-fluid rounded-start" alt="..."
+                    style="max-height: 15rem; float: left; margin-right: 1rem;">
+            </div>
+            <div class="col-md-15">
+                <div class="card-body">
+                    <h5 class="result-card-title">Interstellar</h5>
+                    <span class="movie-card-rating"><i class="bi bi-star-fill"></i> 8.4</span>
+                    <p class=" card-text result-card-text">The adventures of a group of explorers who make use of a newly
+                        discovered wormhole to surpass the
+                        limitations on human space travel and conquer the vast distances involved in an interstellar
+                        voyage.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 

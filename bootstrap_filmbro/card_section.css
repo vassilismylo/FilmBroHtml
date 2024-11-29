@@ -29,6 +29,12 @@
     align-items: center;
 }
 
+/* For movies and movie contributors */
+.movie-card-rating {
+    color: var(--accent-color);
+    font-size: 1.4em;
+    font-weight: bold;
+}
 
 /* For movies and movie contributors */
 .movie-contributor-card {
@@ -43,6 +49,11 @@
 
 .movie-contributor-card-title {
     color: var(--accent-color);
+    display: -webkit-box;        
+    -webkit-line-clamp: 2;      
+    -webkit-box-orient: vertical; 
+    overflow: hidden;           
+    height: calc(1.2em * 2); 
 }
 
 .movie-contributor-card-text {
@@ -78,7 +89,14 @@
     font-weight: bold;
     color: var(--accent-color);
     text-decoration: underline;
-    cursor: pointer;
+    cursor: pointer;  
+    display: -webkit-box;        
+    -webkit-line-clamp: 1;      
+    -webkit-box-orient: vertical; 
+    overflow: hidden;           
+    max-width: 20ch;
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 .review-list-text {
@@ -139,6 +157,13 @@
 }
 
 
+.list-username {
+    color: var(--accent-color); 
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
 .list-film-count {
     font-size: 0.8em;
     color: var(--light-bg);
@@ -160,7 +185,7 @@
 
 /*For users only*/
 
-.user-card-text {
+.result-card-text {
     font-size: 0.9em;
     color: var(--light-bg);
     overflow: hidden;
@@ -172,12 +197,20 @@
 }
 
 
-
-/*For users only*/
-.user-card-profile-pic {
+.result-user-card-profile-pic {
     width: 3em;
     height: 3em;
     border-radius: 50%;
     cursor: pointer;
+    margin-bottom: 0.2rem;
 }
+
+.result-card-title {
+    color: var(--accent-color); 
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 1.5em;
+}
+
+
 
