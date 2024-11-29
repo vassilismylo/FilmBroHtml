@@ -5,6 +5,9 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: inline-block;
     background-color: var(--secondary-bg);
+    
+    /*width: 20rem; /* Consistent card width */
+    /*margin: 0 auto; /* Center card content horizontally */   
 }
 
 .cards-section-title {
@@ -67,16 +70,17 @@
     border-bottom-right-radius: 9px;
 }
 
-/*Αυτό εμφανίζει και τις 4 κάρτες στην ίδια γραμμή ότι και να γίνει*/
-.four-card-container {
-    display: flex;
-    justify-content: center;
-}
-
 /*Αυτό εμφανίζει τις κάρτες σε επόμενη γραμμή αν δεν χωράνε στην ίδια αλλά δεν τις κάνει center*/
 .full-card-container {
-    flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for responsive design */
+    justify-content: center; /* Center the cards horizontally */
+    gap: 20px; /* Even space between the cards */
+    padding: 20px; /* Optional: Add padding for spacing from the edges */
+    margin-top: -30px; 
+    margin-bottom: -30px;
 }
+
 
 /*For reviews and lists*/
 .review-list-header {
@@ -237,6 +241,43 @@
 }
 
 
+/* Container for all reviews */
+.container-custom-new {
+    display: flex; 
+    justify-content: center;  /* Center reviews horizontally */
+    align-items: flex-start;  /* Align reviews to the top */
+    flex-wrap: wrap;          /* Allow reviews to wrap on smaller screens */
+    gap: 80px;                /* Space between reviews */
+    padding: 20px;            /* Space from the container's edges */
+}
 
 
+@media (max-width: 480px) {
+    .full-card-container {
+        display: flex; /* Maintain flexbox layout */
+        flex-wrap: wrap; /* Allow wrapping */
+        gap: 10px; /* Reduce spacing for smaller screens */
+        justify-content: center; /* Center the cards */
+    }
+
+    .card-custom {
+        width: 45%; /* Adjust card width for two cards per row */
+        max-width: none; /* Remove max-width restriction */
+    }
+}
+
+
+@media (max-width: 768px) {
+    .full-card-container {
+        display: flex; /* Maintain flexbox layout */
+        flex-wrap: wrap; /* Allow wrapping */
+        gap: 10px; /* Reduce spacing for smaller screens */
+        justify-content: center; /* Center the cards */
+    }
+
+    .card-custom {
+        width: 45%; /* Adjust card width for two cards per row */
+        max-width: none; /* Remove max-width restriction */
+    }
+}
 
