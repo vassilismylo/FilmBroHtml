@@ -106,8 +106,7 @@
     overflow: hidden;
     display: -webkit-box;        
     -webkit-line-clamp: 5;      
-    -webkit-box-orient: vertical; 
-    overflow: hidden;           
+    -webkit-box-orient: vertical;      
     height: calc(1.2em * 5); 
     cursor: pointer;
     margin-bottom: 2px;

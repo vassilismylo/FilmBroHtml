@@ -45,6 +45,21 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
+
+        .movie-description {
+            line-height: 1.3em;
+            font-size: 1em;
+            color: var(--light-bg);
+            display: -webkit-box;        
+            -webkit-line-clamp: 5;      
+            -webkit-box-orient: vertical; 
+            overflow: hidden;           
+            height: calc(1.3em * 5); 
+            cursor:auto;
+            text-overflow: ellipsis;
+        }
+
+        
 </style>
 
 <div class="container-fluid container-custom">
@@ -91,13 +106,13 @@
                 style="background-color: var(--accent-color); color: var(--background-color);">
                 <i class="fas fa-play"></i> Trailer
             </button>
-            <p style="color: var(--light-bg);">
+            <p class="movie-description">
                 The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the
                 limitations on human space travel and conquer the vast distances involved in an interstellar voyage.
             </p>
 
             <!-- Ratings Section -->
-            <div class="border-top pt-3" style="border-color: var(--accent);">
+            <div class="border-top pt-3" style="border-color: var(--accent-color);">
 
                 <div class="row text-center mt-2" style="color: var(--light-bg);">
                     <div class="col-3">

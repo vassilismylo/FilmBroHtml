@@ -31,7 +31,9 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     -webkit-line-clamp: 13;
-    cursor: pointer;
+    cursor: auto;
     transition: all 0.3s ease;
     line-height: 1.6;
+    height: calc(1.6em * 13);
+    text-overflow: ellipsis;
 }
