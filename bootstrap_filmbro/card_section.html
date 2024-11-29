@@ -13,9 +13,25 @@
     <!--Custom css-->
     <link rel="stylesheet" href="general.css">
     <link rel="stylesheet" href="card_section.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
+    <style>
+        .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left {
+  margin-left: 0.5rem;
+}
+
+.right {
+  margin-right: 0.5rem;
+}
+
+    </style>
     <div class="container-fluid container-custom">
         <div class="cards-section-header">
             <h2 class="cards-section-title">Movies</h2>
@@ -24,10 +40,6 @@
 
         <div class="full-card-container">
             <div class="card card-custom movie-contributor-card" style="width: 18rem;">
-                <span class="position-absolute top-0 start-100 translate-middle badge"
-                    style="background-color: var(--accent-color);">
-                    <h3><i class="bi bi-eye-fill"></i> <i class="bi bi-clock-fill"></i></h3>
-                </span>
                 <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
                     class="card-img-top movie-contributor-card-img">
                 <div class="card-body movie-contributor-card-body">
@@ -37,16 +49,18 @@
                     <div class="movie-card-rating">
                         <i class="bi bi-star-fill"></i> 8.4
                     </div>
-                    <p class="card-text movie-contributor-card-text">2014 | 169m</p>
-
+                    <div style="display: flex; justify-content: space-between;">
+                        <span class="movie-contributor-card-text" style="text-align: left;">2014 | 169m</span>
+                        <span class="movie-contributor-card-text" style="text-align: right;">
+                            <i class="fas fa-eye" style="font-size: 24px;"></i>
+                            <i class="fas fa-clock" style="font-size: 24px;"></i>
+                            <i class="bi bi-heart-fill" style="font-size: 24px;"></i>
+                        </span>
+                    </div>
                 </div>
             </div>
 
             <div class="card card-custom movie-contributor-card" style="width: 18rem;">
-                <span class="position-absolute top-0 start-100 translate-middle badge"
-                    style="background-color: var(--accent-color);">
-                    <h3><i class="bi bi-eye-fill"></i> <i class="bi bi-clock-fill"></i></h3>
-                </span>
                 <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
                     class="card-img-top movie-contributor-card-img">
                 <div class="card-body movie-contributor-card-body">
@@ -56,16 +70,18 @@
                     <div class="movie-card-rating">
                         <i class="bi bi-star-fill"></i> 8.4
                     </div>
-                    <p class="card-text movie-contributor-card-text">2014 | 169m</p>
-
+                    <div style="display: flex; justify-content: space-between;">
+                        <span class="movie-contributor-card-text" style="text-align: left;">2014 | 169m</span>
+                        <span class="movie-contributor-card-text" style="text-align: right;">
+                            <i class="fas fa-eye" style="font-size: 24px;"></i>
+                            <i class="fas fa-clock" style="font-size: 24px;"></i>
+                            <i class="bi bi-heart-fill" style="font-size: 24px;"></i>
+                        </span>
+                    </div>
                 </div>
             </div>
 
             <div class="card card-custom movie-contributor-card" style="width: 18rem;">
-                <span class="position-absolute top-0 start-100 translate-middle badge"
-                    style="background-color: var(--accent-color);">
-                    <h3><i class="bi bi-eye-fill"></i> <i class="bi bi-clock-fill"></i></h3>
-                </span>
                 <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
                     class="card-img-top movie-contributor-card-img">
                 <div class="card-body movie-contributor-card-body">
@@ -75,16 +91,18 @@
                     <div class="movie-card-rating">
                         <i class="bi bi-star-fill"></i> 8.4
                     </div>
-                    <p class="card-text movie-contributor-card-text">2014 | 169m</p>
-
+                    <div style="display: flex; justify-content: space-between;">
+                        <span class="movie-contributor-card-text" style="text-align: left;">2014 | 169m</span>
+                        <span class="movie-contributor-card-text" style="text-align: right;">
+                            <i class="fas fa-eye" style="font-size: 24px;"></i>
+                            <i class="fas fa-clock" style="font-size: 24px;"></i>
+                            <i class="bi bi-heart-fill" style="font-size: 24px;"></i>
+                        </span>
+                    </div>
                 </div>
             </div>
 
             <div class="card card-custom movie-contributor-card" style="width: 18rem;">
-                <span class="position-absolute top-0 start-100 translate-middle badge"
-                    style="background-color: var(--accent-color);">
-                    <h3><i class="bi bi-eye-fill"></i> <i class="bi bi-clock-fill"></i></h3>
-                </span>
                 <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
                     class="card-img-top movie-contributor-card-img">
                 <div class="card-body movie-contributor-card-body">
@@ -94,8 +112,14 @@
                     <div class="movie-card-rating">
                         <i class="bi bi-star-fill"></i> 8.4
                     </div>
-                    <p class="card-text movie-contributor-card-text">2014 | 169m</p>
-
+                    <div style="display: flex; justify-content: space-between;">
+                        <span class="movie-contributor-card-text" style="text-align: left;">2014 | 169m</span>
+                        <span class="movie-contributor-card-text" style="text-align: right;">
+                            <i class="fas fa-eye" style="font-size: 24px;"></i>
+                            <i class="fas fa-clock" style="font-size: 24px;"></i>
+                            <i class="bi bi-heart-fill" style="font-size: 24px;"></i>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -234,11 +258,17 @@
     <div class="container-fluid container-custom">
 
 
-        <div class="card card-custom" style="width:100%">
+        <div class="card card-custom" style="width:80%">
             <div class="card-body">
-                <div>
-                    <img src="https://via.placeholder.com/40" class="result-user-card-profile-pic" alt="User Photo">
-                    <span class="result-card-title">John Doe</span>
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <div>
+                        <img src="https://via.placeholder.com/40" class="result-user-card-profile-pic" alt="User Photo">
+                        <span class="result-card-title">John Doe</span>
+                    </div>
+                    <div>
+                        <span class="result-user-card-follow">Followers: 100</span>
+                        <span class="result-user-card-follow">Following: 100</span>
+                    </div>
                 </div>
                 <p class="card-text result-card-text">
                     Film has always been more than a simple pastime—it’s a journey into the unknown, an escape into
@@ -261,7 +291,7 @@
     </div>
 
     <div class="container-fluid container-custom">
-        <div class="card mb-3 card-custom" style="width:100%">
+        <div class="card mb-3 card-custom" style="width:80%">
             <div>
                 <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
                     class="img-fluid rounded-start" alt="..."
@@ -276,6 +306,14 @@
                         limitations on human space travel and conquer the vast distances involved in an interstellar
                         voyage.
                     </p>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span class="movie-contributor-card-text" style="text-align: left;">2014 | 169m</span>
+                        <span class="movie-contributor-card-text" style="text-align: right;">
+                            <i class="fas fa-eye" style="font-size: 24px;"></i>
+                            <i class="fas fa-clock" style="font-size: 24px;"></i>
+                            <i class="bi bi-heart-fill" style="font-size: 24px;"></i>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>

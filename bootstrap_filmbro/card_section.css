@@ -32,7 +32,7 @@
 /* For movies and movie contributors */
 .movie-card-rating {
     color: var(--accent-color);
-    font-size: 1.4em;
+    font-size: 1.6em;
     font-weight: bold;
 }
 
@@ -58,6 +58,7 @@
 
 .movie-contributor-card-text {
     color: var(--light-bg);
+    font-size: 1.2em;
 }
 
 .movie-contributor-card-body {
@@ -189,7 +190,7 @@
 /*For result cards only*/
 
 .result-card-text {
-    font-size: 0.9em;
+    font-size: 1em;
     color: var(--light-bg);
     overflow: hidden;
     display: -webkit-box;
@@ -197,6 +198,7 @@
     -webkit-line-clamp: 5;
     cursor: pointer;
     margin-bottom: 2px;
+    height: 6.2em;
 }
 
 
@@ -206,6 +208,12 @@
     border-radius: 50%;
     cursor: pointer;
     margin-bottom: 0.2rem;
+}
+
+.result-user-card-follow {
+    color: var(--accent-color); 
+    margin-left: 1rem; 
+    font-weight: bold;
 }
 
 .result-card-title {
