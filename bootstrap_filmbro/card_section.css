@@ -29,7 +29,7 @@
     align-items: center;
 }
 
-/* For movies and movie contributors */
+/* For movies only */
 .movie-card-rating {
     color: var(--accent-color);
     font-size: 1.6em;
@@ -198,7 +198,7 @@
     -webkit-line-clamp: 5;
     cursor: pointer;
     margin-bottom: 2px;
-    height: 6.2em;
+    height: 6em;
 }
 
 
