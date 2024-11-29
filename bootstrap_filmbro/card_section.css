@@ -2,7 +2,6 @@
 .card-custom {
     border: 1.5px solid var(--accent-color);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
-    cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: inline-block;
     background-color: var(--secondary-bg);
@@ -12,7 +11,7 @@
     font-family: var(--primary-font);
     font-size: 3em;
     color: var(--accent-color);
-    margin-left: 3%
+    margin-left: 3%;
 }
 
 .view-more {
@@ -45,6 +44,7 @@
 .movie-contributor-card-img {
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
+    cursor: pointer;
 }
 
 .movie-contributor-card-title {
@@ -54,6 +54,7 @@
     -webkit-box-orient: vertical; 
     overflow: hidden;           
     height: calc(1.2em * 2); 
+    cursor: pointer;
 }
 
 .movie-contributor-card-text {
@@ -145,6 +146,7 @@
     margin-left: 25%; 
     margin-top: 25%; 
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .review-stars {
@@ -165,6 +167,7 @@
     color: var(--accent-color); 
     font-weight: bold;
     text-decoration: underline;
+    cursor: pointer;
 }
 
 
@@ -180,6 +183,7 @@
     gap: 0;
     width: 153%;
     height: 100%;
+    cursor: pointer;
   }
   
   .image-collage img {
@@ -197,9 +201,16 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 5;
-    cursor: pointer;
     margin-bottom: 2px;
     height: calc(1.2em * 5); 
+}
+
+.result-card-title {
+    color: var(--accent-color); 
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 1.5em;
+    cursor: pointer;
 }
 
 
@@ -215,14 +226,17 @@
     color: var(--accent-color); 
     margin-left: 1rem; 
     font-weight: bold;
+    cursor: pointer;
 }
 
-.result-card-title {
-    color: var(--accent-color); 
-    font-weight: bold;
-    text-decoration: underline;
-    font-size: 1.5em;
+.result-movie-card-img {
+    max-height: 15rem; 
+    float: left; 
+    margin-right: 1rem;
+    cursor: pointer;
 }
+
+
 
 
 
