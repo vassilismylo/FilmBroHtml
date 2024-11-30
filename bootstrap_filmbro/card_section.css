@@ -151,6 +151,11 @@
     margin-top: 25%; 
     border-radius: 50%;
     cursor: pointer;
+    
+    width: 50px;  /* Adjust for mobile */
+    height: 50px; /* Adjust for mobile */
+    cursor: pointer;
+    display: inline-block;
 }
 
 .review-stars {
@@ -185,14 +190,16 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 0;
-    width: 153%;
-    height: 100%;
+    width: 100%;
+    height: auto;
     cursor: pointer;
   }
   
   .image-collage img {
     width: 100%;
     height: auto;
+    object-fit: cover; /* Prevent distortion if aspect ratios vary */
+    border-radius: inherit; /* Match the parent container's border-radius */
   }
 
 /*For result cards only*/
@@ -251,33 +258,80 @@
     padding: 20px;            /* Space from the container's edges */
 }
 
-
-@media (max-width: 480px) {
-    .full-card-container {
-        display: flex; /* Maintain flexbox layout */
-        flex-wrap: wrap; /* Allow wrapping */
-        gap: 10px; /* Reduce spacing for smaller screens */
-        justify-content: center; /* Center the cards */
-    }
-
-    .card-custom {
-        width: 45%; /* Adjust card width for two cards per row */
-        max-width: none; /* Remove max-width restriction */
-    }
+/* Card content alignment */
+.card-custom .review-list-text,
+.card-custom .review-list-title {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 15px; /* Adjust space between image and text */
 }
-
 
 @media (max-width: 768px) {
-    .full-card-container {
-        display: flex; /* Maintain flexbox layout */
-        flex-wrap: wrap; /* Allow wrapping */
-        gap: 10px; /* Reduce spacing for smaller screens */
-        justify-content: center; /* Center the cards */
+    /* Adjust the overall scale for medium screens */
+    .review-list-card {
+        transform: scale(0.95);  /* Slightly less scaling to keep it readable */
+        margin: 15px auto; /* Center and reduce spacing */
+        padding: 15px; /* Slightly smaller padding for better fit */
     }
 
-    .card-custom {
-        width: 45%; /* Adjust card width for two cards per row */
-        max-width: none; /* Remove max-width restriction */
+    .review-profile-pic {
+        width: 40px;  /* Smaller profile picture for medium screens */
+        height: 40px; /* Smaller profile picture */
+        margin-left: 10px;  /* Adjust the image alignment */
+        margin-left: 0;  /* Align image to the left */
+        margin-top: 0;
     }
+
+    .review-list-title {
+        font-size: 1.1em; /* Adjust font size */
+        max-width: 100%;  /* Allow text to span across */
+    }
+
+    .review-list-text {
+        font-size: 0.9em; /* Smaller text for better readability */
+        line-height: 1.5em; /* Adjust line height */
+    }
+
+    .like-section {
+        justify-content: flex-start; /* Align the like button to the left */
+        margin-top: 15px;  /* Add some space at the bottom */
+    }
+
+    .container-custom-new {
+        padding: 10px; /* Reduce padding around the container */
+    }
+    
 }
 
+@media (max-width: 480px) {
+     /* Adjust the overall scale for small screens */
+     .review-list-card {
+        transform: scale(0.75); /* Further scale down for smaller screens */
+        margin: 10px auto;  /* Center the card */
+        padding: 10px; /* Smaller padding */
+    }
+
+    .review-profile-pic {
+        width: 35px;  /* Even smaller profile picture */
+        height: 35px; /* Keep proportion */
+        margin-left: 5px;  /* Adjust alignment */
+    }
+
+    .review-list-title {
+        font-size: 1em; /* Smaller font size for titles */
+        max-width: 100%; /* Allow text to span across */
+    }
+
+    .review-list-text {
+        font-size: 0.85em;  /* Even smaller text for better mobile fit */
+        line-height: 1.4em;  /* Slightly smaller line height */
+    }
+
+    .like-section {
+        margin-top: 10px; /* Add some space above the like button */
+    }
+
+    .container-custom-new {
+        padding: 5px; /* Reduce padding further for the smallest screens */
+    }
+}
