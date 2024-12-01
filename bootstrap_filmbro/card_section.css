@@ -121,6 +121,7 @@
 
 .review-list-card {
     border-radius: 15px;
+    max-width: 540px;
 }
 
 .like-section {
@@ -198,8 +199,6 @@
 .list-film-count-2 {
     margin-left: 0.5rem; /* Adds space between username and film count */
 }
-
-
 
 .image-collage {
     display: grid;
