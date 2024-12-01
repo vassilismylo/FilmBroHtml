@@ -191,16 +191,28 @@
     grid-template-rows: 1fr 1fr;
     gap: 0;
     width: 100%;
-    height: auto;
+    /*height: auto;*/
     cursor: pointer;
-  }
+    height: 100%; /* Make it fill the height of the column */
+}
   
-  .image-collage img {
+.image-collage img {
     width: 100%;
-    height: auto;
-    object-fit: cover; /* Prevent distortion if aspect ratios vary */
+    height: 100%;
+    object-fit: cover; /* Prevent distortion and maintain aspect ratio */
     border-radius: inherit; /* Match the parent container's border-radius */
-  }
+}
+
+.col-new {
+    display: flex; /* Optional: Add for alignment consistency */
+    align-items: stretch; /* Make sure content spans the height */
+}
+
+.image-collage {
+    flex: 1; /* Allow the collage to expand and fill the column */
+}
+
+
 
 /*For result cards only*/
 
