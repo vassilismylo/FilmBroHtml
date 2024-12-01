@@ -171,6 +171,10 @@
     cursor: pointer;
 }
 
+/*new*/
+.list-profile-pic-2 {
+    margin-left: 1rem; /* Moves the photo to the right */
+}
 
 .list-username {
     color: var(--accent-color); 
@@ -179,11 +183,23 @@
     cursor: pointer;
 }
 
+/*new*/
+.list-username-2 {
+    margin-left: 0.5rem; /* Adds space between the photo and username */
+    display: inline-block;
+}
 
 .list-film-count {
     font-size: 0.8em;
     color: var(--light-bg);
 }
+
+/*new*/
+.list-film-count-2 {
+    margin-left: 0.5rem; /* Adds space between username and film count */
+}
+
+
 
 .image-collage {
     display: grid;
