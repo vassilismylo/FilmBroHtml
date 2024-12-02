@@ -124,3 +124,22 @@
     background-color:var(--hover-bg);
 }
 
+.avatar-card{
+    width: 100px; 
+    height: 100px; 
+    overflow: hidden; 
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    cursor: pointer; 
+}
+
+#avatarPopup .card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+}
+.avatar-card img {
+    width: 100%; /* Fill the container horizontally */
+    height: 100%; /* Fill the container vertically */
+    object-fit: cover; /* Crop the image to fit the container */
+}
