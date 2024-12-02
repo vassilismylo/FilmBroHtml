@@ -4,10 +4,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: inline-block;
-    background-color: var(--secondary-bg);
-    
-    /*width: 20rem; /* Consistent card width */
-    /*margin: 0 auto; /* Center card content horizontally */   
+    background-color: var(--secondary-bg);  
 }
 
 .cards-section-title {
@@ -73,14 +70,18 @@
 /*Αυτό εμφανίζει τις κάρτες σε επόμενη γραμμή αν δεν χωράνε στην ίδια αλλά δεν τις κάνει center*/
 .full-card-container {
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping for responsive design */
+    /*flex-wrap: wrap; /* Allow wrapping for responsive design */
     justify-content: center; /* Center the cards horizontally */
-    gap: 20px; /* Even space between the cards */
-    padding: 20px; /* Optional: Add padding for spacing from the edges */
-    margin-top: -30px; 
-    margin-bottom: -30px;
+    /*gap: 20px; /* Even space between the cards */
+   /* padding: 20px; /* Optional: Add padding for spacing from the edges */
+    /*margin-top: -30px; 
+   /* margin-bottom: -30px;*/
 }
 
+/*Αυτό εμφανίζει τις κάρτες σε επόμενη γραμμή αν δεν χωράνε στην ίδια αλλά δεν τις κάνει center*/
+.full-card-container {
+    flex-wrap: wrap;
+}
 
 /*For reviews and lists*/
 .review-list-header {
@@ -121,7 +122,7 @@
 
 .review-list-card {
     border-radius: 15px;
-    max-width: 540px;
+   /* max-width: 540px;*/
 }
 
 .like-section {
@@ -153,16 +154,15 @@
     border-radius: 50%;
     cursor: pointer;
     
-    width: 50px;  /* Adjust for mobile */
-    height: 50px; /* Adjust for mobile */
-    cursor: pointer;
-    display: inline-block;
+   /* width: 50px;  /* Adjust for mobile */
+    /*height: 50px; /* Adjust for mobile */
+    /*cursor: pointer;
+    /*display: inline-block;*/
 }
 
 .review-stars {
     color: var(--accent-color)
 }
-
 
 /*For lists only*/
 .list-profile-pic {
@@ -184,50 +184,49 @@
     cursor: pointer;
 }
 
-/*new*/
-.list-username-2 {
-    margin-left: 0.5rem; /* Adds space between the photo and username */
-    display: inline-block;
-}
-
 .list-film-count {
     font-size: 0.8em;
     color: var(--light-bg);
 }
 
-/*new*/
-.list-film-count-2 {
-    margin-left: 0.5rem; /* Adds space between username and film count */
+
+/* collage */
+.collage-wrapper {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
 }
 
 .image-collage {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 0;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     width: 100%;
-    /*height: auto;*/
-    cursor: pointer;
-    height: 100%; /* Make it fill the height of the column */
+    height: 100%;
 }
-  
+
 .image-collage img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Prevent distortion and maintain aspect ratio */
-    border-radius: inherit; /* Match the parent container's border-radius */
+    object-fit: cover;
 }
 
-.col-new {
+.image-collage img:nth-child(1) {
+    border-top-left-radius: 14px;
+}
+
+.image-collage img:nth-child(3) {
+    border-bottom-left-radius: 14px;
+}
+
+/*.col-new {
     display: flex; /* Optional: Add for alignment consistency */
-    align-items: stretch; /* Make sure content spans the height */
-}
+  /*  align-items: stretch; /* Make sure content spans the height */
+/*}*/
 
-.image-collage {
+/*.image-collage {
     flex: 1; /* Allow the collage to expand and fill the column */
-}
-
-
+/*}*/
 
 /*For result cards only*/
 
@@ -296,10 +295,15 @@
 @media (max-width: 768px) {
     /* Adjust the overall scale for medium screens */
     .review-list-card {
-        transform: scale(0.95);  /* Slightly less scaling to keep it readable */
-        margin: 15px auto; /* Center and reduce spacing */
-        padding: 15px; /* Slightly smaller padding for better fit */
-    }
+        /* transform: scale(0.75); /* Further scale down for smaller screens */
+         /*margin: 10px auto;  /* Center the card */
+         /*padding: 10px; /* Smaller padding */
+         max-width: 100%; /* Prevent overflow */
+     }
+ 
+     .collage-wrapper {
+         flex: 0 0 40%; /* Adjust width for smaller screens */
+         }
 
     .review-profile-pic {
         width: 40px;  /* Smaller profile picture for medium screens */
@@ -318,24 +322,20 @@
         font-size: 0.9em; /* Smaller text for better readability */
         line-height: 1.5em; /* Adjust line height */
     }
-
-    .like-section {
-        justify-content: flex-start; /* Align the like button to the left */
-        margin-top: 15px;  /* Add some space at the bottom */
-    }
-
-    .container-custom-new {
-        padding: 10px; /* Reduce padding around the container */
-    }
     
 }
 
 @media (max-width: 480px) {
      /* Adjust the overall scale for small screens */
      .review-list-card {
-        transform: scale(0.75); /* Further scale down for smaller screens */
-        margin: 10px auto;  /* Center the card */
-        padding: 10px; /* Smaller padding */
+       /* transform: scale(0.75); /* Further scale down for smaller screens */
+        /*margin: 10px auto;  /* Center the card */
+        /*padding: 10px; /* Smaller padding */
+        max-width: 100%; /* Prevent overflow */
+    }
+
+    .collage-wrapper {
+        flex: 0 0 40%; /* Adjust width for smaller screens */
     }
 
     .review-profile-pic {
@@ -352,13 +352,5 @@
     .review-list-text {
         font-size: 0.85em;  /* Even smaller text for better mobile fit */
         line-height: 1.4em;  /* Slightly smaller line height */
-    }
-
-    .like-section {
-        margin-top: 10px; /* Add some space above the like button */
-    }
-
-    .container-custom-new {
-        padding: 5px; /* Reduce padding further for the smallest screens */
     }
 }

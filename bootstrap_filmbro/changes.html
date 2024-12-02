@@ -1,0 +1,108 @@
+
+<div class="card mb-3 d-flex flex-row flex-nowrap card-custom review-list-card" style="max-width: 540px;">
+    <div class="col-md-4 collage-wrapper">
+        <div class="image-collage">
+            <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" alt="Image 1">
+            <img src="https://image.tmdb.org/t/p/w500/5BHuvQ6p9kfc091Z8RiFNhCwL4b.jpg" alt="Image 2">
+            <img src="https://image.tmdb.org/t/p/w500/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg" alt="Image 3">
+            <img src="https://image.tmdb.org/t/p/w500/5BHuvQ6p9kfc091Z8RiFNhCwL4b.jpg" alt="Image 4">
+        </div>
+    </div>
+    <div class="col-md-8 d-flex align-items-center">
+        <div class="card-body">
+            <div class="review-list-header">
+                <span class="review-list-title">Sci-Fi</span>
+            </div>
+            <div>
+                <img src="https://via.placeholder.com/40" class="list-profile-pic" alt="User Photo">
+                <span class="list-username">John Doe</span>
+                <span class="list-film-count">(12 Films)</span>
+            </div>
+            <p class="card-text review-list-text">
+                Explore the depths of the unknown with my carefully curated list of sci-fi masterpieces.
+                From mind-bending time travel adventures to tales of intergalactic exploration, this
+                collection showcases the best of speculative storytelling. Whether you're into dystopian
+                futures, extraterrestrial encounters, or groundbreaking visions of technology, these films
+                promise to spark your imagination and take you on unforgettable journeys across space and
+                time.
+            </p>
+            <div class="like-section">
+                <button class="like-button"><i class="bi bi-heart"></i></button>
+                <span class="like-count">94</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+.collage-wrapper {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.image-collage {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width: 100%;
+    height: 100%;
+}
+
+.image-collage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-collage img:nth-child(1) {
+    border-top-left-radius: 14px;
+}
+
+.image-collage img:nth-child(3) {
+    border-bottom-left-radius: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media query for fine-tuning on smaller screens */
+@media (max-width: 768px) {
+.review-list-card {
+max-width: 100%; /* Prevent overflow */
+}
+.collage-wrapper {
+flex: 0 0 40%; /* Adjust width for smaller screens */
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
