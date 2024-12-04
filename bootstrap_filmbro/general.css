@@ -16,6 +16,6 @@ body {
 .container-custom {
     padding: 3%;
     background-color: var(--primary-bg);
-    margin-top: 50px;
+    margin-top: 4%;
     border-radius: 5px;
 }
