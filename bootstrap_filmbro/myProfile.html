@@ -69,6 +69,67 @@
             </div>
         </div>
 
+          <!-- followers pop up html:-->
+    <div class="popup" id="followersPopup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h3>Followers</h3>
+            <div class="follower-list">
+                <!-- Example follower item -->
+                <div class="follower-item">
+                    <div class="follower-photo">+</div> <!-- Placeholder for profile picture -->
+                    <div class="follower-info">
+                        <span class="follower-username">username123</span>
+                        <button class="unfollow-btn">Unfollow</button>
+                    </div>
+                </div>
+                <!-- Additional follower items go here -->
+                <div class="follower-item">
+                    <div class="follower-photo">👤</div>
+                    <div class="follower-info">
+                        <span class="follower-username">another_user</span>
+                        <button class="unfollow-btn">Unfollow</button>
+                    </div>
+                </div>
+                <div class="follower-item">
+                    <div class="follower-photo">A</div>
+                    <div class="follower-info">
+                        <span class="follower-username">alice123</span>
+                        <button class="unfollow-btn">Unfollow</button>
+                    </div>
+                </div>
+                <div class="follower-item">
+                    <div class="follower-photo">B</div>
+                    <div class="follower-info">
+                        <span class="follower-username">bob_the_builder</span>
+                        <button class="unfollow-btn">Unfollow</button>
+                    </div>
+                </div>
+                <div class="follower-item">
+                    <div class="follower-photo">C</div>
+                    <div class="follower-info">
+                        <span class="follower-username">charlie_s</span>
+                        <button class="unfollow-btn">Unfollow</button>
+                    </div>
+                </div>
+                <div class="follower-item">
+                    <div class="follower-photo">D</div>
+                    <div class="follower-info">
+                        <span class="follower-username">diana_rose</span>
+                        <button class="unfollow-btn">Unfollow</button>
+                    </div>
+                </div>
+                <div class="follower-item">
+                    <div class="follower-photo">E</div>
+                    <div class="follower-info">
+                        <span class="follower-username">edward_007</span>
+                        <button class="unfollow-btn">Unfollow</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
         <!-- Options Section -->
         <div class="container-fluid custom-border m-0 p-0">
             <div class="d-flex justify-content-center gap-2 py-3">
@@ -169,6 +230,19 @@
     </div>
 
     <script>
+          function showFollowersPopup() {
+            document.getElementById("followersPopup").style.display = "flex";
+        }
+        function closePopup() {
+            document.getElementById("followersPopup").style.display = "none";
+        }
+        // Close popup when clicking outside of it
+        window.onclick = function (event) {
+            const popup = document.getElementById("followersPopup");
+            if (event.target === popup) {
+                closePopup();
+            }
+        };
         // Show the avatar selection popup
         function showAvatarPopup() {
             document.getElementById("avatarPopup").style.display = "flex";
