@@ -112,9 +112,9 @@
     color: var(--light-bg);
     overflow: hidden;
     display: -webkit-box;        
-    -webkit-line-clamp: 7;      
+    -webkit-line-clamp: 5;      
     -webkit-box-orient: vertical;      
-    height: calc(1.2em * 7); 
+    height: calc(1.2em * 5); 
     cursor: pointer;
     margin-bottom: 2px;
     text-overflow: ellipsis;
@@ -172,7 +172,10 @@
     cursor: pointer;
 }
 
-
+/*new*/
+.list-profile-pic-2 {
+    margin-left: 1rem; /* Moves the photo to the right */
+}
 
 .list-username {
     color: var(--accent-color); 
@@ -235,6 +238,7 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 5;
+    margin-bottom: 2px;
     height: calc(1.2em * 5); 
 }
 
@@ -263,78 +267,90 @@
 }
 
 .result-movie-card-img {
-    max-height: 16rem; 
+    max-height: 15rem; 
     float: left; 
     margin-right: 1rem;
     cursor: pointer;
 }
 
 
-/* Container for reviews and lists*/
+/* Container for all reviews */
 .container-custom-new {
     display: flex; 
-    justify-content: center;  
-    align-items: flex-start; 
-    flex-wrap: wrap;       
-    gap: 2%;            
-    padding: 20px;    
+    justify-content: center;  /* Center reviews horizontally */
+    align-items: flex-start;  /* Align reviews to the top */
+    flex-wrap: wrap;          /* Allow reviews to wrap on smaller screens */
+    gap: 80px;                /* Space between reviews */
+    padding: 20px;            /* Space from the container's edges */
 }
 
-/*NEW*/
-/* Hover state for dropdown items */
-.dropdown-item-hover-focus:hover,
-.dropdown-item-hover-focus:focus {
-    background-color: var(--accent-color); /* Background matches accent color */
-    color: white; /* Text color changes to contrast with the background */
-    border-radius: 5px; /* Add rounded corners on hover or focus */
-    /*transition: background-color 0.2s ease, color 0.2s ease; /* Smooth hover transition */
+/* Card content alignment */
+.card-custom .review-list-text,
+.card-custom .review-list-title {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 15px; /* Adjust space between image and text */
 }
 
-/* Active state (if a dropdown item is selected) */
-.dropdown-item-hover-focus.active {
-    background-color: var(--accent-color); /* Same as hover */
-    color: white;
-    border-radius: 5px; /* Add rounded corners on hover or focus */
-}
-
-/* Ensure the button has relative positioning */
-.dropdown-custom-2 {
-    position: relative; /* Makes sure the dropdown is positioned relative to the button */
-}
-
-/* Style the dropdown menu to be centered horizontally */
-.dropdown-menu-custom-2 {
-    position: absolute; /* Position dropdown relative to the button */
-    top: 100%; /* Align the dropdown just below the button */
-    left: 50%; /* Center the dropdown horizontally */
-    transform: translateX(-50%); /* Offset the dropdown to exactly center it */
-    max-height: 250px; /* Optional: Set a max height */
-    overflow-y: auto; /* Scroll if content exceeds the max height */
-    width: auto; /* Let the width be automatically adjusted */
-    border-radius: 10px; /* Optional: Rounding corners for the dropdown */
-    z-index: 10; /* Ensure the dropdown appears above other elements */
-    transition: max-height 0.2s ease-in-out; /* Smooth opening */
-}
-
-/* Media query for fine-tuning on smaller screens */
 @media (max-width: 768px) {
+    /* Adjust the overall scale for medium screens */
     .review-list-card {
-        
-        transform: scale();
+        /* transform: scale(0.75); /* Further scale down for smaller screens */
+         /*margin: 10px auto;  /* Center the card */
+         /*padding: 10px; /* Smaller padding */
+         max-width: 100%; /* Prevent overflow */
+     }
+ 
+     .collage-wrapper {
+         flex: 0 0 40%; /* Adjust width for smaller screens */
+         }
+
+    .review-profile-pic {
+        width: 40px;  /* Smaller profile picture for medium screens */
+        height: 40px; /* Smaller profile picture */
+        margin-left: 10px;  /* Adjust the image alignment */
+        margin-left: 0;  /* Align image to the left */
+        margin-top: 0;
     }
+
+    .review-list-title {
+        font-size: 1.1em; /* Adjust font size */
+        max-width: 100%;  /* Allow text to span across */
+    }
+
+    .review-list-text {
+        font-size: 0.9em; /* Smaller text for better readability */
+        line-height: 1.5em; /* Adjust line height */
+    }
+    
+}
+
+@media (max-width: 480px) {
+     /* Adjust the overall scale for small screens */
+     .review-list-card {
+       /* transform: scale(0.75); /* Further scale down for smaller screens */
+        /*margin: 10px auto;  /* Center the card */
+        /*padding: 10px; /* Smaller padding */
+        max-width: 100%; /* Prevent overflow */
+    }
+
     .collage-wrapper {
         flex: 0 0 40%; /* Adjust width for smaller screens */
     }
-   
-}
 
-@media (max-width: 430px) {
-    .review-list-card {
-        width: 100%;
-        transform: scale(0.8);
+    .review-profile-pic {
+        width: 35px;  /* Even smaller profile picture */
+        height: 35px; /* Keep proportion */
+        margin-left: 5px;  /* Adjust alignment */
     }
-    .collage-wrapper {
-        flex: 0 0 50%; /* Adjust width for smaller screens */
+
+    .review-list-title {
+        font-size: 1em; /* Smaller font size for titles */
+        max-width: 100%; /* Allow text to span across */
     }
-   
+
+    .review-list-text {
+        font-size: 0.85em;  /* Even smaller text for better mobile fit */
+        line-height: 1.4em;  /* Slightly smaller line height */
+    }
 }
