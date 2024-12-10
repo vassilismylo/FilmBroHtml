@@ -281,11 +281,15 @@
 }
 
 /*NEW*/
+ /*letters color*/
+.dropdown-item-cuctom {
+    color: var(--accent-color);
+}
 /* Hover state for dropdown items */
 .dropdown-item-hover-focus:hover,
 .dropdown-item-hover-focus:focus {
     background-color: var(--accent-color); /* Background matches accent color */
-    color: white; /* Text color changes to contrast with the background */
+    color: var(--primary-bg); /* Text color changes to contrast with the background */
     border-radius: 5px; /* Add rounded corners on hover or focus */
     /*transition: background-color 0.2s ease, color 0.2s ease; /* Smooth hover transition */
 }
@@ -304,6 +308,8 @@
 
 /* Style the dropdown menu to be centered horizontally */
 .dropdown-menu-custom-2 {
+    background-color: var(--secondary-bg) !important;
+    color: var(--accent-color) !important;
     position: absolute; /* Position dropdown relative to the button */
     top: 100%; /* Align the dropdown just below the button */
     left: 50%; /* Center the dropdown horizontally */
@@ -311,10 +317,61 @@
     max-height: 250px; /* Optional: Set a max height */
     overflow-y: auto; /* Scroll if content exceeds the max height */
     width: auto; /* Let the width be automatically adjusted */
+    white-space: nowrap; /* Prevent items from wrapping to the next line */
     border-radius: 10px; /* Optional: Rounding corners for the dropdown */
     z-index: 10; /* Ensure the dropdown appears above other elements */
     transition: max-height 0.2s ease-in-out; /* Smooth opening */
 }
+
+/* Optional: Add custom styling for the scrollbar */
+.dropdown-menu-custom-2::-webkit-scrollbar {
+    width: 5px; /* Width for vertical scrollbar */
+    height: 5px; /* Height for horizontal scrollbar */
+}
+
+.dropdown-menu-custom-2::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color); /* Match the accent color */
+    border-radius: 5px; /* Round the scrollbar thumb */
+}
+
+/* Style the arrows for sorting */
+.arrow-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* Sort Arrows */
+.arrow-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.arrow {
+    font-size: 1.2em;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.arrow:hover {
+    opacity: 1;
+    color: var(--primary-bg);
+}
+
+.arrow.active {
+    color: var(--accent-color);
+    opacity: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+
 
 /* Media query for fine-tuning on smaller screens */
 @media (max-width: 768px) {
